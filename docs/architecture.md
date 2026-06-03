@@ -1,47 +1,55 @@
-# Repository Architecture
+# Architecture
 
-`slides-generator` is an artifact-first deck production system. The repo separates input adapters, planning, rendering, critique, and audit so each phase can be tested and repaired without redoing the whole deck.
+`slides-generator` is an artifact-first deck workflow. The stable contract is a project directory with `input/`, `work/`, generated `deck/`, and generated `qa/` folders.
 
-## System Components
+## Pipeline
 
 ```mermaid
 flowchart LR
-  A[Input adapters] --> B[Planning artifacts]
-  B --> C[Deck intelligence]
-  C --> D[Rendering adapters]
-  D --> E[QA loops]
-  E --> F[Exports]
-
-  A1[PDF] --> A
-  A2[PPTX] --> A
-  A3[Codebase] --> A
-  A4[Brand assets] --> A
-  A5[Web research] --> A
-
-  C1[Story director] --> C
-  C2[Visual aid director] --> C
-  C3[Diagram director] --> C
-  C4[Chart director] --> C
-  C5[Humanizer] --> C
-
-  E1[Source audit] --> E
-  E2[Critique] --> E
-  E3[Browser QA] --> E
-  E4[PPTX QA] --> E
+  A[input/brief.md + sources] --> B[work/intake-brief.md]
+  B --> C[work/source-map.md]
+  C --> D[work/claim-ledger.json]
+  D --> E[work/audience-model.json]
+  E --> F[work/story-spine.json + slide-sorter.md]
+  F --> G[work/content-priority.md + visual-aid-plan.json]
+  G --> H[work/design-contract.json]
+  H --> I[work/slide-specs.json]
+  I --> J[scripts/render-marp.mjs]
+  J --> K[scripts/browser-qa-marp.mjs]
+  K --> L[work/review-log.json]
 ```
 
-## Adapters
+## Executable Layers
 
-- PDF adapter: extracts text, tables, page images, figures, and OCR when needed.
-- PPTX adapter: reads existing decks, extracts layouts, analyzes thumbnails, and creates or edits PPTX outputs.
-- Codebase adapter: maps architecture and extracts slide-worthy snippets.
-- Brand adapter: derives palette, typography, layout density, and visual constraints.
-- Frontend adapter: renders HTML decks and interactive visual aids with production-grade UI discipline.
+| Layer | Files | Responsibility |
+|---|---|---|
+| Scaffold | `scripts/create-deck-artifacts.mjs` | Create a project shell with starter input/work folders. |
+| Status gate | `scripts/deck-workflow-status.mjs` | Report missing or failed artifacts and enforce render-ready/agentic gates. |
+| Source grounding | `scripts/validate-claim-ledger.mjs`, `scripts/lint-claim-refs.mjs` | Check claim schema, source URLs, claim IDs, and allowed slide uses. |
+| Code evidence | `scripts/validate-arch-map.mjs` | Check architecture nodes, edges, boundaries, and file/line evidence. |
+| Audience/story/design | `scripts/validate-audience-model.mjs`, `scripts/validate-story-spine.mjs`, `scripts/validate-design-contract.mjs` | Check core presentation contracts before rendering. |
+| Slide contract | `scripts/validate-slide-specs.mjs` | Check renderer-supported layouts, jobs, motion, visual aid validation, and text budgets. |
+| Render | `scripts/render-marp.mjs`, `renderers/marp/themes/*` | Convert slide specs to Marp Markdown/HTML and speaker notes. |
+| QA/export | `scripts/inspect-rendered-marp.mjs`, `scripts/browser-qa-marp.mjs`, `scripts/export-marp.mjs`, `scripts/inspect-exports.mjs` | Inspect rendered structure, browser output, and export boundaries. |
+| Mirrors | `scripts/sync-skills.mjs` | Keep Codex and Claude runtime skill folders synchronized with canonical source. |
 
-## Core Principle
+## Agent Layer
 
-Input adapters produce evidence. Planning artifacts turn evidence into a story. Rendering adapters express the story. QA loops prevent unsupported, unreadable, or generic output from shipping.
+The agent is responsible for synthesis and judgment:
 
-## Codex-Native Skill Path
+- requirements gathering,
+- source review,
+- audience framing,
+- story pruning,
+- slide copy,
+- visual aid selection,
+- screenshot critique,
+- targeted repair.
 
-The repo skill should live in `.agents/skills/slide-generator` so Codex can discover it as a repo-scoped skill. Keep helper scripts and reference files inside the skill so they load only when needed.
+The scripts are intentionally conservative. They can reject unsupported or malformed work, but they cannot prove that a slide is brilliant. Final quality still requires screenshot review and human or agent critique.
+
+## Current Output Boundary
+
+HTML is the first-class review format. Marp can export PDF and PPTX, but current PPTX output should be treated as a visual handoff unless export inspection proves editable text support for that deck.
+
+Native PowerPoint template editing and native Google Slides generation are not implemented yet.

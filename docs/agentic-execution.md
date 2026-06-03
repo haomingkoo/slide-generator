@@ -10,7 +10,7 @@ Today the execution model is human-directed agentic work plus a deterministic bu
 
 1. A human opens the repo in Codex or Claude Code.
 2. The human asks the agent to use the `slide-generator` skill.
-3. The agent follows `workflows/make-deck.md`.
+3. The agent follows `skills/slide-generator/references/workflow.md`.
 4. The agent writes durable artifacts into `projects/<name>/work/`.
 5. The agent runs deterministic validators and render/QA commands, usually through `npm run deck:build`.
 6. The agent stops for review after the rendered draft and QA report.
