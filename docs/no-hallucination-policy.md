@@ -49,6 +49,8 @@ A user request does not create evidence. If the user asks for a punchy claim suc
 
 If evidence is missing, downgrade the claim, label it as an assumption, or ask for a source. Do this during intake when possible, not only after the deck is rendered.
 
+If the deck goal depends on information the provided sources do not contain, record the evidence gap. Search only when the source policy allows it. Otherwise ask the user for sources or keep the claim out of the main deck.
+
 ## Evidence Distortion
 
 The deck also fails when a claim is traceable but distorted. Common failures:

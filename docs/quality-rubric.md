@@ -4,6 +4,9 @@ Use this rubric during critique and QA.
 
 ## Story
 
+- Deck mode is explicit: fundraising, hackathon demo, executive decision, technical proof, teaching, sales, training, or update.
+- Target next action is explicit.
+- Audience benefit is explicit and memorable.
 - Slide titles tell a coherent story when read alone.
 - Each slide has one job.
 - The slide job is explicit in `slide_job`, separate from visual layout.
@@ -14,6 +17,7 @@ Use this rubric during critique and QA.
 ## Accuracy
 
 - Every factual claim maps to a claim ID.
+- Evidence coverage is classified as sufficient, thin, missing, stale, or conflicted.
 - Every chart maps to source data.
 - Every architecture diagram maps to code or source evidence.
 - Inferences and assumptions are labeled.
@@ -22,6 +26,7 @@ Use this rubric during critique and QA.
 ## Visual Explanation
 
 - The main visual proves the slide title.
+- Technical visuals connect back to the audience benefit.
 - Hard ideas use a visual aid, not a paragraph.
 - Before/after and was/is comparisons are explicit when change is the point.
 - Architecture slides split context, runtime flow, error paths, and trust boundaries.
@@ -42,8 +47,17 @@ Use this rubric during critique and QA.
 - Speaker notes sound natural when read aloud.
 - Notes include transitions and cues, not only paragraphs.
 - Likely questions, objections, and jargon risks are represented in the audience model.
+- Backup slides answer named Q&A questions instead of storing leftover material.
 - Notes do not introduce unsupported claims.
 - The deck can be delivered within the target time.
+
+## Mode Fit
+
+- Investor decks explain the company plainly, show stage-appropriate proof, include competition/status quo, and end with a specific ask.
+- Hackathon decks show what was built, map to judging criteria, include a demo path, and define a fallback.
+- Executive decks lead with the recommendation, use action titles, compare options against decision criteria, and end with owner/timing.
+- Technical decks show method, baseline, result, limitation, and evidence paths.
+- Teaching decks introduce examples before abstraction and check likely misconceptions.
 
 ## QA Gates
 

@@ -1,0 +1,102 @@
+{
+  "deck": {
+    "title": "VC Seed Deck Template",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Company",
+      "title": "One-sentence company thesis",
+      "subtitle": "Who this helps, what changes, and why now.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Positioning frame; replace with sourced specifics if factual.",
+      "visual_aid": {"type": "none", "purpose": "Make the company understandable immediately."},
+      "speaker_notes": {
+        "key_message": "Investors should know what the company does before the problem detail.",
+        "talk_track": ["Say the product plainly.", "Avoid category language before behavior."],
+        "timing_seconds": 30
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "narrative",
+      "title": "A specific buyer feels this pain repeatedly",
+      "body": ["Name the buyer or user.", "Describe the repeated pain.", "State the consequence."],
+      "claim_ids": ["replace_with_problem_claim"],
+      "claim_use": "problem evidence",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Show the broken current workflow or status quo."},
+      "speaker_notes": {
+        "key_message": "The problem must feel urgent and specific.",
+        "talk_track": ["Use the buyer's language.", "Avoid vague trend framing."],
+        "timing_seconds": 60,
+        "claim_ids": ["replace_with_problem_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "solution",
+      "layout": "comparison",
+      "title": "The product replaces the painful step with a simpler path",
+      "left": {"title": "Today", "body": ["Manual workaround", "Slow feedback", "Unclear ownership"]},
+      "right": {"title": "With product", "body": ["Focused workflow", "Faster signal", "Clear next action"]},
+      "claim_ids": ["replace_with_solution_claim"],
+      "claim_use": "solution behavior",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Make the product wedge visible."},
+      "speaker_notes": {
+        "key_message": "The solution should be remembered as a behavioral change, not a feature list.",
+        "talk_track": ["Show the old step.", "Show the new step.", "Do not claim superiority without proof."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_solution_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "traction",
+      "layout": "table",
+      "title": "Early signals show the wedge is working",
+      "table": {
+        "headers": ["Signal", "Period", "Why it matters"],
+        "rows": [
+          ["Metric or customer signal", "Date range", "Interpretation with caveat"],
+          ["Usage or revenue signal", "Date range", "Interpretation with caveat"]
+        ]
+      },
+      "claim_ids": ["replace_with_traction_claim"],
+      "claim_use": "traction evidence",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Show traction with date and denominator context."},
+      "speaker_notes": {
+        "key_message": "Traction is credible only when the denominator and period are visible.",
+        "talk_track": ["Name what was measured.", "Explain why it matters for stage.", "State caveats."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_traction_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "ask",
+      "layout": "narrative",
+      "title": "The round funds the next fundable milestone",
+      "body": ["Amount and runway.", "Use of funds.", "Milestone unlocked."],
+      "claim_ids": ["replace_with_ask_claim"],
+      "claim_use": "fundraising ask",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Close with an explicit ask and milestone."},
+      "speaker_notes": {
+        "key_message": "The ask must connect money to a believable milestone.",
+        "talk_track": ["State the amount.", "State the use of funds.", "State the milestone."],
+        "timing_seconds": 60,
+        "claim_ids": ["replace_with_ask_claim"]
+      }
+    }
+  ]
+}

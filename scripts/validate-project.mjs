@@ -17,6 +17,7 @@ const requiredFiles = [
   "docs/renderer-strategy.md",
   "docs/codex-ecosystem.md",
   "docs/runtime-compatibility.md",
+  "docs/deck-quality-benchmark.md",
   "docs/no-hallucination-policy.md",
   "docs/quality-rubric.md",
   "docs/skill-eval-loop.md",
@@ -50,6 +51,9 @@ const requiredFiles = [
   "renderers/marp/themes/dark-runtime.css",
   "templates/marp/README.md",
   "templates/marp/pitch-deck.json",
+  "templates/marp/vc-seed-deck.json",
+  "templates/marp/hackathon-demo-3min.json",
+  "templates/marp/executive-decision-deck.json",
   "templates/marp/teaching-deck.json",
   "templates/marp/technical-architecture.json",
   "templates/design-contracts/clean-surgical-light.json",
@@ -64,6 +68,8 @@ const requiredFiles = [
   "skills/slide-generator/references/deck-operations.md",
   "skills/slide-generator/references/memory-management.md",
   "skills/slide-generator/references/content-prioritization.md",
+  "skills/slide-generator/references/deck-quality-benchmark.md",
+  "skills/slide-generator/references/research-coverage.md",
   "skills/slide-generator/references/source-grounding.md",
   "skills/slide-generator/references/visual-aid-catalog.md",
   "skills/slide-generator/references/theme-selection.md",
@@ -137,6 +143,8 @@ for (const phrase of [
   "references/deck-operations.md",
   "references/audience-and-presenter-support.md",
   "references/content-prioritization.md",
+  "references/deck-quality-benchmark.md",
+  "references/research-coverage.md",
   "references/product-workflow-lessons.md",
   "references/design-contract.md",
   "references/design-quality-gates.md",
@@ -167,6 +175,37 @@ for (const phrase of [
 ]) {
   if (!deckOperations.includes(phrase)) {
     throw new Error(`deck-operations reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const deckQualityBenchmark = await readFile("skills/slide-generator/references/deck-quality-benchmark.md", "utf8");
+for (const phrase of [
+  "VC / Fundraising Deck",
+  "Hackathon / Demo Deck",
+  "Executive / Consulting Decision Deck",
+  "Technical / Research Proof Deck",
+  "Teaching / Explainer Deck",
+  "target_next_action",
+  "Benefit-First Communication",
+  "Pruning Rule"
+]) {
+  if (!deckQualityBenchmark.includes(phrase)) {
+    throw new Error(`deck-quality-benchmark reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const researchCoverage = await readFile("skills/slide-generator/references/research-coverage.md", "utf8");
+for (const phrase of [
+  "Research Decision",
+  "When To Search",
+  "Source Quality",
+  "Research Output",
+  "Source To Benefit",
+  "Technical Depth",
+  "Insufficient Evidence Rules"
+]) {
+  if (!researchCoverage.includes(phrase)) {
+    throw new Error(`research-coverage reference is missing required phrase: ${phrase}`);
   }
 }
 

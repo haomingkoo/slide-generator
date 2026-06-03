@@ -18,6 +18,24 @@
       "prompt": "Review the provided codebase and create a 7-slide technical architecture deck. Include one Mermaid runtime diagram, one architecture map, and two short code snippets that prove the core mechanism. Use source-only mode.",
       "expected_output": "A technical deck plan with codebase review, architecture map, sourced Mermaid diagram, and slide-worthy snippets.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Create a 3-minute hackathon finalist demo deck from the provided project notes. Judges score usefulness, originality, implementation, impact, and polish. Include a demo path, fallback plan, rubric alignment slide, speaker notes, and Q&A backup suggestions. Use source-only mode.",
+      "expected_output": "A short demo-first deck plan with a clear judging rubric mapping, proof assets, timing, fallback, claim ledger, and backup questions.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Create a 10-slide seed fundraising deck from the provided startup memo. Audience is seed investors. Do not overstate traction or market size. Include the ask, use of funds, stage-appropriate proof, competition/status quo, and appendix recommendations.",
+      "expected_output": "A stage-honest VC deck plan with investor-specific archetypes, sourced traction and market claims, ask/milestone clarity, and appendix separation.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Create an executive decision deck from the provided analysis notes. The audience is a VP deciding whether to fund Sprint 3 experiments. Lead with the recommendation, include decision criteria, risks, owner/timing, and backup slides for likely objections.",
+      "expected_output": "An answer-first executive deck plan with pyramid logic, action titles, MECE decision criteria, chart/source contracts, risk handling, and an explicit decision ask.",
+      "files": []
     }
   ]
 }

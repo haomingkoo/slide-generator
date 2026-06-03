@@ -14,12 +14,14 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 3. Build `claim-ledger.json` and, when code exists, `architecture-map.json`.
 4. Write the audience model, story spine, and title-only slide sorter.
 5. Prioritize content against talk length, audience questions, claim strength, and backup needs.
-6. Choose visual aids for hard ideas.
-7. Offer theme options when taste is unclear.
-8. Create slide specs.
-9. Render.
-10. Run critique, deterministic claim checks, source audit, browser QA, export QA, and targeted repair.
-11. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
+6. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
+7. Choose the deck quality mode, benefit statement, and proof bar.
+8. Choose visual aids for hard ideas.
+9. Offer theme options when taste is unclear.
+10. Create slide specs.
+11. Render.
+12. Run critique, deterministic claim checks, source audit, browser QA, export QA, and targeted repair.
+13. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
 
 ## One-Shot Drafting
 
@@ -63,6 +65,8 @@ Read only what the task needs:
 - `references/deck-operations.md`: existing-deck edit operations and context routing.
 - `references/audience-and-presenter-support.md`: audience model, story spine, speaker notes, likely questions, jargon, objections, and Q&A support.
 - `references/content-prioritization.md`: main deck versus backup versus dropped content when sources exceed the slide/time budget.
+- `references/deck-quality-benchmark.md`: mode-specific standards for fundraising, hackathon/demo, executive, technical, and teaching decks.
+- `references/research-coverage.md`: source sufficiency, research triggers, evidence gaps, source quality, and technical proof depth.
 - `references/memory-management.md`: token-efficient iteration.
 - `references/source-grounding.md`: claim ledger and audit rules.
 - `references/visual-aid-catalog.md`: comparison, mechanism, demo, and teaching visuals.

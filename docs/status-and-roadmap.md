@@ -12,6 +12,8 @@ Done:
 - Common deck-operation routing.
 - Source-grounding policy.
 - Product workflow lessons from Gamma, Figma Slides, Gemini, Canva, Plus AI, and SlideSpeak.
+- Deck quality benchmark across fundraising, hackathon/demo, executive, technical, and teaching modes.
+- Research coverage reference for source sufficiency, evidence gaps, and benefit-linked technical proof.
 - Deterministic claim-ledger validator.
 - Deterministic slide claim-reference linter.
 - Deterministic architecture evidence validator.
@@ -27,7 +29,7 @@ Done:
 - Export inspection that reports Marp PPTX image-based editability boundaries.
 - Optional Marp screenshot export for manual visual review.
 - Three Marp themes.
-- Starter slide-spec templates for pitch, teaching, and technical architecture decks.
+- Starter slide-spec templates for pitch, VC seed, hackathon demo, executive decision, teaching, and technical architecture decks.
 - Starter design-contract templates for the three Marp themes.
 - Design contract reference for persistent theme, spacing, typography, pattern, and decision memory.
 - Design quality gate reference for content discipline, hierarchy, accessibility, anti-generic design, screenshot review, and polish.

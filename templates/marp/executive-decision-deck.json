@@ -1,0 +1,103 @@
+{
+  "deck": {
+    "title": "Executive Decision Deck Template",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "executive_summary",
+      "layout": "narrative",
+      "title": "Recommendation: state the answer before the analysis",
+      "body": ["Decision requested.", "Three reasons to believe.", "Risk or caveat to manage."],
+      "claim_ids": ["replace_with_summary_claim"],
+      "claim_use": "recommendation summary",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Give executives the answer first."},
+      "speaker_notes": {
+        "key_message": "Executives should know the decision and stakes immediately.",
+        "talk_track": ["State the recommendation.", "Name the decision needed.", "Preview the proof."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_summary_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "insight",
+      "layout": "architecture",
+      "title": "The issue tree narrows the problem to the decisive branch",
+      "body": ["Use a MECE split and highlight the branch that changes the decision."],
+      "mermaid": "flowchart LR\n  A[Decision] --> B[Option quality]\n  A --> C[Risk]\n  A --> D[Execution path]",
+      "claim_ids": ["replace_with_logic_claim"],
+      "claim_use": "decision logic",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "architecture", "purpose": "Show the structure of the recommendation."},
+      "speaker_notes": {
+        "key_message": "The analysis should feel complete but not exhaustive.",
+        "talk_track": ["Explain the branches.", "Call out the decisive branch."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_logic_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "chart_evidence",
+      "layout": "table",
+      "title": "The strongest evidence points to one option",
+      "table": {
+        "headers": ["Criterion", "Option A", "Option B", "Implication"],
+        "rows": [
+          ["Impact", "Replace", "Replace", "Replace"],
+          ["Feasibility", "Replace", "Replace", "Replace"],
+          ["Risk", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_evidence_claim"],
+      "claim_use": "option comparison",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Compare options against decision criteria."},
+      "speaker_notes": {
+        "key_message": "The table should make the recommendation feel earned.",
+        "talk_track": ["Do not read the table.", "Highlight the row that changes the decision."],
+        "timing_seconds": 80,
+        "claim_ids": ["replace_with_evidence_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "roadmap",
+      "layout": "two_column",
+      "title": "Execution is sequenced around risk reduction",
+      "left": {"title": "First 30 days", "body": ["Owner", "Milestone", "Decision checkpoint"]},
+      "right": {"title": "Next 60 days", "body": ["Owner", "Milestone", "Risk watchpoint"]},
+      "claim_ids": ["replace_with_roadmap_claim"],
+      "claim_use": "implementation plan",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Make ownership and sequence explicit."},
+      "speaker_notes": {
+        "key_message": "A recommendation is stronger when the next actions are owned.",
+        "talk_track": ["Name the first owner.", "Name the checkpoint.", "Name the risk."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_roadmap_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "decision",
+      "layout": "quote",
+      "title": "Decision ask",
+      "quote": "Approve the next step, owner, and review date.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Decision instruction rather than a factual claim.",
+      "visual_aid": {"type": "quote", "purpose": "Close on the explicit decision needed."},
+      "speaker_notes": {
+        "key_message": "Leave no ambiguity about the requested decision.",
+        "talk_track": ["Ask for the decision.", "Confirm owner and date."],
+        "timing_seconds": 45
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "deck": {
+    "title": "Hackathon Demo 3-Minute Template",
+    "theme": "dark-runtime",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Project",
+      "title": "What we built in one sentence",
+      "subtitle": "Name the user, action, and outcome.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Project positioning only.",
+      "visual_aid": {"type": "none", "purpose": "Tell judges what they are about to see."},
+      "speaker_notes": {
+        "key_message": "Judges should know the project immediately.",
+        "talk_track": ["Say what it does.", "Say who it helps."],
+        "timing_seconds": 20
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "demo_plan",
+      "layout": "comparison",
+      "title": "The demo shows the highest-value path",
+      "left": {"title": "Before", "body": ["Current pain", "Manual workaround", "Slow or risky step"]},
+      "right": {"title": "Demo", "body": ["Input", "Working action", "Output judges can verify"]},
+      "claim_ids": ["replace_with_demo_claim"],
+      "claim_use": "demo behavior",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "interactive_demo",
+        "purpose": "Anchor the pitch in a repeatable live path.",
+        "validation": {
+          "expected": "Presenter can run or show the demo path without changing slides.",
+          "fallback": "Use a screenshot or recorded clip if live demo fails.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The demo is the proof, not a feature tour.",
+        "talk_track": ["Name the starting state.", "Run the one path.", "Show the output."],
+        "timing_seconds": 60,
+        "claim_ids": ["replace_with_demo_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "technical_depth",
+      "layout": "architecture",
+      "title": "The build has a real technical core",
+      "body": ["Show the smallest architecture slice that proves implementation."],
+      "mermaid": "flowchart LR\n  A[Input] --> B[Core module]\n  B --> C[Validated output]",
+      "claim_ids": ["replace_with_technical_claim"],
+      "claim_use": "implementation evidence",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "architecture", "purpose": "Prove technical execution without overloading the judges."},
+      "speaker_notes": {
+        "key_message": "Technical depth should be simple enough for judges to believe in seconds.",
+        "talk_track": ["Walk left to right.", "Mention the hardest part.", "Name what works today."],
+        "timing_seconds": 55,
+        "claim_ids": ["replace_with_technical_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "rubric_alignment",
+      "layout": "table",
+      "title": "The project maps directly to the judging criteria",
+      "table": {
+        "headers": ["Criterion", "Evidence", "Caveat"],
+        "rows": [
+          ["Usefulness", "Replace with proof", "Replace with caveat"],
+          ["Implementation", "Replace with proof", "Replace with caveat"],
+          ["Originality", "Replace with proof", "Replace with caveat"]
+        ]
+      },
+      "claim_ids": ["replace_with_rubric_claim"],
+      "claim_use": "rubric evidence",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Make scoring easy for judges."},
+      "speaker_notes": {
+        "key_message": "Judges should see the project through their rubric.",
+        "talk_track": ["Do not argue every criterion.", "Use evidence and caveats."],
+        "timing_seconds": 35,
+        "claim_ids": ["replace_with_rubric_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "Close",
+      "quote": "The project is small enough to demo and real enough to extend.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Closing synthesis; replace with sourced claim if factual.",
+      "visual_aid": {"type": "quote", "purpose": "Leave judges with one repeatable sentence."},
+      "speaker_notes": {
+        "key_message": "Close with the project's remembered sentence and next step.",
+        "talk_track": ["State where to try it.", "Invite the most important question."],
+        "timing_seconds": 25
+      }
+    }
+  ]
+}

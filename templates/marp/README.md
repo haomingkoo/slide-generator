@@ -17,6 +17,9 @@ npm run render:marp -- projects/my-deck --html
 
 Use:
 
-- `pitch-deck.json` for investor, hackathon, product, or sales narratives.
+- `pitch-deck.json` for generic product, sales, or mixed pitch narratives.
+- `vc-seed-deck.json` for pre-seed or seed investor meetings.
+- `hackathon-demo-3min.json` for a short demo-heavy judging pitch.
+- `executive-decision-deck.json` for recommendation, decision, and consulting-style decks.
 - `teaching-deck.json` for classroom, workshop, or explainer decks.
 - `technical-architecture.json` for codebase, platform, security, and system review decks.
