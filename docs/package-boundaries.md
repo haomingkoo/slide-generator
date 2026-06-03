@@ -10,7 +10,7 @@ This repo has several layers. Keeping the boundaries explicit prevents the packa
 | CLI and guardrails | `scripts/` | Executable validators, renderer wrappers, QA, export, scaffold, and sync tools. |
 | Rendering assets | `renderers/`, `templates/`, `design-systems/` | Reusable themes, layouts, and design contracts. |
 | Examples | `examples/` | Small public demos with committed source/work artifacts. |
-| Evals | `evals/` | Source-backed eval inputs and expected artifacts; generated `deck/` and `qa/` output should be reproducible. |
+| Evals | `evals/` | Source-backed eval inputs and durable `work/` artifacts; generated `deck/` and `qa/` output should be reproducible. |
 | Tests | `tests/` | Fixtures and negative validator cases. |
 | Maintainer docs | `docs/` | Architecture, policy, roadmap, and research notes. |
 | Local work | `projects/`, `.agent-work/` | User decks and inter-agent review notes; mostly ignored by git. |

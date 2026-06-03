@@ -101,7 +101,7 @@ npm test
 | `templates/` | Starter slide specs and design contracts. |
 | `renderers/` | Marp themes and rendering assets. |
 | `examples/` | Polished demos. |
-| `evals/` | Source-backed eval inputs and expected artifact sets. |
+| `evals/` | Source-backed eval inputs and durable `work/` artifacts; baseline comparison is roadmap. |
 | `tests/` | Fixtures and negative guardrail tests. |
 | `docs/` | Maintainer docs, package boundaries, architecture, roadmap, and policies. |
 | `.agent-work/` | Local private review notes; ignored by git. |

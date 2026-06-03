@@ -7,7 +7,7 @@ The slide skill should improve through examples, not vibes.
 1. Draft or revise the skill.
 2. Save realistic prompts in `evals/evals.json`.
 3. Run each prompt with the skill and without the skill, or against the previous skill version.
-4. Save outputs under `slide-generator-workspace/iteration-N/`.
+4. Save outputs under a real eval run folder, such as `evals/runs/iteration-N/`.
 5. Grade objective checks where possible.
 6. Ask the human to review qualitative output.
 7. Compare quality, token use, and time.
