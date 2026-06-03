@@ -1,0 +1,11 @@
+{
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "title": "DPO removes a reward-model training step",
+      "claim_ids": ["claim_001"],
+      "claim_use": "method comparison",
+      "unsupported_claims": []
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+node_modules/
+.DS_Store
+
+# Local browser/tool dumps
+.playwright-mcp/
+
+# Generated deck artifacts
+projects/*/work/
+projects/*/deck/
+projects/*/exports/
+projects/*/qa/
+!projects/_template/work/
+!projects/_template/deck/
+!projects/_template/exports/
+!projects/_template/qa/
+!projects/_template/**/.gitkeep
+
+# Scratch renders at repo root
+/redflag-slide-*.png

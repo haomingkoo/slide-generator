@@ -1,0 +1,12 @@
+{
+  "name": "slides-generator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/validate-project.mjs && node scripts/validate-claim-ledger.mjs tests/fixtures/valid-project && node scripts/lint-claim-refs.mjs tests/fixtures/valid-project && node scripts/validate-arch-map.mjs tests/fixtures/valid-project && node tests/validator-negative.mjs",
+    "validate:ledger": "node scripts/validate-claim-ledger.mjs",
+    "lint:claim-refs": "node scripts/lint-claim-refs.mjs",
+    "validate:arch": "node scripts/validate-arch-map.mjs"
+  }
+}

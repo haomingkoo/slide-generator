@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": "frontend",
+      "label": "Planner UI",
+      "kind": "frontend",
+      "evidence": "app/ui.py:1"
+    },
+    {
+      "id": "backend",
+      "label": "Backend API",
+      "kind": "backend",
+      "evidence": "inference: backend receives the payload shown by the UI adapter"
+    }
+  ],
+  "edges": [
+    {
+      "from": "frontend",
+      "to": "backend",
+      "label": "sends question payload",
+      "evidence": "app/ui.py:2"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "app",
+      "contains": ["frontend", "backend"]
+    }
+  ]
+}

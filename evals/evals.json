@@ -1,0 +1,23 @@
+{
+  "skill_name": "slide-generator",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Turn the DPO interactive demo material into a 10-slide teaching deck for classmates who understand basic machine learning but have not studied RLHF. Use source-only mode. Include speaker notes. Use a clean light theme unless the user explicitly asks for dark mode.",
+      "expected_output": "A source-grounded deck plan with a claim ledger, story spine, visual aid plan, slide specs, and natural speaker notes.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create an 8-slide decision deck from the PDF parsing comparison post. Audience is an engineering lead deciding what parser pipeline to use for complaint forms. Research is disabled. Make the deck concise and use a clean surgical light theme.",
+      "expected_output": "A concise decision deck plan that separates measured findings from published benchmarks and includes a decision tree.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review the provided codebase and create a 7-slide technical architecture deck. Include one Mermaid runtime diagram, one architecture map, and two short code snippets that prove the core mechanism. Use source-only mode.",
+      "expected_output": "A technical deck plan with codebase review, architecture map, sourced Mermaid diagram, and slide-worthy snippets.",
+      "files": []
+    }
+  ]
+}
