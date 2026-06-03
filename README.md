@@ -220,6 +220,8 @@ Rules:
 - No overclaiming. Keep uncertainty and caveats visible when evidence is directional, incomplete, or inferred.
 - No word blacklists. Technical terms such as "smoke test" are fine when they are accurate and useful; define them when the audience may not know them.
 
+The deterministic claim-reference checks are guardrails, not full semantic proof. They reject missing claim IDs, unknown claim IDs, disallowed claim uses, explicit unsupported claims, and obvious factual-looking text on claim-free slides. They do not replace source review or a human/agent critic pass that checks whether slide wording faithfully matches the cited evidence.
+
 ## Why This Exists
 
 AI can already make a deck that looks finished. That is not the same as making a deck that is true, useful, and easy to present.
@@ -673,7 +675,7 @@ node scripts/validate-slide-specs.mjs projects/my-deck
 node scripts/validate-design-contract.mjs projects/my-deck
 ```
 
-`validate-claim-ledger.mjs` checks claim shape, allowed claim types, confidence values, duplicate IDs, and external source URLs. `lint-claim-refs.mjs` checks that slide specs reference real claim IDs and have no explicit unsupported claims. `validate-arch-map.mjs` checks that architecture nodes, edges, boundaries, and file/line evidence resolve. `validate-audience-model.mjs` checks audience segments, likely questions, objections, and jargon rules. `validate-story-spine.mjs` checks the audience shift, beats, transitions, and slide-job roles. `validate-slide-specs.mjs` checks renderer-supported layouts, slide jobs, visual-aid validation, motion rules, theme names, text budgets, table size, code length, and structured speaker notes before a deck can render. `validate-design-contract.mjs` checks the visual memory contract.
+`validate-claim-ledger.mjs` checks claim shape, allowed claim types, confidence values, duplicate IDs, and external source URLs. `lint-claim-refs.mjs` checks that slide specs reference real claim IDs, declare allowed claim uses, have no explicit unsupported claims, and avoid obvious factual-looking text on claim-free slides. It is intentionally conservative but not a complete semantic auditor; the review loop still has to check claim-vs-evidence fidelity. `validate-arch-map.mjs` checks that architecture nodes, edges, boundaries, and file/line evidence resolve. `validate-audience-model.mjs` checks audience segments, likely questions, objections, and jargon rules. `validate-story-spine.mjs` checks the audience shift, beats, transitions, and slide-job roles. `validate-slide-specs.mjs` checks renderer-supported layouts, slide jobs, visual-aid validation, motion rules, theme names, text budgets, table size, code length, and structured speaker notes before a deck can render. `validate-design-contract.mjs` checks the visual memory contract.
 
 These checks do not replace source judgment. They make the basic contract fail fast before the model critiques its own work.
 

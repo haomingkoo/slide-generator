@@ -3,6 +3,8 @@ import path from "node:path";
 
 const target = process.argv[2];
 const ledgerArg = process.argv[3];
+// This catches obvious factual language on claim-free slides. It is a guardrail,
+// not a semantic proof that every factual statement has been claim-bound.
 const FACTUAL_TEXT_RE = /(\d|%|\$|\b(?:faster|slower|higher|lower|increase|decrease|reduces?|improves?|removes?|requires?|enables?|supports?|uses?|sends?|calls?|stores?|current|latest|best|first|most|least|benchmark|measured|published|validated|verified|proves?)\b)/i;
 const CLAIM_FREE_LAYOUTS = new Set(["title", "section", "quote"]);
 
