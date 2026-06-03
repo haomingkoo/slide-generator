@@ -350,3 +350,81 @@ Evaluate:
 
 Please be critical and specific. Reference files and proposed fixes.
 ```
+
+## Post-Workflow Tooling Review Prompt
+
+Use this prompt after commit `23256c9 Add agentic deck workflow tooling`.
+
+```txt
+You are reviewing the current `slides-generator` repo after the agentic workflow tooling landed.
+
+Do not re-brainstorm the whole product. This is an implementation-risk and slide-quality review. Break the current system, find mismatches between docs and executable behavior, and identify the next highest-leverage fixes.
+
+Start by running:
+
+- `npm test`
+- `npm run agentic:run -- examples/source-grounded-demo --render --export`
+- `npm run workflow:status -- examples/source-grounded-demo --agentic`
+
+Read these files first:
+
+- `README.md`
+- `docs/workflow.md`
+- `docs/agentic-execution.md`
+- `docs/status-and-roadmap.md`
+- `skills/slide-generator/SKILL.md`
+- `skills/slide-generator/references/content-prioritization.md`
+- `skills/slide-generator/references/pptx-workflow.md`
+- `skills/slide-generator/references/design-quality-gates.md`
+- `scripts/create-deck-artifacts.mjs`
+- `scripts/deck-workflow-status.mjs`
+- `scripts/run-agentic-workflow.mjs`
+- `scripts/render-marp.mjs`
+- `scripts/browser-qa-marp.mjs`
+- `scripts/inspect-exports.mjs`
+- `scripts/theme-utils.mjs`
+- `examples/source-grounded-demo/work/*`
+
+Specific questions:
+
+1. Does the current workflow really qualify as agentic, or is it mostly a scripted renderer with agent instructions around it?
+2. Does `content-priority.md` solve the "too much source material for the slide/time budget" problem, or is it still too weak?
+3. Does `deck-workflow-status.mjs --render-ready` ignore anything that should block rendering?
+4. Can stale QA or export reports create false confidence?
+5. Does multi-viewport browser QA catch meaningful visual problems, or does it miss common slide issues such as cramped tables, poor hierarchy, and weak aesthetics?
+6. Is the claim-reference linter still too easy to bypass with factual language that avoids the regex terms?
+7. Does `inspect-exports.mjs` clearly and correctly report Marp PPTX as image-based when text is not editable?
+8. Does `theme-utils.mjs` apply design-contract tokens safely, or can it silently distort theme semantics such as risk/safe colors?
+9. Are the docs honest about current PPTX/Google Slides capabilities?
+10. Are there hidden fallbacks, no-op arguments, unexplained hardcoded values, or hand-waving assumptions?
+11. Does the source-backed demo prove the workflow, or is it too self-referential?
+12. What one change would most improve actual slide quality, not just validator coverage?
+
+If you have local access to the same machine, also inspect the ignored local RedFlag test deck:
+
+- `projects/redflag-remix/deck/index.html`
+- `projects/redflag-remix/work/claim-ledger.json`
+- `projects/redflag-remix/work/content-priority.md`
+- `projects/redflag-remix/work/slide-specs.json`
+- `projects/redflag-remix/qa/browser-qa.json`
+- `projects/redflag-remix/qa/export-inspection.json`
+
+Compare it against:
+
+- `/Users/koohaoming/red-teaming/pitch/redflag-deck.html`
+- `/Users/koohaoming/red-teaming/pitch/redflag-slide-audit.md`
+- `/Users/koohaoming/red-teaming/research/strategy-memo.md`
+- `/Users/koohaoming/red-teaming/prototype/README.md`
+- `/Users/koohaoming/red-teaming/prototype/generated/gate.report.json`
+
+Judge whether the new RedFlag deck is actually clearer, less text-heavy, more source-grounded, and more presentable. Be blunt about slide-level weaknesses. Do not assume the QA passing means the deck is good.
+
+Return:
+
+- blocker findings,
+- important-but-not-blocking findings,
+- overbuild or scope concerns,
+- slide-quality concerns,
+- concrete file-level fixes,
+- the next 3 implementation tasks in order.
+```
