@@ -1,0 +1,57 @@
+{
+  "audience_shift": {
+    "from": "Prompt-to-deck feels fast but hard to trust.",
+    "to": "An artifact-driven workflow can make agent-created decks easier to review and improve."
+  },
+  "throughline": "Trustworthy slide generation needs source evidence, audience fit, visual QA, and honest export boundaries.",
+  "beats": [
+    {
+      "id": "beat_hook",
+      "role": "hook",
+      "slide_ids": ["slide_01"],
+      "transition": "Start with the gap between finished-looking slides and trustworthy presentations.",
+      "audience_question_ids": ["q_agentic"]
+    },
+    {
+      "id": "beat_problem",
+      "role": "problem",
+      "slide_ids": ["slide_02"],
+      "transition": "Name the trust problem before describing the pipeline.",
+      "handles_objection_ids": ["objection_overclaim"]
+    },
+    {
+      "id": "beat_method",
+      "role": "method",
+      "slide_ids": ["slide_03", "slide_04"],
+      "transition": "Show the artifact order and the claim ledger as the accuracy spine.",
+      "audience_question_ids": ["q_truth"]
+    },
+    {
+      "id": "beat_agentic",
+      "role": "runtime_flow",
+      "slide_ids": ["slide_05"],
+      "transition": "Explain how file-backed state makes the work resumable.",
+      "audience_question_ids": ["q_agentic"]
+    },
+    {
+      "id": "beat_qa",
+      "role": "evidence",
+      "slide_ids": ["slide_06"],
+      "transition": "Move from planning to what the browser can actually inspect.",
+      "handles_objection_ids": ["objection_visual_quality"]
+    },
+    {
+      "id": "beat_scope",
+      "role": "trust_boundary",
+      "slide_ids": ["slide_07"],
+      "transition": "Set honest boundaries on exports and future orchestration.",
+      "audience_question_ids": ["q_exports"]
+    },
+    {
+      "id": "beat_close",
+      "role": "close",
+      "slide_ids": ["slide_08"],
+      "transition": "Close with the principle that makes the workflow worth testing."
+    }
+  ]
+}

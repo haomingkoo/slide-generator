@@ -4,6 +4,7 @@ import path from "node:path";
 const target = process.argv[2];
 const ledgerArg = process.argv[3];
 const FACTUAL_TEXT_RE = /(\d|%|\$|\b(?:faster|slower|higher|lower|increase|decrease|reduces?|improves?|removes?|requires?|enables?|supports?|uses?|sends?|calls?|stores?|current|latest|best|first|most|least|benchmark|measured|published|validated|verified|proves?)\b)/i;
+const CLAIM_FREE_LAYOUTS = new Set(["title", "section", "quote"]);
 
 if (!target) {
   console.error("Usage: node scripts/lint-claim-refs.mjs <project-dir|slide-specs.json> [claim-ledger.json]");
@@ -72,6 +73,9 @@ function lintSlides(slides, claimsById, slideSpecsPath) {
     if (slide.claim_ids.length === 0) {
       if (looksFactual(slide)) {
         throw new Error(`${slideSpecsPath}: ${label} has factual-looking text but no claim_ids`);
+      }
+      if (slide.layout && !CLAIM_FREE_LAYOUTS.has(slide.layout)) {
+        throw new Error(`${slideSpecsPath}: ${label} uses ${slide.layout} layout without claim_ids; add claim IDs or use title/section/quote for claim-free framing`);
       }
       if (typeof slide.no_claims_reason !== "string" || slide.no_claims_reason.trim().length === 0) {
         throw new Error(`${slideSpecsPath}: ${label} has no claim_ids and must include no_claims_reason`);

@@ -6,6 +6,7 @@ import {
   resolveSlideSpecsPath,
   validateSlideSpecs
 } from "./validate-slide-specs.mjs";
+import { resolveEffectiveThemePath } from "./theme-utils.mjs";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
@@ -58,7 +59,8 @@ try {
 
   if (writeHtml) {
     const htmlPath = path.join(deckDir, "index.html");
-    runMarp(markdownPath, themePath, htmlPath);
+    const effectiveThemePath = await resolveEffectiveThemePath(repoRoot, projectDir, deck);
+    runMarp(markdownPath, effectiveThemePath, htmlPath);
     console.log(`Marp HTML written: ${path.relative(repoRoot, htmlPath)}`);
   }
 
@@ -195,7 +197,7 @@ function renderArchitectureSlide(slide) {
   return [
     `## ${slide.title}`,
     slide.body ? renderBody(slide.body, slide) : "",
-    slide.mermaid ? `\`\`\`mermaid\n${escapeCodeFence(slide.mermaid)}\n\`\`\`` : ""
+    slide.mermaid ? renderFlowDiagram(slide.mermaid) : ""
   ].filter(Boolean).join("\n\n");
 }
 
@@ -234,6 +236,27 @@ function renderBodyHtml(body) {
   return `<ul>
 ${body.map((item) => `<li>${escapeHtml(item)}</li>`).join("\n")}
 </ul>`;
+}
+
+function renderFlowDiagram(mermaid) {
+  const nodes = [];
+  const seen = new Set();
+  for (const match of String(mermaid).matchAll(/\b([A-Za-z][A-Za-z0-9_]*)\[([^\]]+)\]/g)) {
+    const id = match[1];
+    const label = match[2];
+    if (seen.has(id)) continue;
+    seen.add(id);
+    nodes.push(label);
+  }
+  if (nodes.length < 2) {
+    return `<pre><code>${escapeHtml(mermaid)}</code></pre>`;
+  }
+  return `<div class="flow-diagram">
+${nodes.map((node, index) => [
+  `<div class="flow-node">${escapeHtml(node)}</div>`,
+  index < nodes.length - 1 ? `<div class="flow-arrow">→</div>` : ""
+].join("\n")).join("\n")}
+</div>`;
 }
 
 function renderSpeakerNotes(slides) {

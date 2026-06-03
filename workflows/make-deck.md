@@ -11,16 +11,17 @@ Use this workflow for a new deck.
 7. Create audience model.
 8. Create story spine.
 9. Create slide sorter.
-10. Create visual aid plan.
-11. Propose theme options or create a design contract from an approved template.
-12. Create slide specs.
-13. Run deterministic checks before rendering.
-14. Render HTML.
-15. Inspect rendered HTML.
-16. Run critique, deterministic claim checks, source audit, browser QA, and export QA when exporting.
-17. Stop for human review after the rendered draft and QA report.
-18. Write review decisions to `work/review-log.json`.
-19. Repair targeted failures.
-20. Export PPTX/PDF when requested and only after QA passes.
+10. Create content priority: main deck, backup/appendix, and dropped/deferred material.
+11. Create visual aid plan.
+12. Propose theme options or create a design contract from an approved template.
+13. Create slide specs.
+14. Run deterministic checks before rendering.
+15. Render HTML.
+16. Inspect rendered HTML.
+17. Run critique, deterministic claim checks, source audit, browser QA, and export QA when exporting.
+18. Stop for human review after the rendered draft and QA report.
+19. Write review decisions to `work/review-log.json`.
+20. Repair targeted failures.
+21. Export PPTX/PDF when requested and only after QA passes.
 
 Do not render before `work/intake-brief.md` has a clear deck goal and the slide sorter is coherent.

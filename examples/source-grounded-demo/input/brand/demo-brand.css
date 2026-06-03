@@ -1,0 +1,9 @@
+:root {
+  --demo-ink: #22211f;
+  --demo-paper: #fff8ef;
+  --demo-surface: #ffffff;
+  --demo-accent: #b4532a;
+  --demo-secondary: #2f6f62;
+  --demo-border: #ead8c5;
+  font-family: "Aptos", "Avenir Next", sans-serif;
+}

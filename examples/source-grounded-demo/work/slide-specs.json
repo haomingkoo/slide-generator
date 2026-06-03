@@ -1,0 +1,277 @@
+{
+  "deck": {
+    "title": "Build The Deck The Audience Can Trust",
+    "theme": "warm-editorial-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Source-grounded demo",
+      "title": "Build the deck the audience can trust",
+      "subtitle": "A polished demo of an artifact-led slide workflow.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Opening positioning only.",
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Open with a strong promise without adding proof."
+      },
+      "speaker_notes": {
+        "key_message": "This demo is about trust, not just generation speed.",
+        "talk_track": [
+          "Frame the problem as audience trust.",
+          "Make clear the deck will separate what works today from future plans."
+        ],
+        "timing_seconds": 30
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "comparison",
+      "title": "The problem is not slide creation; it is trust",
+      "left": {
+        "title": "Looks finished",
+        "body": ["Plausible story", "Nice surface", "Unclear evidence"]
+      },
+      "right": {
+        "title": "Ready to present",
+        "body": ["Traceable claims", "Audience fit", "Visual QA"]
+      },
+      "claim_ids": ["claim_007"],
+      "claim_use": "quality bar",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Make the trust gap visible in one glance.",
+        "validation": {
+          "expected": "Both panels stay balanced and sparse.",
+          "fallback": "Split into two slides if the contrast needs examples.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "Finished-looking slides can still fail on truth, clarity, and reviewability.",
+        "talk_track": [
+          "Do not attack AI slide tools broadly.",
+          "Name the specific failure: weak evidence hidden behind polish.",
+          "Use this as the reason for the artifact workflow."
+        ],
+        "timing_seconds": 60,
+        "claim_ids": ["claim_007"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "method",
+      "layout": "architecture",
+      "title": "The repo changes the order of work",
+      "body": ["Evidence and story come before rendering.", "QA and export come after the browser can inspect the deck."],
+      "mermaid": "flowchart LR\n  A[Sources] --> B[Evidence]\n  B --> C[Story]\n  C --> D[Visual aids]\n  D --> E[Render]\n  E --> F[QA]\n  F --> G[Export]",
+      "claim_ids": ["claim_001"],
+      "claim_use": "process architecture",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Show the workflow order as a simple pipeline.",
+        "validation": {
+          "expected": "The Mermaid diagram renders with readable labels and no crowding.",
+          "fallback": "Use the body copy as a static pipeline if Mermaid fails.",
+          "browser_check_required": true
+        }
+      },
+      "motion": {
+        "type": "transition",
+        "purpose": "Mark the move from problem to mechanism.",
+        "transition": "fade 0.4s",
+        "reduced_motion_fallback": "The slide still reads as a static flow."
+      },
+      "speaker_notes": {
+        "key_message": "The workflow is intentionally evidence-first.",
+        "talk_track": [
+          "Walk left to right.",
+          "Emphasize that rendering is not the first step.",
+          "Tie the flow to cheaper repair later."
+        ],
+        "timing_seconds": 70,
+        "claim_ids": ["claim_001"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "evidence",
+      "layout": "table",
+      "title": "Claims are the accuracy spine",
+      "table": {
+        "headers": ["Reviewer question", "Artifact", "Why it matters"],
+        "rows": [
+          ["Is this true?", "claim-ledger.json", "Every factual claim gets an ID"],
+          ["Who is this for?", "audience-model.json", "Questions and jargon are explicit"],
+          ["What changed?", "story-spine.json", "Flow is reviewable before render"]
+        ]
+      },
+      "claim_ids": ["claim_002"],
+      "claim_use": "trust mechanism",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Connect trust questions to concrete artifacts.",
+        "validation": {
+          "expected": "The table stays readable and uses short cells.",
+          "fallback": "Convert the table into three icon rows if it becomes dense.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The claim ledger is the accuracy spine of the deck.",
+        "talk_track": [
+          "Start with the reviewer question.",
+          "Point to the file that answers it.",
+          "Avoid implying deterministic checks replace judgment."
+        ],
+        "timing_seconds": 75,
+        "claim_ids": ["claim_002"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "runtime_flow",
+      "layout": "table",
+      "title": "Agent memory is written to files",
+      "table": {
+        "headers": ["Memory", "File", "Review use"],
+        "rows": [
+          ["Goal", "intake-brief.md", "Judge every slide"],
+          ["Story", "story-spine.json", "Check flow"],
+          ["Design", "design-contract.json", "Prevent drift"],
+          ["Feedback", "review-log.json", "Stop repeats"]
+        ]
+      },
+      "claim_ids": ["claim_003"],
+      "claim_use": "memory model",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Show resumable memory without describing every file.",
+        "validation": {
+          "expected": "The four-row table fits cleanly.",
+          "fallback": "Move file examples to speaker notes.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "Long-running work should resume from artifacts, not chat memory.",
+        "talk_track": [
+          "Explain why file-backed state matters.",
+          "Connect review-log to learning within a project.",
+          "Mention that this is ready for a future runner."
+        ],
+        "timing_seconds": 65,
+        "claim_ids": ["claim_003"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "evidence",
+      "layout": "table",
+      "title": "Visual QA checks what actually rendered",
+      "table": {
+        "headers": ["Check", "Catches", "Why useful"],
+        "rows": [
+          ["Structure", "Wrong count or notes", "Deck integrity"],
+          ["Layout", "Overflow or bounds", "Readable slides"],
+          ["Contrast", "Low legibility", "Accessibility"],
+          ["Navigation", "Broken flow", "Live delivery"]
+        ]
+      },
+      "claim_ids": ["claim_004"],
+      "claim_use": "visual review",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Turn QA from an abstract promise into observable checks.",
+        "validation": {
+          "expected": "The table is legible and not crowded.",
+          "fallback": "Show checks as four short rows without table borders.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "Browser QA gives the agent visual feedback after rendering.",
+        "talk_track": [
+          "Explain that this does not judge taste perfectly.",
+          "It catches common presentation-breaking defects.",
+          "Use screenshots for slide-by-slide review."
+        ],
+        "timing_seconds": 70,
+        "claim_ids": ["claim_004"]
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "slide_job": "trust_boundary",
+      "layout": "comparison",
+      "title": "The handoff boundary stays honest",
+      "left": {
+        "title": "Ready today",
+        "body": ["HTML draft", "Browser QA", "PPTX/PDF export"]
+      },
+      "right": {
+        "title": "Future layer",
+        "body": ["Native Slides API", "PPTX template editing", "Deep Agents runner"]
+      },
+      "claim_ids": ["claim_005", "claim_006"],
+      "claim_uses": {
+        "claim_005": "handoff boundary",
+        "claim_006": "scope boundary"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Prevent overclaiming while keeping the roadmap visible.",
+        "validation": {
+          "expected": "Ready and future columns remain visually distinct.",
+          "fallback": "Convert to a two-row roadmap if text gets cramped.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The repo should be impressive because it is honest about its boundary.",
+        "talk_track": [
+          "Say what works today.",
+          "Say what is deliberately future work.",
+          "Make integrity part of the product quality."
+        ],
+        "timing_seconds": 65,
+        "claim_ids": ["claim_005", "claim_006"]
+      }
+    },
+    {
+      "slide_id": "slide_08",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "Trust is built slide by slide",
+      "quote": "Make every slide earn its place, ground its claim, and help the audience move.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Closing principle rather than a factual claim.",
+      "visual_aid": {
+        "type": "quote",
+        "purpose": "End with a principle the audience can remember."
+      },
+      "speaker_notes": {
+        "key_message": "The repo is worth testing because it makes slide work inspectable.",
+        "talk_track": [
+          "Close with the standard.",
+          "Invite review of the generated artifacts and screenshots.",
+          "Do not claim the workflow replaces human judgment."
+        ],
+        "timing_seconds": 35
+      }
+    }
+  ]
+}

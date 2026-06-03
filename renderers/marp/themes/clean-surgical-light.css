@@ -96,6 +96,7 @@ pre {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
   font-size: 22px;
 }
 
@@ -193,4 +194,42 @@ section.section {
 
 .panel-is {
   border-top: 6px solid var(--ok);
+}
+
+.flow-diagram {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: "Aptos", "Helvetica Neue", Arial, sans-serif;
+}
+
+.flow-node {
+  flex: 1 1 0;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--accent);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 720;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.flow-arrow {
+  flex: 0 0 auto;
+  color: var(--ok);
+  font-family: "Aptos", "Helvetica Neue", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 760;
 }

@@ -1,0 +1,64 @@
+{
+  "segments": [
+    {
+      "id": "builder_reviewer",
+      "role": "Builder or reviewer evaluating this repo",
+      "decision_power": "influencer",
+      "current_knowledge": [
+        "Knows AI can generate slide-shaped output.",
+        "May not trust AI-generated evidence or slide quality.",
+        "Wants to know what is real today."
+      ],
+      "stakes": [
+        "Needs a workflow that can survive long-running agent work.",
+        "Needs clarity about current versus future capabilities.",
+        "Needs enough visual polish to show the idea to others."
+      ],
+      "success_criteria": [
+        "Can retell the artifact loop.",
+        "Can identify the current QA gates.",
+        "Can decide whether to test the repo."
+      ],
+      "likely_questions": [
+        {
+          "id": "q_agentic",
+          "question": "Is this really agentic or just a renderer?",
+          "priority": "high"
+        },
+        {
+          "id": "q_truth",
+          "question": "How does it prevent fake claims?",
+          "priority": "high"
+        },
+        {
+          "id": "q_exports",
+          "question": "Can this become PowerPoint or Google Slides?",
+          "priority": "medium"
+        }
+      ],
+      "objections": [
+        {
+          "id": "objection_overclaim",
+          "objection": "This may be promising but overstated.",
+          "severity": "high"
+        },
+        {
+          "id": "objection_visual_quality",
+          "objection": "A passing renderer does not guarantee a great-looking deck.",
+          "severity": "high"
+        }
+      ],
+      "jargon": {
+        "allowed": ["claim ledger", "browser QA", "artifact"],
+        "define_on_first_use": ["agentic workflow", "source audit"],
+        "avoid": ["magic", "game-changing", "fully autonomous"]
+      }
+    }
+  ],
+  "audience_pov_critique": {
+    "what_they_care_about": "Whether the repo can produce a deck they would trust and show.",
+    "what_will_feel_unproven": "Any claim that sounds like native PPTX/Google Slides generation or full autonomy.",
+    "where_deck_sounds_like_us_not_them": "Long descriptions of internal files without explaining why they matter to reviewers.",
+    "required_reframe": "Connect each artifact to a reviewer benefit: accuracy, clarity, visual QA, or repairability."
+  }
+}

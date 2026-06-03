@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "source": {
+    "type": "observed_brand_inputs",
+    "references": [
+      "input/brand/demo-brand.css"
+    ]
+  },
+  "observed": {
+    "colors": [
+      {
+        "hex": "#22211F",
+        "count": 1
+      },
+      {
+        "hex": "#2F6F62",
+        "count": 1
+      },
+      {
+        "hex": "#B4532A",
+        "count": 1
+      },
+      {
+        "hex": "#EAD8C5",
+        "count": 1
+      },
+      {
+        "hex": "#FFF8EF",
+        "count": 1
+      },
+      {
+        "hex": "#FFFFFF",
+        "count": 1
+      }
+    ],
+    "typography": [
+      {
+        "family": "Aptos",
+        "count": 1
+      }
+    ],
+    "assets": []
+  },
+  "interpretation": {
+    "dominant_color": "#22211F",
+    "accent_color": "#2F6F62",
+    "heading_font": "Aptos",
+    "body_font": "Aptos",
+    "caveats": []
+  }
+}

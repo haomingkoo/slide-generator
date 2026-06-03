@@ -6,9 +6,10 @@ import { normalizeSlideSpecs, resolveSlideSpecsPath } from "./validate-slide-spe
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
+const viewports = selectViewports();
 
 if (!target) {
-  console.error("Usage: node scripts/browser-qa-marp.mjs <project-dir>");
+  console.error("Usage: node scripts/browser-qa-marp.mjs <project-dir> [--viewport standard|all]");
   process.exit(2);
 }
 
@@ -26,7 +27,55 @@ try {
   await mkdir(screenshotDir, { recursive: true });
 
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });
+  const issues = [];
+  const viewportReports = [];
+  for (const viewport of viewports) {
+    const viewportReport = await inspectViewport(browser, {
+      htmlPath,
+      slides,
+      screenshotRoot: screenshotDir,
+      viewport
+    });
+    viewportReports.push(viewportReport);
+    issues.push(...viewportReport.issues.map((issue) => `${viewport.name}: ${issue}`));
+  }
+  await browser.close();
+
+  const consoleMessages = viewportReports.flatMap((item) => item.console_messages.map((message) => ({
+    viewport: item.viewport.name,
+    ...message
+  })));
+
+  const report = {
+    project: path.relative(repoRoot, projectDir),
+    html: path.relative(repoRoot, htmlPath),
+    viewport_mode: viewportMode(),
+    generated_at: new Date().toISOString(),
+    viewports: viewportReports,
+    console_messages: consoleMessages,
+    screenshots_dir: path.relative(repoRoot, screenshotDir),
+    status: issues.length === 0 && consoleMessages.filter((item) => item.type !== "warning").length === 0 ? "pass" : "fail",
+    issues
+  };
+  await writeFile(path.join(qaDir, "browser-qa.json"), `${JSON.stringify(report, null, 2)}\n`);
+
+  const consoleErrors = consoleMessages.filter((item) => item.type !== "warning");
+  if (issues.length > 0 || consoleErrors.length > 0) {
+    throw new Error([
+      "browser QA failed",
+      ...issues,
+      ...consoleErrors.map((item) => `${item.viewport}: console ${item.type}: ${item.text}`)
+    ].join("\n"));
+  }
+
+  console.log(`browser QA passed: ${path.relative(repoRoot, path.join(qaDir, "browser-qa.json"))}`);
+} catch (error) {
+  console.error(error.message);
+  process.exit(1);
+}
+
+async function inspectViewport(browser, { htmlPath, slides, screenshotRoot, viewport }) {
+  const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
   const consoleMessages = [];
   page.on("console", (message) => {
     if (["error", "warning"].includes(message.type())) {
@@ -79,6 +128,7 @@ try {
         .filter((el) => isVisible(el) && el.textContent.trim().length > 0)
         .map((el) => contrastReport(el, section))
         .filter((item) => item && item.ratio < item.minimum);
+      const density = densityReport(section, textSelector);
       return {
         index,
         id: section.id,
@@ -86,6 +136,7 @@ try {
         overflow,
         outOfBounds,
         contrastIssues,
+        density,
         fragmentCount: section.querySelectorAll("[data-marpit-fragment]").length
       };
     });
@@ -93,6 +144,15 @@ try {
     function describe(el) {
       const cls = typeof el.className === "string" && el.className ? `.${el.className.split(/\s+/).join(".")}` : "";
       return `${el.tagName.toLowerCase()}${cls}`;
+    }
+
+    function parseRgb(value) {
+      const match = String(value).match(/rgba?\(([^)]+)\)/i);
+      if (!match) return null;
+      const parts = match[1].split(",").map((part) => part.trim());
+      const alpha = parts[3] === undefined ? 1 : Number.parseFloat(parts[3]);
+      if (alpha === 0) return null;
+      return parts.slice(0, 3).map((part) => Number.parseFloat(part));
     }
 
     function rectToPlain(rect) {
@@ -155,15 +215,6 @@ try {
       return [255, 255, 255];
     }
 
-    function parseRgb(value) {
-      const match = String(value).match(/rgba?\(([^)]+)\)/i);
-      if (!match) return null;
-      const parts = match[1].split(",").map((part) => part.trim());
-      const alpha = parts[3] === undefined ? 1 : Number.parseFloat(parts[3]);
-      if (alpha === 0) return null;
-      return parts.slice(0, 3).map((part) => Number.parseFloat(part));
-    }
-
     function luminance([r, g, b]) {
       return [r, g, b]
         .map((value) => {
@@ -180,6 +231,40 @@ try {
       const darker = Math.min(a, b);
       return (lighter + 0.05) / (darker + 0.05);
     }
+
+    function densityReport(section, selector) {
+      const textNodes = [...section.querySelectorAll(selector)]
+        .filter((el) => isVisible(el) && el.textContent.trim().length > 0)
+        .map((el) => ({
+          tag: describe(el),
+          text: el.textContent.trim().replace(/\s+/g, " ")
+        }));
+      const combined = textNodes.map((item) => item.text).join(" ");
+      const wordCount = combined ? combined.split(/\s+/).filter(Boolean).length : 0;
+      const charCount = combined.length;
+      const bulletCount = section.querySelectorAll("li").length;
+      const tableCellCount = section.querySelectorAll("td,th").length;
+      const codeLineCount = [...section.querySelectorAll("pre,code")]
+        .map((el) => el.textContent.split(/\r?\n/).filter((line) => line.trim().length > 0).length)
+        .reduce((sum, count) => sum + count, 0);
+      const maxBlockChars = textNodes.reduce((max, item) => Math.max(max, item.text.length), 0);
+      const warnings = [];
+      if (wordCount > 190) warnings.push(`high word count (${wordCount})`);
+      if (charCount > 1250) warnings.push(`high character count (${charCount})`);
+      if (bulletCount > 12) warnings.push(`too many bullets (${bulletCount})`);
+      if (tableCellCount > 32) warnings.push(`dense table (${tableCellCount} cells)`);
+      if (codeLineCount > 24) warnings.push(`dense code block (${codeLineCount} lines)`);
+      if (maxBlockChars > 420) warnings.push(`long uninterrupted text block (${maxBlockChars} chars)`);
+      return {
+        wordCount,
+        charCount,
+        bulletCount,
+        tableCellCount,
+        codeLineCount,
+        maxBlockChars,
+        warnings
+      };
+    }
   });
 
   for (const [index, slide] of slides.entries()) {
@@ -192,6 +277,12 @@ try {
     for (const item of report.contrastIssues) {
       issues.push(`${slide.slide_id}: low contrast ${item.ratio}:1 on ${item.tag} (${item.text})`);
     }
+    for (const warning of report.density?.warnings ?? []) {
+      issues.push(`${slide.slide_id}: visual density warning: ${warning}`);
+    }
+    if (slide.layout === "architecture" && report.density?.codeLineCount > 0) {
+      issues.push(`${slide.slide_id}: architecture slide rendered code instead of a visual flow`);
+    }
     if (slide.motion?.type === "step_reveal" && report.fragmentCount === 0) {
       issues.push(`${slide.slide_id}: step_reveal motion requested but no Marp fragments rendered`);
     }
@@ -200,43 +291,28 @@ try {
     }
   }
 
-  const navigation = await verifyNavigation(page, slides, screenshotDir);
+  const viewportScreenshotDir = path.join(screenshotRoot, viewport.name);
+  await mkdir(viewportScreenshotDir, { recursive: true });
+  const navigation = await verifyNavigation(page, slides, viewportScreenshotDir);
   issues.push(...navigation.issues);
-
-  await browser.close();
-
-  const report = {
-    project: path.relative(repoRoot, projectDir),
-    html: path.relative(repoRoot, htmlPath),
-    viewport: { width: 1280, height: 720 },
-    generated_at: new Date().toISOString(),
+  await page.close();
+  return {
+    viewport,
     structure,
     console_messages: consoleMessages,
     slide_reports: slideReports,
     navigation,
-    screenshots_dir: path.relative(repoRoot, screenshotDir),
-    status: issues.length === 0 && consoleMessages.filter((item) => item.type !== "warning").length === 0 ? "pass" : "fail",
+    screenshots_dir: path.relative(repoRoot, viewportScreenshotDir),
+    status: issues.length === 0 ? "pass" : "fail",
     issues
   };
-  await writeFile(path.join(qaDir, "browser-qa.json"), `${JSON.stringify(report, null, 2)}\n`);
-
-  const consoleErrors = consoleMessages.filter((item) => item.type !== "warning");
-  if (issues.length > 0 || consoleErrors.length > 0) {
-    throw new Error([
-      "browser QA failed",
-      ...issues,
-      ...consoleErrors.map((item) => `console ${item.type}: ${item.text}`)
-    ].join("\n"));
-  }
-
-  console.log(`browser QA passed: ${path.relative(repoRoot, path.join(qaDir, "browser-qa.json"))}`);
-} catch (error) {
-  console.error(error.message);
-  process.exit(1);
 }
 
 async function verifyNavigation(page, slides, screenshotDir) {
   const issues = [];
+  await page.addStyleTag({
+    content: ".bespoke-marp-osc,.bespoke-progress-parent,[data-bespoke-marp-osc]{display:none!important;visibility:hidden!important;}"
+  });
   for (const [index, slide] of slides.entries()) {
     await advanceToSlide(page, index + 1);
     const active = await page.evaluate(() => {
@@ -264,4 +340,27 @@ async function advanceToSlide(page, expectedNumber) {
     await page.keyboard.press("ArrowRight");
     await page.waitForTimeout(60);
   }
+}
+
+function viewportMode() {
+  const value = readOption("--viewport");
+  return value || "all";
+}
+
+function selectViewports() {
+  const mode = viewportMode();
+  const all = [
+    { name: "standard-16x9", width: 1280, height: 720 },
+    { name: "laptop-review", width: 1366, height: 768 },
+    { name: "small-window", width: 1024, height: 576 }
+  ];
+  if (mode === "all") return all;
+  if (mode === "standard") return [all[0]];
+  throw new Error(`unknown viewport mode: ${mode}`);
+}
+
+function readOption(name) {
+  const index = process.argv.indexOf(name);
+  if (index === -1) return null;
+  return process.argv[index + 1] ?? null;
 }

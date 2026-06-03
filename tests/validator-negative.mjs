@@ -28,9 +28,25 @@ try {
     const data = validProjectData();
     data.slides.slides[0] = {
       slide_id: "slide_01",
+      layout: "title",
       title: "Agenda",
       claim_ids: [],
       unsupported_claims: []
+    };
+    await writeProject(project, data);
+    return ["scripts/lint-claim-refs.mjs", project];
+  });
+
+  await expectFail("claim-free content layout", async (project) => {
+    const data = validProjectData();
+    data.slides.slides[0] = {
+      slide_id: "slide_01",
+      layout: "narrative",
+      title: "A calm operating principle",
+      body: ["Short setup", "Simple next step"],
+      claim_ids: [],
+      unsupported_claims: [],
+      no_claims_reason: "generic principle"
     };
     await writeProject(project, data);
     return ["scripts/lint-claim-refs.mjs", project];

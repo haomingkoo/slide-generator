@@ -16,7 +16,8 @@ flowchart TD
   F --> G
   G --> H[Story spine]
   H --> I[Slide sorter]
-  I --> J[Visual aid plan]
+  I --> V[Content priority]
+  V --> J[Visual aid plan]
   J --> K[Theme options]
   K --> U[Design contract]
   U --> L[Slide specs]
@@ -43,6 +44,7 @@ Every project should produce these files in `projects/<name>/work/` before rende
 - `audience-model.json`: what the audience knows, needs, doubts, and decides.
 - `story-spine.json`: the audience shift, throughline, beats, transitions, likely questions, and handled objections.
 - `slide-sorter.md`: slide titles only, in order.
+- `content-priority.md`: main-deck, backup, appendix, and dropped-content decisions against the timing and audience budget.
 - `visual-aid-plan.json`: visual pattern selected for each hard idea.
 - `theme-options.md`: 2 or 3 proposed directions before final selection.
 - `design-contract.json`: theme tokens, spacing, typography, patterns, and design decisions.
@@ -59,6 +61,7 @@ The first prompt should resolve:
 - decision or learning goal,
 - live vs async use,
 - slide count or talk length,
+- key message and required themes,
 - likely questions and objections,
 - jargon baseline,
 - backup evidence depth,
@@ -77,6 +80,7 @@ The intake phase must produce a clear deck goal before planning:
 - `audience_shift`: what the audience should understand, believe, decide, or do differently,
 - `success_criteria`: how the deck will be judged,
 - `constraints`: time, slide count, source policy, output format, brand, and accuracy bar,
+- `content_priority`: what belongs in main, backup, appendix, or dropped content,
 - `assumptions`: defaults the agent used,
 - `open_questions`: unknowns that still matter.
 
@@ -111,6 +115,18 @@ The default is `source_only` unless the user asks for current or external inform
 - `google_slides_handoff`: export PPTX first, then import into Google Slides. Native Google Slides API export is future work.
 
 HTML can be more expressive. PPTX must be more constrained and theme-aware.
+
+Current Marp PPTX exports should be treated as visual handoff files unless `qa/export-inspection.json` shows editable text runs. If the audience needs editable PowerPoint text, use a native PPTX workflow instead of relying on Marp export.
+
+## Browser QA
+
+`scripts/browser-qa-marp.mjs` checks multiple review windows by default:
+
+- `standard-16x9`: 1280 x 720,
+- `laptop-review`: 1366 x 768,
+- `small-window`: 1024 x 576.
+
+Use `--viewport standard` for a faster single-window iteration. Use the default multi-viewport run before export.
 
 ## Input Adapters
 

@@ -33,9 +33,11 @@ Minimum evidence of a real run:
 - `work/audience-model.json` names likely questions, objections, jargon tolerance, and audience needs.
 - `work/story-spine.json` explains the throughline and slide jobs.
 - `work/slide-sorter.md` gives a title-only story that can be reviewed before rendering.
+- `work/content-priority.md` explains what belongs in the main deck, backup, appendix, or dropped content.
 - `work/design-contract.json` records theme tokens and layout decisions.
 - `work/slide-specs.json` maps each slide to a job, claims, visual aid, and speaker notes.
-- `qa/browser-qa.json` exists after rendering.
+- `qa/browser-qa.json` exists after rendering and includes multi-viewport slide reports.
+- `qa/export-inspection.json` exists after PPTX/PDF export.
 - `work/review-log.json` records human review decisions and recurring mistakes.
 
 If an agent only runs `npm run render:marp`, it is using the renderer, not the workflow.
@@ -61,10 +63,12 @@ work/claim-ledger.json
 work/audience-model.json
 work/story-spine.json
 work/slide-sorter.md
+work/content-priority.md
 work/visual-aid-plan.json
 work/design-contract.json
 work/slide-specs.json
 qa/browser-qa.json
+qa/export-inspection.json
 work/review-log.json
 ```
 
@@ -103,6 +107,7 @@ No orchestrator should hide failure.
 - If a source is missing, stop or record the assumption.
 - If browser QA fails, do not export as if the deck passed.
 - If PPTX export is degraded, say so in the export report.
+- If a deck only passes one viewport, keep it in review instead of calling it present-ready.
 - If an interactive or animated visual cannot be validated, use the declared static fallback.
 - If the claim ledger is incomplete, do not render factual slides as final.
 

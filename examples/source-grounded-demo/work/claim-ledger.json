@@ -1,0 +1,87 @@
+{
+  "claims": [
+    {
+      "claim_id": "claim_001",
+      "claim": "The repo's deck flow is sources, evidence, story, visual aids, render, critique, audit, QA, and export.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "Core Idea"
+      },
+      "evidence": "README.md describes the safer flow as sources -> evidence -> story -> visual aids -> render -> critique -> audit -> QA -> export.",
+      "confidence": "high",
+      "allowed_slide_use": ["workflow explanation", "process architecture"]
+    },
+    {
+      "claim_id": "claim_002",
+      "claim": "Every factual slide claim must appear in claim-ledger.json.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "No-Hallucination Rule"
+      },
+      "evidence": "README.md states that every factual slide claim must appear in claim-ledger.json.",
+      "confidence": "high",
+      "allowed_slide_use": ["accuracy rule", "trust mechanism"]
+    },
+    {
+      "claim_id": "claim_003",
+      "claim": "The repo stores durable deck state under projects/<name>/work/ so agents can resume from files.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "Long-Running Agent Reliability"
+      },
+      "evidence": "README.md lists durable state files under projects/<name>/work/ and says every important decision is written to disk before the agent moves on.",
+      "confidence": "high",
+      "allowed_slide_use": ["memory model", "agentic explanation"]
+    },
+    {
+      "claim_id": "claim_004",
+      "claim": "Browser QA checks rendered structure, notes, presenter controls, overflow, bounds, contrast, keyboard navigation, screenshots, and motion primitives.",
+      "type": "codebase",
+      "source": {
+        "path": "scripts/browser-qa-marp.mjs"
+      },
+      "evidence": "The script evaluates slide count, note count, presenter controls, overflow, out-of-bounds elements, contrast, navigation, screenshots, and motion/interaction fragment checks.",
+      "confidence": "high",
+      "allowed_slide_use": ["qa capability", "visual review"]
+    },
+    {
+      "claim_id": "claim_005",
+      "claim": "PPTX export is the current PowerPoint and Google Slides handoff path; native Google Slides API generation is planned rather than current.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "Output modes"
+      },
+      "evidence": "README.md says PPTX export is the current Google Slides handoff path and that native Google Slides API generation is planned, not claimed today.",
+      "confidence": "high",
+      "allowed_slide_use": ["handoff boundary"]
+    },
+    {
+      "claim_id": "claim_006",
+      "claim": "The repo is not yet a fully automated server-side runner with LangGraph, Deep Agents, Temporal, a queue, or hosted orchestration.",
+      "type": "user_file",
+      "source": {
+        "path": "docs/agentic-execution.md",
+        "section": "How The System Executes Today"
+      },
+      "evidence": "docs/agentic-execution.md explicitly states these orchestration layers are not in the repo today.",
+      "confidence": "high",
+      "allowed_slide_use": ["scope boundary"]
+    },
+    {
+      "claim_id": "claim_007",
+      "claim": "The README sets rules against hidden fallbacks, unexplained hardcoded choices, hand-waving slides, fake evidence, silent downgrade, and overclaiming.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "Engineering Standard"
+      },
+      "evidence": "README.md lists these rules under Engineering Standard.",
+      "confidence": "high",
+      "allowed_slide_use": ["quality bar"]
+    }
+  ]
+}

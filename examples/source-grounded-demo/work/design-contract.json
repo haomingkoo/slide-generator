@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "source": {
+    "type": "example_theme",
+    "references": ["templates/design-contracts/warm-editorial-light.json", "examples/source-grounded-demo/input/brand/demo-brand.css"]
+  },
+  "direction": {
+    "personality": "warm editorial precision",
+    "audience_fit": "Builders and reviewers who need confidence, clarity, and enough polish to share the result.",
+    "density": "low_to_balanced",
+    "depth": "borders_only",
+    "grid": "strict"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#fff8ef",
+      "surface": "#ffffff",
+      "text": "#22211f",
+      "muted": "#6e6258",
+      "accent": "#b4532a",
+      "secondary_accent": "#2f6f62",
+      "border": "#ead8c5"
+    },
+    "typography": {
+      "heading": "Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "body": "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["16px", "20px", "24px", "32px", "48px", "64px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "64px", "80px"]
+    },
+    "radius": ["8px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "Large editorial title with a warm accent and short subtitle.",
+    "section_slide": "Sparse divider with one short support line.",
+    "comparison_slide": "Two balanced panels with labeled contrast.",
+    "table_slide": "Light rows, short cells, no dense spreadsheets.",
+    "code_slide": "Readable mono block with a practical command.",
+    "architecture_slide": "Simple left-to-right flow with few nodes."
+  },
+  "rules": {
+    "avoid": ["hype language", "overclaimed autonomy", "tiny tables", "decorative clutter", "generic AI gradients"],
+    "must_preserve": ["warm paper background", "one accent at a time", "explicit caveats", "large slide titles"],
+    "accessibility": ["normal text contrast >= 4.5:1", "large text contrast >= 3:1", "no color-only distinction"]
+  },
+  "decisions": [
+    {
+      "decision": "Use a warm editorial light direction for the demo deck.",
+      "rationale": "The deck should feel more polished than a fixture while staying serious and readable.",
+      "date": "2026-06-03"
+    }
+  ]
+}

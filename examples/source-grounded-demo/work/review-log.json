@@ -1,0 +1,29 @@
+{
+  "deck_goal": "Show that the repo creates a reviewable workflow for accurate, clear, visually checked presentations.",
+  "sessions": [
+    {
+      "date": "2026-06-03",
+      "summary": "Initial demo review focuses on integrity, clarity, and visual restraint.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_01",
+          "decision": "accept",
+          "note": "Opening is clear and does not overclaim."
+        },
+        {
+          "slide_id": "slide_07",
+          "decision": "accept",
+          "note": "Current/future boundary is explicit."
+        }
+      ],
+      "recurring_issues": [
+        "Avoid implying native Google Slides generation exists today.",
+        "Do not let QA claims sound broader than the browser checks actually perform."
+      ],
+      "new_rules": [
+        "Every demo deck must include a current-versus-future boundary slide.",
+        "Visual QA claims must name concrete checks."
+      ]
+    }
+  ]
+}

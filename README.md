@@ -26,6 +26,13 @@ On Linux CI, install Playwright with system dependencies:
 npx playwright install chromium --with-deps
 ```
 
+Create a new local project scaffold:
+
+```bash
+npm run init:deck -- projects/my-deck --theme warm-editorial-light
+npm run workflow:status -- projects/my-deck --render-ready
+```
+
 Render the committed fixture:
 
 ```bash
@@ -35,6 +42,13 @@ npm run qa:browser -- tests/fixtures/render-project
 npm run export:marp -- tests/fixtures/render-project --pptx --pdf
 ```
 
+Render the source-backed demo deck:
+
+```bash
+npm run agentic:run -- examples/source-grounded-demo --render --export
+open examples/source-grounded-demo/deck/index.html
+```
+
 Open the generated HTML deck:
 
 ```bash
@@ -42,6 +56,14 @@ open tests/fixtures/render-project/deck/index.html
 ```
 
 The HTML deck includes presenter controls and speaker notes. The PPTX export is the current PowerPoint and Google Slides handoff path. Native Google Slides API generation is planned, not claimed today.
+
+Important PowerPoint boundary: the current Marp PPTX export is a visual handoff, not a native editable PowerPoint template. Text editability, slide masters, and brand-template editing are future work unless a separate native PPTX workflow is added for that deck.
+
+Browser QA runs standard 16:9, laptop review, and smaller review windows by default. For faster iteration on one viewport:
+
+```bash
+npm run qa:browser -- projects/my-deck --viewport standard
+```
 
 ## What This Repo Is
 
@@ -87,7 +109,7 @@ Use it agentically through Codex or Claude Code:
 Use the slide-generator skill for projects/my-deck.
 
 Follow workflows/make-deck.md.
-Create planning artifacts first. Do not render until intake-brief, claim-ledger, audience-model, story-spine, slide-sorter, visual-aid-plan, design-contract, and slide-specs are ready.
+Create planning artifacts first. Do not render until intake-brief, claim-ledger, audience-model, story-spine, slide-sorter, content-priority, visual-aid-plan, design-contract, and slide-specs are ready.
 Use source_only mode unless the brief says research is allowed.
 Stop for review after the rendered draft and QA report.
 ```
@@ -112,6 +134,7 @@ projects/<name>/work/
   audience-model.json
   story-spine.json
   slide-sorter.md
+  content-priority.md
   visual-aid-plan.json
   design-contract.json
   slide-specs.json
@@ -137,10 +160,11 @@ If a session runs out of context or another agent takes over, resume by reading:
 3. `work/audience-model.json`
 4. `work/story-spine.json`
 5. `work/slide-sorter.md`
-6. `work/design-contract.json`
-7. `work/slide-specs.json`
-8. `work/review-log.json` if it exists
-9. latest `qa/*` report
+6. `work/content-priority.md`
+7. `work/design-contract.json`
+8. `work/slide-specs.json`
+9. `work/review-log.json` if it exists
+10. latest `qa/*` report
 
 Then repair only the failed artifact. Do not reread the whole source corpus unless the claim ledger or source map is missing, stale, or disputed.
 

@@ -1,0 +1,44 @@
+{
+  "visual_aids": [
+    {
+      "slide_id": "slide_01",
+      "type": "none",
+      "purpose": "Use a strong opening statement with restraint."
+    },
+    {
+      "slide_id": "slide_02",
+      "type": "comparison",
+      "purpose": "Contrast finished-looking output with trustworthy presentation work."
+    },
+    {
+      "slide_id": "slide_03",
+      "type": "architecture",
+      "purpose": "Show the artifact sequence as a simple pipeline."
+    },
+    {
+      "slide_id": "slide_04",
+      "type": "table",
+      "purpose": "Map trust questions to files reviewers can inspect."
+    },
+    {
+      "slide_id": "slide_05",
+      "type": "table",
+      "purpose": "Show durable state without a dense paragraph."
+    },
+    {
+      "slide_id": "slide_06",
+      "type": "table",
+      "purpose": "Make browser QA checks concrete."
+    },
+    {
+      "slide_id": "slide_07",
+      "type": "comparison",
+      "purpose": "Separate current handoff from future orchestration."
+    },
+    {
+      "slide_id": "slide_08",
+      "type": "quote",
+      "purpose": "Close with a short operating principle."
+    }
+  ]
+}

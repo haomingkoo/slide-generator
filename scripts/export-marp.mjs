@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { normalizeSlideSpecs, resolveSlideSpecsPath } from "./validate-slide-specs.mjs";
+import { resolveEffectiveThemePath } from "./theme-utils.mjs";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
@@ -24,7 +25,7 @@ try {
   const slideSpecsPath = await resolveSlideSpecsPath(projectDir);
   const slideSpecs = JSON.parse(await readFile(slideSpecsPath, "utf8"));
   const { deck } = normalizeSlideSpecs(slideSpecs, slideSpecsPath);
-  const themePath = path.join(repoRoot, "renderers", "marp", "themes", `${deck.theme}.css`);
+  const themePath = await resolveEffectiveThemePath(repoRoot, projectDir, deck);
   const markdownPath = path.join(projectDir, "deck", "index.md");
   const exportDir = path.join(projectDir, "deck", "exports");
   await mkdir(exportDir, { recursive: true });
@@ -42,10 +43,12 @@ try {
     deck_title: deck.title,
     source_markdown: path.relative(repoRoot, markdownPath),
     qa_required_before_export: true,
+    browser_qa: path.relative(repoRoot, path.join(projectDir, "qa", "browser-qa.json")),
     google_slides_handoff: wantsPptx ? "Import the PPTX into Google Slides for the first supported handoff path." : null,
     outputs
   };
   await writeFile(path.join(exportDir, "export-report.json"), `${JSON.stringify(report, null, 2)}\n`);
+  runNodeScript("scripts/inspect-exports.mjs", [projectDir]);
   console.log(`exports written: ${outputs.map((item) => item.path).join(", ")}`);
 } catch (error) {
   console.error(error.message);

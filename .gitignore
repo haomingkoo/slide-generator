@@ -5,12 +5,15 @@ node_modules/
 .playwright-mcp/
 
 # Generated deck artifacts
+projects/*/input/
 projects/*/work/
 projects/*/deck/
 projects/*/exports/
 projects/*/qa/
 tests/fixtures/*/deck/
 tests/fixtures/*/qa/
+examples/*/deck/
+examples/*/qa/
 !projects/_template/work/
 !projects/_template/deck/
 !projects/_template/exports/

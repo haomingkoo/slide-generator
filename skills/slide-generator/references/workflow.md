@@ -8,6 +8,8 @@ Ask only for missing information that materially affects the deck:
 - What decision, belief, or action should the deck drive?
 - Is this live presentation or async reading?
 - How long is the talk, or how many slides are needed?
+- What is the single key message or audience shift?
+- Which themes or subtopics must be covered, and which are optional?
 - What likely questions or objections should the deck prepare for?
 - What jargon does the audience know, and what should be defined or avoided?
 - Can external research be used?
@@ -27,17 +29,19 @@ For one-shot deck generation, read `intake-and-one-shot.md`. Ask missing materia
 6. `audience-model.json`
 7. `story-spine.json`
 8. `slide-sorter.md`
-9. `visual-aid-plan.json`
-10. `theme-options.md` or `design-contract.json`
-11. `slide-specs.json`
-12. rendered HTML deck
-13. browser QA
-14. PPTX/PDF export when requested
-15. QA reports
+9. `content-priority.md`
+10. `visual-aid-plan.json`
+11. `theme-options.md` or `design-contract.json`
+12. `slide-specs.json`
+13. rendered HTML deck
+14. browser QA
+15. PPTX/PDF export when requested
+16. QA reports
 
 ## Repair Routing
 
 - Story unclear: repair `story-spine.json` and `slide-sorter.md`.
+- Too much material for the time budget: repair `content-priority.md` and `slide-sorter.md`.
 - Too wordy: repair slide titles, body copy, and notes across `slide-specs.json`.
 - One slide ugly: repair only that slide spec and render.
 - Claim failed: repair `claim-ledger.json` and affected slides.

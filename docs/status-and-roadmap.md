@@ -22,7 +22,9 @@ Done:
 - First Marp HTML renderer.
 - Rendered HTML inspection for slide count, presenter notes, and slide IDs.
 - Browser QA for slide count, presenter notes, keyboard navigation, screenshots, overflow, contrast, and step-reveal fragments.
+- Multi-viewport browser QA for standard 16:9, laptop review, and smaller review windows.
 - PPTX/PDF export command through Marp after browser QA passes.
+- Export inspection that reports Marp PPTX image-based editability boundaries.
 - Optional Marp screenshot export for manual visual review.
 - Three Marp themes.
 - Starter slide-spec templates for pitch, teaching, and technical architecture decks.
@@ -31,19 +33,25 @@ Done:
 - Design quality gate reference for content discipline, hierarchy, accessibility, anti-generic design, screenshot review, and polish.
 - Positive and negative validator fixtures.
 - GitHub CI.
+- Artifact starter generator for local deck projects.
+- Workflow status and local runner commands.
+- Initial brand extraction from text-based brand files.
+- Source-backed demo deck under `examples/source-grounded-demo`.
+- Content-priority workflow for main deck versus appendix decisions.
 
 Not done:
 
-- Artifact generators.
-- Brand observation tooling.
+- Full automatic artifact generation from arbitrary source corpora.
+- Image-based brand sampling from screenshots, logos, and decks.
 - Code snippet evidence validator.
 - Native PPTX template editor.
 - Native Google Slides API export.
 - Full accessibility engine beyond the focused browser QA checks.
+- Pixel-accurate contrast checks over gradient or image backgrounds.
 
 ## Near-Term Roadmap
 
-1. Add one rendered eval deck from real source material.
+1. Add a native editable PPTX workflow for decks that require PowerPoint text editing.
 2. Add brand observation from CSS, website screenshots, and uploaded decks.
 3. Add code-snippet evidence validation.
 4. Compare skill output against a one-shot baseline.

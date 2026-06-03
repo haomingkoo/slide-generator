@@ -23,8 +23,16 @@ const requiredFiles = [
   "docs/quality-rubric.md",
   "docs/design-skill-adoption-review.md",
   "docs/skill-eval-loop.md",
+  "docs/agentic-execution.md",
+  "docs/gemini-review-prompt.md",
   ".gitignore",
   "scripts/spec-constants.mjs",
+  "scripts/create-deck-artifacts.mjs",
+  "scripts/deck-workflow-status.mjs",
+  "scripts/extract-brand-contract.mjs",
+  "scripts/inspect-exports.mjs",
+  "scripts/run-agentic-workflow.mjs",
+  "scripts/theme-utils.mjs",
   "scripts/validate-claim-ledger.mjs",
   "scripts/lint-claim-refs.mjs",
   "scripts/validate-arch-map.mjs",
@@ -57,6 +65,7 @@ const requiredFiles = [
   "skills/slide-generator/references/intake-and-one-shot.md",
   "skills/slide-generator/references/deck-operations.md",
   "skills/slide-generator/references/memory-management.md",
+  "skills/slide-generator/references/content-prioritization.md",
   "skills/slide-generator/references/source-grounding.md",
   "skills/slide-generator/references/visual-aid-catalog.md",
   "skills/slide-generator/references/theme-selection.md",
@@ -77,6 +86,20 @@ const requiredFiles = [
   "design-systems/dark-runtime/DESIGN.md",
   "workflows/make-deck.md",
   "projects/_template/input/brief.md",
+  "examples/source-grounded-demo/input/brief.md",
+  "examples/source-grounded-demo/input/sources/repo-evidence.md",
+  "examples/source-grounded-demo/input/brand/demo-brand.css",
+  "examples/source-grounded-demo/work/intake-brief.md",
+  "examples/source-grounded-demo/work/source-map.md",
+  "examples/source-grounded-demo/work/claim-ledger.json",
+  "examples/source-grounded-demo/work/audience-model.json",
+  "examples/source-grounded-demo/work/story-spine.json",
+  "examples/source-grounded-demo/work/slide-sorter.md",
+  "examples/source-grounded-demo/work/content-priority.md",
+  "examples/source-grounded-demo/work/visual-aid-plan.json",
+  "examples/source-grounded-demo/work/design-contract.json",
+  "examples/source-grounded-demo/work/slide-specs.json",
+  "examples/source-grounded-demo/work/review-log.json",
   "tests/fixtures/valid-project/work/claim-ledger.json",
   "tests/fixtures/valid-project/work/slide-specs.json",
   "tests/fixtures/valid-project/work/architecture-map.json",
@@ -115,6 +138,7 @@ for (const phrase of [
   "references/intake-and-one-shot.md",
   "references/deck-operations.md",
   "references/audience-and-presenter-support.md",
+  "references/content-prioritization.md",
   "references/product-workflow-lessons.md",
   "references/design-contract.md",
   "references/design-quality-gates.md",
@@ -211,10 +235,24 @@ for (const phrase of [
   "Human Review Session",
   "Review Memory",
   "review-log.json",
-  "validate-review-log.mjs"
+  "validate-review-log.mjs",
+  "content-priority.md"
 ]) {
   if (!workflowReference.includes(phrase)) {
     throw new Error(`workflow reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const contentPrioritization = await readFile("skills/slide-generator/references/content-prioritization.md", "utf8");
+for (const phrase of [
+  "main_deck_budget",
+  "backup_or_appendix",
+  "dropped_or_deferred",
+  "one content slide per minute",
+  "Backup slides are not a junk drawer"
+]) {
+  if (!contentPrioritization.includes(phrase)) {
+    throw new Error(`content-prioritization reference is missing required phrase: ${phrase}`);
   }
 }
 

@@ -35,6 +35,20 @@ Use native PPTX objects when editability matters:
 
 Use image-based slides only when pixel-perfect fidelity matters more than editability.
 
+## Current Marp Export Boundary
+
+The repo's first export path uses Marp CLI for PPTX/PDF handoff. Treat that PPTX as a visual handoff unless export inspection proves native editable text exists.
+
+Do not promise:
+
+- editable PowerPoint text,
+- preserved slide masters,
+- native template layouts,
+- editable charts,
+- native Google Slides objects.
+
+When editability matters, create or edit a native PPTX workflow instead of relying on Marp export.
+
 ## PPTX QA
 
 Fail if:
@@ -45,6 +59,7 @@ Fail if:
 - text overflows or wraps badly,
 - layout repetition makes the deck monotonous,
 - code snippets or charts are rasterized when editability was required,
+- Marp PPTX export is described as editable without verification,
 - exported images show overlap, clipping, or low contrast.
 
 Assume the first render has issues. Fix and verify at least once.

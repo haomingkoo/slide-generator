@@ -76,6 +76,19 @@ Default assumptions:
 - motion_expectations: no motion unless it improves pacing or comprehension; animated or interactive aids require browser validation and a static fallback.
 - speaker_notes: concise talk track.
 
+## Slide Count Heuristic
+
+For live presentations, start with a rough upper bound of one content slide per minute. A 10-minute talk usually starts around 8 to 10 content slides, not 20.
+
+Adjust the count deliberately:
+
+- Add title, section, demo setup, or backup slides only when they improve delivery.
+- Use fewer slides for dense technical explanation, live demos, or discussion-heavy meetings.
+- Use more slides only when each slide advances one clear idea and the pacing still works.
+- Put deep evidence into backup slides when the main talk would become crowded.
+
+Record the chosen slide count or timing assumption in `work/intake-brief.md`.
+
 ## Source-Handling Modes
 
 `enhance`: The agent may clarify wording, add structure, and add researched context if the source policy allows it. New factual claims still need claim IDs.
