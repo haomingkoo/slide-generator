@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "iteration": 1,
+  "scored_at": "2026-06-03",
+  "deck_goal": "Demonstrate the source-grounded slide-generation workflow as a rendered fixture.",
+  "validated_artifact": {
+    "path": "tests/fixtures/render-project/deck/index.html",
+    "sha256": "ea57f73668549d68359a315061248e039924457eadb11fbeb0dd3a8b0edacaff",
+    "bytes": 127100,
+    "mtime_ms": 1780494746414
+  },
+  "target": {
+    "overall_score": 82,
+    "minimum_slide_score": 75
+  },
+  "overall_score": 83,
+  "minimum_slide_score": 76,
+  "verdict": "ready_for_human_review",
+  "role_reviews": {
+    "researcher": {
+      "source_coverage": "sufficient",
+      "summary": "The fixture claims are intentionally scoped to the local workflow artifacts and pass claim-reference checks.",
+      "evidence_gaps": []
+    },
+    "story_strategist": {
+      "summary": "The deck follows a clear pipeline story from evidence to render to QA, but it is still a fixture rather than a persuasive product deck.",
+      "top_risks": ["The deck explains process more than audience benefit."]
+    },
+    "designer": {
+      "summary": "The rendered slides are legible and systematic, with some fixture-like simplicity that should not be treated as final polish.",
+      "top_risks": ["Several slides are intentionally plain and would need more visual character for a public demo."]
+    },
+    "critic": {
+      "summary": "The deck is ready for human review because it is accurate, inspectable, and readable; it is not scored as ready to present.",
+      "top_risks": ["The audience may remember the workflow mechanics more than the benefit."]
+    }
+  },
+  "hard_gates": [
+    {
+      "id": "source_grounding",
+      "status": "pass",
+      "evidence": "lint-claim-refs and slide-spec validation pass for the fixture."
+    },
+    {
+      "id": "browser_qa",
+      "status": "pass",
+      "evidence": "browser-qa.json reports pass for the rendered HTML artifact."
+    },
+    {
+      "id": "human_review",
+      "status": "pass",
+      "evidence": "This fixture scorecard records a human-style critique and does not claim ready_to_present."
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "audience_fit",
+      "score": 82,
+      "rationale": "The deck is clear for maintainers reviewing the workflow, but it is less tuned for a buyer or judge.",
+      "evidence": "Audience model and slide notes frame this as a renderer fixture.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "story_flow",
+      "score": 84,
+      "rationale": "The title-only flow is coherent and moves through the pipeline in order.",
+      "evidence": "Slides progress from source grounding to render, QA, and export.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "evidence_strength",
+      "score": 86,
+      "rationale": "Claims are modest and mapped to the local claim ledger.",
+      "evidence": "Claim IDs are present on factual slides and validators pass.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "visual_explanation",
+      "score": 80,
+      "rationale": "The visuals explain the workflow but remain basic.",
+      "evidence": "Rendered slides use process, table, and proof layouts without overflow.",
+      "repair_priority": "medium"
+    },
+    {
+      "dimension_id": "design_polish",
+      "score": 78,
+      "rationale": "The deck is clean and readable but not visually distinctive.",
+      "evidence": "Browser QA passes, but the deck remains a restrained fixture.",
+      "repair_priority": "medium"
+    },
+    {
+      "dimension_id": "delivery_readiness",
+      "score": 84,
+      "rationale": "Speaker notes are usable for review and avoid unsupported claims.",
+      "evidence": "Each slide includes notes and timing.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "qa_readiness",
+      "score": 83,
+      "rationale": "The deck names QA and export boundaries clearly.",
+      "evidence": "QA and export slides set caveats rather than overclaiming.",
+      "repair_priority": "low"
+    }
+  ],
+  "slide_scores": [
+    {
+      "slide_id": "slide_01",
+      "score": 84,
+      "decision": "accept",
+      "strengths": ["Clear opening frame for the fixture."],
+      "issues": []
+    },
+    {
+      "slide_id": "slide_02",
+      "score": 82,
+      "decision": "accept",
+      "strengths": ["Orients the audience before details."],
+      "issues": []
+    },
+    {
+      "slide_id": "slide_03",
+      "score": 81,
+      "decision": "accept",
+      "strengths": ["Explains source-before-render order."],
+      "issues": []
+    },
+    {
+      "slide_id": "slide_04",
+      "score": 84,
+      "decision": "accept",
+      "strengths": ["Uses a concrete proof-bar table."],
+      "issues": []
+    },
+    {
+      "slide_id": "slide_05",
+      "score": 80,
+      "decision": "accept",
+      "strengths": ["Shows visual-aid intent rather than decoration."],
+      "issues": []
+    },
+    {
+      "slide_id": "slide_06",
+      "score": 76,
+      "decision": "repair",
+      "strengths": ["Readable and source-safe."],
+      "issues": [
+        {
+          "severity": "quality",
+          "category": "visual",
+          "note": "The slide is valid but less visually memorable than the stronger workflow slides.",
+          "repair_action": "Add a more explicit before/after visual structure without changing claims."
+        }
+      ]
+    },
+    {
+      "slide_id": "slide_07",
+      "score": 85,
+      "decision": "accept",
+      "strengths": ["States PPTX handoff limits honestly."],
+      "issues": []
+    },
+    {
+      "slide_id": "slide_08",
+      "score": 83,
+      "decision": "accept",
+      "strengths": ["Closes with a clear QA-first rule."],
+      "issues": []
+    }
+  ],
+  "summary": {
+    "score_rationale": "This fixture passes the threshold for review because it is source-safe, readable, and honest, but it is not scored as a polished public-facing deck.",
+    "strongest_slides": ["slide_04", "slide_07"],
+    "weakest_slides": ["slide_06"],
+    "top_repairs": ["Make slide_06 more visually explanatory before using this deck as a public demo."]
+  }
+}

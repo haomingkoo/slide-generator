@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "iteration": 1,
+  "status": "complete",
+  "strategy": "No blocking repair is required for the fixture threshold; keep the noted visual improvement as a follow-up.",
+  "target": {
+    "overall_score": 82,
+    "minimum_slide_score": 75
+  },
+  "source_scorecard": {
+    "path": "qa/slide-scorecard.json",
+    "overall_score": 83,
+    "minimum_slide_score": 76
+  },
+  "blocked_on": [],
+  "repairs": []
+}

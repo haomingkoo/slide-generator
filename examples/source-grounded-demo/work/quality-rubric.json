@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "deck_mode": "technical_architecture",
+  "target": {
+    "overall_score": 85,
+    "minimum_slide_score": 75,
+    "max_repair_iterations": 3,
+    "stop_condition": "ready_for_human_review or blocked_on_evidence"
+  },
+  "hard_gates": [
+    {
+      "id": "source_grounding",
+      "type": "validator",
+      "command": "npm run lint:claim-refs -- examples/source-grounded-demo",
+      "requirement": "Every factual slide claim resolves to the claim ledger."
+    },
+    {
+      "id": "browser_qa",
+      "type": "browser_qa",
+      "command": "npm run qa:browser -- examples/source-grounded-demo",
+      "requirement": "Rendered slides pass browser QA."
+    },
+    {
+      "id": "review_log",
+      "type": "human_review",
+      "command": "npm run validate:review -- examples/source-grounded-demo",
+      "requirement": "Review log records accepted and repaired slide decisions."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "audience_fit",
+      "label": "Audience fit",
+      "weight": 20,
+      "question": "Does the deck answer what the reviewer needs to understand?",
+      "pass_criteria": ["Audience benefit is explicit.", "Jargon is handled.", "Likely questions are represented."],
+      "repair_guidance": "Rewrite the story from the audience's decision point."
+    },
+    {
+      "id": "story_flow",
+      "label": "Story flow",
+      "weight": 20,
+      "question": "Do titles and transitions create a clear argument?",
+      "pass_criteria": ["Title-only flow works.", "Each slide has one job.", "The ending has a next action."],
+      "repair_guidance": "Repair the story spine before adjusting layouts."
+    },
+    {
+      "id": "evidence_strength",
+      "label": "Evidence strength",
+      "weight": 20,
+      "question": "Is the evidence strong enough for the claims being made?",
+      "pass_criteria": ["Claim IDs are present.", "Caveats are visible.", "No fake benchmarks or invented features appear."],
+      "repair_guidance": "Add sources or weaken claims before polishing copy."
+    },
+    {
+      "id": "visual_explanation",
+      "label": "Visual explanation",
+      "weight": 20,
+      "question": "Do visuals help the audience understand the workflow?",
+      "pass_criteria": ["Visuals explain mechanisms.", "Screenshots are uncluttered.", "Tables and diagrams are readable."],
+      "repair_guidance": "Choose a stronger visual aid rather than adding decoration."
+    },
+    {
+      "id": "delivery_readiness",
+      "label": "Delivery readiness",
+      "weight": 20,
+      "question": "Can the deck be delivered naturally with prepared Q&A?",
+      "pass_criteria": ["Notes are speakable.", "Timing is realistic.", "Q&A risks are addressed."],
+      "repair_guidance": "Humanize notes and add backup answers without adding claims."
+    }
+  ],
+  "role_reviews": {
+    "researcher": "Check source sufficiency and claim strength.",
+    "story_strategist": "Check narrative flow and pruning choices.",
+    "designer": "Check visual hierarchy and screenshot quality.",
+    "critic": "Review from the audience point of view and name the smallest useful repairs."
+  }
+}

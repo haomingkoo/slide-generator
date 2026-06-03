@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "deck_goal": "Demonstrate the source-grounded slide-generation workflow as a rendered fixture.",
+  "target": {
+    "overall_score": 82,
+    "minimum_slide_score": 75,
+    "max_repair_iterations": 3,
+    "stop_condition": "ready_for_human_review or blocked_on_evidence"
+  },
+  "iterations": [
+    {
+      "iteration": 1,
+      "scored_at": "2026-06-03",
+      "overall_score": 83,
+      "minimum_slide_score": 76,
+      "verdict": "ready_for_human_review",
+      "status": "pass",
+      "scorecard_path": "qa/slide-scorecard.json",
+      "repair_plan_path": "qa/repair-plan.json",
+      "artifact_sha256": "ea57f73668549d68359a315061248e039924457eadb11fbeb0dd3a8b0edacaff",
+      "repair_count": 0
+    }
+  ]
+}

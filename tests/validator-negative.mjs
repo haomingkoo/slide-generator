@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import { cp, mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { fileFingerprint } from "../scripts/artifact-utils.mjs";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const tmpRoot = await mkdtemp(path.join(os.tmpdir(), "slides-generator-validator-"));
@@ -130,6 +131,49 @@ try {
     return ["scripts/deck-workflow-status.mjs", project, "--strict"];
   });
 
+  await expectFail("quality scorecard rejects stale rendered artifact", async (project) => {
+    await copyRenderFixture(project);
+    const scorecardPath = path.join(project, "qa", "slide-scorecard.json");
+    const scorecard = JSON.parse(await readFile(scorecardPath, "utf8"));
+    scorecard.validated_artifact.sha256 = "not-the-current-rendered-deck";
+    await writeFile(scorecardPath, JSON.stringify(scorecard, null, 2));
+    return ["scripts/validate-slide-scorecard.mjs", project];
+  });
+
+  await expectFail("quality scorecard rejects weighted score mismatch", async (project) => {
+    await copyRenderFixture(project);
+    const scorecardPath = path.join(project, "qa", "slide-scorecard.json");
+    const scorecard = JSON.parse(await readFile(scorecardPath, "utf8"));
+    scorecard.overall_score = 99;
+    await writeFile(scorecardPath, JSON.stringify(scorecard, null, 2));
+    return ["scripts/validate-slide-scorecard.mjs", project];
+  });
+
+  await expectFail("repair plan rejects missing repairs below target", async (project) => {
+    await copyRenderFixture(project);
+    const scorecardPath = path.join(project, "qa", "slide-scorecard.json");
+    const repairPath = path.join(project, "qa", "repair-plan.json");
+    const scorecard = JSON.parse(await readFile(scorecardPath, "utf8"));
+    const repairPlan = JSON.parse(await readFile(repairPath, "utf8"));
+    scorecard.overall_score = 70;
+    scorecard.dimension_scores[0].score = 0;
+    scorecard.dimension_scores[0].repair_priority = "blocker";
+    scorecard.verdict = "needs_repair";
+    repairPlan.status = "open";
+    repairPlan.source_scorecard.overall_score = 70;
+    repairPlan.repairs = [];
+    await writeFile(scorecardPath, JSON.stringify(scorecard, null, 2));
+    await writeFile(repairPath, JSON.stringify(repairPlan, null, 2));
+    return ["scripts/validate-repair-plan.mjs", project];
+  });
+
+  await expectFail("score deck cannot lower rubric threshold", async (project) => {
+    await copyRenderFixture(project);
+    return ["scripts/score-deck.mjs", project, "--threshold", "0"];
+  });
+
+  await expectNormalizedMarpFingerprint();
+
   console.log("negative validator fixtures rejected as expected");
 } finally {
   await rm(tmpRoot, { recursive: true, force: true });
@@ -164,6 +208,30 @@ async function copyRenderFixture(project) {
     recursive: true,
     force: true
   });
+}
+
+async function expectNormalizedMarpFingerprint() {
+  const project = path.join(tmpRoot, "marp-fingerprint-normalization");
+  await mkdir(project, { recursive: true });
+  const left = path.join(project, "left.html");
+  const right = path.join(project, "right.html");
+  const changed = path.join(project, "changed.html");
+  await writeFile(left, marpHtml("a".repeat(32), "Same title"));
+  await writeFile(right, marpHtml("b".repeat(32), "Same title"));
+  await writeFile(changed, marpHtml("b".repeat(32), "Changed title"));
+  const leftHash = await fileFingerprint(left);
+  const rightHash = await fileFingerprint(right);
+  const changedHash = await fileFingerprint(changed);
+  if (leftHash.sha256 !== rightHash.sha256) {
+    throw new Error("Marp fingerprint normalization should ignore generated theme IDs");
+  }
+  if (rightHash.sha256 === changedHash.sha256) {
+    throw new Error("Marp fingerprint normalization must still detect content changes");
+  }
+}
+
+function marpHtml(themeId, title) {
+  return `<!doctype html><html><body><svg data-marpit-svg=""><foreignObject><section data-theme="${themeId}" style="--theme:${themeId};"><h1>${title}</h1></section></foreignObject></svg></body></html>`;
 }
 
 function validProjectData() {

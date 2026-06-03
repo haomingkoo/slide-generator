@@ -15,6 +15,7 @@ The goal contract must include:
 - Source mode: user-provided only, allowed web research, codebase inspection, or mixed.
 - Output mode: HTML review deck, PDF, PPTX handoff, Google Slides handoff, or speaker script.
 - Review mode: full deck review, slide-by-slide review, executive summary review, or rehearsal/Q&A review.
+- Quality target: rubric mode, overall score threshold, minimum main-slide score, and maximum repair iterations.
 - Stop condition: ready for human review, ready to present, blocked on evidence, or intentionally scoped draft.
 
 If the user does not know the right slide count, use time as the first constraint. A useful default is at most one main slide per minute of live presentation, then move overflow to backup or appendix slides.
@@ -33,8 +34,9 @@ Work in phases. At the end of each phase, update artifacts before moving on.
 8. `design`: create or reuse a design contract with explicit tokens, patterns, avoid rules, and accessibility rules.
 9. `render`: create slide specs and render with Marp.
 10. `qa`: run deterministic checks, browser QA, export checks when relevant, and a human design critique.
-11. `review`: record slide-by-slide feedback and recurring issues in `work/review-log.json`.
-12. `repair`: repair the smallest failing artifact, rerun the gate, and avoid regenerating the whole deck unless the story goal changed.
+11. `score`: write `qa/slide-scorecard.json` and `qa/repair-plan.json` from researcher, story, designer, and critic reviews.
+12. `review`: record slide-by-slide feedback and recurring issues in `work/review-log.json`.
+13. `repair`: repair the smallest failing artifact, rerun the gate, and avoid regenerating the whole deck unless the story goal changed.
 
 ## Render Gates
 
@@ -44,6 +46,7 @@ Run these commands during the loop:
 npm run workflow:status -- <project>
 npm run workflow:status -- <project> -- --render-ready
 npm run deck:build -- <project> --render
+npm run deck:score -- <project>
 ```
 
 Use `--render-ready` before rendering. It must pass source, claim-reference, audience, story, design, and slide-spec checks. Use full status after QA and review artifacts exist.
@@ -81,6 +84,7 @@ A deck is not complete because it rendered. It is complete only when:
 - Required artifacts pass validation.
 - All main-deck factual claims are represented in `claim-ledger.json`.
 - Browser QA passes for rendered slides.
+- Quality scorecard and repair plan validate; below-target numeric scores remain repair guidance, not proof of failure by themselves.
 - Export QA passes when export is requested.
 - Review log has no unresolved high-severity slide issues.
 - The deck has a clear main message, audience benefit, and next action.

@@ -2,6 +2,46 @@
 
 Use this rubric during critique and QA.
 
+## Quality Loop Artifacts
+
+The skill can work toward an explicit quality target, but the score is not a substitute for hard guardrails or human judgment.
+
+- `work/quality-rubric.json`: deck mode, score thresholds, hard gates, weighted dimensions, and role prompts.
+- `qa/slide-scorecard.json`: researcher, story, designer, and critic reviews plus dimension and slide scores.
+- `qa/repair-plan.json`: targeted repairs required to cross the threshold or resolve blockers.
+- `qa/score-history.json`: optional score trend across iterations.
+
+Run:
+
+```bash
+npm run deck:score -- <project>
+npm run deck:iterate -- <project> -- --threshold 88
+```
+
+`deck:iterate` is deterministic. Claude/Codex still performs the critique and repair by updating artifacts, then reruns the gate.
+
+`deck:score` exits non-zero for invalid artifacts or failed hard gates. A below-target numeric score is advisory, because the score is an agent-authored review signal. `--threshold` and `--min-slide-score` may only raise the rubric target.
+
+## Hard Gates Versus Scores
+
+Hard gates are pass/fail and cannot be averaged away:
+
+- source grounding,
+- architecture evidence when diagrams use code,
+- browser QA,
+- export QA when requested,
+- unresolved high-severity review issues.
+
+Scores steer quality repair:
+
+- audience fit,
+- story flow,
+- evidence strength,
+- visual explanation,
+- design polish,
+- delivery readiness,
+- Q&A readiness.
+
 ## Story
 
 - Deck mode is explicit: fundraising, hackathon demo, executive decision, technical proof, teaching, sales, training, or update.

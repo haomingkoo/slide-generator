@@ -26,7 +26,8 @@ flowchart TD
   N --> O[Deterministic claim checks]
   O --> P[Source audit]
   P --> T[Browser QA]
-  T --> Q{Pass?}
+  T --> W[Scorecard + repair plan]
+  W --> Q{Pass?}
   Q -->|No| R[Repair targeted artifact]
   R --> N
   Q -->|Yes| S[Export]
@@ -48,8 +49,11 @@ Every project should produce these files in `projects/<name>/work/` before rende
 - `visual-aid-plan.json`: visual pattern selected for each hard idea.
 - `theme-options.md`: 2 or 3 proposed directions before final selection.
 - `design-contract.json`: theme tokens, spacing, typography, patterns, and design decisions.
+- `quality-rubric.json`: deck mode, hard gates, score threshold, weighted dimensions, and role review prompts.
 - `slide-specs.json`: precise slide instructions for rendering.
-- Deterministic checks: claim ledger, claim refs, architecture map, audience model, story spine, design contract, slide specs, rendered HTML, browser QA.
+- `qa/slide-scorecard.json`: researcher, story, designer, and critic review scores after rendering. Scores guide repair; they do not certify quality.
+- `qa/repair-plan.json`: smallest targeted repairs needed to cross the quality threshold.
+- Deterministic checks: claim ledger, claim refs, architecture map, audience model, story spine, design contract, quality rubric, slide specs, rendered HTML, browser QA, scorecard, repair plan.
 
 ## One-Shot Drafting
 

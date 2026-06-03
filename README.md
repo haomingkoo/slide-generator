@@ -58,6 +58,7 @@ The important work happens before rendering:
 - `story-spine.json` and `slide-sorter.md`: the deck flow is reviewable before slide copy expands.
 - `content-priority.md`: crowded material is split into main deck, backup, appendix, or dropped content.
 - `design-contract.json`: visual direction, tokens, layout rules, and design decisions are durable.
+- `quality-rubric.json`: score thresholds, hard gates, and role-specific review prompts are explicit.
 - `slide-specs.json`: each slide has a job, claims, visual aid, speaker notes, and validation expectations.
 - `review-log.json`: slide-by-slide feedback and repeated mistakes are recorded.
 
@@ -71,6 +72,8 @@ The deterministic scripts do not replace judgment. They make failures visible: m
 | `npm run init:deck -- projects/my-deck` | Create a local project scaffold. |
 | `npm run workflow:status -- <project>` | Report which artifacts exist and what to repair next. |
 | `npm run deck:build -- <project> --render --export` | Validate, render, run browser QA, and optionally export. |
+| `npm run deck:score -- <project>` | Validate hard gates, scorecard, and repair plan; numeric scores are advisory. |
+| `npm run deck:iterate -- <project> -- --threshold 88` | Render, QA, and validate quality artifacts after Claude/Codex writes critique artifacts. |
 | `npm run render:marp -- <project> --html` | Render `work/slide-specs.json` to Marp Markdown/HTML. |
 | `npm run qa:browser -- <project>` | Run multi-viewport browser QA. |
 | `npm run export:marp -- <project> --pptx --pdf` | Export after render/QA. |
