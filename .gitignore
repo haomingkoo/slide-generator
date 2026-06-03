@@ -3,6 +3,7 @@ node_modules/
 
 # Local browser/tool dumps
 .playwright-mcp/
+.agent-work/
 
 # Generated deck artifacts
 projects/*/input/

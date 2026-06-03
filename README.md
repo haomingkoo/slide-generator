@@ -729,8 +729,6 @@ Then compare story quality, source grounding, visual aid choices, speaker notes,
 - `docs/agentic-execution.md`: how the workflow executes today and how it can map to Deep Agents or LangGraph later.
 - `docs/status-and-roadmap.md`: current status and next implementation steps.
 - `docs/renderer-strategy.md`: HTML-first renderer plan and Marp-style target.
-- `docs/design-skill-adoption-review.md`: what external design-skill ideas were adopted, deferred, or rejected.
-- `docs/gemini-review-prompt.md`: detailed prompt for asking another model to review this repo.
 - `docs/no-hallucination-policy.md`: accuracy rules.
 - `docs/quality-rubric.md`: deck quality checklist.
 - `skills/slide-generator/references/deck-operations.md`: common edit and transformation operations.
@@ -739,7 +737,6 @@ Then compare story quality, source grounding, visual aid choices, speaker notes,
 - `skills/slide-generator/references/design-quality-gates.md`: visual hierarchy, accessibility, clutter, and polish gates.
 - `docs/skill-eval-loop.md`: how to test and improve the skill.
 - `docs/runtime-compatibility.md`: Codex and Claude Code compatibility.
-- `docs/claude-review-brief.md`: prompt another agent to critique the plan.
 - `docs/codex-ecosystem.md`: Codex-native skill/plugin notes.
 
 ## Validate The Scaffold
