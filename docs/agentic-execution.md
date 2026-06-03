@@ -1,24 +1,26 @@
 # Agentic Execution
 
-This repo is an agentic workflow repo first and a renderer second.
+This repo is a slide-generation skill and artifact workflow first, with deterministic rendering and QA tools underneath it.
 
 The renderer can turn `work/slide-specs.json` into HTML, PPTX, PDF, and screenshots. That is useful, but it is not the whole system. The agentic part is the loop around the renderer: intake, source review, claim ledger, audience model, story spine, visual aid plan, design contract, slide specs, QA, human review, and targeted repair.
 
 ## How The System Executes Today
 
-Today the execution model is human-directed agentic work:
+Today the execution model is human-directed agentic work plus a deterministic build runner:
 
 1. A human opens the repo in Codex or Claude Code.
 2. The human asks the agent to use the `slide-generator` skill.
 3. The agent follows `workflows/make-deck.md`.
 4. The agent writes durable artifacts into `projects/<name>/work/`.
-5. The agent runs deterministic validators and render/QA commands.
+5. The agent runs deterministic validators and render/QA commands, usually through `npm run deck:build`.
 6. The agent stops for review after the rendered draft and QA report.
 7. The human reviews the deck slide by slide.
 8. The agent records review decisions in `work/review-log.json`.
 9. The agent repairs only the failed artifact or slide.
 
-That is already agentic because the agent plans, writes state, calls tools, validates output, uses browser feedback, and resumes from files instead of relying on chat memory.
+That run is agentic because the agent plans, writes state, calls tools, validates output, uses browser feedback, and resumes from files instead of relying on chat memory.
+
+`npm run deck:build` itself is not the agent. It is a deterministic runner for checks, render, browser QA, export, and export inspection. If the planning artifacts are wrong, the runner should fail or expose the problem; it should not invent missing decisions.
 
 It is not yet a fully automated server-side agent runner. There is no LangGraph, Deep Agents, Temporal, queue, or hosted orchestration layer in the repo today.
 

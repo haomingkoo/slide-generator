@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
@@ -87,6 +87,49 @@ try {
     return ["scripts/validate-arch-map.mjs", project];
   });
 
+  await expectFail("render-ready rejects unknown claim refs", async (project) => {
+    await copyRenderFixture(project);
+    const slidesPath = path.join(project, "work", "slide-specs.json");
+    const slides = JSON.parse(await readFile(slidesPath, "utf8"));
+    slides.slides[2].claim_ids = ["claim_does_not_exist"];
+    await writeFile(slidesPath, JSON.stringify(slides, null, 2));
+    return ["scripts/deck-workflow-status.mjs", project, "--render-ready"];
+  });
+
+  await expectFail("render-ready validates architecture map when present", async (project) => {
+    await copyRenderFixture(project);
+    await mkdir(path.join(project, "input", "codebase", "app"), { recursive: true });
+    await writeFile(path.join(project, "input", "codebase", "app", "ui.py"), "def build():\n    return True\n");
+    await writeFile(path.join(project, "work", "architecture-map.json"), JSON.stringify({
+      nodes: [
+        {
+          id: "frontend",
+          label: "Frontend",
+          evidence: "/etc/hosts"
+        }
+      ],
+      edges: []
+    }, null, 2));
+    return ["scripts/deck-workflow-status.mjs", project, "--render-ready"];
+  });
+
+  await expectFail("workflow status rejects stale browser QA", async (project) => {
+    await copyRenderFixture(project);
+    await mkdir(path.join(project, "deck"), { recursive: true });
+    await mkdir(path.join(project, "qa"), { recursive: true });
+    await writeFile(path.join(project, "deck", "index.html"), "<!doctype html><title>changed deck</title>\n");
+    await writeFile(path.join(project, "qa", "browser-qa.json"), JSON.stringify({
+      status: "pass",
+      validated_artifact: {
+        path: "deck/index.html",
+        sha256: "not-the-current-hash",
+        bytes: 1,
+        mtime_ms: 1
+      }
+    }, null, 2));
+    return ["scripts/deck-workflow-status.mjs", project, "--strict"];
+  });
+
   console.log("negative validator fixtures rejected as expected");
 } finally {
   await rm(tmpRoot, { recursive: true, force: true });
@@ -114,6 +157,13 @@ async function writeProject(project, data) {
   await writeFile(path.join(workDir, "slide-specs.json"), JSON.stringify(data.slides, null, 2));
   await writeFile(path.join(workDir, "architecture-map.json"), JSON.stringify(data.architecture, null, 2));
   await writeFile(path.join(codeDir, "ui.py"), "def ask_backend(question: str) -> dict:\n    payload = {\"question\": question}\n    return payload\n");
+}
+
+async function copyRenderFixture(project) {
+  await cp(path.join(repoRoot, "tests", "fixtures", "render-project"), project, {
+    recursive: true,
+    force: true
+  });
 }
 
 function validProjectData() {

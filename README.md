@@ -45,7 +45,7 @@ npm run export:marp -- tests/fixtures/render-project --pptx --pdf
 Render the source-backed demo deck:
 
 ```bash
-npm run agentic:run -- examples/source-grounded-demo --render --export
+npm run deck:build -- examples/source-grounded-demo --render --export
 open examples/source-grounded-demo/deck/index.html
 ```
 
@@ -67,7 +67,7 @@ npm run qa:browser -- projects/my-deck --viewport standard
 
 ## What This Repo Is
 
-This is an agentic workflow repo.
+This is a slide-generation skill repo with a deterministic build and QA toolkit.
 
 It is not only a template pack, a renderer, or a prompt. It gives an agent a repeatable way to work:
 
@@ -90,17 +90,55 @@ In practical terms, the repo has four layers:
 - **Guardrails**: `scripts/*.mjs` validate claims, audience, story, design, slide specs, rendered HTML, and browser output.
 - **Rendering assets**: `renderers/` and `templates/` turn checked slide specs into HTML, PPTX/PDF exports, and screenshots.
 
+## Entry Points
+
+Start from the entry point that matches the user:
+
+- **Human maintainer**: start with this `README.md`, then run `npm run init:deck -- projects/my-deck`.
+- **Codex**: start with `AGENTS.md`, then use `.agents/skills/slide-generator/SKILL.md`.
+- **Claude Code**: start with `.claude/commands/make-deck.md`, then use `.claude/skills/slide-generator/SKILL.md`.
+- **Build pipeline**: use `npm run deck:build -- <project-dir> --render --export`.
+
+`npm run deck:build` is not an autonomous agent. It is a deterministic runner that checks the project artifacts, renders, runs browser QA, exports, and inspects output. The agentic work happens before and after that runner: gathering requirements, writing artifacts, interpreting QA, and repairing the right slide or artifact.
+
+## Folder Map
+
+The repo has many folders because it separates agent behavior, build tools, deck assets, tests, and local work:
+
+```txt
+AGENTS.md                  Codex entry point for this repo
+.agents/skills/            Codex runtime skill mirror
+.claude/                   Claude Code command and skill mirror
+skills/                    Canonical editable skill source
+workflows/                 Human-readable phase order
+scripts/                   Deterministic validators, renderers, QA, export tools
+renderers/                 Output-specific renderer assets
+templates/                 Starter slide specs and design contracts
+design-systems/            Theme intent docs
+visual-catalog/            Reusable visual-aid examples
+examples/                  Public demo projects with committed source/work artifacts
+projects/                  Local deck projects; generated content is mostly gitignored
+tests/                     Fixtures and negative guardrail tests
+evals/                     Skill evaluation prompts
+docs/                      Maintainer architecture and policy notes
+.agent-work/               Local private inter-agent review notes; ignored by git
+```
+
+Runtime rule of thumb:
+
+- If an agent needs it while making a deck, it belongs in `skills/slide-generator/references/`.
+- If a command runs it, it belongs in `scripts/`.
+- If it is reusable design or rendering material, it belongs in `templates/`, `renderers/`, `design-systems/`, or `visual-catalog/`.
+- If it is only a review prompt, critique, or temporary agent discussion, keep it in `.agent-work/`.
+
 ## How People Run It
 
 There are two ways to use the repo today.
 
-Use it as a renderer and validator:
+Use it as a deterministic renderer, validator, and exporter:
 
 ```bash
-npm run render:marp -- projects/my-deck --html
-npm run inspect:marp -- projects/my-deck
-npm run qa:browser -- projects/my-deck
-npm run export:marp -- projects/my-deck --pptx --pdf
+npm run deck:build -- projects/my-deck --render --export
 ```
 
 Use it agentically through Codex or Claude Code:

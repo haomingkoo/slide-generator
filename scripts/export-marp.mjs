@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { fileFingerprint } from "./artifact-utils.mjs";
 import { normalizeSlideSpecs, resolveSlideSpecsPath } from "./validate-slide-specs.mjs";
 import { resolveEffectiveThemePath } from "./theme-utils.mjs";
 
@@ -27,6 +28,8 @@ try {
   const { deck } = normalizeSlideSpecs(slideSpecs, slideSpecsPath);
   const themePath = await resolveEffectiveThemePath(repoRoot, projectDir, deck);
   const markdownPath = path.join(projectDir, "deck", "index.md");
+  const htmlPath = path.join(projectDir, "deck", "index.html");
+  const validatedArtifact = await fileFingerprint(htmlPath, repoRoot);
   const exportDir = path.join(projectDir, "deck", "exports");
   await mkdir(exportDir, { recursive: true });
 
@@ -42,6 +45,7 @@ try {
   const report = {
     deck_title: deck.title,
     source_markdown: path.relative(repoRoot, markdownPath),
+    validated_artifact: validatedArtifact,
     qa_required_before_export: true,
     browser_qa: path.relative(repoRoot, path.join(projectDir, "qa", "browser-qa.json")),
     google_slides_handoff: wantsPptx ? "Import the PPTX into Google Slides for the first supported handoff path." : null,

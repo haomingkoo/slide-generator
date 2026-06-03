@@ -2,6 +2,7 @@ import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { chromium } from "playwright";
+import { fileFingerprint } from "./artifact-utils.mjs";
 import { normalizeSlideSpecs, resolveSlideSpecsPath } from "./validate-slide-specs.mjs";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
@@ -21,6 +22,7 @@ try {
   const { slides } = normalizeSlideSpecs(specs, slideSpecsPath);
   const htmlPath = path.join(projectDir, "deck", "index.html");
   await stat(htmlPath);
+  const validatedArtifact = await fileFingerprint(htmlPath, repoRoot);
 
   const qaDir = path.join(projectDir, "qa");
   const screenshotDir = path.join(qaDir, "browser-screenshots");
@@ -49,6 +51,7 @@ try {
   const report = {
     project: path.relative(repoRoot, projectDir),
     html: path.relative(repoRoot, htmlPath),
+    validated_artifact: validatedArtifact,
     viewport_mode: viewportMode(),
     generated_at: new Date().toISOString(),
     viewports: viewportReports,

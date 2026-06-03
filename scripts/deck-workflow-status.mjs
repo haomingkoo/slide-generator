@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { access, readFile, stat } from "node:fs/promises";
 import path from "node:path";
+import { fileFingerprint, fingerprintsMatch } from "./artifact-utils.mjs";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
@@ -20,6 +21,8 @@ const checks = [
   { path: "work/intake-brief.md", phase: "intake" },
   { path: "work/source-map.md", phase: "source_review" },
   { path: "work/claim-ledger.json", phase: "evidence", script: "scripts/validate-claim-ledger.mjs", renderRequired: true },
+  { path: "work/slide-specs.json", phase: "evidence_integrity", script: "scripts/lint-claim-refs.mjs", renderRequired: true },
+  { path: "work/architecture-map.json", phase: "architecture_evidence", script: "scripts/validate-arch-map.mjs", renderRequired: true, optional: true },
   { path: "work/audience-model.json", phase: "audience", script: "scripts/validate-audience-model.mjs", renderRequired: true },
   { path: "work/story-spine.json", phase: "story", script: "scripts/validate-story-spine.mjs", renderRequired: true },
   { path: "work/slide-sorter.md", phase: "story" },
@@ -42,7 +45,7 @@ try {
   const failed = results.filter((item) => item.status === "fail");
   const missing = results.filter((item) => item.status === "missing");
   const requiredMissing = renderReady
-    ? results.filter((item) => item.renderRequired && item.status !== "pass")
+    ? results.filter((item) => item.render_required && item.status !== "pass")
     : agentic
       ? results.filter((item) => item.status !== "pass")
       : [];
@@ -80,6 +83,9 @@ async function runCheck(check) {
   const absolutePath = path.join(projectDir, check.path);
   const exists = await fileExists(absolutePath);
   if (!exists) {
+    if (check.optional) {
+      return { ...publicCheck(check), status: "pass", message: `${check.path} is optional and not present` };
+    }
     return { ...publicCheck(check), status: "missing", message: `${check.path} is missing` };
   }
   if (check.script) {
@@ -108,7 +114,8 @@ function publicCheck(check) {
   return {
     path: check.path,
     phase: check.phase,
-    render_required: check.renderRequired === true
+    render_required: check.renderRequired === true,
+    optional: check.optional === true
   };
 }
 
@@ -126,6 +133,12 @@ function describePass(isRenderReady, isAgentic) {
 async function validateBrowserQa(filePath) {
   const report = JSON.parse(await readFile(filePath, "utf8"));
   if (report.status !== "pass") return `browser QA status is ${report.status}`;
+  const htmlPath = path.join(projectDir, "deck", "index.html");
+  if (!await fileExists(htmlPath)) return "browser QA exists but deck/index.html is missing";
+  const current = await fileFingerprint(htmlPath, repoRoot);
+  if (!fingerprintsMatch(report.validated_artifact, current)) {
+    return `browser QA is stale for deck/index.html; expected ${report.validated_artifact?.sha256 ?? "missing hash"}, current ${current.sha256}`;
+  }
   return null;
 }
 

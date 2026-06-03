@@ -23,6 +23,8 @@ const requiredFiles = [
   "docs/agentic-execution.md",
   ".gitignore",
   "scripts/spec-constants.mjs",
+  "scripts/artifact-utils.mjs",
+  "scripts/build-deck.mjs",
   "scripts/create-deck-artifacts.mjs",
   "scripts/deck-workflow-status.mjs",
   "scripts/extract-brand-contract.mjs",

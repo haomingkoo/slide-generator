@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { fileFingerprint, fingerprintsMatch } from "./artifact-utils.mjs";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
@@ -16,6 +17,8 @@ try {
   const report = JSON.parse(await readFile(reportPath, "utf8"));
   const browserQaPath = path.join(projectDir, "qa", "browser-qa.json");
   const browserQa = JSON.parse(await readFile(browserQaPath, "utf8"));
+  const htmlPath = path.join(projectDir, "deck", "index.html");
+  const currentHtml = await fileFingerprint(htmlPath, repoRoot);
   const issues = [];
   const inspectedOutputs = [];
 
@@ -24,6 +27,12 @@ try {
   }
   if (browserQa.status !== "pass") {
     issues.push(`browser QA status is ${browserQa.status}`);
+  }
+  if (!fingerprintsMatch(browserQa.validated_artifact, currentHtml)) {
+    issues.push("browser QA is stale for deck/index.html");
+  }
+  if (!fingerprintsMatch(report.validated_artifact, currentHtml)) {
+    issues.push("export report is stale for deck/index.html");
   }
   if (!Array.isArray(report.outputs) || report.outputs.length === 0) {
     issues.push("export report has no outputs");
@@ -70,6 +79,7 @@ try {
     project: path.relative(repoRoot, projectDir),
     generated_at: new Date().toISOString(),
     status: issues.length > 0 ? "fail" : "pass",
+    validated_artifact: currentHtml,
     browser_qa: path.relative(repoRoot, browserQaPath),
     outputs: inspectedOutputs,
     caveats: [
