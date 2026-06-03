@@ -1,8 +1,31 @@
 {
   "name": "slides-generator",
+  "description": "Source-grounded agent workflow for building accurate, presentation-ready slide decks.",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/haomingkoo/slide-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haomingkoo/slide-generator/issues"
+  },
+  "homepage": "https://github.com/haomingkoo/slide-generator#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "slides",
+    "presentation",
+    "codex",
+    "claude",
+    "agents",
+    "marp",
+    "pptx",
+    "source-grounding"
+  ],
   "scripts": {
     "test": "node scripts/validate-project.mjs && node scripts/validate-claim-ledger.mjs tests/fixtures/valid-project && node scripts/lint-claim-refs.mjs tests/fixtures/valid-project && node scripts/validate-arch-map.mjs tests/fixtures/valid-project && node tests/validator-negative.mjs",
     "validate:ledger": "node scripts/validate-claim-ledger.mjs",

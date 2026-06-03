@@ -1,10 +1,12 @@
 # slides-generator
 
+[![CI](https://github.com/haomingkoo/slide-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/haomingkoo/slide-generator/actions/workflows/ci.yml)
+
 `slides-generator` is a repo for building source-grounded slide decks with agents.
 
 The goal is not to make slides from a single prompt. The goal is to turn rough material into a deck that is accurate, clear, visually useful, and ready for a real presentation.
 
-This repo is currently in the design and workflow phase. It has the skill, planning structure, guardrails, eval prompts, and compatibility setup for Codex and Claude Code. The renderer and CLI are the next build step.
+This repo is currently a pre-render pipeline scaffold. It has the skill, planning structure, guardrails, validator scripts, eval prompts, CI, and compatibility setup for Codex and Claude Code. The renderer and CLI are the next build step.
 
 ## Why This Exists
 
@@ -433,6 +435,8 @@ Then compare story quality, source grounding, visual aid choices, speaker notes,
 
 - `docs/workflow.md`: full slide production flow.
 - `docs/architecture.md`: repo architecture.
+- `docs/status-and-roadmap.md`: current status and next implementation steps.
+- `docs/renderer-strategy.md`: HTML-first renderer plan and Marp-style target.
 - `docs/no-hallucination-policy.md`: accuracy rules.
 - `docs/quality-rubric.md`: deck quality checklist.
 - `skills/slide-generator/references/deck-operations.md`: common edit and transformation operations.
@@ -449,7 +453,7 @@ Run:
 npm test
 ```
 
-This currently checks required files, eval schema, and skill mirror consistency.
+This checks required files, eval schema, skill mirror consistency, deterministic claim validators, deterministic architecture evidence validation, and negative validator fixtures.
 
 ## Current Status
 
@@ -462,16 +466,23 @@ Done:
 - visual aid catalog direction,
 - brand, PDF, PPTX, frontend, and codebase references,
 - eval cases,
-- validation script.
+- deterministic claim-ledger validation,
+- deterministic slide claim-reference validation,
+- deterministic architecture evidence validation,
+- negative validator fixtures,
+- GitHub CI.
 
 Next:
 
 - implement artifact generators,
-- implement claim ledger checks,
 - implement slide spec schema,
 - implement HTML renderer,
 - implement browser screenshot QA,
 - run the first real eval against a baseline.
+
+## License
+
+No open-source license has been selected yet. Until a license is added, all rights are reserved by default.
 
 ## First Real Test To Run
 
