@@ -1,0 +1,30 @@
+{
+  "deck_goal": "Explain why a source-grounded slide pipeline is easier to trust and repair.",
+  "sessions": [
+    {
+      "date": "2026-06-03",
+      "summary": "Fixture review confirms the deck should stay humble, artifact-driven, and source-grounded.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_01",
+          "decision": "accept",
+          "note": "Opening slide frames the workflow without overclaiming."
+        },
+        {
+          "slide_id": "slide_03",
+          "decision": "visual_edit",
+          "note": "Use step reveal only because the sequence matters.",
+          "repair_target": "slide-specs.json"
+        }
+      ],
+      "recurring_issues": [
+        "Do not make factual-sounding process claims without claim IDs.",
+        "Do not add motion unless it improves comprehension."
+      ],
+      "new_rules": [
+        "Every slide must have a slide_job separate from layout.",
+        "Animated or interactive visual aids require browser validation and a static fallback."
+      ]
+    }
+  ]
+}

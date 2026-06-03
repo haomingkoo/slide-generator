@@ -10,19 +10,44 @@ Before planning slides, resolve these fields:
 
 - `topic`: what the deck is about.
 - `audience`: who will see it and what they already know.
+- `audience_segments`: the major audience groups if there is more than one.
 - `job_to_be_done`: what the audience should understand, believe, decide, or do.
+- `decision_context`: what decision, approval, lesson, or next step the deck supports.
 - `delivery_mode`: live talk, async reading deck, workshop, recorded video, or document handoff.
 - `time_or_length`: talk length, target slide count, or reading depth.
+- `likely_questions`: questions the audience is likely to ask.
+- `known_objections`: concerns or resistance the deck should handle.
+- `jargon_baseline`: what terms the audience already understands, what to define, and what to avoid.
+- `backup_evidence_depth`: none, light appendix, detailed appendix, or Q&A-ready backup.
+- `qa_mode`: none, brief anticipated Q&A, detailed Q&A, or backup-slide Q&A.
+- `presenter_style`: concise, conversational, executive, technical, teaching, or workshop.
+- `rehearsal_time`: how much time the presenter has to practice, if relevant.
 - `source_policy`: `source_only`, `source_first`, `broad_research`, or `style_research`.
 - `source_handling`: `enhance`, `preserve`, or `strict`.
 - `output_mode`: HTML, PDF, editable PPTX, Google Slides handoff, or multiple exports.
 - `style_direction`: clean light, warm editorial, dark runtime, brand-derived, or user-specified.
 - `brand_inputs`: brand guide, website, existing deck, logo, colors, fonts, or none.
 - `visual_expectations`: diagrams, charts, before/after, phone mockups, code snippets, demos, or minimal.
+- `motion_expectations`: none, subtle transitions, step reveals, or interactive visual aids.
 - `accuracy_bar`: normal, strict, regulated, investor/client-facing, or internal draft.
 - `speaker_notes`: none, concise talk track, detailed talk track, or presenter coaching.
 - `must_include`: required points, sources, examples, demos, or screenshots.
 - `must_avoid`: claims, tone, styles, jargon, competitors, or sensitive material to avoid.
+
+## Intake Output
+
+After requirements gathering, write `work/intake-brief.md` with a clear goal before creating the claim ledger or story spine.
+
+The brief must include:
+
+- `deck_goal`: one sentence describing what the deck must accomplish.
+- `audience_shift`: what the audience should move from believing/knowing to believing/knowing.
+- `success_criteria`: how a human reviewer will know the deck worked.
+- `constraints`: time, slide count, output format, source policy, brand, accuracy bar, and delivery mode.
+- `assumptions`: defaults used because the user did not specify something.
+- `open_questions`: important unknowns that remain.
+
+Do not render until the deck goal is clear enough to judge every slide against it.
 
 ## Ask Once, Then Move
 
@@ -36,11 +61,19 @@ Default assumptions:
 - job_to_be_done: explain clearly and help the audience decide what to do next.
 - delivery_mode: live presentation with speaker notes.
 - time_or_length: 8 to 12 slides unless the prompt implies otherwise.
+- likely_questions: infer from audience stakes and record as assumptions.
+- known_objections: infer the top 1 to 3 risks when the deck is persuasive or technical.
+- jargon_baseline: define specialized terms on first use for mixed audiences.
+- backup_evidence_depth: light appendix for client, investor, technical, or high-stakes decks; none for quick internal drafts.
+- qa_mode: brief anticipated Q&A for live talks; none for async reading unless requested.
+- presenter_style: concise and plain-spoken.
+- rehearsal_time: unknown.
 - source_policy: `source_only` when files are provided; `source_first` when the user asks for current context.
 - source_handling: `strict` for legal, financial, medical, technical architecture, code, benchmarks, and client-facing claims; otherwise `enhance`.
 - output_mode: HTML draft first, then PDF or PPTX export when requested.
 - style_direction: `clean-surgical-light` unless the prompt, brand, or topic calls for something else.
 - visual_expectations: use visual aids for change, sequence, architecture, comparison, tradeoffs, and hidden mechanisms.
+- motion_expectations: no motion unless it improves pacing or comprehension; animated or interactive aids require browser validation and a static fallback.
 - speaker_notes: concise talk track.
 
 ## Source-Handling Modes
@@ -61,7 +94,9 @@ The deck should help them [decision, belief, action, or learning outcome].
 Use [source policy] and [source handling].
 Use this style direction: [style or reference].
 Include these visual aids if useful: [diagrams, charts, before/after, demos, screenshots].
+Use [none/subtle transitions/step reveals/interactive aids] only where motion improves understanding.
 Output [HTML/PDF/PPTX] with [speaker note preference].
+Prepare for likely questions about [questions/objections/jargon].
 Must include: [required points].
 Must avoid: [unsupported claims, tone, styles, sensitive details].
 Before rendering, show me the slide sorter, theme direction, and any assumptions.
@@ -75,12 +110,13 @@ A one-shot run should still create durable artifacts:
 - `work/source-map.md` when sources exist
 - `work/claim-ledger.json`
 - `work/audience-model.json`
-- `work/story-spine.md`
+- `work/story-spine.json`
 - `work/slide-sorter.md`
 - `work/visual-aid-plan.json`
 - `work/theme-options.md` or selected `brand-contract.json`
 - `work/slide-specs.json`
 - rendered draft
+- `qa/browser-qa.json`
 - `qa/qa-report.md`
 
 For small decks with limited sources, these artifacts can be concise. Do not skip the claim ledger, slide sorter, slide specs, or QA report.

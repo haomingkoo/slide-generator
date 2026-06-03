@@ -1,0 +1,52 @@
+{
+  "segments": [
+    {
+      "id": "deck_builder",
+      "role": "Engineer or operator evaluating a slide-generation workflow",
+      "decision_power": "reviewer",
+      "current_knowledge": [
+        "Understands that agents can create slides",
+        "Has seen slide generators overclaim or produce clutter"
+      ],
+      "stakes": [
+        "Needs a deck pipeline that can be reviewed",
+        "Needs evidence to survive visual edits"
+      ],
+      "success_criteria": [
+        "The workflow is understandable",
+        "Claims are traceable",
+        "Rendered slides can be visually inspected"
+      ],
+      "likely_questions": [
+        {
+          "id": "q_claims",
+          "question": "How do we know the slides did not invent facts?",
+          "priority": "high"
+        },
+        {
+          "id": "q_html_first",
+          "question": "Why start with HTML instead of PPTX?",
+          "priority": "medium"
+        }
+      ],
+      "objections": [
+        {
+          "id": "o_too_much_process",
+          "objection": "This may be too much process for a quick deck.",
+          "severity": "medium"
+        }
+      ],
+      "jargon": {
+        "allowed": ["claim ledger", "slide specs", "browser QA"],
+        "define_on_first_use": ["Marp"],
+        "avoid": ["AI magic", "one-click perfection"]
+      }
+    }
+  ],
+  "audience_pov_critique": {
+    "what_they_care_about": "They want to know whether the generated deck can be trusted and repaired without starting over.",
+    "what_will_feel_unproven": "They will doubt the process until validation and browser QA are shown.",
+    "where_deck_sounds_like_us_not_them": "Phrases about internal artifacts can sound tool-centric unless tied to repair cost and review clarity.",
+    "required_reframe": "Describe artifacts as ways to reduce review risk, not as paperwork."
+  }
+}

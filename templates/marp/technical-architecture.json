@@ -1,0 +1,155 @@
+{
+  "deck": {
+    "title": "Technical Architecture Template",
+    "theme": "dark-runtime",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "context",
+      "layout": "title",
+      "eyebrow": "Architecture review",
+      "title": "System name and review purpose",
+      "subtitle": "Decision, risk, or design question for the room.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Architecture title frame only.",
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Set the review question before implementation detail."
+      },
+      "speaker_notes": {
+        "key_message": "The room should know the decision or risk being reviewed.",
+        "talk_track": ["State the review goal.", "Name the level of detail.", "Keep the opening short."],
+        "timing_seconds": 30
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "runtime_flow",
+      "layout": "architecture",
+      "title": "Runtime flow",
+      "body": ["Show only the components needed for the decision."],
+      "mermaid": "flowchart LR\n  A[Client] --> B[API]\n  B --> C[Worker]\n  C --> D[Store]",
+      "claim_ids": ["replace_with_real_code_claim_id"],
+      "claim_use": "architecture flow",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Ground the review in the smallest useful system map.",
+        "validation": {
+          "expected": "The architecture map renders with legible node labels.",
+          "fallback": "Replace the diagram with a static component list.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The diagram exists to support the decision, not to show every component.",
+        "talk_track": ["Walk through the request path.", "Skip unrelated infrastructure.", "Pause at the boundary that matters."],
+        "timing_seconds": 80,
+        "claim_ids": ["replace_with_real_code_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "code_evidence",
+      "layout": "code",
+      "title": "Code path that proves the behavior",
+      "code": {
+        "language": "ts",
+        "caption": "Paste the smallest source-backed snippet that matters.",
+        "source": "async function handler(input) {\n  return pipeline.run(input)\n}"
+      },
+      "claim_ids": ["replace_with_real_code_claim_id"],
+      "claim_use": "code evidence",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "code",
+        "purpose": "Show the concrete source path behind the claim.",
+        "validation": {
+          "expected": "The code remains short enough to read from a projected slide.",
+          "fallback": "Move the full snippet to backup and keep only the key line.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The code snippet should prove one behavior only.",
+        "talk_track": ["Name the file path before explaining the line.", "Explain only the behavior under review.", "Do not turn the slide into a code walkthrough."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_real_code_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "risk",
+      "layout": "table",
+      "title": "Risks and guardrails",
+      "table": {
+        "headers": ["Risk", "Signal", "Guardrail"],
+        "rows": [
+          ["Placeholder", "Placeholder", "Placeholder"],
+          ["Placeholder", "Placeholder", "Placeholder"],
+          ["Placeholder", "Placeholder", "Placeholder"]
+        ]
+      },
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "risk summary",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Make operational risk easy to compare.",
+        "validation": {
+          "expected": "Risk, signal, and guardrail columns stay aligned and readable.",
+          "fallback": "Promote the highest-risk item to its own slide.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The review should end with concrete guardrails, not vague concern.",
+        "talk_track": ["Separate the risk from the signal.", "Only include guardrails that can be owned.", "Ask whether any risk is missing."],
+        "timing_seconds": 85,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "decision",
+      "layout": "comparison",
+      "title": "Current path vs proposed path",
+      "left": {
+        "title": "Current",
+        "body": ["Component boundary", "Failure mode", "Operational cost"]
+      },
+      "right": {
+        "title": "Proposed",
+        "body": ["Component boundary", "Failure mode", "Operational cost"]
+      },
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "technical comparison",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Put the decision tradeoff in one scannable frame.",
+        "validation": {
+          "expected": "The current and proposed paths use parallel criteria.",
+          "fallback": "Use a table if the tradeoff has more than three criteria.",
+          "browser_check_required": true
+        }
+      },
+      "motion": {
+        "type": "transition",
+        "purpose": "Mark the move from risk review to decision.",
+        "transition": "fade 0.5s",
+        "reduced_motion_fallback": "The title communicates the decision step without motion."
+      },
+      "speaker_notes": {
+        "key_message": "The audience should leave able to choose or reject the proposal.",
+        "talk_track": ["Frame the decision plainly.", "Explain the cost of staying current.", "Ask for the next owner or follow-up artifact."],
+        "timing_seconds": 90,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    }
+  ]
+}

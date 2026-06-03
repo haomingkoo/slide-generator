@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "source": {
+    "type": "theme",
+    "references": ["renderers/marp/themes/dark-runtime.css"]
+  },
+  "direction": {
+    "personality": "dark runtime",
+    "audience_fit": "Architecture, security, observability, runtime systems, and dramatic technical demos.",
+    "density": "balanced",
+    "depth": "borders_only",
+    "grid": "modular"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#081112",
+      "surface": "#101d1f",
+      "text": "#ecf6f5",
+      "muted": "#9fb3b1",
+      "accent": "#59d2c5",
+      "secondary_accent": "#f0b85a",
+      "border": "#244043"
+    },
+    "typography": {
+      "heading": "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "body": "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["16px", "20px", "24px", "32px", "48px", "64px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "64px", "80px"]
+    },
+    "radius": ["8px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "High-contrast technical title with restrained runtime glow.",
+    "section_slide": "Dark transition slide with short labels and clear contrast.",
+    "comparison_slide": "Two bordered panels with risk/accent top rules.",
+    "table_slide": "Compact but readable table on dark surface.",
+    "code_slide": "Near-black code panel with large enough mono text.",
+    "architecture_slide": "Few nodes, high-contrast labels, clear trust or runtime boundaries."
+  },
+  "rules": {
+    "avoid": ["using dark mode for conservative or print-first decks", "tiny diagram labels", "low-contrast teal on dark", "decorative neon effects"],
+    "must_preserve": ["high contrast", "semantic accent use", "border-based depth", "readable code"],
+    "accessibility": ["normal text contrast >= 4.5:1", "large text contrast >= 3:1", "diagram labels must not rely on color alone"]
+  },
+  "decisions": [
+    {
+      "decision": "Reserve dark runtime for technical decks where the setting benefits from it.",
+      "rationale": "Dark mode can make system flows feel focused, but it should not be the default for all presentations.",
+      "date": "2026-06-03"
+    }
+  ]
+}

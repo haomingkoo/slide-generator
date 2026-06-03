@@ -1,0 +1,76 @@
+{
+  "claims": [
+    {
+      "claim_id": "claim_001",
+      "claim": "The slide-generation pipeline is ordered as sources, evidence, story, visual aids, render, critique, audit, QA, and export.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "Core Idea"
+      },
+      "evidence": "README.md describes the safer flow as sources -> evidence -> story -> visual aids -> render -> critique -> audit -> QA -> export.",
+      "confidence": "high",
+      "allowed_slide_use": ["pipeline explanation", "method comparison"]
+    },
+    {
+      "claim_id": "claim_002",
+      "claim": "Every factual slide claim must appear in claim-ledger.json.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "No-Hallucination Rule"
+      },
+      "evidence": "README.md states that every factual slide claim must appear in claim-ledger.json.",
+      "confidence": "high",
+      "allowed_slide_use": ["accuracy rule", "method comparison"]
+    },
+    {
+      "claim_id": "claim_003",
+      "claim": "The repo supports Codex through .agents/skills/slide-generator and Claude Code through .claude/skills/slide-generator.",
+      "type": "user_file",
+      "source": {
+        "path": "README.md",
+        "section": "Runtime Compatibility"
+      },
+      "evidence": "README.md lists the Codex and Claude Code runtime skill mirror paths.",
+      "confidence": "high",
+      "allowed_slide_use": ["runtime compatibility"]
+    },
+    {
+      "claim_id": "claim_004",
+      "claim": "The first renderer should target standalone HTML before PPTX.",
+      "type": "user_file",
+      "source": {
+        "path": "docs/renderer-strategy.md",
+        "section": "Renderer Strategy"
+      },
+      "evidence": "docs/renderer-strategy.md says the first renderer should target standalone HTML before PPTX.",
+      "confidence": "high",
+      "allowed_slide_use": ["renderer strategy", "architecture flow"]
+    },
+    {
+      "claim_id": "claim_005",
+      "claim": "A Marp-style HTML deck can provide presenter view through the ?view=presenter URL.",
+      "type": "user_file",
+      "source": {
+        "path": "docs/renderer-strategy.md",
+        "section": "Reference Format: Marp-Style HTML"
+      },
+      "evidence": "docs/renderer-strategy.md notes that presenter view is built in through ?view=presenter.",
+      "confidence": "high",
+      "allowed_slide_use": ["renderer strategy", "architecture flow"]
+    },
+    {
+      "claim_id": "claim_006",
+      "claim": "The renderer can be run with node scripts/render-marp.mjs <project-dir> --html.",
+      "type": "user_file",
+      "source": {
+        "path": "scripts/render-marp.mjs",
+        "usage": "Usage line"
+      },
+      "evidence": "scripts/render-marp.mjs prints Usage: node scripts/render-marp.mjs <project-dir> [--html].",
+      "confidence": "high",
+      "allowed_slide_use": ["renderer usage"]
+    }
+  ]
+}

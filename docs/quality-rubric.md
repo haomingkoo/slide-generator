@@ -6,6 +6,7 @@ Use this rubric during critique and QA.
 
 - Slide titles tell a coherent story when read alone.
 - Each slide has one job.
+- The slide job is explicit in `slide_job`, separate from visual layout.
 - Adjacent slides do not repeat the same point.
 - The deck has a visible arc: hook, problem, insight, proof, implication, action.
 - The ending tells the audience what to remember or do.
@@ -29,6 +30,7 @@ Use this rubric during critique and QA.
 ## Design
 
 - Theme matches audience and setting. Dark mode is not a default.
+- The design contract uses a stable token scale for type, spacing, color, and layout decisions.
 - Layout uses a visible grid.
 - Labels are readable on a laptop and projector.
 - Color has semantic meaning.
@@ -39,6 +41,7 @@ Use this rubric during critique and QA.
 
 - Speaker notes sound natural when read aloud.
 - Notes include transitions and cues, not only paragraphs.
+- Likely questions, objections, and jargon risks are represented in the audience model.
 - Notes do not introduce unsupported claims.
 - The deck can be delivered within the target time.
 
@@ -48,8 +51,13 @@ Use this rubric during critique and QA.
 - Source audit passes.
 - Deterministic claim checks pass: `validate-claim-ledger.mjs` and `lint-claim-refs.mjs`.
 - Architecture evidence check passes when an architecture map exists: `validate-arch-map.mjs`.
-- Browser screenshot QA passes.
-- Export smoke test passes for the requested output format.
+- Audience model check passes when live delivery or persuasion matters: `validate-audience-model.mjs`.
+- Story spine check passes: `validate-story-spine.mjs`.
+- Slide spec check passes: `validate-slide-specs.mjs`.
+- Design contract check passes: `validate-design-contract.mjs`.
+- Render inspection passes: `inspect-rendered-marp.mjs`.
+- Browser QA passes: `browser-qa-marp.mjs`.
+- Basic export check passes for the requested output format.
 
 Browser QA should include machine-checkable basics where possible:
 
@@ -57,3 +65,5 @@ Browser QA should include machine-checkable basics where possible:
 - body text contrast is at least 4.5:1 and large text/icon contrast is at least 3:1,
 - minimum readable body font is 18px for projected slides unless the slide is explicitly appendix/detail,
 - dense lines stay near 45 characters or fewer when meant to be read live.
+- requested step-reveal motion produces fragments,
+- requested interactive or animated aids have a static fallback and browser validation.

@@ -27,9 +27,23 @@
     "source-grounding"
   ],
   "scripts": {
-    "test": "node scripts/validate-project.mjs && node scripts/validate-claim-ledger.mjs tests/fixtures/valid-project && node scripts/lint-claim-refs.mjs tests/fixtures/valid-project && node scripts/validate-arch-map.mjs tests/fixtures/valid-project && node tests/validator-negative.mjs",
+    "test": "node scripts/validate-project.mjs && node scripts/validate-claim-ledger.mjs tests/fixtures/valid-project && node scripts/lint-claim-refs.mjs tests/fixtures/valid-project && node scripts/validate-arch-map.mjs tests/fixtures/valid-project && node scripts/validate-audience-model.mjs tests/fixtures/render-project && node scripts/validate-story-spine.mjs tests/fixtures/render-project && node scripts/validate-review-log.mjs tests/fixtures/render-project && node scripts/validate-slide-specs.mjs tests/fixtures/render-project && node scripts/validate-design-contract.mjs tests/fixtures/render-project && node scripts/render-marp.mjs tests/fixtures/render-project --html && node scripts/inspect-rendered-marp.mjs tests/fixtures/render-project && node scripts/browser-qa-marp.mjs tests/fixtures/render-project && node tests/validator-negative.mjs",
     "validate:ledger": "node scripts/validate-claim-ledger.mjs",
     "lint:claim-refs": "node scripts/lint-claim-refs.mjs",
-    "validate:arch": "node scripts/validate-arch-map.mjs"
+    "validate:arch": "node scripts/validate-arch-map.mjs",
+    "validate:audience": "node scripts/validate-audience-model.mjs",
+    "validate:story": "node scripts/validate-story-spine.mjs",
+    "validate:review": "node scripts/validate-review-log.mjs",
+    "validate:slides": "node scripts/validate-slide-specs.mjs",
+    "validate:design": "node scripts/validate-design-contract.mjs",
+    "render:marp": "node scripts/render-marp.mjs",
+    "inspect:marp": "node scripts/inspect-rendered-marp.mjs",
+    "qa:browser": "node scripts/browser-qa-marp.mjs",
+    "export:marp": "node scripts/export-marp.mjs",
+    "screenshots:marp": "node scripts/export-marp-screenshots.mjs"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.4.0",
+    "playwright": "^1.60.0"
   }
 }

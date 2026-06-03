@@ -56,7 +56,8 @@ input files
 → render
 → critique loop
 → source audit loop
-→ browser/PPTX QA loop
+→ browser QA loop
+→ PPTX/PDF basic export check when requested
 → export
 ```
 
@@ -70,10 +71,10 @@ The key idea is that every phase writes a durable artifact to disk:
 - `architecture-map.json`: diagram nodes, edges, boundaries, and evidence.
 - `claim-ledger.json`: every factual claim with source, confidence, and allowed slide use.
 - `audience-model.json`: what the audience knows, cares about, doubts, and decides.
-- `story-spine.md`: the main throughline.
+- `story-spine.json`: the audience shift, throughline, beats, transitions, likely questions, and handled objections.
 - `slide-sorter.md`: title-only story.
 - `visual-aid-plan.json`: visual explanation pattern per hard idea.
-- `brand-contract.json`: derived brand colors, typography, density, and constraints.
+- `design-contract.json`: derived or selected colors, typography, spacing, density, patterns, and constraints.
 - `slide-specs.json`: renderable slide instructions.
 - `qa-report.md`: critique, audit, screenshot, and export findings.
 

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "source": {
+    "type": "theme",
+    "references": ["renderers/marp/themes/warm-editorial-light.css"]
+  },
+  "direction": {
+    "personality": "warm editorial",
+    "audience_fit": "Product stories, demos, portfolio narratives, and human-context explainers.",
+    "density": "balanced",
+    "depth": "borders_only",
+    "grid": "editorial"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#fbf7ef",
+      "surface": "#fffdf8",
+      "text": "#251f1a",
+      "muted": "#70665c",
+      "accent": "#9f3f2f",
+      "secondary_accent": "#2f6c63",
+      "border": "#e4d9c9"
+    },
+    "typography": {
+      "heading": "Georgia, Iowan Old Style, Times New Roman, serif",
+      "body": "Aptos, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["16px", "20px", "24px", "32px", "48px", "64px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "64px", "80px"]
+    },
+    "radius": ["8px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "Editorial title, warm field, calm subtitle.",
+    "section_slide": "Book-like transition with short narrative setup.",
+    "comparison_slide": "Two editorial panels with warmer semantic accents.",
+    "table_slide": "Readable table with restrained borders and warm paper surface.",
+    "code_slide": "Dark warm code block, captioned sparingly.",
+    "architecture_slide": "Mechanism shown as a story flow, not a dense system diagram."
+  },
+  "rules": {
+    "avoid": ["cold corporate blue default", "overly technical density", "decorative emoji", "stock-like filler images"],
+    "must_preserve": ["warm neutral surface", "editorial heading voice", "generous whitespace"],
+    "accessibility": ["normal text contrast >= 4.5:1", "large text contrast >= 3:1", "status labels not color-only"]
+  },
+  "decisions": [
+    {
+      "decision": "Use warm editorial treatment for demos and teaching where human context matters.",
+      "rationale": "The warmer palette helps the deck feel explanatory rather than procedural.",
+      "date": "2026-06-03"
+    }
+  ]
+}

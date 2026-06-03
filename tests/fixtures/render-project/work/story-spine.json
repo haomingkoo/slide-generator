@@ -1,0 +1,52 @@
+{
+  "audience_shift": {
+    "from": "Slide generation feels like an opaque prompt-to-output jump.",
+    "to": "Slide generation can be reviewed as evidence, story, visuals, rendering, and QA artifacts."
+  },
+  "throughline": "A reliable deck is not just generated; it is made inspectable before it is made beautiful.",
+  "beats": [
+    {
+      "id": "beat_01",
+      "role": "hook",
+      "slide_ids": ["slide_01"],
+      "audience_question_ids": [],
+      "transition": "Open with the promise of inspectable slide generation."
+    },
+    {
+      "id": "beat_02",
+      "role": "context",
+      "slide_ids": ["slide_02"],
+      "audience_question_ids": [],
+      "transition": "Give the audience the whole pipeline before naming any single gate."
+    },
+    {
+      "id": "beat_03",
+      "role": "method",
+      "slide_ids": ["slide_03", "slide_04"],
+      "audience_question_ids": ["q_claims"],
+      "handles_objection_ids": ["o_too_much_process"],
+      "transition": "Show why the evidence-first method is different from a one-shot deck prompt."
+    },
+    {
+      "id": "beat_04",
+      "role": "evidence",
+      "slide_ids": ["slide_05", "slide_06"],
+      "audience_question_ids": [],
+      "transition": "Ground the method in concrete repo paths and commands."
+    },
+    {
+      "id": "beat_05",
+      "role": "runtime_flow",
+      "slide_ids": ["slide_07"],
+      "audience_question_ids": ["q_html_first"],
+      "transition": "Explain why browser-testable HTML is the first practical output surface."
+    },
+    {
+      "id": "beat_06",
+      "role": "close",
+      "slide_ids": ["slide_08"],
+      "audience_question_ids": [],
+      "transition": "Close on targeted repair as the operating principle."
+    }
+  ]
+}

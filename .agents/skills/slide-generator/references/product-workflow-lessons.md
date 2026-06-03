@@ -173,3 +173,30 @@ Sources:
 - Preserve source traceability even when the source comes from Drive, a website, a PDF, or an imported deck.
 - Support strict source-preservation mode for decks where unsupported elaboration is unacceptable.
 - Keep translation, video narration, and presentation polish downstream from the source audit.
+
+## Design Skill Ecosystem
+
+Observed patterns from Claude/Codex design-skill repos and design-tooling writeups:
+
+- Strong design agents split production skills from review skills.
+- Design quality improves when the agent commits to a direction before drawing.
+- Persistent design memory prevents drift across sessions.
+- Browser or Playwright feedback is the highest-leverage visual loop because it gives the agent screenshots instead of imagined layouts.
+- Accessibility and anti-generic-design checks work best as explicit gates, not vague taste guidance.
+- Tool integrations such as Figma, GitHub, Linear, Notion, Slack, and design-token systems should be optional adapters around the core artifacts.
+- Editable diagram formats such as Excalidraw may be useful for architecture and workshop decks where Mermaid is too rigid.
+
+Lessons for this repo:
+
+- Add `design-contract.json` as project-level design memory for tokens, layout patterns, and decisions.
+- Keep visual critique separate from source audit so taste changes cannot silently alter facts.
+- Add screenshot-based QA before claiming a deck is ready to present.
+- Treat accessibility as a deck quality floor: contrast, readable type, color-independent labels, and keyboard-presentable HTML.
+- Use theme/token extraction when a brand or existing deck exists; do not invent brand values from memory.
+- Keep future Composio/MCP-style app integrations behind clear source, brand, and review adapters.
+
+Sources:
+
+- https://github.com/Trystan-SA/claude-design-system-prompt
+- https://github.com/Dammyjay93/interface-design
+- User-provided Composio design-skills summary.

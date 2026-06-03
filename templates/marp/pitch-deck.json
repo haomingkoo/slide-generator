@@ -1,0 +1,154 @@
+{
+  "deck": {
+    "title": "Pitch Deck Template",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Company / Project",
+      "title": "Clear outcome-driven pitch title",
+      "subtitle": "One sentence on who this helps and why now.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Opening positioning only.",
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Create a confident opening without unsupported proof."
+      },
+      "speaker_notes": {
+        "key_message": "The audience should understand the outcome before details appear.",
+        "talk_track": ["Set the context in plain language.", "Avoid hype; make the audience care about the problem."],
+        "timing_seconds": 30
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "narrative",
+      "title": "The problem is costly and visible",
+      "body": [
+        "Describe the repeated pain.",
+        "Name the audience or buyer affected.",
+        "Show why existing workarounds are weak."
+      ],
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "problem evidence",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "animated_sequence",
+        "purpose": "Reveal the problem in order instead of crowding the slide.",
+        "validation": {
+          "expected": "The problem bullets reveal as Marp fragments in HTML.",
+          "fallback": "Use a static three-bullet problem slide.",
+          "browser_check_required": true
+        }
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Pace the problem before the solution appears.",
+        "reduced_motion_fallback": "All bullets stay readable without animation."
+      },
+      "speaker_notes": {
+        "key_message": "The problem must feel specific, costly, and urgent.",
+        "talk_track": ["Name who feels the pain.", "Tie the pain to a visible business consequence.", "Avoid vague market language."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "comparison",
+      "layout": "comparison",
+      "title": "Old workflow vs new workflow",
+      "left": {
+        "title": "Was",
+        "body": ["Manual step", "Slow feedback", "Hard to verify"]
+      },
+      "right": {
+        "title": "Is",
+        "body": ["Assisted step", "Fast feedback", "Traceable output"]
+      },
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "method comparison",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Make the change in workflow visible at a glance.",
+        "validation": {
+          "expected": "The two panels remain balanced and readable.",
+          "fallback": "Split old and new workflows across two slides.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The new workflow should feel materially easier to adopt.",
+        "talk_track": ["Contrast the current pain with the proposed behavior.", "Keep the comparison concrete.", "Do not claim superiority without evidence."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "mechanism",
+      "layout": "architecture",
+      "title": "How the product creates the outcome",
+      "body": ["Keep the mechanism simple enough to retell."],
+      "mermaid": "flowchart LR\n  A[Input] --> B[Core workflow]\n  B --> C[Output]\n  C --> D[User value]",
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "mechanism explanation",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Give the audience a simple mental model for the product.",
+        "validation": {
+          "expected": "The flow renders without dense labels or crossing lines.",
+          "fallback": "Replace the diagram with a three-step list.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The mechanism should be easy to retell after the meeting.",
+        "talk_track": ["Walk left to right.", "Name the transformation, not every feature.", "Stop before the diagram becomes implementation detail."],
+        "timing_seconds": 80,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "decision",
+      "layout": "table",
+      "title": "Why this wins",
+      "table": {
+        "headers": ["Criterion", "Alternative", "This approach"],
+        "rows": [
+          ["Speed", "Placeholder", "Placeholder"],
+          ["Accuracy", "Placeholder", "Placeholder"],
+          ["Adoption", "Placeholder", "Placeholder"]
+        ]
+      },
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "competitive comparison",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Turn the decision criteria into a compact comparison.",
+        "validation": {
+          "expected": "The table is legible and does not exceed three rows of substance.",
+          "fallback": "Convert the strongest row into a single takeaway slide.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The decision should follow from criteria the audience already accepts.",
+        "talk_track": ["Lead with the buyer's criteria.", "Keep placeholder rows evidence-backed before presenting.", "Do not bury the recommendation."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    }
+  ]
+}

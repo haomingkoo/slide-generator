@@ -29,15 +29,18 @@ That format is a strong MVP target because it is self-contained, presentation-re
 
 ## First Renderer Contract
 
-The first renderer should consume `slide-specs.json` and produce:
+The first renderer consumes `work/slide-specs.json` and can produce:
 
 ```txt
 projects/<name>/deck/index.html
-projects/<name>/qa/screenshots/
-projects/<name>/qa/qa-report.md
+projects/<name>/deck/index.md
+projects/<name>/deck/speaker-notes.txt
+projects/<name>/qa/browser-qa.json
+projects/<name>/qa/browser-screenshots/
+projects/<name>/deck/exports/
 ```
 
-Start with a conservative feature set:
+Implemented feature set:
 
 - title slide,
 - section divider,
@@ -47,5 +50,23 @@ Start with a conservative feature set:
 - code-snippet slide,
 - simple architecture flow slide,
 - speaker notes.
+- step-reveal fragments,
+- restrained slide transitions,
+- browser screenshot QA,
+- PPTX/PDF export after QA.
 
-Do not build PPTX export until the HTML path can pass one real rendered eval.
+Run:
+
+```bash
+npm run render:marp -- projects/my-deck --html
+npm run inspect:marp -- projects/my-deck
+npm run qa:browser -- projects/my-deck
+npm run screenshots:marp -- projects/my-deck
+npm run export:marp -- projects/my-deck --pptx --pdf
+```
+
+## Export Policy
+
+PPTX/PDF export is available through Marp after the HTML path passes inspection and browser QA. This is an export layer, not a native PowerPoint template editor.
+
+Google Slides support is currently a handoff path: export PPTX, then import the PPTX into Google Slides. Native Google Slides API generation is future work because it requires authentication, template mapping, and separate formatting validation.

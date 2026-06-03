@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "source": {
+    "type": "theme",
+    "references": ["renderers/marp/themes/clean-surgical-light.css"]
+  },
+  "direction": {
+    "personality": "clean surgical",
+    "audience_fit": "Consulting, academic, executive, classroom, print-friendly review.",
+    "density": "balanced",
+    "depth": "borders_only",
+    "grid": "strict"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#fbfcfd",
+      "surface": "#ffffff",
+      "text": "#172026",
+      "muted": "#5e6b73",
+      "accent": "#176b87",
+      "secondary_accent": "#2f7d5a",
+      "border": "#d9e1e6"
+    },
+    "typography": {
+      "heading": "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "body": "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["16px", "20px", "24px", "32px", "48px", "64px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "64px", "80px"]
+    },
+    "radius": ["8px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "Large left-aligned title, restrained accent field, short subtitle.",
+    "section_slide": "Centered vertical rhythm with eyebrow, title, and short framing text.",
+    "comparison_slide": "Two equal bordered panels with semantic top accents.",
+    "table_slide": "Thin dividers, muted grid, no heavy fills.",
+    "code_slide": "Dark code block on light slide with short caption.",
+    "architecture_slide": "Simple flow, few nodes, labels large enough for projection."
+  },
+  "rules": {
+    "avoid": ["dark default", "decorative emoji", "rainbow gradients", "tiny table text", "generic SaaS card grids"],
+    "must_preserve": ["off-white background", "one restrained accent", "border-based depth", "left-aligned body text"],
+    "accessibility": ["normal text contrast >= 4.5:1", "large text contrast >= 3:1", "no color-only comparison labels"]
+  },
+  "decisions": [
+    {
+      "decision": "Use a clean light theme as the default professional deck style.",
+      "rationale": "It works for executives, classrooms, printed decks, and source-heavy review.",
+      "date": "2026-06-03"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ After each phase, save the result to disk and rely on the artifact rather than c
 ```txt
 source corpus -> source-map.md + claim-ledger.json
 codebase -> codebase-review.md + architecture-map.json
-story -> story-spine.md + slide-sorter.md
+story -> story-spine.json + slide-sorter.md
 visuals -> visual-aid-plan.json + slide-specs.json
 render -> screenshots + qa-report.md
 ```
@@ -37,7 +37,7 @@ Use when the request affects global narrative:
 - change presentation length,
 - run title-only test.
 
-Load: `story-spine.md`, `slide-sorter.md`, slide titles and body summaries, not every source.
+Load: `story-spine.json`, `slide-sorter.md`, slide titles and body summaries, not every source.
 
 ### Slide-Local Mode
 

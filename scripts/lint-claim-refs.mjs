@@ -3,6 +3,8 @@ import path from "node:path";
 
 const target = process.argv[2];
 const ledgerArg = process.argv[3];
+const FACTUAL_TEXT_RE = /(\d|%|\$|\b(?:faster|slower|higher|lower|increase|decrease|reduces?|improves?|removes?|requires?|enables?|supports?|uses?|sends?|calls?|stores?|current|latest|best|first|most|least|benchmark|measured|published|validated|verified|proves?)\b)/i;
+
 if (!target) {
   console.error("Usage: node scripts/lint-claim-refs.mjs <project-dir|slide-specs.json> [claim-ledger.json]");
   process.exit(2);
@@ -106,8 +108,6 @@ function looksFactual(slide) {
     .filter((item) => item.key !== "no_claims_reason")
     .some(({ value }) => FACTUAL_TEXT_RE.test(value));
 }
-
-const FACTUAL_TEXT_RE = /(\d|%|\$|\b(?:faster|slower|higher|lower|increase|decrease|reduces?|improves?|removes?|requires?|enables?|supports?|uses?|sends?|calls?|stores?|current|latest|best|first|most|least|benchmark|measured|published|validated|verified|proves?)\b)/i;
 
 function collectText(value, key = "") {
   if (typeof value === "string") {

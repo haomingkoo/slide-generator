@@ -18,8 +18,9 @@ flowchart TD
   H --> I[Slide sorter]
   I --> J[Visual aid plan]
   J --> K[Theme options]
-  K --> L[Slide specs]
-  L --> M[Render]
+  K --> U[Design contract]
+  U --> L[Slide specs]
+  L --> M[Render HTML]
   M --> N[Critique]
   N --> O[Deterministic claim checks]
   O --> P[Source audit]
@@ -40,12 +41,13 @@ Every project should produce these files in `projects/<name>/work/` before rende
 - `architecture-map.json`: nodes, edges, boundaries, and source evidence.
 - `claim-ledger.json`: factual claims with source links and confidence.
 - `audience-model.json`: what the audience knows, needs, doubts, and decides.
-- `story-spine.md`: the talk's throughline and narrative arc.
+- `story-spine.json`: the audience shift, throughline, beats, transitions, likely questions, and handled objections.
 - `slide-sorter.md`: slide titles only, in order.
 - `visual-aid-plan.json`: visual pattern selected for each hard idea.
 - `theme-options.md`: 2 or 3 proposed directions before final selection.
+- `design-contract.json`: theme tokens, spacing, typography, patterns, and design decisions.
 - `slide-specs.json`: precise slide instructions for rendering.
-- Deterministic checks: `scripts/validate-claim-ledger.mjs` and `scripts/lint-claim-refs.mjs`.
+- Deterministic checks: claim ledger, claim refs, architecture map, audience model, story spine, design contract, slide specs, rendered HTML, browser QA.
 
 ## One-Shot Drafting
 
@@ -57,6 +59,10 @@ The first prompt should resolve:
 - decision or learning goal,
 - live vs async use,
 - slide count or talk length,
+- likely questions and objections,
+- jargon baseline,
+- backup evidence depth,
+- motion or interaction expectations,
 - source policy,
 - source-handling mode,
 - output format,
@@ -64,6 +70,15 @@ The first prompt should resolve:
 - visual aid expectations,
 - speaker notes,
 - must-include and must-avoid items.
+
+The intake phase must produce a clear deck goal before planning:
+
+- `deck_goal`: what the deck must accomplish in one sentence,
+- `audience_shift`: what the audience should understand, believe, decide, or do differently,
+- `success_criteria`: how the deck will be judged,
+- `constraints`: time, slide count, source policy, output format, brand, and accuracy bar,
+- `assumptions`: defaults the agent used,
+- `open_questions`: unknowns that still matter.
 
 If material details are missing, ask once in a batch. If the user wants momentum, proceed with defaults and record them as assumptions in `intake-brief.md`.
 
@@ -92,7 +107,8 @@ The default is `source_only` unless the user asks for current or external inform
 
 - `html_artifact`: best for interactive teaching decks, animations, demos, and custom diagrams.
 - `presentation_html_pdf`: best for live delivery with speaker notes and PDF export.
-- `editable_pptx`: best when the user needs PowerPoint editing, slide masters, and native text.
+- `editable_pptx`: best when the user needs PowerPoint handoff. Current support is Marp PPTX export after HTML QA, not native template editing.
+- `google_slides_handoff`: export PPTX first, then import into Google Slides. Native Google Slides API export is future work.
 
 HTML can be more expressive. PPTX must be more constrained and theme-aware.
 

@@ -1,0 +1,289 @@
+{
+  "deck": {
+    "title": "Source-Grounded Slide Generation",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Renderer fixture",
+      "title": "Source-grounded slide generation",
+      "subtitle": "A fixture deck for the renderer path",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Opening frame only.",
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Set a calm opening frame before evidence appears."
+      },
+      "speaker_notes": {
+        "key_message": "This deck is about making slide output inspectable before anyone trusts it.",
+        "talk_track": [
+          "Open with the purpose and review posture.",
+          "Frame the deck as a test of process, not a polished product demo."
+        ],
+        "transition_out": "Next, show the pipeline that creates the deck.",
+        "delivery_cues": ["Keep the opening under half a minute."],
+        "avoid_saying": ["Do not promise the system is finished."],
+        "timing_seconds": 25
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "context",
+      "layout": "section",
+      "eyebrow": "Pipeline",
+      "title": "From raw material to a durable deck",
+      "body": [
+        "Evidence, story, visuals, rendering, critique, audit, QA, export.",
+        "Each phase leaves an artifact that can be reviewed."
+      ],
+      "claim_ids": ["claim_001"],
+      "claim_use": "pipeline explanation",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Use sparse structure so the audience can orient before details."
+      },
+      "speaker_notes": {
+        "key_message": "The workflow separates thinking from rendering.",
+        "talk_track": [
+          "Name the phases at a high level.",
+          "Keep this slide short so the audience can follow the rest of the deck."
+        ],
+        "transition_in": "After the title, the audience needs the map.",
+        "transition_out": "Now explain why evidence has to come first.",
+        "timing_seconds": 35,
+        "claim_ids": ["claim_001"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "method",
+      "layout": "narrative",
+      "title": "Evidence comes before rendering",
+      "body": [
+        "Sources become claim ledger entries.",
+        "The story spine and slide sorter shape the argument.",
+        "Rendering happens after the deck has a checkable structure."
+      ],
+      "claim_ids": ["claim_001"],
+      "claim_use": "pipeline explanation",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "animated_sequence",
+        "purpose": "Reveal the three steps one at a time so the audience sees order, not clutter.",
+        "validation": {
+          "expected": "The HTML deck renders the list as Marp fragments.",
+          "fallback": "Show the same three bullets as a static list.",
+          "browser_check_required": true
+        }
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Control pacing for the causal sequence.",
+        "reduced_motion_fallback": "The full list remains readable without animation."
+      },
+      "speaker_notes": {
+        "key_message": "The pipeline is deliberately evidence-first.",
+        "talk_track": [
+          "Explain that the workflow is intentionally slower at the beginning.",
+          "Connect the slower start to faster, safer repair later.",
+          "Make clear that layout changes should not rewrite facts."
+        ],
+        "transition_in": "The map is useful only if the first step is grounded.",
+        "transition_out": "Compare this with the usual prompt-to-deck behavior.",
+        "delivery_cues": ["Advance each bullet only after finishing its sentence."],
+        "timing_seconds": 75,
+        "claim_ids": ["claim_001"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "comparison",
+      "layout": "comparison",
+      "title": "Was: prompt to deck. Is: audited artifacts.",
+      "left": {
+        "title": "Was",
+        "body": [
+          "One prompt creates copy, layout, and confidence at the same time.",
+          "Review is difficult because the source of each claim is unclear.",
+          "A visual fix can accidentally change meaning."
+        ]
+      },
+      "right": {
+        "title": "Is",
+        "body": [
+          "Claims, story, visual aids, and theme are separate artifacts.",
+          "Factual statements point back to the ledger.",
+          "Repairs target the artifact that failed."
+        ]
+      },
+      "claim_ids": ["claim_001", "claim_002"],
+      "claim_uses": {
+        "claim_001": "method comparison",
+        "claim_002": "method comparison"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Make the operating difference visible without adding paragraphs.",
+        "validation": {
+          "expected": "Both panels render with clear separation and no text overflow.",
+          "fallback": "Split the comparison across two slides if the text becomes cramped.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The repo exists to make repair cheaper and safer.",
+        "talk_track": [
+          "Contrast a single opaque generation step with inspectable artifacts.",
+          "Emphasize that ceremony is not the goal.",
+          "Tie the comparison back to practical review work."
+        ],
+        "transition_out": "After the method change, show how the runtime surfaces stay aligned.",
+        "timing_seconds": 70,
+        "claim_ids": ["claim_001", "claim_002"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "evidence",
+      "layout": "table",
+      "title": "Runtime surfaces stay explicit",
+      "table": {
+        "headers": ["Surface", "Path", "Purpose"],
+        "rows": [
+          ["Codex", ".agents/skills/slide-generator", "Runtime skill mirror"],
+          ["Claude Code", ".claude/skills/slide-generator", "Runtime skill mirror"],
+          ["Development", "skills/slide-generator", "Editable source"]
+        ]
+      },
+      "claim_ids": ["claim_003"],
+      "claim_use": "runtime compatibility",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Show the compatibility contract in a compact inspectable form.",
+        "validation": {
+          "expected": "The table stays readable at 16:9 and keeps all paths visible.",
+          "fallback": "Move path details to speaker notes if the table becomes too dense.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The repo keeps a source skill and two runtime mirrors.",
+        "talk_track": [
+          "Point out that this is a compatibility decision.",
+          "Explain that the source skill is edited once, then mirrored.",
+          "Use this slide to reduce confusion between Claude Code and Codex paths."
+        ],
+        "timing_seconds": 55,
+        "claim_ids": ["claim_003"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "code_evidence",
+      "layout": "code",
+      "title": "Renderer command path",
+      "code": {
+        "language": "bash",
+        "caption": "Render a validated project to Marp Markdown and standalone HTML.",
+        "source": "node scripts/render-marp.mjs tests/fixtures/render-project --html"
+      },
+      "claim_ids": ["claim_006"],
+      "claim_use": "renderer usage",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "code",
+        "purpose": "Give the audience a concrete command they can run.",
+        "validation": {
+          "expected": "The command block renders in a readable mono style.",
+          "fallback": "Move long command variants into README instead of the slide.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The render command validates before it writes output.",
+        "talk_track": [
+          "Call out the intentionally small command surface.",
+          "Explain that the renderer runs the ledger and slide-spec checks first."
+        ],
+        "transition_out": "The command writes HTML first because the browser can inspect it.",
+        "timing_seconds": 45,
+        "claim_ids": ["claim_006"]
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "slide_job": "runtime_flow",
+      "layout": "architecture",
+      "title": "HTML path comes before PPTX",
+      "body": [
+        "The MVP targets browser-testable HTML first.",
+        "The same slide specs can later feed stricter PPTX work."
+      ],
+      "mermaid": "flowchart LR\n  A[slide-specs.json] --> B[Marp Markdown]\n  B --> C[Standalone HTML]\n  C --> D[Presenter view]\n  C --> E[Browser QA]\n  A -. later .-> F[PPTX renderer]",
+      "claim_ids": ["claim_004", "claim_005"],
+      "claim_uses": {
+        "claim_004": "architecture flow",
+        "claim_005": "architecture flow"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Show why browser-testable HTML is the first export target.",
+        "validation": {
+          "expected": "The Mermaid flow renders as an inspectable diagram without crowding.",
+          "fallback": "Use a simple static flow if Mermaid rendering is unavailable.",
+          "browser_check_required": true
+        }
+      },
+      "motion": {
+        "type": "transition",
+        "purpose": "Use a restrained transition to mark the shift from command to architecture.",
+        "transition": "fade 0.5s",
+        "reduced_motion_fallback": "The slide order communicates the shift without motion."
+      },
+      "speaker_notes": {
+        "key_message": "HTML is the fastest path to visual QA and presenter support.",
+        "talk_track": [
+          "Keep this architecture slide focused.",
+          "HTML gives fast screenshot and overflow checks.",
+          "PPTX remains a later export layer rather than the first renderer."
+        ],
+        "delivery_cues": ["Point to Browser QA before mentioning PPTX."],
+        "timing_seconds": 70,
+        "claim_ids": ["claim_004", "claim_005"]
+      }
+    },
+    {
+      "slide_id": "slide_08",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "Repair with focus",
+      "quote": "Fix the artifact that failed; keep the rest stable.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Closing principle rather than a factual claim.",
+      "visual_aid": {
+        "type": "quote",
+        "purpose": "Close with a short operating principle instead of a summary paragraph."
+      },
+      "speaker_notes": {
+        "key_message": "Targeted repair is the point of the whole pipeline.",
+        "talk_track": [
+          "Close by emphasizing targeted repair.",
+          "Invite critique of the artifact sequence rather than the idea of automation in general."
+        ],
+        "avoid_saying": ["Do not say the pipeline eliminates human review."],
+        "timing_seconds": 35
+      }
+    }
+  ]
+}

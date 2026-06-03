@@ -2,7 +2,7 @@
 
 ## Current Status
 
-`slides-generator` is a pre-render slide-generation scaffold with executable guardrails.
+`slides-generator` is an early render-capable slide-generation scaffold with executable guardrails.
 
 Done:
 
@@ -15,28 +15,40 @@ Done:
 - Deterministic claim-ledger validator.
 - Deterministic slide claim-reference linter.
 - Deterministic architecture evidence validator.
+- Deterministic audience-model validator.
+- Deterministic story-spine validator.
+- Deterministic slide-spec validator.
+- Deterministic design-contract validator.
+- First Marp HTML renderer.
+- Rendered HTML inspection for slide count, presenter notes, and slide IDs.
+- Browser QA for slide count, presenter notes, keyboard navigation, screenshots, overflow, contrast, and step-reveal fragments.
+- PPTX/PDF export command through Marp after browser QA passes.
+- Optional Marp screenshot export for manual visual review.
+- Three Marp themes.
+- Starter slide-spec templates for pitch, teaching, and technical architecture decks.
+- Starter design-contract templates for the three Marp themes.
+- Design contract reference for persistent theme, spacing, typography, pattern, and decision memory.
+- Design quality gate reference for content discipline, hierarchy, accessibility, anti-generic design, screenshot review, and polish.
 - Positive and negative validator fixtures.
 - GitHub CI.
 
 Not done:
 
 - Artifact generators.
-- Formal `slide-specs.json` schema.
-- HTML renderer.
-- Browser screenshot QA script.
 - Brand observation tooling.
 - Code snippet evidence validator.
-- PPTX renderer or template editor.
+- Native PPTX template editor.
+- Native Google Slides API export.
+- Full accessibility engine beyond the focused browser QA checks.
 
 ## Near-Term Roadmap
 
-1. Define the first `slide-specs.json` schema.
-2. Build the smallest HTML renderer.
-3. Add one rendered eval deck.
-4. Add browser QA for overflow, contrast, and screenshot capture.
-5. Add brand observation from CSS, website screenshots, and uploaded decks.
-6. Add code-snippet evidence validation.
-7. Compare skill output against a one-shot baseline.
+1. Add one rendered eval deck from real source material.
+2. Add brand observation from CSS, website screenshots, and uploaded decks.
+3. Add code-snippet evidence validation.
+4. Compare skill output against a one-shot baseline.
+5. Add PPTX-specific visual QA and template analysis.
+6. Add native Google Slides export only after auth, import, and formatting risks are designed.
 
 ## MVP Bar
 
@@ -45,6 +57,10 @@ The first MVP should produce one complete HTML deck from committed source materi
 - claim-ledger passes,
 - slide claim references pass,
 - architecture evidence passes when architecture exists,
-- browser QA passes,
+- audience model and story spine pass for presentation-oriented decks,
+- design contract passes,
+- rendered HTML inspection passes,
+- browser visual QA passes,
+- PPTX/PDF basic export check passes when requested,
 - source audit has no unsupported factual claims,
 - speaker notes are usable for a live talk.

@@ -6,6 +6,7 @@ const requiredFiles = [
   "README.md",
   "CONTRIBUTING.md",
   "SECURITY.md",
+  "package-lock.json",
   ".github/workflows/ci.yml",
   ".github/pull_request_template.md",
   ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -20,13 +21,34 @@ const requiredFiles = [
   "docs/runtime-compatibility.md",
   "docs/no-hallucination-policy.md",
   "docs/quality-rubric.md",
+  "docs/design-skill-adoption-review.md",
   "docs/skill-eval-loop.md",
   ".gitignore",
   "scripts/spec-constants.mjs",
   "scripts/validate-claim-ledger.mjs",
   "scripts/lint-claim-refs.mjs",
   "scripts/validate-arch-map.mjs",
+  "scripts/validate-audience-model.mjs",
+  "scripts/validate-story-spine.mjs",
+  "scripts/validate-review-log.mjs",
+  "scripts/validate-slide-specs.mjs",
+  "scripts/validate-design-contract.mjs",
+  "scripts/render-marp.mjs",
+  "scripts/inspect-rendered-marp.mjs",
+  "scripts/browser-qa-marp.mjs",
+  "scripts/export-marp.mjs",
+  "scripts/export-marp-screenshots.mjs",
   "tests/validator-negative.mjs",
+  "renderers/marp/themes/clean-surgical-light.css",
+  "renderers/marp/themes/warm-editorial-light.css",
+  "renderers/marp/themes/dark-runtime.css",
+  "templates/marp/README.md",
+  "templates/marp/pitch-deck.json",
+  "templates/marp/teaching-deck.json",
+  "templates/marp/technical-architecture.json",
+  "templates/design-contracts/clean-surgical-light.json",
+  "templates/design-contracts/warm-editorial-light.json",
+  "templates/design-contracts/dark-runtime.json",
   "skills/slide-generator/SKILL.md",
   ".agents/skills/slide-generator/SKILL.md",
   ".claude/skills/slide-generator/SKILL.md",
@@ -38,6 +60,8 @@ const requiredFiles = [
   "skills/slide-generator/references/source-grounding.md",
   "skills/slide-generator/references/visual-aid-catalog.md",
   "skills/slide-generator/references/theme-selection.md",
+  "skills/slide-generator/references/design-contract.md",
+  "skills/slide-generator/references/design-quality-gates.md",
   "skills/slide-generator/references/codebase-review.md",
   "skills/slide-generator/references/brand-system.md",
   "skills/slide-generator/references/frontend-rendering.md",
@@ -56,6 +80,12 @@ const requiredFiles = [
   "tests/fixtures/valid-project/work/claim-ledger.json",
   "tests/fixtures/valid-project/work/slide-specs.json",
   "tests/fixtures/valid-project/work/architecture-map.json",
+  "tests/fixtures/render-project/work/claim-ledger.json",
+  "tests/fixtures/render-project/work/audience-model.json",
+  "tests/fixtures/render-project/work/story-spine.json",
+  "tests/fixtures/render-project/work/review-log.json",
+  "tests/fixtures/render-project/work/design-contract.json",
+  "tests/fixtures/render-project/work/slide-specs.json",
   "evals/evals.json"
 ];
 
@@ -84,12 +114,26 @@ for (const phrase of [
   "Memory Rules",
   "references/intake-and-one-shot.md",
   "references/deck-operations.md",
+  "references/audience-and-presenter-support.md",
   "references/product-workflow-lessons.md",
+  "references/design-contract.md",
+  "references/design-quality-gates.md",
   "No factual claim",
   "Dark mode is not the default"
 ]) {
   if (!skill.includes(phrase)) {
     throw new Error(`slide-generator skill is missing required phrase: ${phrase}`);
+  }
+}
+
+for (const theme of [
+  ["renderers/marp/themes/clean-surgical-light.css", "@theme clean-surgical-light"],
+  ["renderers/marp/themes/warm-editorial-light.css", "@theme warm-editorial-light"],
+  ["renderers/marp/themes/dark-runtime.css", "@theme dark-runtime"]
+]) {
+  const css = await readFile(theme[0], "utf8");
+  if (!css.includes(theme[1])) {
+    throw new Error(`${theme[0]} is missing ${theme[1]}`);
   }
 }
 
@@ -120,11 +164,67 @@ for (const phrase of [
   }
 }
 
+const designQualityGates = await readFile("skills/slide-generator/references/design-quality-gates.md", "utf8");
+for (const phrase of [
+  "Content Discipline",
+  "Hierarchy And Rhythm",
+  "Accessibility",
+  "Anti-Generic Design Review",
+  "Slide Screenshot Review",
+  "Humanized Delivery",
+  "Export Review"
+]) {
+  if (!designQualityGates.includes(phrase)) {
+    throw new Error(`design-quality-gates reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const designContract = await readFile("skills/slide-generator/references/design-contract.md", "utf8");
+for (const phrase of [
+  "design-contract.json",
+  "visual memory",
+  "tokens",
+  "patterns",
+  "decisions"
+]) {
+  if (!designContract.includes(phrase)) {
+    throw new Error(`design-contract reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const audienceSupport = await readFile("skills/slide-generator/references/audience-and-presenter-support.md", "utf8");
+for (const phrase of [
+  "audience-model.json",
+  "story-spine.json",
+  "Speaker Notes",
+  "Audience POV Critique",
+  "Jargon Rule",
+  "Q&A And Backup"
+]) {
+  if (!audienceSupport.includes(phrase)) {
+    throw new Error(`audience-and-presenter-support reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const workflowReference = await readFile("skills/slide-generator/references/workflow.md", "utf8");
+for (const phrase of [
+  "Human Review Session",
+  "Review Memory",
+  "review-log.json",
+  "validate-review-log.mjs"
+]) {
+  if (!workflowReference.includes(phrase)) {
+    throw new Error(`workflow reference is missing required phrase: ${phrase}`);
+  }
+}
+
 const intakeReference = await readFile("skills/slide-generator/references/intake-and-one-shot.md", "utf8");
 for (const phrase of [
   "One-Shot Contract",
   "source_handling",
-  "Ask Once, Then Move"
+  "Ask Once, Then Move",
+  "likely_questions",
+  "jargon_baseline"
 ]) {
   if (!intakeReference.includes(phrase)) {
     throw new Error(`intake-and-one-shot reference is missing required phrase: ${phrase}`);

@@ -1,0 +1,135 @@
+{
+  "deck": {
+    "title": "Teaching Deck Template",
+    "theme": "warm-editorial-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Lesson",
+      "title": "Topic name in plain language",
+      "subtitle": "What the learner will understand by the end.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Lesson opener only.",
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Make the learning destination visible before details."
+      },
+      "speaker_notes": {
+        "key_message": "The learner should know the destination before the lesson starts.",
+        "talk_track": ["Start with the learner's current mental model.", "Preview the destination in plain language."],
+        "timing_seconds": 30
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "context",
+      "layout": "section",
+      "eyebrow": "Mental model",
+      "title": "Start with the familiar version",
+      "body": ["Anchor the topic to something the audience already knows."],
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Teaching transition only.",
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Give the learner a quiet bridge into the concept."
+      },
+      "speaker_notes": {
+        "key_message": "A familiar anchor lowers the cost of learning.",
+        "talk_track": ["Use an example the audience already understands.", "Avoid introducing jargon too early."],
+        "timing_seconds": 45
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "comparison",
+      "layout": "comparison",
+      "title": "Was hard to see. Is easy to inspect.",
+      "left": {
+        "title": "Before",
+        "body": ["Opaque step", "Hidden assumption", "Hard to debug"]
+      },
+      "right": {
+        "title": "After",
+        "body": ["Named step", "Visible assumption", "Debuggable artifact"]
+      },
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "teaching comparison",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Make the conceptual shift visible through contrast.",
+        "validation": {
+          "expected": "Both panels have parallel wording and equal visual weight.",
+          "fallback": "Use two sequential slides if the learner needs more time.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The lesson should turn an opaque idea into an inspectable one.",
+        "talk_track": ["Read the before column first.", "Then point to what becomes visible.", "Ask whether the new terms are understandable."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "mechanism",
+      "layout": "narrative",
+      "title": "The idea in three moves",
+      "body": [
+        "Move one: name the input.",
+        "Move two: show the transformation.",
+        "Move three: inspect the output."
+      ],
+      "claim_ids": ["replace_with_real_claim_id"],
+      "claim_use": "mechanism explanation",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "animated_sequence",
+        "purpose": "Reveal the three moves at the learner's pace.",
+        "validation": {
+          "expected": "The narrative list renders as a step reveal in HTML.",
+          "fallback": "Show the static list and pause between bullets.",
+          "browser_check_required": true
+        }
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Prevent the learner from reading ahead.",
+        "reduced_motion_fallback": "The three moves remain readable as a static list."
+      },
+      "speaker_notes": {
+        "key_message": "The learner needs a reusable sequence, not a memorized paragraph.",
+        "talk_track": ["Explain one move at a time.", "Check for confusion after the second move.", "Summarize the sequence before moving on."],
+        "timing_seconds": 90,
+        "claim_ids": ["replace_with_real_claim_id"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "Teaching close",
+      "quote": "A good explanation gives the learner a handle they can reuse.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Closing principle rather than a sourced factual claim.",
+      "visual_aid": {
+        "type": "quote",
+        "purpose": "End with a portable principle."
+      },
+      "speaker_notes": {
+        "key_message": "The learner should leave with a handle they can reuse.",
+        "talk_track": ["Restate the reusable handle.", "Invite one question before closing."],
+        "timing_seconds": 35
+      }
+    }
+  ]
+}
