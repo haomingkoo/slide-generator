@@ -64,6 +64,7 @@ const requiredFiles = [
   ".claude/skills/slide-generator/SKILL.md",
   ".claude/commands/make-deck.md",
   "skills/slide-generator/references/workflow.md",
+  "skills/slide-generator/references/goal-and-loop.md",
   "skills/slide-generator/references/intake-and-one-shot.md",
   "skills/slide-generator/references/deck-operations.md",
   "skills/slide-generator/references/memory-management.md",
@@ -113,7 +114,24 @@ const requiredFiles = [
   "tests/fixtures/render-project/work/review-log.json",
   "tests/fixtures/render-project/work/design-contract.json",
   "tests/fixtures/render-project/work/slide-specs.json",
-  "evals/evals.json"
+  "evals/evals.json",
+  "evals/source-backed/hackathon-rubric-eval/input/brief.md",
+  "evals/source-backed/hackathon-rubric-eval/input/sources/hackathon-pitch-research.md",
+  "evals/source-backed/hackathon-rubric-eval/work/intake-brief.md",
+  "evals/source-backed/hackathon-rubric-eval/work/source-map.md",
+  "evals/source-backed/hackathon-rubric-eval/work/claim-ledger.json",
+  "evals/source-backed/hackathon-rubric-eval/work/audience-model.json",
+  "evals/source-backed/hackathon-rubric-eval/work/story-spine.json",
+  "evals/source-backed/hackathon-rubric-eval/work/slide-sorter.md",
+  "evals/source-backed/hackathon-rubric-eval/work/content-priority.md",
+  "evals/source-backed/hackathon-rubric-eval/work/visual-aid-plan.json",
+  "evals/source-backed/hackathon-rubric-eval/work/design-contract.json",
+  "evals/source-backed/hackathon-rubric-eval/work/slide-specs.json",
+  "evals/source-backed/hackathon-rubric-eval/work/review-log.json",
+  "evals/source-backed/hackathon-rubric-eval/deck/index.html",
+  "evals/source-backed/hackathon-rubric-eval/deck/index.md",
+  "evals/source-backed/hackathon-rubric-eval/deck/speaker-notes.txt",
+  "evals/source-backed/hackathon-rubric-eval/qa/browser-qa.json"
 ];
 
 for (const file of requiredFiles) {
@@ -140,6 +158,7 @@ for (const phrase of [
   "claim-ledger.json",
   "Memory Rules",
   "references/intake-and-one-shot.md",
+  "references/goal-and-loop.md",
   "references/deck-operations.md",
   "references/audience-and-presenter-support.md",
   "references/content-prioritization.md",
@@ -164,6 +183,18 @@ for (const theme of [
   const css = await readFile(theme[0], "utf8");
   if (!css.includes(theme[1])) {
     throw new Error(`${theme[0]} is missing ${theme[1]}`);
+  }
+}
+
+const goalLoop = await readFile("skills/slide-generator/references/goal-and-loop.md", "utf8");
+for (const phrase of [
+  "Deck Goal Contract",
+  "Critique Loop",
+  "Completion Criteria",
+  "blocked_on_evidence"
+]) {
+  if (!goalLoop.includes(phrase)) {
+    throw new Error(`goal-and-loop reference is missing required phrase: ${phrase}`);
   }
 }
 

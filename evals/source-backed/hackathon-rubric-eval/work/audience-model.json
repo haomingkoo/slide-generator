@@ -1,0 +1,69 @@
+{
+  "segments": [
+    {
+      "id": "hackathon_finalist",
+      "role": "Builder preparing a judged demo",
+      "decision_power": "user",
+      "current_knowledge": [
+        "Knows the product better than the judges do.",
+        "May want to show every feature.",
+        "May not have converted the rubric into slide choices."
+      ],
+      "stakes": [
+        "Needs judges to understand the value quickly.",
+        "Needs to prove the hard part without drowning the audience in implementation detail.",
+        "Needs a fallback if the live demo breaks."
+      ],
+      "success_criteria": [
+        "Can turn judging criteria into a slide plan.",
+        "Can decide what belongs in the main deck versus backup.",
+        "Can prepare likely judge questions."
+      ],
+      "likely_questions": [
+        {
+          "id": "q_what_matters",
+          "question": "What should we show if we only have three minutes?",
+          "priority": "high"
+        },
+        {
+          "id": "q_technical_depth",
+          "question": "How much technical detail should we include?",
+          "priority": "high"
+        },
+        {
+          "id": "q_demo_failure",
+          "question": "What if the live demo fails?",
+          "priority": "high"
+        },
+        {
+          "id": "q_weak_idea",
+          "question": "How do we know if the idea itself is weak?",
+          "priority": "medium"
+        }
+      ],
+      "objections": [
+        {
+          "id": "objection_one_formula",
+          "objection": "Different hackathons have different judging criteria.",
+          "severity": "high"
+        },
+        {
+          "id": "objection_not_enough_proof",
+          "objection": "A generic demo deck cannot prove a specific project works.",
+          "severity": "high"
+        }
+      ],
+      "jargon": {
+        "allowed": ["rubric", "demo path", "fallback"],
+        "define_on_first_use": ["technical proof", "judge criteria"],
+        "avoid": ["synergy", "AI-powered magic", "game-changing"]
+      }
+    }
+  ],
+  "audience_pov_critique": {
+    "what_they_care_about": "What to show, what to cut, and how to make judges trust the demo.",
+    "what_will_feel_unproven": "Any claim that a format guarantees winning or proves a project without project-specific evidence.",
+    "where_deck_sounds_like_us_not_them": "Too much discussion of slide-generation internals instead of judged demo needs.",
+    "required_reframe": "Tie every slide to a judge action: understand, score, inspect proof, ask a better question, or remember the project."
+  }
+}

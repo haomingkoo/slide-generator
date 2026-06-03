@@ -49,6 +49,13 @@ npm run deck:build -- examples/source-grounded-demo --render --export
 open examples/source-grounded-demo/deck/index.html
 ```
 
+Render the source-backed hackathon eval deck:
+
+```bash
+npm run deck:build -- evals/source-backed/hackathon-rubric-eval --render
+open evals/source-backed/hackathon-rubric-eval/deck/index.html
+```
+
 Open the generated HTML deck:
 
 ```bash
@@ -739,6 +746,14 @@ evals/evals.json
 tests/cases/
 ```
 
+The first committed source-backed eval deck lives in:
+
+```txt
+evals/source-backed/hackathon-rubric-eval/
+```
+
+It exercises hackathon/demo mode with external sources, judging criteria, content pruning, demo fallback, speaker notes, and browser QA. Use it to test whether the workflow creates a clearer judged-demo deck than a baseline one-shot prompt.
+
 `npm test` currently validates the repo scaffold, the Codex/Claude skill mirrors, deterministic claim checks, audience/story contracts, design contracts, the Marp renderer, rendered HTML inspection, browser QA, and negative validator fixtures.
 
 Current cases:
@@ -746,6 +761,7 @@ Current cases:
 - DPO teaching deck.
 - PDF parser decision deck.
 - Codebase architecture deck.
+- Source-backed hackathon demo deck.
 
 Run these as pairs:
 
@@ -778,6 +794,7 @@ Then compare story quality, source grounding, visual aid choices, speaker notes,
 ## Useful Docs
 
 - `docs/workflow.md`: full slide production flow.
+- `skills/slide-generator/references/goal-and-loop.md`: goal contract, phase gates, critique loop, and completion criteria.
 - `docs/architecture.md`: repo architecture.
 - `docs/agentic-execution.md`: how the workflow executes today and how it can map to Deep Agents or LangGraph later.
 - `docs/status-and-roadmap.md`: current status and next implementation steps.
@@ -835,7 +852,7 @@ Done:
 Next:
 
 - implement artifact generators,
-- add a real source-backed rendered eval deck,
+- expand real source-backed rendered eval decks,
 - expand the curated template library for sales, training, updates, research talks, Q&A appendix, and product demos,
 - add brand observation tooling,
 - add PPTX-specific export QA,
@@ -848,20 +865,20 @@ No open-source license has been selected yet. Until a license is added, all righ
 
 ## First Real Test To Run
 
-The best first test is the PDF parser decision deck or the DPO teaching deck.
+The best first test is the committed hackathon rubric eval deck because it has real sources, a visible rubric-first story, and a small enough deck to inspect slide by slide.
 
 Recommended prompt:
 
 ```txt
-Use the slide-generator skill to create planning artifacts for the PDF parser comparison deck.
+Use the slide-generator skill to review and improve evals/source-backed/hackathon-rubric-eval.
 
-Audience: engineering lead.
-Goal: decide what parser pipeline to use for complaint forms.
+Audience: hackathon finalist preparing for judges.
+Goal: make the deck clearer, more useful, and more source-grounded without inventing project-specific results.
 Research mode: source_only.
-Theme: clean-surgical-light.
-Output: planning artifacts first, no rendering yet.
+Theme: dark-runtime unless you propose a better option.
+Output: repair the smallest artifacts needed, then render and run QA.
 
-Create the claim ledger, story spine, slide sorter, visual aid plan, and theme options. Then stop for review.
+Critique the idea from the judge's point of view, check that the main deck fits a three-minute talk, and move overflow to backup or notes.
 ```
 
 After that, run a baseline one-shot prompt on the same material and compare the outputs. If the skill does not clearly produce a better plan, the skill needs another iteration.

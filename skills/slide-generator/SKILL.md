@@ -16,12 +16,13 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 5. Prioritize content against talk length, audience questions, claim strength, and backup needs.
 6. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
 7. Choose the deck quality mode, benefit statement, and proof bar.
-8. Choose visual aids for hard ideas.
-9. Offer theme options when taste is unclear.
-10. Create slide specs.
-11. Render.
-12. Run critique, deterministic claim checks, source audit, browser QA, export QA, and targeted repair.
-13. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
+8. Record the phase loop and completion criteria for long-running jobs.
+9. Choose visual aids for hard ideas.
+10. Offer theme options when taste is unclear.
+11. Create slide specs.
+12. Render.
+13. Run critique, deterministic claim checks, source audit, browser QA, export QA, and targeted repair.
+14. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
 
 ## One-Shot Drafting
 
@@ -61,6 +62,7 @@ Dark mode is not the default. Pick theme by audience, setting, and brand.
 Read only what the task needs:
 
 - `references/workflow.md`: artifact sequence and repair loops.
+- `references/goal-and-loop.md`: goal contract, phase gates, critique loop, learning rules, and completion criteria.
 - `references/intake-and-one-shot.md`: one-prompt deck contract, defaults, and source-handling modes.
 - `references/deck-operations.md`: existing-deck edit operations and context routing.
 - `references/audience-and-presenter-support.md`: audience model, story spine, speaker notes, likely questions, jargon, objections, and Q&A support.

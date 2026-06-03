@@ -1,0 +1,442 @@
+{
+  "project": "evals/source-backed/hackathon-rubric-eval",
+  "html": "evals/source-backed/hackathon-rubric-eval/deck/index.html",
+  "validated_artifact": {
+    "path": "evals/source-backed/hackathon-rubric-eval/deck/index.html",
+    "sha256": "e1e7568b74aff631ffdd9d77c1e2362c7d9f3db7e47c1e97c53944aa988074df",
+    "bytes": 124912,
+    "mtime_ms": 1780484152791
+  },
+  "viewport_mode": "all",
+  "generated_at": "2026-06-03T10:55:55.557Z",
+  "viewports": [
+    {
+      "viewport": {
+        "name": "standard-16x9",
+        "width": 1280,
+        "height": 720
+      },
+      "structure": {
+        "slideCount": 6,
+        "sectionCount": 6,
+        "noteCount": 6,
+        "presenterControls": true
+      },
+      "console_messages": [
+        {
+          "type": "warning",
+          "text": "NotAllowedError: Wake Lock permission request denied"
+        }
+      ],
+      "slide_reports": [
+        {
+          "index": 0,
+          "id": "1",
+          "className": "title",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 22,
+            "charCount": 126,
+            "bulletCount": 0,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 62,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 1,
+          "id": "2",
+          "className": "table",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 42,
+            "charCount": 290,
+            "bulletCount": 0,
+            "tableCellCount": 15,
+            "codeLineCount": 0,
+            "maxBlockChars": 26,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 2,
+          "id": "3",
+          "className": "comparison",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 28,
+            "charCount": 177,
+            "bulletCount": 8,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 41,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 3,
+          "id": "4",
+          "className": "architecture",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 22,
+            "charCount": 129,
+            "bulletCount": 2,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 61,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 4,
+          "id": "5",
+          "className": "table",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 42,
+            "charCount": 248,
+            "bulletCount": 0,
+            "tableCellCount": 15,
+            "codeLineCount": 0,
+            "maxBlockChars": 24,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 5,
+          "id": "6",
+          "className": "quote",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 24,
+            "charCount": 129,
+            "bulletCount": 0,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 89,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        }
+      ],
+      "navigation": {
+        "screenshots": 6,
+        "issues": []
+      },
+      "screenshots_dir": "evals/source-backed/hackathon-rubric-eval/qa/browser-screenshots/standard-16x9",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "viewport": {
+        "name": "laptop-review",
+        "width": 1366,
+        "height": 768
+      },
+      "structure": {
+        "slideCount": 6,
+        "sectionCount": 6,
+        "noteCount": 6,
+        "presenterControls": true
+      },
+      "console_messages": [
+        {
+          "type": "warning",
+          "text": "NotAllowedError: Wake Lock permission request denied"
+        }
+      ],
+      "slide_reports": [
+        {
+          "index": 0,
+          "id": "1",
+          "className": "title",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 22,
+            "charCount": 126,
+            "bulletCount": 0,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 62,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 1,
+          "id": "2",
+          "className": "table",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 42,
+            "charCount": 290,
+            "bulletCount": 0,
+            "tableCellCount": 15,
+            "codeLineCount": 0,
+            "maxBlockChars": 26,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 2,
+          "id": "3",
+          "className": "comparison",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 28,
+            "charCount": 177,
+            "bulletCount": 8,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 41,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 3,
+          "id": "4",
+          "className": "architecture",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 22,
+            "charCount": 129,
+            "bulletCount": 2,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 61,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 4,
+          "id": "5",
+          "className": "table",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 42,
+            "charCount": 248,
+            "bulletCount": 0,
+            "tableCellCount": 15,
+            "codeLineCount": 0,
+            "maxBlockChars": 24,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 5,
+          "id": "6",
+          "className": "quote",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 24,
+            "charCount": 129,
+            "bulletCount": 0,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 89,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        }
+      ],
+      "navigation": {
+        "screenshots": 6,
+        "issues": []
+      },
+      "screenshots_dir": "evals/source-backed/hackathon-rubric-eval/qa/browser-screenshots/laptop-review",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "viewport": {
+        "name": "small-window",
+        "width": 1024,
+        "height": 576
+      },
+      "structure": {
+        "slideCount": 6,
+        "sectionCount": 6,
+        "noteCount": 6,
+        "presenterControls": true
+      },
+      "console_messages": [
+        {
+          "type": "warning",
+          "text": "NotAllowedError: Wake Lock permission request denied"
+        }
+      ],
+      "slide_reports": [
+        {
+          "index": 0,
+          "id": "1",
+          "className": "title",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 22,
+            "charCount": 126,
+            "bulletCount": 0,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 62,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 1,
+          "id": "2",
+          "className": "table",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 42,
+            "charCount": 290,
+            "bulletCount": 0,
+            "tableCellCount": 15,
+            "codeLineCount": 0,
+            "maxBlockChars": 26,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 2,
+          "id": "3",
+          "className": "comparison",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 28,
+            "charCount": 177,
+            "bulletCount": 8,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 41,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 3,
+          "id": "4",
+          "className": "architecture",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 22,
+            "charCount": 129,
+            "bulletCount": 2,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 61,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 4,
+          "id": "5",
+          "className": "table",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 42,
+            "charCount": 248,
+            "bulletCount": 0,
+            "tableCellCount": 15,
+            "codeLineCount": 0,
+            "maxBlockChars": 24,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        },
+        {
+          "index": 5,
+          "id": "6",
+          "className": "quote",
+          "overflow": false,
+          "outOfBounds": [],
+          "contrastIssues": [],
+          "density": {
+            "wordCount": 24,
+            "charCount": 129,
+            "bulletCount": 0,
+            "tableCellCount": 0,
+            "codeLineCount": 0,
+            "maxBlockChars": 89,
+            "warnings": []
+          },
+          "fragmentCount": 0
+        }
+      ],
+      "navigation": {
+        "screenshots": 6,
+        "issues": []
+      },
+      "screenshots_dir": "evals/source-backed/hackathon-rubric-eval/qa/browser-screenshots/small-window",
+      "status": "pass",
+      "issues": []
+    }
+  ],
+  "console_messages": [
+    {
+      "viewport": "standard-16x9",
+      "type": "warning",
+      "text": "NotAllowedError: Wake Lock permission request denied"
+    },
+    {
+      "viewport": "laptop-review",
+      "type": "warning",
+      "text": "NotAllowedError: Wake Lock permission request denied"
+    },
+    {
+      "viewport": "small-window",
+      "type": "warning",
+      "text": "NotAllowedError: Wake Lock permission request denied"
+    }
+  ],
+  "screenshots_dir": "evals/source-backed/hackathon-rubric-eval/qa/browser-screenshots",
+  "status": "pass",
+  "issues": []
+}

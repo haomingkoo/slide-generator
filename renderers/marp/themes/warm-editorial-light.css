@@ -98,7 +98,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  background: var(--paper);
+  background: transparent;
   font-family: "Aptos", "Helvetica Neue", Arial, sans-serif;
   font-size: 21px;
 }

@@ -1,0 +1,219 @@
+{
+  "deck": {
+    "title": "Build The Demo Judges Can Score",
+    "theme": "dark-runtime",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Hackathon demo deck",
+      "title": "Judges cannot score what they cannot verify",
+      "subtitle": "Build the pitch around the proof they can inspect in the room.",
+      "claim_ids": ["claim_005"],
+      "claim_use": "deck structure",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Open with one memorable operating rule."
+      },
+      "speaker_notes": {
+        "key_message": "The deck is about making proof easy to judge, not showing every feature.",
+        "talk_track": [
+          "Start by naming the practical pressure: judges have limited time.",
+          "Explain that the team should design for scoring and recall.",
+          "Avoid saying this format guarantees a win."
+        ],
+        "timing_seconds": 25,
+        "claim_ids": ["claim_005"],
+        "avoid_saying": ["This is the only way to win a hackathon."]
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "rubric_alignment",
+      "layout": "table",
+      "title": "Rubric first, story second",
+      "table": {
+        "headers": ["Judging lens", "Main-deck job", "Backup proof"],
+        "rows": [
+          ["Idea quality", "Problem and user benefit", "Research notes"],
+          ["Implementation", "Working demo path", "Architecture details"],
+          ["Potential impact", "Why it matters now", "Use cases or adoption"],
+          ["Event process", "Follow the judging flow", "Submission checklist"]
+        ]
+      },
+      "claim_ids": ["claim_001", "claim_002"],
+      "claim_uses": {
+        "claim_001": "rubric framing",
+        "claim_002": "judging process"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Translate criteria into slide decisions.",
+        "validation": {
+          "expected": "Four rows stay readable on a projector.",
+          "fallback": "Split into two slides if a real rubric has more categories.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The rubric is the first content filter.",
+        "talk_track": [
+          "Devpost and MLH both point to judging as an explicit process.",
+          "Do not copy this table blindly; replace it with the event rubric.",
+          "Use backup for evidence judges may ask for but do not need in the main story."
+        ],
+        "timing_seconds": 40,
+        "claim_ids": ["claim_001", "claim_002"],
+        "delivery_cues": ["Point to the left column first, then the deck job."]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "comparison",
+      "layout": "comparison",
+      "title": "Prune by score movement, not effort spent",
+      "left": {
+        "title": "Main deck",
+        "body": ["Problem and benefit", "Working path", "Hard proof", "Next ask"]
+      },
+      "right": {
+        "title": "Backup",
+        "body": ["Full architecture", "Extra edge cases", "Dataset details", "Future roadmap"]
+      },
+      "claim_ids": ["claim_003", "claim_005"],
+      "claim_uses": {
+        "claim_003": "content priority",
+        "claim_005": "content priority"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Show how a crowded source pile becomes a tight pitch.",
+        "validation": {
+          "expected": "Both columns stay balanced with short bullets.",
+          "fallback": "Move backup examples into speaker notes if cramped.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "Time is a constraint; backup is a feature, not a failure.",
+        "talk_track": [
+          "Connect short-pitch discipline to the goal of earning the next conversation.",
+          "Tell builders to keep proof available without crowding the main story.",
+          "Use the one-slide-per-minute rule as a planning default, not a law."
+        ],
+        "timing_seconds": 35,
+        "claim_ids": ["claim_003", "claim_005"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "demo_plan",
+      "layout": "architecture",
+      "title": "Make the demo route reliable",
+      "body": ["Show the route before the live action.", "Keep a screenshot, recording, or logs ready if runtime fails."],
+      "mermaid": "flowchart LR\n  A[Problem] --> B[Input]\n  B --> C[System action]\n  C --> D[Visible result]\n  D --> E[Fallback proof]",
+      "claim_ids": ["claim_002", "claim_006"],
+      "claim_uses": {
+        "claim_002": "demo planning",
+        "claim_006": "demo fallback"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Turn the live demo into a visible sequence.",
+        "validation": {
+          "expected": "Mermaid path renders left to right with five nodes or fewer.",
+          "fallback": "Use the body text as a static route if Mermaid fails.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "A calm demo plan makes the team look more credible.",
+        "talk_track": [
+          "Name the demo route before clicking anything live.",
+          "Explain what judges should watch for.",
+          "If the live path breaks, switch to the fallback proof without apologizing for too long."
+        ],
+        "timing_seconds": 45,
+        "claim_ids": ["claim_002", "claim_006"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "technical_depth",
+      "layout": "table",
+      "title": "Prove the hard part",
+      "table": {
+        "headers": ["If asked", "Show", "Do not fake"],
+        "rows": [
+          ["Does it work?", "Logs or demo output", "Invented metrics"],
+          ["Why is it hard?", "Architecture choice", "Buzzword stack"],
+          ["Can it scale?", "Known bottleneck", "Unmeasured claims"],
+          ["What failed?", "Limitation and next test", "Perfect story"]
+        ]
+      },
+      "claim_ids": ["claim_004", "claim_006"],
+      "claim_uses": {
+        "claim_004": "audience benefit",
+        "claim_006": "technical proof"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Separate useful technical proof from implementation noise.",
+        "validation": {
+          "expected": "Cells are concise and legible.",
+          "fallback": "Move the last two rows to backup if the real deck adds examples.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "Technical depth is strongest when it is specific, honest, and inspectable.",
+        "talk_track": [
+          "Explain that technical slides should answer judge questions.",
+          "Invite teams to show limitations instead of hiding them.",
+          "Project-specific accuracy, speed, cost, and latency need real measurements."
+        ],
+        "timing_seconds": 45,
+        "claim_ids": ["claim_004", "claim_006"],
+        "avoid_saying": ["Our model is best unless you have a measured source."]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "End with the sentence judges can retell",
+      "quote": "We solve this problem, for this user, with this working proof, and this is the next step.",
+      "claim_ids": ["claim_003", "claim_004", "claim_005"],
+      "claim_uses": {
+        "claim_003": "next action",
+        "claim_004": "opening clarity",
+        "claim_005": "backup strategy"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "quote",
+        "purpose": "Close with a reusable presentation check."
+      },
+      "speaker_notes": {
+        "key_message": "The final review should ask whether the idea is clear, credible, and worth the next action.",
+        "talk_track": [
+          "Use the sentence as a rehearsal test.",
+          "If the team cannot fill one slot honestly, the idea or evidence needs work.",
+          "Move extra technical material to Q&A and backup."
+        ],
+        "timing_seconds": 30,
+        "claim_ids": ["claim_003", "claim_004", "claim_005"],
+        "delivery_cues": ["Pause before the quoted sentence."]
+      }
+    }
+  ]
+}

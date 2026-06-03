@@ -39,6 +39,7 @@ Done:
 - Workflow status and local runner commands.
 - Initial brand extraction from text-based brand files.
 - Source-backed demo deck under `examples/source-grounded-demo`.
+- First real source-backed eval deck under `evals/source-backed/hackathon-rubric-eval`.
 - Content-priority workflow for main deck versus appendix decisions.
 
 Not done:

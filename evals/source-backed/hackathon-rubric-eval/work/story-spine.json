@@ -1,0 +1,51 @@
+{
+  "audience_shift": {
+    "from": "We should show everything we built.",
+    "to": "We should show the few things judges can score, trust, and retell."
+  },
+  "throughline": "A hackathon deck should start from the judging rubric, prove the hard part, and make the demo easy to score.",
+  "beats": [
+    {
+      "id": "beat_hook",
+      "role": "hook",
+      "slide_ids": ["slide_01"],
+      "transition": "Start with the judging reality: time is short and proof must be easy to inspect.",
+      "audience_question_ids": ["q_what_matters"]
+    },
+    {
+      "id": "beat_rubric",
+      "role": "rubric_alignment",
+      "slide_ids": ["slide_02"],
+      "transition": "Move from a feature list to the actual scoring lens.",
+      "handles_objection_ids": ["objection_one_formula"]
+    },
+    {
+      "id": "beat_priority",
+      "role": "comparison",
+      "slide_ids": ["slide_03"],
+      "transition": "Show how to prune a crowded source pile into a tight main deck."
+    },
+    {
+      "id": "beat_demo",
+      "role": "demo_plan",
+      "slide_ids": ["slide_04"],
+      "transition": "Turn the story into a demonstrable path.",
+      "audience_question_ids": ["q_demo_failure"]
+    },
+    {
+      "id": "beat_depth",
+      "role": "technical_depth",
+      "slide_ids": ["slide_05"],
+      "transition": "Explain where technical depth belongs and what it must prove.",
+      "audience_question_ids": ["q_technical_depth"],
+      "handles_objection_ids": ["objection_not_enough_proof"]
+    },
+    {
+      "id": "beat_close",
+      "role": "close",
+      "slide_ids": ["slide_06"],
+      "transition": "Close with a practical review loop the team can reuse.",
+      "audience_question_ids": ["q_weak_idea"]
+    }
+  ]
+}

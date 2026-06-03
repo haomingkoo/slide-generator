@@ -1,0 +1,58 @@
+{
+  "deck_goal": "Help hackathon finalists build a short demo deck that judges can score quickly and fairly.",
+  "sessions": [
+    {
+      "date": "2026-06-03",
+      "summary": "Initial review checks that the deck does not claim a universal winning formula and keeps project-specific proof out of the generic eval.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_02",
+          "decision": "accept",
+          "note": "Rubric framing is sourced and caveated by the speaker notes."
+        },
+        {
+          "slide_id": "slide_05",
+          "decision": "accept",
+          "note": "Technical depth is framed as what to prove, not as an invented project result."
+        },
+        {
+          "slide_id": "slide_06",
+          "decision": "accept",
+          "note": "Close gives a retellable rule and invites critique of weak ideas."
+        }
+      ],
+      "recurring_issues": [
+        "Do not imply one deck format guarantees a win.",
+        "Do not invent project-specific model, user, or benchmark results."
+      ],
+      "new_rules": [
+        "Hackathon decks must record actual judging criteria before final slide selection.",
+        "Main-deck technical claims require project-specific proof before presentation."
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "summary": "Manual screenshot review found that technically valid table slides still needed visual cleanup.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_02",
+          "decision": "visual_edit",
+          "note": "Shortened the title and removed empty table background space so the rubric table reads cleaner."
+        },
+        {
+          "slide_id": "slide_05",
+          "decision": "visual_edit",
+          "note": "Shortened the title to improve hierarchy and removed the transition ghost captured during screenshot review."
+        }
+      ],
+      "recurring_issues": [
+        "A passing browser QA report does not guarantee the slide composition feels finished.",
+        "Avoid transitions in eval decks unless the QA screenshot loop explicitly needs to test motion."
+      ],
+      "new_rules": [
+        "Spot-check screenshots after browser QA before calling an eval deck presentable.",
+        "Table themes should not paint unused empty background space."
+      ]
+    }
+  ]
+}

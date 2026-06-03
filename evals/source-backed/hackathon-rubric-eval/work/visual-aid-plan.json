@@ -1,0 +1,34 @@
+{
+  "visual_aids": [
+    {
+      "slide_id": "slide_01",
+      "type": "none",
+      "purpose": "Open with a strong statement and avoid visual clutter."
+    },
+    {
+      "slide_id": "slide_02",
+      "type": "table",
+      "purpose": "Map common judging lenses to deck choices."
+    },
+    {
+      "slide_id": "slide_03",
+      "type": "comparison",
+      "purpose": "Show main deck versus backup pruning."
+    },
+    {
+      "slide_id": "slide_04",
+      "type": "architecture",
+      "purpose": "Show the demo route as a short, reliable sequence."
+    },
+    {
+      "slide_id": "slide_05",
+      "type": "table",
+      "purpose": "Separate technical proof from technical noise."
+    },
+    {
+      "slide_id": "slide_06",
+      "type": "quote",
+      "purpose": "End with a short retellable principle."
+    }
+  ]
+}

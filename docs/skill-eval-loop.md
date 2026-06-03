@@ -36,6 +36,32 @@ For each realistic eval, keep two outputs when possible:
 
 Compare both qualitatively and with objective checks. The skill should justify its token cost by producing better planning artifacts, stronger accuracy discipline, and fewer generic slides.
 
+## Committed Source-Backed Eval
+
+The first rendered eval deck is:
+
+```txt
+evals/source-backed/hackathon-rubric-eval/
+```
+
+Run it with:
+
+```bash
+npm run deck:build -- evals/source-backed/hackathon-rubric-eval --render
+```
+
+This eval checks whether the skill can turn reputable presentation guidance into a concise hackathon/demo deck without inventing project-specific results. Review it against:
+
+- rubric alignment,
+- one-slide-per-minute pressure,
+- source-backed claims,
+- demo path and fallback,
+- audience questions and objections,
+- technical proof boundaries,
+- slide-by-slide clarity.
+
+Use it as the first baseline-vs-skill comparison before adding larger eval decks.
+
 ## Eval Viewer
 
 When an eval-viewer tool or script is available, generate a review page before revising the skill. The human should see outputs side by side and leave feedback. The feedback should drive the next iteration.

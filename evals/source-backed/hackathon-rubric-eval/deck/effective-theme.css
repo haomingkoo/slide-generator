@@ -248,3 +248,29 @@ section.section {
   font-size: 28px;
   font-weight: 760;
 }
+
+
+/* design-contract overrides */
+:root {
+  --bg: #101014;
+  --paper: #181a20;
+  --panel: #181a20;
+  --panel-2: #181a20;
+  --ink: #f5f5f0;
+  --muted: #b6b2a8;
+  --line: #363946;
+  --accent: #f2c14e;
+  --accent-2: #6ee7b7;
+  --ok: #6ee7b7;
+  --warn: #f2c14e;
+}
+
+section, p, li, table { font-family: Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif; }
+
+h1, h2, h3, blockquote { font-family: Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif; }
+
+pre, code { font-family: SF Mono, Cascadia Code, Consolas, monospace; }
+
+section { --contract-spacing-base: 4px; }
+
+.panel, pre, .flow-diagram, .flow-node { border-radius: 8px; }

@@ -36,6 +36,15 @@
       "prompt": "Create an executive decision deck from the provided analysis notes. The audience is a VP deciding whether to fund Sprint 3 experiments. Lead with the recommendation, include decision criteria, risks, owner/timing, and backup slides for likely objections.",
       "expected_output": "An answer-first executive deck plan with pyramid logic, action titles, MECE decision criteria, chart/source contracts, risk handling, and an explicit decision ask.",
       "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Use the source bundle in evals/source-backed/hackathon-rubric-eval to render a 3-minute hackathon finalist deck. Keep the main deck to six slides, optimize for judging criteria, include speaker notes, and do not invent project-specific results.",
+      "expected_output": "A rendered source-backed hackathon demo deck with intake, source map, claim ledger, audience model, story spine, content priority, design contract, slide specs, browser QA, and review log.",
+      "files": [
+        "evals/source-backed/hackathon-rubric-eval/input/brief.md",
+        "evals/source-backed/hackathon-rubric-eval/input/sources/hackathon-pitch-research.md"
+      ]
     }
   ]
 }
