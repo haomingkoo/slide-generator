@@ -104,6 +104,16 @@ Investor red flags:
 
 Primary job: score well against the judging rubric and make judges believe the build is real.
 
+Start by recording:
+
+- judging criteria and weights,
+- judging format: science-fair table, finalist stage, recorded video, or investor-style pitch,
+- talk, demo, and Q&A time,
+- required submission assets,
+- track-specific constraints,
+- proof assets available,
+- demo fallback.
+
 Default main-deck archetypes:
 
 1. What it is: project name and one plain sentence.
@@ -129,6 +139,32 @@ Hackathon red flags:
 - Technical depth is hand-waved.
 - Pitch sounds like a fundraising deck when judges score implementation.
 - AI assistance, data limits, or generated assets are hidden when they matter.
+
+## Idea And Argument Critique
+
+Do not polish a weak idea without saying what is weak.
+
+Before high-fidelity rendering, critique:
+
+- idea clarity: can the audience explain what it is?
+- audience benefit: who benefits and what improves?
+- evidence: what proves the benefit?
+- differentiation: why this is not a generic wrapper, copy, or commodity workflow?
+- feasibility: what is actually built versus planned?
+- technical depth: what hard part was solved?
+- risk: what can fail, mislead, or block adoption?
+- rubric fit: does it match the judging, investor, client, or executive criteria?
+- next action: what should the audience do after the deck?
+
+If a gap is material, record it in `work/audience-model.json`, `work/content-priority.md`, or `work/review-log.json`, and decide whether to:
+
+- answer it in the main story,
+- move it to Q&A backup,
+- ask the user for evidence,
+- narrow the claim,
+- or change the deck goal.
+
+The deck should make the idea stronger, not hide weak thinking behind better visuals.
 
 ## Executive / Consulting Decision Deck
 

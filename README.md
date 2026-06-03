@@ -464,6 +464,19 @@ Starter slide-spec templates live in:
 templates/marp/
 ```
 
+Current starter templates:
+
+- `pitch-deck.json`: generic product, sales, or mixed pitch narrative.
+- `vc-seed-deck.json`: pre-seed or seed investor deck with stage-honest proof and ask.
+- `hackathon-demo-3min.json`: short demo-heavy judging pitch with rubric alignment and fallback.
+- `executive-decision-deck.json`: recommendation-first decision deck with options, risks, owner, and timing.
+- `teaching-deck.json`: classroom, workshop, or explainer flow.
+- `technical-architecture.json`: codebase, platform, security, or system-review deck.
+
+More templates are planned. The library should grow by presentation job, not by decorative style alone.
+
+For hackathons, the deck should optimize for the actual judging criteria, not a generic startup pitch. Record the rubric, time limit, demo length, Q&A length, proof assets, and demo fallback in the intake brief. If the idea is weak, technically thin, or misaligned with the rubric, the workflow should say so before polishing slides.
+
 Starter design-memory templates live in:
 
 ```txt
@@ -813,7 +826,9 @@ Done:
 - PPTX/PDF export command,
 - optional Marp screenshot export,
 - three Marp themes,
-- pitch, teaching, and technical architecture slide-spec templates,
+- research-backed quality benchmark across fundraising, hackathon/demo, executive, technical, and teaching modes,
+- research coverage reference for deciding when evidence is sufficient, thin, missing, stale, or conflicted,
+- pitch, VC seed, hackathon demo, executive decision, teaching, and technical architecture slide-spec templates,
 - negative validator fixtures,
 - GitHub CI.
 
@@ -821,6 +836,7 @@ Next:
 
 - implement artifact generators,
 - add a real source-backed rendered eval deck,
+- expand the curated template library for sales, training, updates, research talks, Q&A appendix, and product demos,
 - add brand observation tooling,
 - add PPTX-specific export QA,
 - add native Google Slides API handoff after auth and formatting risks are designed,

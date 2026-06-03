@@ -60,6 +60,24 @@ Not done:
 5. Add PPTX-specific visual QA and template analysis.
 6. Add native Google Slides export only after auth, import, and formatting risks are designed.
 
+## Template Roadmap
+
+More templates are useful when they represent a real presentation job, not just another visual skin.
+
+Planned template families:
+
+- sales proposal,
+- customer case study,
+- product launch,
+- weekly or sprint update,
+- research talk,
+- model-evaluation report,
+- training/onboarding,
+- workshop facilitation,
+- Q&A appendix,
+- data-heavy board update,
+- product demo with live fallback.
+
 ## MVP Bar
 
 The first MVP should produce one complete HTML deck from committed source material:

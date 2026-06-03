@@ -187,6 +187,7 @@ for (const phrase of [
   "Teaching / Explainer Deck",
   "target_next_action",
   "Benefit-First Communication",
+  "Idea And Argument Critique",
   "Pruning Rule"
 ]) {
   if (!deckQualityBenchmark.includes(phrase)) {
