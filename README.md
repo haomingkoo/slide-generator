@@ -8,6 +8,41 @@ The goal is not to make slides from a single prompt. The goal is to turn rough m
 
 This repo is currently an early render-capable pipeline scaffold. It has the skill, planning structure, guardrails, validator scripts, eval prompts, CI, compatibility setup for Codex and Claude Code, and a first Marp-based HTML renderer.
 
+## Quick Start
+
+Clone and install:
+
+```bash
+git clone git@github.com:haomingkoo/slide-generator.git
+cd slide-generator
+npm ci
+npx playwright install chromium
+npm test
+```
+
+On Linux CI, install Playwright with system dependencies:
+
+```bash
+npx playwright install chromium --with-deps
+```
+
+Render the committed fixture:
+
+```bash
+npm run render:marp -- tests/fixtures/render-project --html
+npm run inspect:marp -- tests/fixtures/render-project
+npm run qa:browser -- tests/fixtures/render-project
+npm run export:marp -- tests/fixtures/render-project --pptx --pdf
+```
+
+Open the generated HTML deck:
+
+```bash
+open tests/fixtures/render-project/deck/index.html
+```
+
+The HTML deck includes presenter controls and speaker notes. The PPTX export is the current PowerPoint and Google Slides handoff path. Native Google Slides API generation is planned, not claimed today.
+
 ## What This Repo Is
 
 This is an agentic workflow repo.
@@ -32,6 +67,34 @@ In practical terms, the repo has four layers:
 - **Workflow**: `workflows/make-deck.md` and `skills/slide-generator/references/*.md` define the artifact sequence and repair loops.
 - **Guardrails**: `scripts/*.mjs` validate claims, audience, story, design, slide specs, rendered HTML, and browser output.
 - **Rendering assets**: `renderers/` and `templates/` turn checked slide specs into HTML, PPTX/PDF exports, and screenshots.
+
+## How People Run It
+
+There are two ways to use the repo today.
+
+Use it as a renderer and validator:
+
+```bash
+npm run render:marp -- projects/my-deck --html
+npm run inspect:marp -- projects/my-deck
+npm run qa:browser -- projects/my-deck
+npm run export:marp -- projects/my-deck --pptx --pdf
+```
+
+Use it agentically through Codex or Claude Code:
+
+```txt
+Use the slide-generator skill for projects/my-deck.
+
+Follow workflows/make-deck.md.
+Create planning artifacts first. Do not render until intake-brief, claim-ledger, audience-model, story-spine, slide-sorter, visual-aid-plan, design-contract, and slide-specs are ready.
+Use source_only mode unless the brief says research is allowed.
+Stop for review after the rendered draft and QA report.
+```
+
+The second mode is the important one. A run is agentic only when the agent creates the artifacts, validates them, renders, inspects the browser output, records review feedback, and repairs the specific artifact that failed. If it only calls the renderer, it is not using the full system.
+
+See `docs/agentic-execution.md` for how this maps to Deep Agents, LangGraph, or another runner later.
 
 ## Long-Running Agent Reliability
 
@@ -639,9 +702,11 @@ Then compare story quality, source grounding, visual aid choices, speaker notes,
 
 - `docs/workflow.md`: full slide production flow.
 - `docs/architecture.md`: repo architecture.
+- `docs/agentic-execution.md`: how the workflow executes today and how it can map to Deep Agents or LangGraph later.
 - `docs/status-and-roadmap.md`: current status and next implementation steps.
 - `docs/renderer-strategy.md`: HTML-first renderer plan and Marp-style target.
 - `docs/design-skill-adoption-review.md`: what external design-skill ideas were adopted, deferred, or rejected.
+- `docs/gemini-review-prompt.md`: detailed prompt for asking another model to review this repo.
 - `docs/no-hallucination-policy.md`: accuracy rules.
 - `docs/quality-rubric.md`: deck quality checklist.
 - `skills/slide-generator/references/deck-operations.md`: common edit and transformation operations.
