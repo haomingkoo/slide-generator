@@ -33,18 +33,21 @@ Claude Code can also use:
 
 ## Source Of Truth
 
-During early development, the skill is mirrored in three places:
+The skill appears in three places, but only one is authored:
 
 ```txt
-skills/slide-generator/
+skills/slide-generator/                  canonical source
 .agents/skills/slide-generator/
 .claude/skills/slide-generator/
 ```
 
-`skills/slide-generator/` is the development mirror. `.agents/skills` is the Codex runtime path. `.claude/skills` is the Claude Code runtime path.
+`.agents/skills` is the Codex runtime path. `.claude/skills` is the Claude Code runtime path. These paths are generated mirrors because the runtimes discover skills there.
 
-Run `npm test` after editing the skill. The validation script fails if any mirror drifts.
+Edit `skills/slide-generator/`, then run:
 
-## Future Cleanup
+```bash
+npm run sync:skills
+npm test
+```
 
-Once the runtime choice is stable, replace the mirrors with a sync script or make one directory the single source of truth. For now, explicit mirrors make compatibility clear and easy to inspect.
+`npm test` fails if any mirror drifts.

@@ -12,11 +12,12 @@ const requiredFiles = [
   ".github/ISSUE_TEMPLATE/bug_report.md",
   ".github/ISSUE_TEMPLATE/feature_request.md",
   "docs/workflow.md",
+  "docs/package-boundaries.md",
   "docs/architecture.md",
   "docs/status-and-roadmap.md",
   "docs/renderer-strategy.md",
-  "docs/codex-ecosystem.md",
   "docs/runtime-compatibility.md",
+  "docs/research/product-workflow-lessons.md",
   "docs/deck-quality-benchmark.md",
   "docs/no-hallucination-policy.md",
   "docs/quality-rubric.md",
@@ -30,7 +31,7 @@ const requiredFiles = [
   "scripts/deck-workflow-status.mjs",
   "scripts/extract-brand-contract.mjs",
   "scripts/inspect-exports.mjs",
-  "scripts/run-agentic-workflow.mjs",
+  "scripts/sync-skills.mjs",
   "scripts/theme-utils.mjs",
   "scripts/validate-claim-ledger.mjs",
   "scripts/lint-claim-refs.mjs",
@@ -89,7 +90,6 @@ const requiredFiles = [
   "design-systems/clean-surgical-light/DESIGN.md",
   "design-systems/warm-editorial-light/DESIGN.md",
   "design-systems/dark-runtime/DESIGN.md",
-  "workflows/make-deck.md",
   "projects/_template/input/brief.md",
   "examples/source-grounded-demo/input/brief.md",
   "examples/source-grounded-demo/input/sources/repo-evidence.md",
@@ -127,11 +127,7 @@ const requiredFiles = [
   "evals/source-backed/hackathon-rubric-eval/work/visual-aid-plan.json",
   "evals/source-backed/hackathon-rubric-eval/work/design-contract.json",
   "evals/source-backed/hackathon-rubric-eval/work/slide-specs.json",
-  "evals/source-backed/hackathon-rubric-eval/work/review-log.json",
-  "evals/source-backed/hackathon-rubric-eval/deck/index.html",
-  "evals/source-backed/hackathon-rubric-eval/deck/index.md",
-  "evals/source-backed/hackathon-rubric-eval/deck/speaker-notes.txt",
-  "evals/source-backed/hackathon-rubric-eval/qa/browser-qa.json"
+  "evals/source-backed/hackathon-rubric-eval/work/review-log.json"
 ];
 
 for (const file of requiredFiles) {
@@ -243,17 +239,29 @@ for (const phrase of [
 
 const productLessons = await readFile("skills/slide-generator/references/product-workflow-lessons.md", "utf8");
 for (const phrase of [
+  "Adopted Rules",
+  "multiple intake modes",
+  "outline, story spine, or title sorter",
+  "native editability",
+  "browser screenshots",
+  "Guardrail Implications",
+  "Product Gaps To Track"
+]) {
+  if (!productLessons.includes(phrase)) {
+    throw new Error(`product-workflow-lessons reference is missing required phrase: ${phrase}`);
+  }
+}
+
+const productResearch = await readFile("docs/research/product-workflow-lessons.md", "utf8");
+for (const phrase of [
   "Gamma",
   "Figma Slides",
   "Gemini In Google Slides",
   "Plus AI",
-  "SlideSpeak",
-  "template_intelligence.json",
-  "source-handling mode",
-  "Product Principles To Adopt"
+  "SlideSpeak"
 ]) {
-  if (!productLessons.includes(phrase)) {
-    throw new Error(`product-workflow-lessons reference is missing required phrase: ${phrase}`);
+  if (!productResearch.includes(phrase)) {
+    throw new Error(`product workflow research is missing required phrase: ${phrase}`);
   }
 }
 
