@@ -1,0 +1,29 @@
+{
+  "deck_goal": "Baseline one-shot-style deck for teaching hackathon finalists a short pitch structure.",
+  "sessions": [
+    {
+      "date": "2026-06-05",
+      "summary": "Frozen baseline fixture converted into renderable slide specs for A/B comparison.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_04",
+          "decision": "accept",
+          "note": "Judging criteria are present but not deeply routed into the whole deck."
+        },
+        {
+          "slide_id": "slide_05",
+          "decision": "copy_edit",
+          "note": "Backup proof is mentioned, but the demo route is not made visual."
+        }
+      ],
+      "recurring_issues": [
+        "The deck is coherent but generic.",
+        "The rubric appears as one slide instead of driving every slide choice.",
+        "Visual aids do not carry much explanatory weight."
+      ],
+      "new_rules": [
+        "Use this baseline only as a fixture; replace it with captured one-shot model output for model-specific studies."
+      ]
+    }
+  ]
+}

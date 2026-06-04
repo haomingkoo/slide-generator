@@ -27,7 +27,7 @@
           "Explain that the team should design for scoring and recall.",
           "Avoid saying this format guarantees a win."
         ],
-        "timing_seconds": 25,
+        "timing_seconds": 20,
         "claim_ids": ["claim_005"],
         "avoid_saying": ["This is the only way to win a hackathon."]
       }
@@ -68,7 +68,7 @@
           "Do not copy this table blindly; replace it with the event rubric.",
           "Use backup for evidence judges may ask for but do not need in the main story."
         ],
-        "timing_seconds": 40,
+        "timing_seconds": 30,
         "claim_ids": ["claim_001", "claim_002"],
         "delivery_cues": ["Point to the left column first, then the deck job."]
       }
@@ -108,7 +108,7 @@
           "Tell builders to keep proof available without crowding the main story.",
           "Use the one-slide-per-minute rule as a planning default, not a law."
         ],
-        "timing_seconds": 35,
+        "timing_seconds": 30,
         "claim_ids": ["claim_003", "claim_005"]
       }
     },
@@ -141,7 +141,7 @@
           "Explain what judges should watch for.",
           "If the live path breaks, switch to the fallback proof without apologizing for too long."
         ],
-        "timing_seconds": 45,
+        "timing_seconds": 35,
         "claim_ids": ["claim_002", "claim_006"]
       }
     },
@@ -181,7 +181,7 @@
           "Invite teams to show limitations instead of hiding them.",
           "Project-specific accuracy, speed, cost, and latency need real measurements."
         ],
-        "timing_seconds": 45,
+        "timing_seconds": 40,
         "claim_ids": ["claim_004", "claim_006"],
         "avoid_saying": ["Our model is best unless you have a measured source."]
       }
@@ -210,7 +210,7 @@
           "If the team cannot fill one slot honestly, the idea or evidence needs work.",
           "Move extra technical material to Q&A and backup."
         ],
-        "timing_seconds": 30,
+        "timing_seconds": 25,
         "claim_ids": ["claim_003", "claim_004", "claim_005"],
         "delivery_cues": ["Pause before the quoted sentence."]
       }

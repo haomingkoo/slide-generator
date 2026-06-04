@@ -13,12 +13,12 @@ Done:
 - Quality rubric, scorecard, and repair-plan artifacts with deterministic validation and a quality gate command.
 - Starter templates for pitch, VC seed, hackathon demo, executive decision, teaching, and technical architecture decks.
 - Source-backed demo and eval projects with generated deck/QA output reproduced by test commands.
+- A/B eval harness for the first source-backed eval, comparing the skill output against a frozen one-shot baseline fixture.
 - GitHub CI and negative validator fixtures.
 
 Not done:
 
 - Automatic artifact generation from arbitrary large source corpora.
-- One-shot baseline comparison and scoring for the source-backed eval.
 - Image-based brand sampling from screenshots, logos, and decks.
 - Native editable PPTX template generation.
 - Native Google Slides API generation.
@@ -28,7 +28,7 @@ Not done:
 
 ## Near-Term Roadmap
 
-1. Add baseline output and a small scorer for `evals/source-backed/hackathon-rubric-eval`.
+1. Replace the frozen A/B baseline with captured model-specific one-shot outputs.
 2. Use the quality score loop on real decks and compare score movement before/after targeted repairs.
 3. Add verbatim source anchors or retrieval snippets for external-source claims.
 4. Add brand observation from CSS, website screenshots, and uploaded decks.

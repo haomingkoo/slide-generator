@@ -1,0 +1,51 @@
+{
+  "segments": [
+    {
+      "id": "hackathon_finalist",
+      "role": "Builder preparing a judged demo",
+      "decision_power": "user",
+      "current_knowledge": [
+        "Knows the project details.",
+        "May not know how judges will score the demo."
+      ],
+      "stakes": [
+        "Needs judges to understand the product quickly.",
+        "Needs to choose what to show in a short slot."
+      ],
+      "success_criteria": [
+        "Can name the problem and product clearly.",
+        "Can prepare a basic demo path."
+      ],
+      "likely_questions": [
+        {
+          "id": "q_show_first",
+          "question": "What should we show first?",
+          "priority": "high"
+        },
+        {
+          "id": "q_enough_detail",
+          "question": "How much detail is enough?",
+          "priority": "medium"
+        }
+      ],
+      "objections": [
+        {
+          "id": "objection_generic",
+          "objection": "This advice may be too generic for a specific hackathon rubric.",
+          "severity": "medium"
+        }
+      ],
+      "jargon": {
+        "allowed": ["demo", "rubric"],
+        "define_on_first_use": ["judge criteria"],
+        "avoid": ["game-changing", "revolutionary", "AI magic"]
+      }
+    }
+  ],
+  "audience_pov_critique": {
+    "what_they_care_about": "What to say and show in a short hackathon pitch.",
+    "what_will_feel_unproven": "Advice that does not point to a judging rubric or visible proof.",
+    "where_deck_sounds_like_us_not_them": "Generic pitch advice without enough judge-facing detail.",
+    "required_reframe": "Tie the pitch structure to what judges can understand and ask about."
+  }
+}

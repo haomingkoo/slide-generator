@@ -32,6 +32,7 @@ const requiredFiles = [
   "scripts/deck-workflow-status.mjs",
   "scripts/iterate-deck.mjs",
   "scripts/score-deck.mjs",
+  "scripts/score-ab-eval.mjs",
   "scripts/extract-brand-contract.mjs",
   "scripts/inspect-exports.mjs",
   "scripts/sync-skills.mjs",
@@ -146,7 +147,23 @@ const requiredFiles = [
   "evals/source-backed/hackathon-rubric-eval/work/design-contract.json",
   "evals/source-backed/hackathon-rubric-eval/work/quality-rubric.json",
   "evals/source-backed/hackathon-rubric-eval/work/slide-specs.json",
-  "evals/source-backed/hackathon-rubric-eval/work/review-log.json"
+  "evals/source-backed/hackathon-rubric-eval/work/review-log.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/README.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/input/brief.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/input/baseline-prompt.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/input/sources/hackathon-pitch-research.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/intake-brief.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/source-map.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/claim-ledger.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/audience-model.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/story-spine.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/slide-sorter.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/content-priority.md",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/visual-aid-plan.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/design-contract.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/quality-rubric.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/slide-specs.json",
+  "evals/source-backed/hackathon-rubric-eval/baseline-one-shot/work/review-log.json"
 ];
 
 for (const file of requiredFiles) {
