@@ -40,7 +40,7 @@
     {
       "id": 7,
       "prompt": "Use the source bundle in evals/source-backed/hackathon-rubric-eval to render a 3-minute hackathon finalist deck. Keep the main deck to six slides, optimize for judging criteria, include speaker notes, and do not invent project-specific results.",
-      "expected_output": "A rendered source-backed hackathon demo deck with intake, source map, claim ledger, audience model, story spine, content priority, design contract, slide specs, browser QA, review log, and an A/B proxy comparison against the frozen one-shot baseline fixture.",
+      "expected_output": "A rendered source-backed hackathon demo deck with intake, source map, claim ledger, audience model, story spine, content priority, design contract, slide specs, browser QA, review log, and an A/B structural proxy comparison against the frozen self-authored baseline fixture.",
       "files": [
         "evals/source-backed/hackathon-rubric-eval/input/brief.md",
         "evals/source-backed/hackathon-rubric-eval/input/sources/hackathon-pitch-research.md"
