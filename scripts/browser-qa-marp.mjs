@@ -23,6 +23,9 @@ try {
   const htmlPath = path.join(projectDir, "deck", "index.html");
   await stat(htmlPath);
   const validatedArtifact = await fileFingerprint(htmlPath, repoRoot);
+  const sourceArtifacts = {
+    slide_specs: await fileFingerprint(slideSpecsPath, repoRoot)
+  };
 
   const qaDir = path.join(projectDir, "qa");
   const screenshotDir = path.join(qaDir, "browser-screenshots");
@@ -52,6 +55,7 @@ try {
     project: path.relative(repoRoot, projectDir),
     html: path.relative(repoRoot, htmlPath),
     validated_artifact: validatedArtifact,
+    source_artifacts: sourceArtifacts,
     viewport_mode: viewportMode(),
     generated_at: new Date().toISOString(),
     viewports: viewportReports,

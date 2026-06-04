@@ -131,6 +131,17 @@ try {
     return ["scripts/deck-workflow-status.mjs", project, "--strict"];
   });
 
+  await expectFail("workflow status rejects stale slide specs after browser QA", async (project) => {
+    await copyRenderFixture(project);
+    runNode(["scripts/render-marp.mjs", project, "--html"]);
+    runNode(["scripts/browser-qa-marp.mjs", project]);
+    const slidesPath = path.join(project, "work", "slide-specs.json");
+    const slides = JSON.parse(await readFile(slidesPath, "utf8"));
+    slides.slides[0].title = "Mutated after QA";
+    await writeFile(slidesPath, JSON.stringify(slides, null, 2));
+    return ["scripts/deck-workflow-status.mjs", project, "--agentic"];
+  });
+
   await expectFail("quality scorecard rejects stale rendered artifact", async (project) => {
     await copyRenderFixture(project);
     const scorecardPath = path.join(project, "qa", "slide-scorecard.json");
@@ -172,6 +183,16 @@ try {
     return ["scripts/score-deck.mjs", project, "--threshold", "0"];
   });
 
+  await expectFail("ab scorer rejects zero min delta", async (project) => {
+    await copyAbEvalFixture(project);
+    return ["scripts/score-ab-eval.mjs", project, "--min-delta", "0"];
+  });
+
+  await expectFail("ab scorer rejects same run comparison", async (project) => {
+    await copyAbEvalFixture(project);
+    return ["scripts/score-ab-eval.mjs", project, "--baseline", "baseline-one-shot", "--candidate", "baseline-one-shot"];
+  });
+
   await expectFail("create deck artifacts refuses outside repo target", async () => {
     const outsideRepo = path.join(tmpRoot, "outside-repo-target");
     return ["scripts/create-deck-artifacts.mjs", outsideRepo];
@@ -197,6 +218,16 @@ async function expectFail(name, buildCommand) {
   }
 }
 
+function runNode(args) {
+  const result = spawnSync(process.execPath, args, {
+    cwd: repoRoot,
+    encoding: "utf8"
+  });
+  if (result.status !== 0) {
+    throw new Error(`${args.join(" ")} failed unexpectedly\n${result.stderr}\n${result.stdout}`);
+  }
+}
+
 async function writeProject(project, data) {
   const workDir = path.join(project, "work");
   const codeDir = path.join(project, "input", "codebase", "app");
@@ -213,6 +244,18 @@ async function copyRenderFixture(project) {
     recursive: true,
     force: true
   });
+}
+
+async function copyAbEvalFixture(project) {
+  await cp(path.join(repoRoot, "evals", "source-backed", "hackathon-rubric-eval"), project, {
+    recursive: true,
+    force: true
+  });
+  runNode(["scripts/render-marp.mjs", project, "--html"]);
+  runNode(["scripts/browser-qa-marp.mjs", project]);
+  const baseline = path.join(project, "baseline-one-shot");
+  runNode(["scripts/render-marp.mjs", baseline, "--html"]);
+  runNode(["scripts/browser-qa-marp.mjs", baseline]);
 }
 
 async function expectNormalizedMarpFingerprint() {

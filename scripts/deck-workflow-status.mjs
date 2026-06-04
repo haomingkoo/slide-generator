@@ -154,6 +154,15 @@ async function validateBrowserQa(filePath) {
   if (!fingerprintsMatch(report.validated_artifact, current)) {
     return `browser QA is stale for deck/index.html; expected ${report.validated_artifact?.sha256 ?? "missing hash"}, current ${current.sha256}`;
   }
+  const slideSpecsPath = path.join(projectDir, "work", "slide-specs.json");
+  if (!report.source_artifacts?.slide_specs) {
+    return "browser QA is missing source_artifacts.slide_specs; rerun browser QA with the current toolchain";
+  }
+  if (!await fileExists(slideSpecsPath)) return "browser QA exists but work/slide-specs.json is missing";
+  const currentSlideSpecs = await fileFingerprint(slideSpecsPath, repoRoot);
+  if (!fingerprintsMatch(report.source_artifacts.slide_specs, currentSlideSpecs)) {
+    return `browser QA is stale for work/slide-specs.json; expected ${report.source_artifacts.slide_specs?.sha256 ?? "missing hash"}, current ${currentSlideSpecs.sha256}`;
+  }
   return null;
 }
 
