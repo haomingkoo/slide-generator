@@ -19,13 +19,13 @@ try {
   if (baselineDir === candidateDir) {
     throw new Error("A/B eval requires distinct baseline and candidate directories");
   }
-  const baseline = await scoreRun("one_shot_baseline", baselineDir);
+  const baseline = await scoreRun("structural_proxy_baseline", baselineDir);
   const candidate = await scoreRun("skill_workflow", candidateDir);
   const delta = candidate.score - baseline.score;
   const verdict = candidate.hard_gates.status === "pass" &&
     baseline.hard_gates.status === "pass" &&
     delta >= minDelta
-    ? "skill_workflow_wins_fixture"
+    ? "candidate_exceeds_structural_proxy"
     : "inconclusive_or_regression";
 
   const report = {
@@ -33,13 +33,14 @@ try {
     eval_id: "hackathon_rubric_eval",
     generated_at: new Date().toISOString(),
     method: {
-      baseline: "Frozen one-shot-style baseline converted into the artifact contract for renderability.",
+      baseline: "Frozen self-authored structural proxy baseline converted into the artifact contract for renderability; not a captured model one-shot.",
       candidate: "Artifact-first slide-generator skill workflow output.",
       min_delta: minDelta,
       scoring_scope: "Deterministic proxy signals only: hard gates, claim traceability, rubric fit, demo proof, browser QA, timing, visual diversity, and review-loop evidence."
     },
     caveats: [
-      "This is one source-backed fixture, not universal proof that every skill run beats every one-shot prompt.",
+      "This is a source-backed structural regression fixture, not proof that the skill beats a captured real one-shot model output.",
+      "The baseline is self-authored and intentionally generic; replace it with captured model output for model-specific studies.",
       "The proxy score is not a human taste score and does not prove a deck is excellent.",
       "The scorer does not yet measure visual composition quality such as vertical balance, focal point strength, or dead space.",
       "External source URLs and claim references are checked for traceability here; semantic source support still needs a source-audit artifact with evidence anchors."
@@ -61,7 +62,7 @@ try {
     throw new Error("A/B eval requires both baseline and candidate hard gates to pass");
   }
   if (delta < minDelta) {
-    throw new Error(`skill workflow did not beat baseline by required delta ${minDelta}; delta=${delta}`);
+    throw new Error(`candidate did not exceed structural proxy baseline by required delta ${minDelta}; delta=${delta}`);
   }
 } catch (error) {
   console.error(error.message);

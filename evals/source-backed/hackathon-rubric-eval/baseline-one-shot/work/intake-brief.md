@@ -10,9 +10,10 @@
 
 ## Baseline Method
 
-This is a one-shot-style baseline fixture, not the skill workflow output. It
-uses the same source pack and claim ledger as the skill run, but it does not add
-the full artifact-first planning loop before slide writing.
+This is a self-authored structural proxy baseline fixture, not captured
+one-shot model output and not the skill workflow output. It uses the same source
+pack and claim ledger as the skill run, but it does not add the full
+artifact-first planning loop before slide writing.
 
 ## Constraints
 
