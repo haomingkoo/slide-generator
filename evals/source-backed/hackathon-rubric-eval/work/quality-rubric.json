@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "deck_mode": "hackathon_demo",
+  "target": {
+    "overall_score": 88,
+    "minimum_slide_score": 78,
+    "max_repair_iterations": 3,
+    "stop_condition": "ready_for_human_review or blocked_on_evidence"
+  },
+  "hard_gates": [
+    {
+      "id": "source_grounding",
+      "type": "validator",
+      "command": "npm run lint:claim-refs -- evals/source-backed/hackathon-rubric-eval",
+      "requirement": "Every factual slide claim resolves to the claim ledger."
+    },
+    {
+      "id": "browser_qa",
+      "type": "browser_qa",
+      "command": "npm run qa:browser -- evals/source-backed/hackathon-rubric-eval",
+      "requirement": "Rendered slides pass browser QA before judging the deck."
+    },
+    {
+      "id": "judge_review",
+      "type": "human_review",
+      "requirement": "A reviewer checks that each slide helps a hackathon judge score the project."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "judging_fit",
+      "label": "Judging fit",
+      "weight": 20,
+      "question": "Does the deck map directly to judging criteria and time pressure?",
+      "pass_criteria": ["Criteria are named.", "The demo route is obvious.", "Fallback proof is visible."],
+      "repair_guidance": "Map every main slide to a judging criterion or move it out of the main deck."
+    },
+    {
+      "id": "demo_clarity",
+      "label": "Demo clarity",
+      "weight": 20,
+      "question": "Can judges understand what was built and what to look for in the demo?",
+      "pass_criteria": ["The user problem is clear.", "The demo path is concrete.", "Technical proof is not hidden."],
+      "repair_guidance": "Replace abstract value claims with a visible demo sequence and backup proof."
+    },
+    {
+      "id": "evidence_integrity",
+      "label": "Evidence integrity",
+      "weight": 20,
+      "question": "Does the deck avoid invented traction, benchmark, model, or user claims?",
+      "pass_criteria": ["Claims have claim IDs.", "Inferences are labeled.", "Weak evidence is caveated."],
+      "repair_guidance": "Add sources, downgrade claims, or remove unsupported proof from the main story."
+    },
+    {
+      "id": "visual_punch",
+      "label": "Visual punch",
+      "weight": 20,
+      "question": "Does each visual make the project easier to understand quickly?",
+      "pass_criteria": ["Visuals do explanatory work.", "Slides are scannable in seconds.", "The close is memorable."],
+      "repair_guidance": "Use mechanism, before/after, demo-route, or proof visuals instead of dense copy."
+    },
+    {
+      "id": "delivery_readiness",
+      "label": "Delivery readiness",
+      "weight": 20,
+      "question": "Can the presenter deliver this inside the hackathon slot and handle questions?",
+      "pass_criteria": ["Notes are speakable.", "Likely judge questions are prepared.", "Timing matches slide count."],
+      "repair_guidance": "Tighten the talk track, define jargon, and add backup answers for likely judge questions."
+    }
+  ],
+  "role_reviews": {
+    "researcher": "Check source sufficiency, hackathon criteria, and any project-specific proof gaps.",
+    "story_strategist": "Prune to the slides judges can score inside the time limit.",
+    "designer": "Check screenshots for speed of comprehension, hierarchy, and demo clarity.",
+    "critic": "Review as a skeptical judge looking for proof, novelty, usability, and implementation depth."
+  }
+}

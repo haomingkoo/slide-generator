@@ -10,6 +10,7 @@ Done:
 - Artifact contracts for intake, source map, claim ledger, audience model, story spine, content priority, visual plan, design contract, slide specs, and review log.
 - Deterministic validators for claims, claim refs, architecture evidence, audience, story, design, and slide specs.
 - Marp HTML renderer with speaker notes, rendered HTML inspection, multi-viewport browser QA, and PDF/PPTX handoff export.
+- Quality rubric, scorecard, and repair-plan artifacts with deterministic validation and a quality gate command.
 - Starter templates for pitch, VC seed, hackathon demo, executive decision, teaching, and technical architecture decks.
 - Source-backed demo and eval projects with generated deck/QA output reproduced by test commands.
 - GitHub CI and negative validator fixtures.
@@ -23,13 +24,14 @@ Not done:
 - Native Google Slides API generation.
 - Full accessibility engine beyond focused browser QA.
 - Semantic claim-vs-evidence verification beyond URL/source anchoring and review.
+- Autonomous repair execution without Claude/Codex updating the artifacts.
 
 ## Near-Term Roadmap
 
 1. Add baseline output and a small scorer for `evals/source-backed/hackathon-rubric-eval`.
-2. Add verbatim source anchors or retrieval snippets for external-source claims.
-3. Add brand observation from CSS, website screenshots, and uploaded decks.
-4. Add code-snippet evidence validation.
+2. Use the quality score loop on real decks and compare score movement before/after targeted repairs.
+3. Add verbatim source anchors or retrieval snippets for external-source claims.
+4. Add brand observation from CSS, website screenshots, and uploaded decks.
 5. Add PPTX-specific visual QA and native editable PPTX generation only after the HTML-first path is stable.
 
 ## Template Roadmap

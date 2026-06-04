@@ -40,6 +40,7 @@ try {
   await writeIfMissing(path.join(workDir, "content-priority.md"), contentPriority({ title }) + "\n");
   await writeIfMissing(path.join(workDir, "visual-aid-plan.json"), JSON.stringify(visualAidPlan(), null, 2) + "\n");
   await copyDesignContract(theme, today);
+  await writeIfMissing(path.join(workDir, "quality-rubric.json"), JSON.stringify(qualityRubric({ deckGoal }), null, 2) + "\n");
   await writeIfMissing(path.join(workDir, "slide-specs.json"), JSON.stringify(slideSpecs({ title, theme }), null, 2) + "\n");
   await writeIfMissing(path.join(workDir, "review-log.json"), JSON.stringify(reviewLog({ deckGoal, today }), null, 2) + "\n");
 
@@ -426,6 +427,102 @@ function designContract({ themeName, today }) {
         date: today
       }
     ]
+  };
+}
+
+function qualityRubric({ deckGoal }) {
+  return {
+    version: 1,
+    deck_mode: "custom",
+    target: {
+      overall_score: 85,
+      minimum_slide_score: 75,
+      max_repair_iterations: 3,
+      stop_condition: "ready_for_human_review or honestly blocked on evidence"
+    },
+    hard_gates: [
+      {
+        id: "source_grounding",
+        type: "validator",
+        command: "npm run lint:claim-refs -- <project>",
+        requirement: "Every factual slide claim must resolve to the claim ledger."
+      },
+      {
+        id: "browser_qa",
+        type: "browser_qa",
+        command: "npm run qa:browser -- <project>",
+        requirement: "Rendered HTML has no overflow, clipping, or contrast blockers."
+      },
+      {
+        id: "human_review",
+        type: "human_review",
+        requirement: "A reviewer has checked audience clarity, visual hierarchy, and overclaim risk."
+      }
+    ],
+    dimensions: [
+      {
+        id: "audience_fit",
+        label: "Audience fit",
+        weight: 15,
+        question: "Does the deck speak to what this audience cares about?",
+        pass_criteria: ["Audience and decision context are explicit.", "Likely objections are handled.", "Jargon is defined or removed."],
+        repair_guidance: "Rewrite from the audience's point of view before changing visuals."
+      },
+      {
+        id: "story_flow",
+        label: "Story flow",
+        weight: 15,
+        question: "Do the slide titles form a coherent argument?",
+        pass_criteria: ["The opening names the benefit.", "Each slide earns its place.", "The close names the next action."],
+        repair_guidance: "Fix the slide sorter and story spine before editing individual slides."
+      },
+      {
+        id: "evidence_strength",
+        label: "Evidence strength",
+        weight: 20,
+        question: "Are important claims supported at the required proof bar?",
+        pass_criteria: ["Factual claims have claim IDs.", "Evidence gaps are caveated.", "Weak proof is moved to backup or removed."],
+        repair_guidance: "Add sources, reduce claim strength, or move unsupported detail out of the main deck."
+      },
+      {
+        id: "visual_explanation",
+        label: "Visual explanation",
+        weight: 15,
+        question: "Do visuals explain, prove, compare, or guide a demo?",
+        pass_criteria: ["Visuals perform a clear job.", "Tables and diagrams are readable.", "Hard ideas are not buried in paragraphs."],
+        repair_guidance: "Change the visual structure before adding decoration."
+      },
+      {
+        id: "design_polish",
+        label: "Design polish",
+        weight: 15,
+        question: "Does the rendered deck feel intentional and non-generic?",
+        pass_criteria: ["Hierarchy is clear.", "Spacing follows the design contract.", "No generic AI filler patterns dominate."],
+        repair_guidance: "Repair hierarchy, spacing, density, and theme consistency one slide type at a time."
+      },
+      {
+        id: "delivery_readiness",
+        label: "Delivery readiness",
+        weight: 10,
+        question: "Can a presenter deliver this naturally within the time limit?",
+        pass_criteria: ["Speaker notes are speakable.", "Transitions are clear.", "Timing roughly matches the deck length."],
+        repair_guidance: "Humanize notes without adding claims, then rerun claim-reference checks."
+      },
+      {
+        id: "qa_readiness",
+        label: "Q&A readiness",
+        weight: 10,
+        question: "Can the presenter answer the questions this deck naturally raises?",
+        pass_criteria: ["Likely questions are represented.", "Backup needs are clear.", "Limitations are not hidden."],
+        repair_guidance: "Move secondary proof into backup and write direct answers for high-priority questions."
+      }
+    ],
+    role_reviews: {
+      researcher: `Check whether sources are sufficient for: ${deckGoal}`,
+      story_strategist: "Check the story spine, content priority, and slide sorter before scoring visuals.",
+      designer: "Review screenshots against the design contract, not personal taste alone.",
+      critic: "Review from the audience point of view and identify the smallest repairs that improve the deck."
+    }
   };
 }
 

@@ -21,7 +21,7 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 10. Offer theme options when taste is unclear.
 11. Create slide specs.
 12. Render.
-13. Run critique, deterministic claim checks, source audit, browser QA, export QA, and targeted repair.
+13. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
 14. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
 
 ## One-Shot Drafting
@@ -75,6 +75,7 @@ Read only what the task needs:
 - `references/theme-selection.md`: light, dark, brand, and audience-fit decisions.
 - `references/design-contract.md`: persistent design memory for tokens, layout patterns, and visual decisions.
 - `references/design-quality-gates.md`: hierarchy, clutter, accessibility, anti-generic design, and polish review after rendering.
+- `references/quality-score-loop.md`: researcher, critic, designer, and repairer score loop with thresholds and stop conditions.
 - `references/codebase-review.md`: architecture maps and code snippet selection.
 - `references/brand-system.md`: brand extraction and brand-safe theme creation.
 - `references/frontend-rendering.md`: HTML/CSS rendering quality.

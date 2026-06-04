@@ -13,10 +13,11 @@ Today the execution model is human-directed agentic work plus a deterministic bu
 3. The agent follows `skills/slide-generator/references/workflow.md`.
 4. The agent writes durable artifacts into `projects/<name>/work/`.
 5. The agent runs deterministic validators and render/QA commands, usually through `npm run deck:build`.
-6. The agent stops for review after the rendered draft and QA report.
-7. The human reviews the deck slide by slide.
-8. The agent records review decisions in `work/review-log.json`.
-9. The agent repairs only the failed artifact or slide.
+6. The agent writes quality score and repair artifacts after screenshot review.
+7. The agent stops for review after the rendered draft, QA report, and scorecard.
+8. The human reviews the deck slide by slide.
+9. The agent records review decisions in `work/review-log.json`.
+10. The agent repairs only the failed artifact or slide.
 
 That run is agentic because the agent plans, writes state, calls tools, validates output, uses browser feedback, and resumes from files instead of relying on chat memory.
 
@@ -37,8 +38,11 @@ Minimum evidence of a real run:
 - `work/slide-sorter.md` gives a title-only story that can be reviewed before rendering.
 - `work/content-priority.md` explains what belongs in the main deck, backup, appendix, or dropped content.
 - `work/design-contract.json` records theme tokens and layout decisions.
+- `work/quality-rubric.json` records the threshold, hard gates, and weighted review dimensions.
 - `work/slide-specs.json` maps each slide to a job, claims, visual aid, and speaker notes.
 - `qa/browser-qa.json` exists after rendering and includes multi-viewport slide reports.
+- `qa/slide-scorecard.json` records researcher, story, designer, and critic reviews.
+- `qa/repair-plan.json` names targeted repairs when the threshold is not met.
 - `qa/export-inspection.json` exists after PPTX/PDF export.
 - `work/review-log.json` records human review decisions and recurring mistakes.
 
@@ -68,8 +72,11 @@ work/slide-sorter.md
 work/content-priority.md
 work/visual-aid-plan.json
 work/design-contract.json
+work/quality-rubric.json
 work/slide-specs.json
 qa/browser-qa.json
+qa/slide-scorecard.json
+qa/repair-plan.json
 qa/export-inspection.json
 work/review-log.json
 ```
@@ -84,7 +91,9 @@ A Deep Agents or LangGraph implementation can then map each phase to a node or s
 - slide-spec writer,
 - renderer tool,
 - browser QA tool,
+- researcher sufficiency critic,
 - audience-review critic,
+- design critic,
 - repair agent.
 
 The runner should pass file paths and artifact IDs between phases. It should not pass a giant transcript as memory.
@@ -95,8 +104,8 @@ Build in this order:
 
 1. Keep the current skill-and-workflow execution working in Codex and Claude Code.
 2. Add artifact generators for intake, claim ledger, audience model, story spine, design contract, and slide specs.
-3. Add a real eval deck from source material and compare baseline prompt vs skill workflow.
-4. Add a local orchestrator script that runs validators/renderers and prints the next required artifact.
+3. Use the quality score loop on real decks and compare before/after repairs.
+4. Add a real eval deck from source material and compare baseline prompt vs skill workflow.
 5. Add an optional Deep Agents or LangGraph runner once the artifact shapes are stable.
 6. Add UI/API wrappers after the runner works.
 

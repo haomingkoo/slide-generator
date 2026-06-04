@@ -7,7 +7,8 @@ const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
 const renderReady = process.argv.includes("--render-ready");
 const agentic = process.argv.includes("--agentic");
-const strict = process.argv.includes("--strict") || renderReady || agentic;
+const quality = process.argv.includes("--quality");
+const strict = process.argv.includes("--strict") || renderReady || agentic || quality;
 
 if (!target) {
   console.error("Usage: node scripts/deck-workflow-status.mjs <project-dir> [--render-ready|--agentic|--strict]");
@@ -29,10 +30,13 @@ const checks = [
   { path: "work/content-priority.md", phase: "content_priority" },
   { path: "work/visual-aid-plan.json", phase: "visual_plan" },
   { path: "work/design-contract.json", phase: "design", script: "scripts/validate-design-contract.mjs", renderRequired: true },
+  { path: "work/quality-rubric.json", phase: "quality_target", script: "scripts/validate-quality-rubric.mjs", renderRequired: true },
   { path: "work/slide-specs.json", phase: "render_plan", script: "scripts/validate-slide-specs.mjs", renderRequired: true },
   { path: "deck/index.html", phase: "rendered" },
   { path: "qa/browser-qa.json", phase: "qa", validateJson: validateBrowserQa },
-  { path: "work/review-log.json", phase: "human_review", script: "scripts/validate-review-log.mjs" }
+  { path: "work/review-log.json", phase: "human_review", script: "scripts/validate-review-log.mjs" },
+  { path: "qa/slide-scorecard.json", phase: "quality_score", script: "scripts/validate-slide-scorecard.mjs", qualityRequired: true },
+  { path: "qa/repair-plan.json", phase: "quality_repair", script: "scripts/validate-repair-plan.mjs", qualityRequired: true }
 ];
 
 try {
@@ -48,20 +52,26 @@ try {
     ? results.filter((item) => item.render_required && item.status !== "pass")
     : agentic
       ? results.filter((item) => item.status !== "pass")
+      : quality
+        ? results.filter((item) => (item.render_required || item.quality_required) && item.status !== "pass")
       : [];
   const relevantFailures = renderReady
     ? requiredMissing
     : agentic
       ? results.filter((item) => item.status !== "pass")
+      : quality
+        ? requiredMissing
       : results.filter((item) => item.status !== "pass");
   const next = relevantFailures[0];
   const status = renderReady
     ? requiredMissing.length === 0 ? "pass" : "fail"
+    : quality
+      ? requiredMissing.length === 0 ? "pass" : "fail"
     : failed.length === 0 && requiredMissing.length === 0 ? "pass" : "fail";
 
   const report = {
     project: path.relative(repoRoot, projectDir),
-    mode: renderReady ? "render-ready" : agentic ? "agentic" : "status",
+    mode: renderReady ? "render-ready" : agentic ? "agentic" : quality ? "quality" : "status",
     status,
     next_step: next ? describeNext(next) : describePass(renderReady, agentic),
     checks: results,
@@ -83,6 +93,9 @@ async function runCheck(check) {
   const absolutePath = path.join(projectDir, check.path);
   const exists = await fileExists(absolutePath);
   if (!exists) {
+    if (check.qualityRequired && !quality) {
+      return { ...publicCheck(check), status: "pass", message: `${check.path} is quality-loop output and was not requested` };
+    }
     if (check.optional) {
       return { ...publicCheck(check), status: "pass", message: `${check.path} is optional and not present` };
     }
@@ -115,6 +128,7 @@ function publicCheck(check) {
     path: check.path,
     phase: check.phase,
     render_required: check.renderRequired === true,
+    quality_required: check.qualityRequired === true,
     optional: check.optional === true
   };
 }
@@ -126,6 +140,7 @@ function describeNext(check) {
 
 function describePass(isRenderReady, isAgentic) {
   if (isRenderReady) return "Render HTML with npm run render:marp -- <project-dir> --html, then run browser QA.";
+  if (quality) return "Quality artifacts passed. Continue targeted repair or export review.";
   if (isAgentic) return "All known workflow checks passed.";
   return "All known workflow checks passed.";
 }
