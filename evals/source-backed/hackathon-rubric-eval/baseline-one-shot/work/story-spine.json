@@ -1,0 +1,48 @@
+{
+  "audience_shift": {
+    "from": "We need a simple pitch outline.",
+    "to": "We need a pitch that helps judges understand the project."
+  },
+  "throughline": "A short hackathon pitch should be clear, show the product, and lead to useful questions.",
+  "beats": [
+    {
+      "id": "beat_open",
+      "role": "hook",
+      "slide_ids": ["slide_01"],
+      "transition": "Open with a simple promise about clarity."
+    },
+    {
+      "id": "beat_problem",
+      "role": "context",
+      "slide_ids": ["slide_02"],
+      "transition": "Explain the problem and user before discussing features.",
+      "audience_question_ids": ["q_show_first"]
+    },
+    {
+      "id": "beat_product",
+      "role": "solution",
+      "slide_ids": ["slide_03"],
+      "transition": "Describe what the team built."
+    },
+    {
+      "id": "beat_judging",
+      "role": "evidence",
+      "slide_ids": ["slide_04"],
+      "transition": "Connect the pitch to judging criteria.",
+      "handles_objection_ids": ["objection_generic"]
+    },
+    {
+      "id": "beat_backup",
+      "role": "demo",
+      "slide_ids": ["slide_05"],
+      "transition": "Prepare backup material for questions.",
+      "audience_question_ids": ["q_enough_detail"]
+    },
+    {
+      "id": "beat_close",
+      "role": "close",
+      "slide_ids": ["slide_06"],
+      "transition": "Close with the next conversation."
+    }
+  ]
+}

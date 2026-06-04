@@ -18,6 +18,9 @@ examples/*/qa/
 evals/source-backed/*/deck/
 evals/source-backed/*/qa/
 evals/source-backed/*/exports/
+evals/source-backed/**/deck/
+evals/source-backed/**/qa/
+evals/source-backed/**/exports/
 !projects/_template/work/
 !projects/_template/deck/
 !projects/_template/exports/

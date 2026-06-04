@@ -1,0 +1,194 @@
+{
+  "deck": {
+    "title": "Hackathon Demo Pitch Basics",
+    "theme": "dark-runtime",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Hackathon pitch",
+      "title": "Make the pitch easy to follow",
+      "subtitle": "A short deck should help judges understand what was built and why it matters.",
+      "claim_ids": ["claim_004"],
+      "claim_use": "opening clarity",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Open with a simple framing statement."
+      },
+      "speaker_notes": {
+        "key_message": "Clarity comes before detail in a short pitch.",
+        "talk_track": [
+          "Start by telling the team that judges need the product, user, and value quickly.",
+          "This is a structure for clarity, not a guarantee of winning."
+        ],
+        "timing_seconds": 25,
+        "claim_ids": ["claim_004"],
+        "avoid_saying": ["This outline works for every hackathon."]
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "context",
+      "layout": "narrative",
+      "title": "Start with the user problem",
+      "body": [
+        "Name who the project helps.",
+        "Explain the problem in plain language.",
+        "Keep the opening short enough to leave time for the demo.",
+        "Avoid starting with the technology stack."
+      ],
+      "claim_ids": ["claim_004"],
+      "claim_use": "audience benefit",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Use short bullets to keep the opening clear."
+      },
+      "speaker_notes": {
+        "key_message": "The audience needs to understand the user before the implementation.",
+        "talk_track": [
+          "Ask the team to state who the user is.",
+          "Then state what changes for that user.",
+          "Leave implementation detail for the demo and questions."
+        ],
+        "timing_seconds": 35,
+        "claim_ids": ["claim_004"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "solution",
+      "layout": "narrative",
+      "title": "Show what you built",
+      "body": [
+        "Describe the product in one sentence.",
+        "Show the main input and output.",
+        "Explain what judges should watch during the demo.",
+        "Save extra features for Q&A."
+      ],
+      "claim_ids": ["claim_003", "claim_004"],
+      "claim_uses": {
+        "claim_003": "pitch goal",
+        "claim_004": "opening clarity"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "none",
+        "purpose": "Keep the product explanation simple."
+      },
+      "speaker_notes": {
+        "key_message": "A short pitch should make the product understandable before it tries to prove everything.",
+        "talk_track": [
+          "Give a one-sentence product description.",
+          "Point judges to the main result they should evaluate.",
+          "Move extra feature detail to backup."
+        ],
+        "timing_seconds": 35,
+        "claim_ids": ["claim_003", "claim_004"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "evidence",
+      "layout": "table",
+      "title": "Use the judging lens",
+      "table": {
+        "headers": ["Lens", "What to show", "Backup"],
+        "rows": [
+          ["Idea", "Problem and value", "Research"],
+          ["Implementation", "Working demo", "Architecture"],
+          ["Impact", "Use case", "Next steps"]
+        ]
+      },
+      "claim_ids": ["claim_001", "claim_002"],
+      "claim_uses": {
+        "claim_001": "judge criteria",
+        "claim_002": "judging process"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Summarize judging criteria in a compact way.",
+        "validation": {
+          "expected": "Three criteria rows fit on one slide.",
+          "fallback": "Use the actual event rubric if available.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "Use judging criteria to decide what proof to show.",
+        "talk_track": [
+          "Explain that organizers define judging criteria and flow.",
+          "Tell teams to replace this table with their event rubric.",
+          "Do not imply these are the only possible criteria."
+        ],
+        "timing_seconds": 45,
+        "claim_ids": ["claim_001", "claim_002"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "demo",
+      "layout": "narrative",
+      "title": "Prepare for questions",
+      "body": [
+        "Keep a screenshot or recording ready.",
+        "Know which technical choice was hardest.",
+        "Be honest about limitations.",
+        "Bring extra details only if judges ask."
+      ],
+      "claim_ids": ["claim_002", "claim_006"],
+      "claim_uses": {
+        "claim_002": "demo planning",
+        "claim_006": "demo fallback"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "none",
+        "purpose": "List practical backup material."
+      },
+      "speaker_notes": {
+        "key_message": "Backup proof helps the conversation continue if the live path breaks.",
+        "talk_track": [
+          "Remind teams to keep proof ready.",
+          "Name the hard technical part plainly.",
+          "Do not invent numbers if they were not measured."
+        ],
+        "timing_seconds": 40,
+        "claim_ids": ["claim_002", "claim_006"],
+        "avoid_saying": ["Our project is the best without evidence."]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "End with a clear next step",
+      "quote": "We built this for this user, here is the proof, and here is what we need next.",
+      "claim_ids": ["claim_003", "claim_004"],
+      "claim_uses": {
+        "claim_003": "next action",
+        "claim_004": "audience benefit"
+      },
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "quote",
+        "purpose": "Close with a repeatable sentence."
+      },
+      "speaker_notes": {
+        "key_message": "The close should help judges remember the project and ask a useful question.",
+        "talk_track": [
+          "Use the sentence as the final check.",
+          "If a slot cannot be filled honestly, improve the evidence before presenting."
+        ],
+        "timing_seconds": 30,
+        "claim_ids": ["claim_003", "claim_004"]
+      }
+    }
+  ]
+}

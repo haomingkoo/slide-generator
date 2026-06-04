@@ -105,7 +105,7 @@ Build in this order:
 1. Keep the current skill-and-workflow execution working in Codex and Claude Code.
 2. Add artifact generators for intake, claim ledger, audience model, story spine, design contract, and slide specs.
 3. Use the quality score loop on real decks and compare before/after repairs.
-4. Add a real eval deck from source material and compare baseline prompt vs skill workflow.
+4. Expand the source-backed A/B eval set with captured model-specific baseline outputs.
 5. Add an optional Deep Agents or LangGraph runner once the artifact shapes are stable.
 6. Add UI/API wrappers after the runner works.
 

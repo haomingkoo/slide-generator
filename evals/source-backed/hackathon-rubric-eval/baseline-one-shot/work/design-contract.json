@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "source": {
+    "type": "example_theme",
+    "references": ["templates/design-contracts/dark-runtime.json"]
+  },
+  "direction": {
+    "personality": "clear demo-stage confidence",
+    "audience_fit": "Hackathon builders and judges who need fast understanding, proof, and energy without hype.",
+    "density": "balanced",
+    "depth": "borders_only",
+    "grid": "strict"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#101014",
+      "surface": "#181a20",
+      "text": "#f5f5f0",
+      "muted": "#b6b2a8",
+      "accent": "#f2c14e",
+      "secondary_accent": "#6ee7b7",
+      "border": "#363946"
+    },
+    "typography": {
+      "heading": "Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "body": "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["16px", "20px", "24px", "32px", "48px", "64px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "64px", "80px"]
+    },
+    "radius": ["8px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "Short stage-ready line with one support sentence.",
+    "section_slide": "Sparse divider with a single short rule or transition.",
+    "table_slide": "Few rows, short cells, high contrast.",
+    "comparison_slide": "Two panels with a clear include-versus-backup split.",
+    "code_slide": "Readable mono excerpt only when code is the proof.",
+    "architecture_slide": "Simple left-to-right demo route with no more than five nodes.",
+    "quote_slide": "One retellable sentence, centered and sparse."
+  },
+  "rules": {
+    "avoid": ["generic AI hype", "unverified performance claims", "dense implementation dumps", "decorative gradients", "tiny text"],
+    "must_preserve": ["high contrast", "one idea per slide", "explicit evidence boundaries", "demo fallback guidance"],
+    "accessibility": ["normal text contrast >= 4.5:1", "large text contrast >= 3:1", "no color-only distinction"]
+  },
+  "decisions": [
+    {
+      "decision": "Use the dark-runtime direction for a demo-stage hackathon deck.",
+      "rationale": "The subject is a live demo, but the deck still needs restrained contrast and readable proof.",
+      "date": "2026-06-03"
+    }
+  ]
+}

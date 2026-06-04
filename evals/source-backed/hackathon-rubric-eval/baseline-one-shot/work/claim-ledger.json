@@ -1,0 +1,74 @@
+{
+  "claims": [
+    {
+      "claim_id": "claim_001",
+      "claim": "Hackathon organizers can define explicit judging criteria, and Devpost lists examples such as quality of idea, implementation, and potential impact.",
+      "type": "external_source",
+      "source": {
+        "title": "Devpost Help: Judging and public voting",
+        "url": "https://help.devpost.com/hc/en-us/articles/360010137511-Judging-and-public-voting"
+      },
+      "evidence": "The source explains judging and public voting setup and gives example judging criteria such as quality of idea, implementation, and potential impact.",
+      "confidence": "high",
+      "allowed_slide_use": ["rubric framing", "judge criteria", "content priority"]
+    },
+    {
+      "claim_id": "claim_002",
+      "claim": "MLH guidance treats judging as a planned process involving submissions, judging flow, and communication with judges.",
+      "type": "external_source",
+      "source": {
+        "title": "MLH Organizer Guide: Judging Plan",
+        "url": "https://guide.mlh.io/general-information/judging-and-submissions/judging-plan"
+      },
+      "evidence": "The judging-plan guidance frames judging as an explicit process organizers need to plan, including submissions and judge-facing operations.",
+      "confidence": "high",
+      "allowed_slide_use": ["judging process", "demo planning", "content priority"]
+    },
+    {
+      "claim_id": "claim_003",
+      "claim": "YC's demo-day guidance frames a short pitch as a way to create enough interest for the next conversation rather than proving everything at once.",
+      "type": "external_source",
+      "source": {
+        "title": "Y Combinator: Demo Day Pitch Guide",
+        "url": "https://www.ycombinator.com/library/2u-demo-day-pitch-guide"
+      },
+      "evidence": "The guidance focuses the short pitch on earning investor interest and a follow-up conversation.",
+      "confidence": "medium",
+      "allowed_slide_use": ["pitch goal", "next action", "content priority"]
+    },
+    {
+      "claim_id": "claim_004",
+      "claim": "YC pitching guidance emphasizes quickly explaining what the product does, who it is for, and why it matters.",
+      "type": "external_source",
+      "source": {
+        "title": "Y Combinator: How to Pitch Your Company",
+        "url": "https://www.ycombinator.com/library/4T-how-to-pitch-your-company"
+      },
+      "evidence": "The guidance centers the pitch on clear understanding of the product, customer, and value.",
+      "confidence": "medium",
+      "allowed_slide_use": ["opening clarity", "audience benefit", "content priority"]
+    },
+    {
+      "claim_id": "claim_005",
+      "claim": "For a short hackathon pitch, the main deck should prioritize the content that helps judges score the project and move overflow to backup.",
+      "type": "inference",
+      "source": {
+        "based_on": ["claim_001", "claim_002", "claim_003"]
+      },
+      "evidence": "This follows from criteria-driven judging, planned judging flow, and the short-pitch goal of earning the next action.",
+      "confidence": "medium",
+      "allowed_slide_use": ["content priority", "deck structure", "backup strategy"]
+    },
+    {
+      "claim_id": "claim_006",
+      "claim": "A strong hackathon demo plan should identify the working path, the hard technical proof, and a fallback artifact before presenting.",
+      "type": "inference",
+      "source": {
+        "based_on": ["claim_001", "claim_002"]
+      },
+      "evidence": "Criteria-driven judging and planned judging flow make it useful to show what can be inspected and how the demo continues if live execution fails.",
+      "confidence": "medium",
+      "allowed_slide_use": ["demo planning", "technical proof", "demo fallback"]
+    }
+  ]
+}
