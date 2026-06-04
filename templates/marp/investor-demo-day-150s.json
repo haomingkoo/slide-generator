@@ -1,0 +1,119 @@
+{
+  "deck": {
+    "title": "Investor Demo Day 150-Second Template",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Company",
+      "title": "Company does one clear thing for one clear customer",
+      "subtitle": "Plain language beats category language.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Positioning frame; replace factual details with claim IDs.",
+      "visual_aid": {"type": "none", "purpose": "Pass the what-do-you-do test immediately."},
+      "speaker_notes": {
+        "key_message": "Investors should understand the product before hearing the market story.",
+        "talk_track": ["Say the company name.", "Say what it does.", "Say who it helps."],
+        "timing_seconds": 20
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "narrative",
+      "title": "The customer pain is frequent, specific, and expensive enough to matter",
+      "body": ["Customer or ICP.", "Repeated pain.", "Consequence or cost."],
+      "claim_ids": ["replace_with_problem_claim"],
+      "claim_use": "customer pain",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Make the customer pain concrete."},
+      "speaker_notes": {
+        "key_message": "The problem must sound like a buyer's world, not internal startup language.",
+        "talk_track": ["Use the customer's words.", "Avoid broad trend setup."],
+        "timing_seconds": 25,
+        "claim_ids": ["replace_with_problem_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "solution",
+      "layout": "comparison",
+      "title": "The product changes the workflow in one memorable step",
+      "left": {"title": "Before", "body": ["Manual or painful step", "Delay", "Unclear outcome"]},
+      "right": {"title": "After", "body": ["Product action", "Faster signal", "Clear output"]},
+      "claim_ids": ["replace_with_solution_claim"],
+      "claim_use": "product wedge",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Make the product behavior obvious."},
+      "speaker_notes": {
+        "key_message": "Demo-day investors remember workflow change more than feature lists.",
+        "talk_track": ["Show the old path.", "Show the new path."],
+        "timing_seconds": 30,
+        "claim_ids": ["replace_with_solution_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "traction",
+      "layout": "table",
+      "title": "Progress is visible in the strongest available signal",
+      "table": {
+        "headers": ["Signal", "Period", "Why it matters"],
+        "rows": [
+          ["Replace", "Replace", "Replace"],
+          ["Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_traction_claim"],
+      "claim_use": "progress signal",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Show progress with period and denominator."},
+      "speaker_notes": {
+        "key_message": "Use the strongest honest signal: usage, revenue, pilots, waitlist, product velocity, or team proof.",
+        "talk_track": ["Name what moved.", "Name over what period.", "State the caveat."],
+        "timing_seconds": 35,
+        "claim_ids": ["replace_with_traction_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "market",
+      "layout": "narrative",
+      "title": "The beachhead can grow into a venture-scale market",
+      "body": ["Initial customer segment.", "Expansion path.", "Bottom-up market logic."],
+      "claim_ids": ["replace_with_market_claim"],
+      "claim_use": "market logic",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Make the market believable without generic TAM theater."},
+      "speaker_notes": {
+        "key_message": "Market logic should be bottom-up enough to believe quickly.",
+        "talk_track": ["Name the initial customer.", "Name expansion path.", "Avoid unsupported giant TAM."],
+        "timing_seconds": 25,
+        "claim_ids": ["replace_with_market_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "ask",
+      "layout": "quote",
+      "title": "Ask",
+      "quote": "We are raising to reach the next fundable milestone.",
+      "claim_ids": ["replace_with_ask_claim"],
+      "claim_use": "fundraising ask",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "quote", "purpose": "End with a clear next conversation."},
+      "speaker_notes": {
+        "key_message": "The close should make the next meeting easy to say yes to.",
+        "talk_track": ["State the ask.", "State what the round unlocks.", "Invite the next meeting."],
+        "timing_seconds": 15,
+        "claim_ids": ["replace_with_ask_claim"]
+      }
+    }
+  ]
+}

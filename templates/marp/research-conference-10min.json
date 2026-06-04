@@ -1,0 +1,159 @@
+{
+  "deck": {
+    "title": "Research Conference 10-Minute Template",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Research question",
+      "title": "One concrete question exposes the gap",
+      "subtitle": "State the task, audience, and why the answer matters.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Research framing; replace with sourced specifics when factual.",
+      "visual_aid": {"type": "none", "purpose": "Orient the audience before technical detail."},
+      "speaker_notes": {
+        "key_message": "Open with the question, failure case, or scenario that makes the paper matter.",
+        "talk_track": ["Avoid broad field history.", "Name the exact question."],
+        "timing_seconds": 45
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "comparison",
+      "title": "Current approaches miss the case that matters here",
+      "left": {"title": "What prior work handles", "body": ["Replace with scoped capability", "Replace with evidence"]},
+      "right": {"title": "Remaining gap", "body": ["Replace with failure case", "Replace with consequence"]},
+      "claim_ids": ["replace_with_gap_claim"],
+      "claim_use": "prior-work gap",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Make the gap visible before the method."},
+      "speaker_notes": {
+        "key_message": "The gap must be narrow enough to prove and important enough to care about.",
+        "talk_track": ["Do not list related work exhaustively.", "Show the contrast that motivates the contribution."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_gap_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "contribution",
+      "layout": "narrative",
+      "title": "The contribution is three claims, each testable",
+      "body": ["Contribution 1 with claim ID.", "Contribution 2 with claim ID.", "Contribution 3 with claim ID."],
+      "claim_ids": ["replace_with_contribution_claim"],
+      "claim_use": "contribution summary",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Convert the paper into remembered claims."},
+      "speaker_notes": {
+        "key_message": "Keep contributions specific; avoid a long paper-outline slide.",
+        "talk_track": ["Name the contribution.", "Name how the talk will prove it."],
+        "timing_seconds": 65,
+        "claim_ids": ["replace_with_contribution_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "method",
+      "layout": "architecture",
+      "title": "The key idea changes one part of the pipeline",
+      "body": ["Show inputs, changed component, and outputs."],
+      "mermaid": "flowchart LR\n  A[Input] --> B[Baseline step]\n  B --> C[New mechanism]\n  C --> D[Measured output]",
+      "claim_ids": ["replace_with_method_claim"],
+      "claim_use": "method mechanism",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "architecture", "purpose": "Explain the mechanism without reproducing the whole paper."},
+      "speaker_notes": {
+        "key_message": "The audience should understand the conceptual move before equations or implementation detail.",
+        "talk_track": ["Walk left to right.", "Name the changed component.", "Save details for backup."],
+        "timing_seconds": 90,
+        "claim_ids": ["replace_with_method_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "evaluation_setup",
+      "layout": "table",
+      "title": "The evaluation compares the method under explicit conditions",
+      "table": {
+        "headers": ["Dataset/task", "Metric", "Baseline", "Caveat"],
+        "rows": [
+          ["Replace", "Replace", "Replace", "Replace"],
+          ["Replace", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_eval_setup_claim"],
+      "claim_use": "evaluation protocol",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Prevent result claims from floating without protocol."},
+      "speaker_notes": {
+        "key_message": "Results are interpretable only after dataset, metric, baseline, and caveat are visible.",
+        "talk_track": ["Name the comparison.", "Name what the evaluation does not test."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_eval_setup_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "result",
+      "layout": "table",
+      "title": "The main result supports the claim within this scope",
+      "table": {
+        "headers": ["Result", "Baseline", "Delta", "Scope"],
+        "rows": [
+          ["Replace", "Replace", "Replace", "Replace"],
+          ["Replace", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_result_claim"],
+      "claim_use": "measured result",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Show the finding with scope and caveat."},
+      "speaker_notes": {
+        "key_message": "Do not say more than the experiment proves.",
+        "talk_track": ["Highlight the decisive row.", "State uncertainty or limitations."],
+        "timing_seconds": 85,
+        "claim_ids": ["replace_with_result_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "slide_job": "limitation",
+      "layout": "narrative",
+      "title": "The method still has boundaries the audience should know",
+      "body": ["Where it fails.", "Assumption or data limitation.", "Next experiment or open question."],
+      "claim_ids": ["replace_with_limitation_claim"],
+      "claim_use": "limitation and scope",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Build trust by making boundaries visible."},
+      "speaker_notes": {
+        "key_message": "Limitations are part of the contribution, not an apology.",
+        "talk_track": ["Name the boundary.", "Name how future work or Q&A handles it."],
+        "timing_seconds": 65,
+        "claim_ids": ["replace_with_limitation_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_08",
+      "slide_job": "close",
+      "layout": "quote",
+      "title": "Takeaway",
+      "quote": "The audience should remember the gap, the key idea, and the scoped result.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Closing synthesis; replace with sourced result if factual.",
+      "visual_aid": {"type": "quote", "purpose": "End with the remembered contribution and discussion prompt."},
+      "speaker_notes": {
+        "key_message": "Close with the paper's remembered contribution and invite the highest-value question.",
+        "talk_track": ["Restate the question.", "Restate the scoped answer.", "Invite discussion."],
+        "timing_seconds": 45
+      }
+    }
+  ]
+}

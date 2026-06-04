@@ -12,17 +12,18 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 1. Intake the deck job: audience, purpose, live vs async, time limit, target slide count, Q&A needs, output format, brand, research mode, style preference.
 2. Review sources and code before writing claims.
 3. Build `claim-ledger.json` and, when code exists, `architecture-map.json`.
-4. Write the audience model, story spine, and title-only slide sorter.
-5. Prioritize content against talk length, audience questions, claim strength, and backup needs.
-6. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
-7. Choose the deck quality mode, benefit statement, and proof bar.
-8. Record the phase loop and completion criteria for long-running jobs.
-9. Choose visual aids for hard ideas.
-10. Offer theme options when taste is unclear.
-11. Create slide specs.
-12. Render.
-13. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
-14. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
+4. Choose the deck archetype, opening hook, and proof spine before writing the full story.
+5. Write the audience model, story spine, and title-only slide sorter.
+6. Prioritize content against talk length, audience questions, claim strength, and backup needs.
+7. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
+8. Choose the deck quality mode, benefit statement, and proof bar.
+9. Record the phase loop and completion criteria for long-running jobs.
+10. Choose visual aids for hard ideas.
+11. Offer theme options when taste is unclear.
+12. Create slide specs.
+13. Render.
+14. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
+15. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
 
 ## One-Shot Drafting
 
@@ -67,6 +68,7 @@ Read only what the task needs:
 - `references/deck-operations.md`: existing-deck edit operations and context routing.
 - `references/audience-and-presenter-support.md`: audience model, story spine, speaker notes, likely questions, jargon, objections, and Q&A support.
 - `references/content-prioritization.md`: main deck versus backup versus dropped content when sources exceed the slide/time budget.
+- `references/deck-archetypes-and-hooks.md`: opening-hook selection and routing to the right deck mode/template.
 - `references/deck-quality-benchmark.md`: mode-specific standards for fundraising, hackathon/demo, executive, technical, and teaching decks.
 - `references/research-coverage.md`: source sufficiency, research triggers, evidence gaps, source quality, and technical proof depth.
 - `references/memory-management.md`: token-efficient iteration.

@@ -172,6 +172,11 @@ try {
     return ["scripts/score-deck.mjs", project, "--threshold", "0"];
   });
 
+  await expectFail("create deck artifacts refuses outside repo target", async () => {
+    const outsideRepo = path.join(tmpRoot, "outside-repo-target");
+    return ["scripts/create-deck-artifacts.mjs", outsideRepo];
+  });
+
   await expectNormalizedMarpFingerprint();
 
   console.log("negative validator fixtures rejected as expected");

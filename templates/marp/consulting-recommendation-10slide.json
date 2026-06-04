@@ -1,0 +1,206 @@
+{
+  "deck": {
+    "title": "Consulting Recommendation 10-Slide Template",
+    "theme": "clean-surgical-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "executive_summary",
+      "layout": "narrative",
+      "title": "Recommendation: state the answer before the analysis",
+      "body": ["Decision requested.", "Three reasons to believe.", "Biggest risk and mitigation."],
+      "claim_ids": ["replace_with_summary_claim"],
+      "claim_use": "recommendation summary",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Give the executive audience the answer first."},
+      "speaker_notes": {
+        "key_message": "No big reveal; start with the decision and why it matters.",
+        "talk_track": ["State the recommendation.", "State the decision needed.", "Preview the proof."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_summary_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "context",
+      "layout": "comparison",
+      "title": "The situation changed, so the old operating choice no longer holds",
+      "left": {"title": "Situation", "body": ["Current fact", "Constraint", "Stake"]},
+      "right": {"title": "Complication", "body": ["What changed", "Why delay costs", "Decision question"]},
+      "claim_ids": ["replace_with_context_claim"],
+      "claim_use": "situation complication",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Frame the decision before evidence detail."},
+      "speaker_notes": {
+        "key_message": "Use SCQA logic: situation, complication, question, answer.",
+        "talk_track": ["Name the stable fact.", "Name what changed.", "Name the decision question."],
+        "timing_seconds": 65,
+        "claim_ids": ["replace_with_context_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "insight",
+      "layout": "architecture",
+      "title": "The issue tree narrows the decision to three support lines",
+      "body": ["Keep the branches MECE and highlight the decisive branch."],
+      "mermaid": "flowchart LR\n  A[Decision] --> B[Impact]\n  A --> C[Feasibility]\n  A --> D[Risk]",
+      "claim_ids": ["replace_with_logic_claim"],
+      "claim_use": "decision logic",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "architecture", "purpose": "Show the argument structure."},
+      "speaker_notes": {
+        "key_message": "The audience should trust that the analysis is complete enough to decide.",
+        "talk_track": ["Walk the branches.", "Call out the decisive support line."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_logic_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "chart_evidence",
+      "layout": "table",
+      "title": "Evidence 1 proves the highest-impact branch",
+      "table": {
+        "headers": ["Metric", "Current", "Target", "Implication"],
+        "rows": [
+          ["Replace", "Replace", "Replace", "Replace"],
+          ["Replace", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_evidence_claim_1"],
+      "claim_use": "chart evidence",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Replace with chart or table carrying one implication."},
+      "speaker_notes": {
+        "key_message": "Do not show data without a message.",
+        "talk_track": ["Name unit and denominator.", "Highlight the implication.", "Cite the caveat."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_evidence_claim_1"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "comparison",
+      "layout": "table",
+      "title": "The leading options separate on agreed criteria",
+      "table": {
+        "headers": ["Criterion", "Option A", "Option B", "Decision signal"],
+        "rows": [
+          ["Impact", "Replace", "Replace", "Replace"],
+          ["Feasibility", "Replace", "Replace", "Replace"],
+          ["Risk", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_option_claim"],
+      "claim_use": "option comparison",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Compare alternatives against decision criteria."},
+      "speaker_notes": {
+        "key_message": "Executives need criteria and alternatives, not only a preferred answer.",
+        "talk_track": ["Name the criteria.", "Name the tradeoff.", "Name the recommendation."],
+        "timing_seconds": 80,
+        "claim_ids": ["replace_with_option_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "recommendation",
+      "layout": "narrative",
+      "title": "The recommended option wins on impact with manageable risk",
+      "body": ["Recommendation.", "Reason 1.", "Reason 2.", "Risk and mitigation."],
+      "claim_ids": ["replace_with_recommendation_claim"],
+      "claim_use": "recommendation",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Synthesize evidence into the decision."},
+      "speaker_notes": {
+        "key_message": "The recommendation should feel earned by prior slides.",
+        "talk_track": ["State the answer.", "Tie it to criteria.", "Name the watchpoint."],
+        "timing_seconds": 60,
+        "claim_ids": ["replace_with_recommendation_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "slide_job": "roadmap",
+      "layout": "table",
+      "title": "Execution is sequenced around ownership and risk reduction",
+      "table": {
+        "headers": ["Phase", "Owner", "Milestone", "Risk reduced"],
+        "rows": [
+          ["0-30 days", "Replace", "Replace", "Replace"],
+          ["31-60 days", "Replace", "Replace", "Replace"],
+          ["61-90 days", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_roadmap_claim"],
+      "claim_use": "implementation roadmap",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Make commitment and closure explicit."},
+      "speaker_notes": {
+        "key_message": "A decision deck needs owners, timing, and follow-up.",
+        "talk_track": ["Name first owner.", "Name first milestone.", "Name review date."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_roadmap_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_08",
+      "slide_job": "risk",
+      "layout": "table",
+      "title": "The main risks are known and actively managed",
+      "table": {
+        "headers": ["Risk", "Likelihood", "Impact", "Mitigation"],
+        "rows": [
+          ["Replace", "Replace", "Replace", "Replace"],
+          ["Replace", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_risk_claim"],
+      "claim_use": "risk mitigation",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Avoid hiding decision risk."},
+      "speaker_notes": {
+        "key_message": "Risk honesty increases decision confidence.",
+        "talk_track": ["Name the risk.", "Name the mitigation.", "Name the monitoring trigger."],
+        "timing_seconds": 65,
+        "claim_ids": ["replace_with_risk_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_09",
+      "slide_job": "decision",
+      "layout": "quote",
+      "title": "Decision ask",
+      "quote": "Approve the recommendation, owner, and first review date.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Decision instruction rather than factual claim.",
+      "visual_aid": {"type": "quote", "purpose": "Close the main deck on action."},
+      "speaker_notes": {
+        "key_message": "Leave the meeting with a decision, not another analysis request.",
+        "talk_track": ["Ask for approval.", "Confirm owner.", "Confirm date."],
+        "timing_seconds": 40
+      }
+    },
+    {
+      "slide_id": "slide_10",
+      "slide_job": "backup",
+      "layout": "narrative",
+      "title": "Backup: methodology, assumptions, and alternate cuts",
+      "body": ["Q: What assumptions drive the result?", "Q: What alternatives were rejected?", "Q: What source data supports this?"],
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Question-indexed backup prompts; replace answers with sourced claims.",
+      "visual_aid": {"type": "none", "purpose": "Prepare Q&A without bloating the main story."},
+      "speaker_notes": {
+        "key_message": "Backup slides answer likely questions; they are not a junk drawer.",
+        "talk_track": ["Use only when asked.", "Keep answers tied to claim IDs."],
+        "timing_seconds": 10
+      }
+    }
+  ]
+}

@@ -19,8 +19,12 @@ Use:
 
 - `pitch-deck.json` for generic product, sales, or mixed pitch narratives.
 - `vc-seed-deck.json` for pre-seed or seed investor meetings.
+- `investor-demo-day-150s.json` for a short investor pitch where clarity and recall matter more than full diligence.
 - `hackathon-demo-3min.json` for a short demo-heavy judging pitch. Use the actual hackathon rubric, time limit, demo path, fallback, and proof assets.
+- `hackathon-finalist-5min.json` for a stage finalist pitch with demo proof, technical depth, rubric fit, and limits.
 - `executive-decision-deck.json` for recommendation, decision, and consulting-style decks.
+- `consulting-recommendation-10slide.json` for a fuller answer-first recommendation deck with issue tree, options, roadmap, risks, and backup.
+- `research-conference-10min.json` for a conference-style research talk with problem, gap, contribution, method, evaluation, result, limitation, and takeaway.
 - `teaching-deck.json` for classroom, workshop, or explainer decks.
 - `technical-architecture.json` for codebase, platform, security, and system review decks.
 
