@@ -9,13 +9,16 @@ const baselineDir = resolveRunDir(evalRoot, args.baseline ?? "baseline-one-shot"
 const candidateDir = resolveRunDir(evalRoot, args.candidate ?? ".");
 const minDelta = Number.parseInt(args["min-delta"] ?? "10", 10);
 
-if (!Number.isInteger(minDelta) || minDelta < 0 || minDelta > 100) {
-  console.error("--min-delta must be an integer between 0 and 100");
+if (!Number.isInteger(minDelta) || minDelta < 1 || minDelta > 100) {
+  console.error("--min-delta must be an integer between 1 and 100");
   process.exit(2);
 }
 
 try {
   await Promise.all([stat(evalRoot), stat(baselineDir), stat(candidateDir)]);
+  if (baselineDir === candidateDir) {
+    throw new Error("A/B eval requires distinct baseline and candidate directories");
+  }
   const baseline = await scoreRun("one_shot_baseline", baselineDir);
   const candidate = await scoreRun("skill_workflow", candidateDir);
   const delta = candidate.score - baseline.score;
