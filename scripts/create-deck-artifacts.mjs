@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, realpath, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
@@ -16,6 +16,8 @@ const workDir = path.join(projectDir, "work");
 const inputDir = path.join(projectDir, "input");
 
 try {
+  await assertProjectDir(projectDir);
+
   await mkdir(path.join(inputDir, "sources"), { recursive: true });
   await mkdir(path.join(inputDir, "brand"), { recursive: true });
   await mkdir(path.join(inputDir, "codebase"), { recursive: true });
@@ -49,6 +51,37 @@ try {
 } catch (error) {
   console.error(error.message);
   process.exit(1);
+}
+
+async function assertProjectDir(candidate) {
+  if (!isInside(repoRoot, candidate) || candidate === repoRoot) {
+    throw new Error(`project-dir must be inside this repository and not the repository root: ${candidate}`);
+  }
+
+  const existingAncestor = await nearestExistingAncestor(candidate);
+  const realRepoRoot = await realpath(repoRoot);
+  const realAncestor = await realpath(existingAncestor);
+  if (!isInside(realRepoRoot, realAncestor) && realAncestor !== realRepoRoot) {
+    throw new Error(`project-dir resolves outside this repository through an existing parent: ${candidate}`);
+  }
+}
+
+async function nearestExistingAncestor(candidate) {
+  let current = candidate;
+  while (current && current !== path.dirname(current)) {
+    try {
+      await stat(current);
+      return current;
+    } catch {
+      current = path.dirname(current);
+    }
+  }
+  return current;
+}
+
+function isInside(root, candidate) {
+  const relative = path.relative(root, candidate);
+  return relative !== "" && !relative.startsWith("..") && !path.isAbsolute(relative);
 }
 
 async function writeIfMissing(filePath, content) {

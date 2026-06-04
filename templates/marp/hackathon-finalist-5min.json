@@ -1,0 +1,153 @@
+{
+  "deck": {
+    "title": "Hackathon Finalist 5-Minute Template",
+    "theme": "dark-runtime",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "eyebrow": "Project",
+      "title": "What we built, in one sentence",
+      "subtitle": "Name the user, the action, and the verified output.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Positioning frame only.",
+      "visual_aid": {"type": "none", "purpose": "Make the project understandable immediately."},
+      "speaker_notes": {
+        "key_message": "Judges should know the build before hearing the backstory.",
+        "talk_track": ["Say what it does.", "Say who uses it.", "Say what they will see."],
+        "timing_seconds": 25
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "comparison",
+      "title": "The old path is slow, fragile, or hard to verify",
+      "left": {"title": "Before", "body": ["Manual step", "Failure or delay", "Unclear proof"]},
+      "right": {"title": "With our build", "body": ["Input", "Automated or assisted step", "Verifiable output"]},
+      "claim_ids": ["replace_with_problem_claim"],
+      "claim_use": "user pain and theme fit",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Show the benefit before the demo."},
+      "speaker_notes": {
+        "key_message": "Tie the project to a concrete pain or hackathon theme.",
+        "talk_track": ["Do not use generic market framing.", "Keep this short so the demo starts early."],
+        "timing_seconds": 40,
+        "claim_ids": ["replace_with_problem_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "demo_plan",
+      "layout": "narrative",
+      "title": "The demo follows one repeatable path",
+      "body": ["Step 1: input or starting state.", "Step 2: core action.", "Step 3: output judges can verify."],
+      "claim_ids": ["replace_with_demo_claim"],
+      "claim_use": "demo behavior",
+      "unsupported_claims": [],
+      "visual_aid": {
+        "type": "interactive_demo",
+        "purpose": "Tell judges exactly what the live demo will prove.",
+        "validation": {
+          "expected": "Demo path is runnable or recorded before presenting.",
+          "fallback": "Use a recorded clip or screenshot sequence.",
+          "browser_check_required": true
+        }
+      },
+      "speaker_notes": {
+        "key_message": "The demo is proof, not a tour.",
+        "talk_track": ["Run the path.", "Do not detour into side features."],
+        "timing_seconds": 105,
+        "claim_ids": ["replace_with_demo_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "working_proof",
+      "layout": "table",
+      "title": "The working evidence is visible and checkable",
+      "table": {
+        "headers": ["Proof asset", "What it proves", "Where judges can inspect it"],
+        "rows": [
+          ["Repo or live URL", "Replace", "Replace"],
+          ["Screenshot/video/benchmark", "Replace", "Replace"],
+          ["Setup or README", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_proof_claim"],
+      "claim_use": "working proof",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Make the build verifiable."},
+      "speaker_notes": {
+        "key_message": "Judges should know what is real today.",
+        "talk_track": ["Name what works.", "Name what is rough.", "Point to the asset."],
+        "timing_seconds": 55,
+        "claim_ids": ["replace_with_proof_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "technical_depth",
+      "layout": "architecture",
+      "title": "The hard part is small enough to explain and real enough to inspect",
+      "body": ["Show the one technical mechanism that differentiates the project."],
+      "mermaid": "flowchart LR\n  A[Input] --> B[Hard part]\n  B --> C[Validation]\n  C --> D[User-visible output]",
+      "claim_ids": ["replace_with_technical_claim"],
+      "claim_use": "technical implementation",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "architecture", "purpose": "Prove implementation depth without a tech-stack wall."},
+      "speaker_notes": {
+        "key_message": "Explain the hard part, not every library.",
+        "talk_track": ["Name the component.", "Name why it was hard.", "Name how it is validated."],
+        "timing_seconds": 65,
+        "claim_ids": ["replace_with_technical_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "rubric_alignment",
+      "layout": "table",
+      "title": "The project is scored against the rubric, not against hype",
+      "table": {
+        "headers": ["Criterion", "Evidence", "Caveat"],
+        "rows": [
+          ["Technical complexity", "Replace", "Replace"],
+          ["Usefulness or impact", "Replace", "Replace"],
+          ["Originality and polish", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_rubric_claim"],
+      "claim_use": "rubric evidence",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Make judging easy and honest."},
+      "speaker_notes": {
+        "key_message": "Map evidence to the actual event criteria.",
+        "talk_track": ["Use the event rubric.", "Do not invent criteria after the fact."],
+        "timing_seconds": 45,
+        "claim_ids": ["replace_with_rubric_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "slide_job": "risk",
+      "layout": "narrative",
+      "title": "What is rough, what is next, and what judges can ask",
+      "body": ["Current limitation.", "Next improvement.", "Best Q&A question to inspect."],
+      "claim_ids": ["replace_with_limit_claim"],
+      "claim_use": "scope and next step",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "none", "purpose": "Close with honesty and inspection readiness."},
+      "speaker_notes": {
+        "key_message": "A strong demo can admit rough edges without losing confidence.",
+        "talk_track": ["Name the boundary.", "Name the next step.", "Invite the technical question."],
+        "timing_seconds": 40,
+        "claim_ids": ["replace_with_limit_claim"]
+      }
+    }
+  ]
+}

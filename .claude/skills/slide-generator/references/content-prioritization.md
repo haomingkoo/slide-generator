@@ -24,6 +24,15 @@ Then adjust:
 - Live demos and discussion-heavy meetings need fewer slides.
 - Backup and appendix slides do not count against the main talk if they are clearly separated.
 
+Mode-specific defaults:
+
+- 60 to 90 second demo video: 3 to 4 slides/screens.
+- 150 second investor demo-day pitch: 5 to 7 remembered ideas, not a full seed deck.
+- 2 to 3 minute hackathon judging pitch: 5 to 8 slides with one repeatable demo path.
+- 5 to 7 minute hackathon finalist pitch: 7 to 10 main slides plus question-indexed backup.
+- 10 to 12 minute conference talk: 8 to 12 slides focused on problem, gap, contribution, method, result, limitation, and takeaway.
+- 20 minute technical or executive talk: usually fewer than 20 main slides once demo, discussion, and decision time are reserved.
+
 Record the timing assumption in `work/intake-brief.md` and `work/content-priority.md`.
 
 ## Main Deck Criteria
