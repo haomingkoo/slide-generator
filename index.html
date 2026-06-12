@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slide Generator</title>
+  <meta name="description" content="A slide-generation system for source-backed, presentation-ready HTML decks.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1d1f'/%3E%3Cpath d='M7 25 25 7v18H7Z' fill='%230071e3'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --surface: #fbfbfd;
+      --surface-strong: #ffffff;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d8d8df;
+      --accent: #0071e3;
+      --green: #2f7d68;
+      --orange: #b45309;
+      --shadow: 0 28px 70px rgba(29, 29, 31, 0.09);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100dvh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(0, 113, 227, 0.12), transparent 30%),
+        linear-gradient(180deg, #ffffff 0, var(--bg) 460px),
+        var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, var(--ink) 0 48%, transparent 48%),
+        linear-gradient(135deg, transparent 52%, var(--accent) 52% 100%),
+        var(--surface-strong);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
+      gap: 56px;
+      align-items: center;
+      min-height: calc(100dvh - 68px);
+      padding: 42px 0 78px;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin-bottom: 22px;
+      font-size: clamp(52px, 6vw, 86px);
+      line-height: 0.96;
+      font-weight: 760;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 590px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0 18px;
+      background: var(--surface-strong);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), border-color 180ms var(--ease);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(0, 113, 227, 0.34);
+      box-shadow: 0 16px 30px rgba(29, 29, 31, 0.08);
+      outline: none;
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fbfbfd;
+    }
+
+    .stage {
+      border: 1px solid rgba(216, 216, 223, 0.86);
+      border-radius: 34px;
+      padding: 18px;
+      background: rgba(251, 251, 253, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .screen {
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        linear-gradient(90deg, rgba(29, 29, 31, 0.06) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(29, 29, 31, 0.06) 1px, transparent 1px),
+        #f6fbff;
+      background-size: 34px 34px;
+    }
+
+    .screen-top {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .screen-body {
+      display: grid;
+      gap: 18px;
+      padding: 28px;
+    }
+
+    .preview-title {
+      max-width: 520px;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 0.95;
+      font-weight: 780;
+    }
+
+    .preview-copy {
+      max-width: 500px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .preview-card {
+      min-height: 140px;
+      display: grid;
+      align-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: var(--surface-strong);
+    }
+
+    .preview-card span {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 780;
+      text-transform: uppercase;
+    }
+
+    .preview-card strong {
+      font-size: 19px;
+      line-height: 1.05;
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding-bottom: 76px;
+    }
+
+    .path-card {
+      min-height: 220px;
+      display: grid;
+      align-content: space-between;
+      border: 1px solid rgba(216, 216, 223, 0.86);
+      border-radius: 26px;
+      padding: 22px;
+      background: rgba(251, 251, 253, 0.86);
+      transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), border-color 180ms var(--ease);
+    }
+
+    .path-card:hover,
+    .path-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(0, 113, 227, 0.34);
+      box-shadow: 0 18px 38px rgba(29, 29, 31, 0.08);
+      outline: none;
+    }
+
+    .path-card h2 {
+      margin-bottom: 10px;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .path-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .path-card span {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    @media (max-width: 900px) {
+      .shell {
+        width: min(100% - 28px, 700px);
+      }
+
+      .hero,
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .screen {
+        min-height: 430px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 24px, 440px);
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .hero-copy p:not(.eyebrow) {
+        font-size: 17px;
+      }
+
+      .stage {
+        border-radius: 24px;
+        padding: 10px;
+      }
+
+      .screen {
+        min-height: 390px;
+        border-radius: 18px;
+      }
+
+      .screen-body {
+        padding: 20px;
+      }
+
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell">
+      <a class="brand" href="./">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Slide Generator</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Source-backed slide system</p>
+        <h1>Build the deck before you decorate it.</h1>
+        <p>Choose the job, proof route, visual recipe and export format. Then hand a clear design contract to your agent instead of hoping the first deck looks right.</p>
+        <div class="actions">
+          <a class="button primary" href="examples/style-workbench/">Open style workbench</a>
+          <a class="button" href="examples/chleo-community-band-room/deck/">View proposal example</a>
+        </div>
+      </div>
+
+      <div class="stage" aria-label="Slide system preview">
+        <div class="screen">
+          <div class="screen-top">
+            <span>Style contract</span>
+            <span>Purpose + proof + template</span>
+          </div>
+          <div class="screen-body">
+            <div>
+              <div class="preview-title">Make the argument visible.</div>
+              <p class="preview-copy">The system separates story, sources, layout and delivery so the deck can be reviewed before it becomes a full presentation.</p>
+            </div>
+            <div class="preview-grid" aria-hidden="true">
+              <div class="preview-card"><span>01</span><strong>Purpose</strong></div>
+              <div class="preview-card"><span>02</span><strong>Proof route</strong></div>
+              <div class="preview-card"><span>03</span><strong>Visual recipe</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell path-grid" aria-label="Entry points">
+      <a class="path-card" href="examples/style-workbench/">
+        <div>
+          <h2>Style workbench</h2>
+          <p>Pick a purpose, proof route, template and export format. Copy a prompt, JSON contract or reusable DESIGN.md.</p>
+        </div>
+        <span>Start here</span>
+      </a>
+      <a class="path-card" href="examples/chleo-community-band-room/deck/">
+        <div>
+          <h2>Proposal example</h2>
+          <p>A Singapore community band-room deck with source-backed costs, legal checks, presenter mode and mobile view.</p>
+        </div>
+        <span>Open deck</span>
+      </a>
+      <a class="path-card" href="examples/source-grounded-demo/deck/">
+        <div>
+          <h2>Source demo</h2>
+          <p>A smaller deck showing claim IDs, source lanes, presenter notes, overview mode and browser QA.</p>
+        </div>
+        <span>Inspect example</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

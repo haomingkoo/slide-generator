@@ -44,6 +44,10 @@
       letter-spacing: 0;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -409,6 +413,7 @@
     }
 
     .section {
+      scroll-margin-top: 84px;
       padding: 72px 0;
       border-top: 1px solid rgba(216, 216, 223, 0.72);
     }
@@ -810,13 +815,26 @@
 
     .template-section {
       display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      grid-template-columns: minmax(320px, 0.42fr) minmax(0, 0.58fr);
       gap: 18px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .template-panel {
       padding: 20px;
+    }
+
+    .template-detail-panel {
+      min-height: 526px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 16px;
+    }
+
+    .template-gallery-panel {
+      min-height: 526px;
+      display: grid;
+      align-content: start;
     }
 
     .template-panel h3 {
@@ -828,6 +846,159 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.5;
+    }
+
+    .selected-specimen,
+    .template-thumb {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--thumb-ink, var(--ink)) 18%, transparent);
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--thumb-ink, var(--ink)) 8%, transparent) 1px, transparent 1px),
+        linear-gradient(0deg, color-mix(in srgb, var(--thumb-ink, var(--ink)) 8%, transparent) 1px, transparent 1px),
+        var(--thumb-bg, var(--surface-strong));
+      background-size: 30px 30px;
+      color: var(--thumb-ink, var(--ink));
+    }
+
+    .selected-specimen {
+      min-height: 286px;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .selected-specimen::after,
+    .template-thumb::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      inset: auto 0 0 auto;
+      width: 44%;
+      height: 44%;
+      background: var(--thumb-accent, var(--accent));
+      clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%);
+      opacity: 0.88;
+    }
+
+    .selected-specimen[data-pattern="block"]::after,
+    .template-thumb[data-pattern="block"]::after {
+      inset: auto 16px 14px auto;
+      width: 42%;
+      height: 46%;
+      clip-path: none;
+      background:
+        linear-gradient(90deg, var(--thumb-accent) 0 48%, transparent 48%),
+        linear-gradient(0deg, transparent 0 52%, var(--thumb-surface) 52%);
+      box-shadow: -28px -22px 0 color-mix(in srgb, var(--thumb-accent) 42%, var(--thumb-bg));
+    }
+
+    .selected-specimen[data-pattern="poster"]::after,
+    .template-thumb[data-pattern="poster"]::after {
+      inset: 18px 18px auto auto;
+      width: 28%;
+      height: calc(100% - 36px);
+      clip-path: none;
+      background:
+        linear-gradient(0deg, var(--thumb-accent) 0 12px, transparent 12px 22px) 0 0 / 100% 34px,
+        transparent;
+      border-left: 1px solid color-mix(in srgb, var(--thumb-ink) 28%, transparent);
+      opacity: 1;
+    }
+
+    .selected-specimen[data-pattern="pixel"]::after,
+    .template-thumb[data-pattern="pixel"]::after {
+      width: 38%;
+      height: 58%;
+      clip-path: none;
+      background:
+        linear-gradient(90deg, var(--thumb-accent) 0 32%, transparent 32% 42%, var(--thumb-accent) 42% 72%, transparent 72%),
+        linear-gradient(0deg, transparent 0 24%, var(--thumb-surface) 24% 44%, transparent 44% 56%, var(--thumb-accent) 56% 76%, transparent 76%);
+      background-size: 22px 22px;
+    }
+
+    .selected-specimen[data-pattern="soft"]::after,
+    .template-thumb[data-pattern="soft"]::after {
+      inset: auto 14px 14px auto;
+      width: 36%;
+      height: 48%;
+      border-radius: 999px;
+      clip-path: none;
+      box-shadow: -42px -24px 0 color-mix(in srgb, var(--thumb-accent) 36%, var(--thumb-bg));
+    }
+
+    .selected-specimen[data-pattern="window"]::after,
+    .template-thumb[data-pattern="window"]::after {
+      inset: 14px 14px auto auto;
+      width: 42%;
+      height: 52%;
+      clip-path: none;
+      border: 2px solid var(--thumb-ink);
+      background:
+        linear-gradient(var(--thumb-accent) 0 18px, transparent 18px),
+        var(--thumb-surface);
+    }
+
+    .specimen-kicker,
+    .thumb-kicker {
+      position: relative;
+      z-index: 2;
+      color: var(--thumb-accent, var(--accent));
+      font-size: 11px;
+      font-weight: 780;
+      text-transform: uppercase;
+    }
+
+    .specimen-title {
+      position: relative;
+      z-index: 2;
+      display: block;
+      max-width: 9ch;
+      font-size: clamp(42px, 5vw, 66px);
+      line-height: 0.92;
+      font-weight: 780;
+    }
+
+    .specimen-meta {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .specimen-meta span {
+      min-height: 44px;
+      display: grid;
+      align-content: center;
+      border: 1px solid color-mix(in srgb, var(--thumb-ink, var(--ink)) 18%, transparent);
+      border-radius: 12px;
+      padding: 8px;
+      background: color-mix(in srgb, var(--thumb-surface, var(--surface-strong)) 82%, transparent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .template-controls {
+      display: grid;
+      gap: 10px;
+    }
+
+    .template-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 2px;
+    }
+
+    .field-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .field {
@@ -850,12 +1021,12 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 14px;
     }
 
     .template-card {
-      min-height: 158px;
+      min-height: 206px;
       display: grid;
+      grid-template-rows: 104px 1fr;
       gap: 12px;
       border: 1px solid var(--line);
       border-radius: 18px;
@@ -863,6 +1034,15 @@
       background: var(--surface-strong);
       color: var(--ink);
       text-align: left;
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+    }
+
+    .template-card:hover,
+    .template-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
+      outline: none;
+      box-shadow: 0 18px 34px rgba(29, 29, 31, 0.07);
     }
 
     .template-card[aria-pressed="true"] {
@@ -870,17 +1050,45 @@
       box-shadow: inset 0 0 0 1px var(--ink);
     }
 
-    .mini-template {
-      height: 72px;
+    .template-card[aria-pressed="true"] .template-card-hint {
+      color: var(--ink);
+    }
+
+    .template-thumb {
+      height: 104px;
       border-radius: 12px;
-      border: 1px solid rgba(29, 29, 31, 0.1);
-      background:
-        linear-gradient(90deg, var(--ink) 0 38%, transparent 38%),
-        linear-gradient(90deg, var(--accent) 0 22%, transparent 22%),
-        var(--soft);
-      background-repeat: no-repeat;
-      background-size: 58% 7px, 38% 7px, auto;
-      background-position: 13px 20px, 13px 36px, 0 0;
+      padding: 12px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .template-thumb strong {
+      position: relative;
+      z-index: 2;
+      display: block;
+      max-width: 8ch;
+      font-size: 22px;
+      line-height: 0.9;
+      color: var(--thumb-ink, var(--ink));
+    }
+
+    .thumb-lines {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 4px;
+      width: 54%;
+    }
+
+    .thumb-lines span {
+      height: 5px;
+      border-radius: 99px;
+      background: var(--thumb-accent, var(--accent));
+    }
+
+    .thumb-lines span:nth-child(2) {
+      width: 68%;
+      opacity: 0.55;
     }
 
     .template-card h4 {
@@ -891,6 +1099,162 @@
     .template-card p {
       margin: 0;
       color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .template-card-body {
+      display: grid;
+      gap: 5px;
+      align-content: start;
+    }
+
+    .template-card-hint {
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 720;
+    }
+
+    .template-badge {
+      display: inline-flex;
+      width: fit-content;
+      min-height: 22px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 8px;
+      background: var(--ink);
+      color: var(--surface-strong);
+      font-size: 10px;
+      font-weight: 760;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(29, 29, 31, 0.42);
+      backdrop-filter: blur(14px);
+    }
+
+    .modal-backdrop[hidden] {
+      display: none;
+    }
+
+    .template-modal {
+      width: min(1040px, 100%);
+      max-height: min(760px, calc(100dvh - 44px));
+      overflow: auto;
+      border: 1px solid rgba(216, 216, 223, 0.88);
+      border-radius: 30px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-head {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 251, 253, 0.94);
+      backdrop-filter: blur(16px);
+    }
+
+    .modal-head h3 {
+      margin-bottom: 6px;
+      font-size: 26px;
+      line-height: 1.05;
+    }
+
+    .modal-head p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .modal-close {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-strong);
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .modal-body {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.14fr);
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .modal-preview {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .modal-preview .selected-specimen {
+      min-height: 390px;
+    }
+
+    .modal-preview .specimen-title {
+      max-width: 7ch;
+      font-size: clamp(44px, 4vw, 58px);
+    }
+
+    .modal-slides {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .modal-slide {
+      min-height: 176px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      border: 1px solid color-mix(in srgb, var(--thumb-ink, var(--ink)) 16%, transparent);
+      border-radius: 18px;
+      padding: 16px;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--thumb-ink, var(--ink)) 6%, transparent) 1px, transparent 1px),
+        linear-gradient(0deg, color-mix(in srgb, var(--thumb-ink, var(--ink)) 6%, transparent) 1px, transparent 1px),
+        var(--thumb-bg, var(--surface-strong));
+      background-size: 26px 26px;
+      color: var(--thumb-ink, var(--ink));
+    }
+
+    .modal-slide span {
+      color: var(--thumb-accent, var(--accent));
+      font-size: 11px;
+      font-weight: 780;
+      text-transform: uppercase;
+    }
+
+    .modal-slide strong {
+      max-width: 12ch;
+      font-size: 30px;
+      line-height: 0.98;
+    }
+
+    .modal-slide p {
+      margin: 0;
+      color: color-mix(in srgb, var(--thumb-ink, var(--ink)) 68%, transparent);
       font-size: 12px;
       line-height: 1.35;
     }
@@ -976,6 +1340,33 @@
       display: block;
       margin-bottom: 4px;
       color: var(--ink);
+    }
+
+    .contract-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .contract-summary span {
+      min-height: 76px;
+      display: grid;
+      align-content: space-between;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: var(--surface-strong);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 680;
+    }
+
+    .contract-summary strong {
+      display: block;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.15;
     }
 
     .source-links {
@@ -1072,6 +1463,19 @@
         grid-template-columns: 1fr;
       }
 
+      .contract-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .template-detail-panel,
+      .template-gallery-panel {
+        min-height: auto;
+      }
+
+      .modal-body {
+        grid-template-columns: 1fr;
+      }
+
       .artifact-strip {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1138,6 +1542,47 @@
         grid-template-columns: 1fr;
       }
 
+      .contract-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .selected-specimen {
+        min-height: 238px;
+      }
+
+      .specimen-title {
+        font-size: 42px;
+      }
+
+      .template-card {
+        min-height: 190px;
+      }
+
+      .modal-backdrop {
+        padding: 12px;
+      }
+
+      .template-modal {
+        max-height: calc(100dvh - 24px);
+        border-radius: 22px;
+      }
+
+      .modal-head {
+        padding: 18px;
+      }
+
+      .modal-body {
+        padding: 14px;
+      }
+
+      .modal-slides {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-preview .selected-specimen {
+        min-height: 280px;
+      }
+
       .section {
         padding: 50px 0;
       }
@@ -1169,7 +1614,7 @@
         <p>Choose the job, proof route, template grammar and delivery mode. The preview updates with each decision so the deck is not just a theme pasted on top.</p>
         <div class="actions">
           <a class="button primary" href="#studio">Open builder</a>
-          <a class="button" href="#templates">See templates</a>
+        <a class="button" href="#templates">Browse visual recipes</a>
         </div>
       </div>
 
@@ -1258,22 +1703,39 @@
     <section class="shell section" id="templates" aria-labelledby="templates-title">
       <div class="section-head">
         <p class="section-kicker">Optional library</p>
-        <h2 id="templates-title">Templates are ingredients, not the meal.</h2>
-        <p>Browse the open template pack only after the deck logic is clear. Use it as layout grammar, then remix colors before publishing.</p>
+        <h2 id="templates-title">Pick a visual recipe.</h2>
+        <p>Choose a template structure, inspect how it handles common slide jobs, then remix the colors before publishing.</p>
       </div>
 
       <div class="template-section">
-        <div class="template-panel">
-          <h3>Selected template</h3>
-          <p id="templateDetail">Loading template options from the vendored open template pack.</p>
-          <input class="field" id="templateSearch" type="search" placeholder="Search templates">
-          <div class="pager">
-            <button class="button small" id="prevTemplates" type="button">Previous</button>
-            <span id="templatePageStatus">Page 1</span>
-            <button class="button small" id="nextTemplates" type="button">Next</button>
+        <div class="template-panel template-detail-panel">
+          <div>
+            <h3>Selected template</h3>
+            <p id="templateDetail">Loading template options from the vendored open template pack.</p>
+          </div>
+          <div class="selected-specimen" id="templateSpecimen" data-pattern="grid">
+            <span class="specimen-kicker">Template preview</span>
+            <strong class="specimen-title">Loading</strong>
+            <div class="specimen-meta">
+              <span>Title</span>
+              <span>Proof</span>
+              <span>Appendix</span>
+            </div>
+          </div>
+          <div class="template-controls">
+            <label class="field-label" for="templateSearch">Search templates</label>
+            <input class="field" id="templateSearch" type="search" placeholder="Search by mood, use case or name">
+            <div class="template-actions">
+              <button class="button small" id="openSelectedTemplate" type="button">Open structure</button>
+            </div>
+            <div class="pager">
+              <button class="button small" id="prevTemplates" type="button">Previous</button>
+              <span id="templatePageStatus">Page 1</span>
+              <button class="button small" id="nextTemplates" type="button">Next</button>
+            </div>
           </div>
         </div>
-        <div class="template-panel">
+        <div class="template-panel template-gallery-panel">
           <div class="template-grid" id="templateGrid"></div>
         </div>
       </div>
@@ -1283,7 +1745,7 @@
       <div class="section-head">
         <p class="section-kicker">Output</p>
         <h2 id="export-title">Leave with something an agent can use.</h2>
-        <p>The export is a design contract: deck job, proof route, selected template, color roles, build path, credits and QA rules.</p>
+        <p>Copy the version your agent or repo workflow needs. The summary shows exactly what will be generated.</p>
       </div>
 
       <div class="export-grid">
@@ -1303,10 +1765,11 @@
 
         <div class="export-panel">
           <div class="format-tabs" role="tablist" aria-label="Export formats">
-            <button class="format-tab" type="button" data-format="prompt" aria-selected="true">Prompt</button>
-            <button class="format-tab" type="button" data-format="json" aria-selected="false">JSON</button>
-            <button class="format-tab" type="button" data-format="design" aria-selected="false">DESIGN.md</button>
+            <button class="format-tab" type="button" data-format="prompt" aria-selected="true">Prompt for agent</button>
+            <button class="format-tab" type="button" data-format="json" aria-selected="false">JSON for repo</button>
+            <button class="format-tab" type="button" data-format="design" aria-selected="false">Reusable DESIGN.md</button>
           </div>
+          <div class="contract-summary" id="contractSummary" aria-label="Current export summary"></div>
           <textarea id="exportText" aria-label="Exported design contract"></textarea>
           <div class="actions" style="margin-top: 12px;">
             <button class="button primary" id="copyExport" type="button">Copy current export</button>
@@ -1340,6 +1803,25 @@
   </main>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+  <div class="modal-backdrop" id="templateModal" hidden>
+    <div class="template-modal" role="dialog" aria-modal="true" aria-labelledby="templateModalTitle" aria-describedby="templateModalSubtitle">
+      <div class="modal-head">
+        <div>
+          <h3 id="templateModalTitle">Template structure</h3>
+          <p id="templateModalSubtitle">A quick look at how this visual system handles common slide jobs.</p>
+        </div>
+        <button class="modal-close" id="closeTemplateModal" type="button" aria-label="Close template structure">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-preview">
+          <div class="selected-specimen" id="templateModalSpecimen" data-pattern="grid"></div>
+          <button class="button primary" id="useModalTemplate" type="button">Use this template</button>
+        </div>
+        <div class="modal-slides" id="templateModalSlides"></div>
+      </div>
+    </div>
+  </div>
 
   <script>
     const layerOrder = ["purpose", "evidence", "style", "output"];
@@ -1532,6 +2014,43 @@
       { slug: "signal", name: "Signal", tagline: "Quiet institutional dark mode.", scheme: "mixed", design_md: "bold-template-pack/templates/signal/design.md" }
     ];
 
+    const templateVisuals = {
+      "8-bit-orbit": { bg: "#07111f", ink: "#e9fbff", surface: "#132640", accent: "#41f9d0", pattern: "pixel", label: "Retro tech" },
+      "biennale-yellow": { bg: "#f7d536", ink: "#18214f", surface: "#fff2b7", accent: "#ffffff", pattern: "soft", label: "Solar poster" },
+      "block-frame": { bg: "#f8f1ff", ink: "#111214", surface: "#ffffff", accent: "#ff6b6b", pattern: "block", label: "Neo block" },
+      "blue-professional": { bg: "#f6fbff", ink: "#071d49", surface: "#ffffff", accent: "#0757ff", pattern: "grid", label: "Clean system" },
+      "bold-poster": { bg: "#fff8ed", ink: "#141414", surface: "#ffffff", accent: "#e22d2d", pattern: "poster", label: "Magazine" },
+      "broadside": { bg: "#111111", ink: "#f0ece5", surface: "#1a1a18", accent: "#e85d26", pattern: "poster", label: "Dark editorial" },
+      "capsule": { bg: "#fff7e8", ink: "#1f1c1a", surface: "#ffffff", accent: "#73d2de", pattern: "soft", label: "Pill system" },
+      "cartesian": { bg: "#f6f0e5", ink: "#1c1b18", surface: "#fffaf2", accent: "#9b7b62", pattern: "grid", label: "Sparse" },
+      "cobalt-grid": { bg: "#f6fbff", ink: "#111827", surface: "#ffffff", accent: "#0757ff", pattern: "grid", label: "Research grid" },
+      "coral": { bg: "#171717", ink: "#fff5ea", surface: "#292321", accent: "#ff725c", pattern: "poster", label: "Coral punch" },
+      "creative-mode": { bg: "#fffaf0", ink: "#171717", surface: "#ffffff", accent: "#ff4fa3", pattern: "block", label: "Creative" },
+      "daisy-days": { bg: "#fff0c7", ink: "#2a2a24", surface: "#fffaf0", accent: "#f6b7d2", pattern: "soft", label: "Sunny" },
+      "editorial-forest": { bg: "#14382b", ink: "#f7efe5", surface: "#f7efe5", accent: "#e8a4b0", pattern: "soft", label: "Forest edit" },
+      "editorial-tri-tone": { bg: "#f4d7d8", ink: "#42161f", surface: "#fff3d1", accent: "#c79a24", pattern: "block", label: "Tri-tone" },
+      "emerald-editorial": { bg: "#073f35", ink: "#f7f0df", surface: "#fff8e8", accent: "#0aa36f", pattern: "poster", label: "Magazine" },
+      "grove": { bg: "#153d2f", ink: "#f7f0df", surface: "#213f32", accent: "#b9653b", pattern: "poster", label: "Grove" },
+      "long-table": { bg: "#fff3dc", ink: "#271d17", surface: "#fffaf0", accent: "#b6402d", pattern: "soft", label: "Gathering" },
+      "mat": { bg: "#39463d", ink: "#f4ead6", surface: "#f4ead6", accent: "#c56b39", pattern: "block", label: "Mid-century" },
+      "monochrome": { bg: "#f8f2e6", ink: "#111111", surface: "#fffaf2", accent: "#111111", pattern: "grid", label: "Ledger" },
+      "neo-grid-bold": { bg: "#fbfbf0", ink: "#101010", surface: "#ffffff", accent: "#e6ff00", pattern: "block", label: "Neo grid" },
+      "peoples-platform": { bg: "#fff4df", ink: "#151515", surface: "#ffffff", accent: "#ef6b2d", pattern: "block", label: "Poster" },
+      "pin-and-paper": { bg: "#fff179", ink: "#09204a", surface: "#fff9b7", accent: "#e83f6f", pattern: "soft", label: "Pinned" },
+      "pink-script": { bg: "#101010", ink: "#fff2e8", surface: "#24161f", accent: "#ff3fa4", pattern: "poster", label: "After hours" },
+      "playful": { bg: "#ffd3b5", ink: "#171717", surface: "#fff8ee", accent: "#5f8cff", pattern: "soft", label: "Indie" },
+      "raw-grid": { bg: "#f7f2ef", ink: "#151515", surface: "#ffffff", accent: "#ff7aae", pattern: "block", label: "Raw grid" },
+      "retro-windows": { bg: "#c6c6c6", ink: "#050505", surface: "#eeeeee", accent: "#000080", pattern: "window", label: "Desktop" },
+      "retro-zine": { bg: "#f0e1c7", ink: "#1e2a20", surface: "#fff4de", accent: "#2c7a4b", pattern: "poster", label: "Zine" },
+      "sakura-chroma": { bg: "#fff4dc", ink: "#161616", surface: "#fffaf0", accent: "#ff4b7b", pattern: "block", label: "Cassette" },
+      "scatterbrain": { bg: "#fff2bd", ink: "#27231f", surface: "#fffdf2", accent: "#89c2ff", pattern: "soft", label: "Sticky" },
+      "signal": { bg: "#101928", ink: "#f7f1dc", surface: "#172235", accent: "#c5a35c", pattern: "grid", label: "Signal" },
+      "soft-editorial": { bg: "#fbf1e9", ink: "#24201d", surface: "#ffffff", accent: "#b9c8a3", pattern: "soft", label: "Soft edit" },
+      "stencil-tablet": { bg: "#eee5d4", ink: "#191a17", surface: "#fff9ee", accent: "#547a66", pattern: "block", label: "Stencil" },
+      "studio": { bg: "#0f0f0f", ink: "#fff7a8", surface: "#1c1c1c", accent: "#f5e642", pattern: "poster", label: "Studio" },
+      "vellum": { bg: "#111b2f", ink: "#f6dc86", surface: "#18243a", accent: "#75a99f", pattern: "grid", label: "Vellum" }
+    };
+
     const state = {
       activeLayer: "purpose",
       selected: {
@@ -1544,6 +2063,8 @@
       selectedTemplate: fallbackTemplates[0],
       templatePage: 0,
       templateSearch: "",
+      modalTemplate: fallbackTemplates[0],
+      modalTrigger: null,
       exportFormat: "prompt"
     };
 
@@ -1556,10 +2077,20 @@
     const nextStepCopy = document.getElementById("nextStepCopy");
     const templateGrid = document.getElementById("templateGrid");
     const templateDetail = document.getElementById("templateDetail");
+    const templateSpecimen = document.getElementById("templateSpecimen");
     const templateSearch = document.getElementById("templateSearch");
     const templatePageStatus = document.getElementById("templatePageStatus");
     const prevTemplates = document.getElementById("prevTemplates");
     const nextTemplates = document.getElementById("nextTemplates");
+    const openSelectedTemplate = document.getElementById("openSelectedTemplate");
+    const templateModal = document.getElementById("templateModal");
+    const templateModalTitle = document.getElementById("templateModalTitle");
+    const templateModalSubtitle = document.getElementById("templateModalSubtitle");
+    const templateModalSpecimen = document.getElementById("templateModalSpecimen");
+    const templateModalSlides = document.getElementById("templateModalSlides");
+    const closeTemplateModal = document.getElementById("closeTemplateModal");
+    const useModalTemplate = document.getElementById("useModalTemplate");
+    const contractSummary = document.getElementById("contractSummary");
     const exportText = document.getElementById("exportText");
     const copyExport = document.getElementById("copyExport");
     const toast = document.getElementById("toast");
@@ -1587,6 +2118,11 @@
 
     nextLayerButton.addEventListener("click", () => {
       const current = layerOrder.indexOf(state.activeLayer);
+      if (state.activeLayer === "output") {
+        document.getElementById("export").scrollIntoView({ behavior: "smooth", block: "start" });
+        exportText.focus({ preventScroll: true });
+        return;
+      }
       state.activeLayer = layerOrder[Math.min(current + 1, layerOrder.length - 1)];
       render();
     });
@@ -1605,6 +2141,28 @@
     nextTemplates.addEventListener("click", () => {
       state.templatePage += 1;
       renderTemplates();
+    });
+
+    openSelectedTemplate.addEventListener("click", () => {
+      openTemplateModal(state.selectedTemplate, openSelectedTemplate);
+    });
+
+    closeTemplateModal.addEventListener("click", closeTemplateStructure);
+
+    templateModal.addEventListener("click", (event) => {
+      if (event.target === templateModal) closeTemplateStructure();
+    });
+
+    useModalTemplate.addEventListener("click", () => {
+      state.selectedTemplate = state.modalTemplate || state.selectedTemplate;
+      renderTemplates();
+      renderExport();
+      closeTemplateStructure();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !templateModal.hidden) closeTemplateStructure();
+      if (event.key === "Tab" && !templateModal.hidden) trapModalFocus(event);
     });
 
     formatTabs.forEach((button) => {
@@ -1637,10 +2195,12 @@
             state.templates.find((item) => item.slug === "cobalt-grid") ||
             state.templates.find((item) => item.slug === "monochrome") ||
             state.templates[0];
+          state.modalTemplate = state.selectedTemplate;
         }
       } catch {
         state.templates = fallbackTemplates;
         state.selectedTemplate = fallbackTemplates[0];
+        state.modalTemplate = state.selectedTemplate;
       }
       renderTemplates();
       renderExport();
@@ -1788,31 +2348,158 @@
           .toLowerCase()
           .includes(state.templateSearch);
       });
-      const pageSize = 6;
+      const pageSize = 4;
       const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
       state.templatePage = Math.min(state.templatePage, pageCount - 1);
-      const page = filtered.slice(state.templatePage * pageSize, state.templatePage * pageSize + pageSize);
+      let page = filtered.slice(state.templatePage * pageSize, state.templatePage * pageSize + pageSize);
+      const selectedInFilter = filtered.some((template) => template.slug === state.selectedTemplate.slug);
+      if (selectedInFilter && !page.some((template) => template.slug === state.selectedTemplate.slug)) {
+        page = [state.selectedTemplate, ...page.slice(0, pageSize - 1)];
+      }
       templatePageStatus.textContent = `Page ${state.templatePage + 1} of ${pageCount}`;
       prevTemplates.disabled = state.templatePage === 0;
       nextTemplates.disabled = state.templatePage >= pageCount - 1;
-      templateDetail.textContent = `${state.selectedTemplate.name}: ${state.selectedTemplate.tagline || state.selectedTemplate.best_for || "Selected layout grammar."}`;
+      templateDetail.textContent = `${state.selectedTemplate.name}: ${state.selectedTemplate.tagline || state.selectedTemplate.best_for || "Selected layout grammar."} Click a card to inspect the slide structure.`;
+      applyTemplateSpecimen(templateSpecimen, state.selectedTemplate);
+
+      if (!page.length) {
+        templateGrid.innerHTML = `<p style="margin:0;color:var(--muted);font-size:14px;line-height:1.45;">No matching templates. Try a broader mood, use case or name.</p>`;
+        return;
+      }
+
       templateGrid.innerHTML = page.map((template) => `
         <button class="template-card" type="button" data-template="${template.slug}" aria-pressed="${template.slug === state.selectedTemplate.slug}">
-          <span class="mini-template" aria-hidden="true"></span>
-          <span>
+          ${renderTemplateThumb(template)}
+          <span class="template-card-body">
+            ${template.slug === state.selectedTemplate.slug ? '<span class="template-badge">Selected</span>' : ''}
             <h4>${escapeHtml(template.name)}</h4>
             <p>${escapeHtml(template.tagline || template.best_for || "Template recipe")}</p>
+            <span class="template-card-hint">Open slide structure</span>
           </span>
         </button>
       `).join("");
 
       templateGrid.querySelectorAll(".template-card").forEach((button) => {
         button.addEventListener("click", () => {
-          state.selectedTemplate = state.templates.find((template) => template.slug === button.dataset.template) || state.selectedTemplate;
+          const template = state.templates.find((item) => item.slug === button.dataset.template) || state.selectedTemplate;
           renderTemplates();
-          renderExport();
+          openTemplateModal(template, button);
         });
       });
+    }
+
+    function getTemplateVisual(template) {
+      if (templateVisuals[template.slug]) return templateVisuals[template.slug];
+      if (template.scheme === "dark") {
+        return { bg: "#111214", ink: "#f5f5f7", surface: "#202126", accent: "#7dd3fc", pattern: "grid", label: "Dark system" };
+      }
+      if (template.scheme === "mixed") {
+        return { bg: "#f7f3ee", ink: "#1d1d1f", surface: "#ffffff", accent: "#b45309", pattern: "soft", label: "Mixed system" };
+      }
+      return { bg: "#f7f8fb", ink: "#1d1d1f", surface: "#ffffff", accent: "#0071e3", pattern: "grid", label: "Light system" };
+    }
+
+    function templateVisualStyle(visual) {
+      return [
+        `--thumb-bg:${visual.bg}`,
+        `--thumb-ink:${visual.ink}`,
+        `--thumb-surface:${visual.surface}`,
+        `--thumb-accent:${visual.accent}`
+      ].join(";");
+    }
+
+    function templateWords(template) {
+      return template.name
+        .replace(/[()]/g, "")
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .join(" ");
+    }
+
+    function renderTemplateThumb(template) {
+      const visual = getTemplateVisual(template);
+      return `
+        <span class="template-thumb" data-pattern="${escapeHtml(visual.pattern)}" style="${templateVisualStyle(visual)}" aria-hidden="true">
+          <span class="thumb-kicker">${escapeHtml(visual.label)}</span>
+          <strong>${escapeHtml(templateWords(template))}</strong>
+          <span class="thumb-lines"><span></span><span></span></span>
+        </span>
+      `;
+    }
+
+    function applyTemplateSpecimen(node, template) {
+      const visual = getTemplateVisual(template);
+      node.dataset.pattern = visual.pattern;
+      node.setAttribute("style", templateVisualStyle(visual));
+      node.innerHTML = `
+        <span class="specimen-kicker">${escapeHtml(visual.label)} / ${escapeHtml(template.scheme || "mixed")}</span>
+        <strong class="specimen-title">${escapeHtml(templateWords(template))}</strong>
+        <div class="specimen-meta">
+          <span>Title</span>
+          <span>Proof</span>
+          <span>Appendix</span>
+        </div>
+      `;
+    }
+
+    function openTemplateModal(template, trigger) {
+      state.modalTemplate = template;
+      state.modalTrigger = trigger || document.activeElement;
+      renderTemplateModal(template);
+      templateModal.hidden = false;
+      document.body.classList.add("modal-open");
+      closeTemplateModal.focus();
+    }
+
+    function closeTemplateStructure() {
+      templateModal.hidden = true;
+      document.body.classList.remove("modal-open");
+      if (state.modalTrigger && typeof state.modalTrigger.focus === "function") {
+        state.modalTrigger.focus();
+      }
+      state.modalTrigger = null;
+    }
+
+    function trapModalFocus(event) {
+      const focusable = Array.from(templateModal.querySelectorAll(
+        "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])"
+      )).filter((node) => !node.disabled && node.offsetParent !== null);
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    function renderTemplateModal(template) {
+      const visual = getTemplateVisual(template);
+      const style = templateVisualStyle(visual);
+      templateModalTitle.textContent = template.name;
+      templateModalSubtitle.textContent = template.tagline || template.best_for || "A quick look at how this visual system handles common slide jobs.";
+      applyTemplateSpecimen(templateModalSpecimen, template);
+
+      const slides = [
+        ["01", "Opening claim", "A large point-first title with enough room for one sentence."],
+        ["02", "Proof object", "Table, chart, architecture map or source-backed exhibit."],
+        ["03", "Comparison", "Peer panels with aligned weight, not uneven text blocks."],
+        ["04", "Appendix", "Detail that supports the argument without slowing the story."]
+      ];
+
+      templateModalSlides.innerHTML = slides.map(([kicker, title, copy]) => `
+        <article class="modal-slide" style="${style}">
+          <span>${escapeHtml(kicker)}</span>
+          <strong>${escapeHtml(title)}</strong>
+          <p>${escapeHtml(copy)}</p>
+        </article>
+      `).join("");
     }
 
     function renderExport() {
@@ -1824,6 +2511,14 @@
         json: JSON.stringify(buildContract(), null, 2),
         design: buildDesignMd()
       };
+      contractSummary.innerHTML = [
+        ["Deck", state.selected.purpose.name],
+        ["Proof", state.selected.evidence.name],
+        ["Style", state.selected.style.name],
+        ["Template", state.selectedTemplate.name]
+      ].map(([label, value]) => `
+        <span>${escapeHtml(label)}<strong>${escapeHtml(value)}</strong></span>
+      `).join("");
       exportText.value = outputs[state.exportFormat];
     }
 
