@@ -6,9 +6,9 @@
   "validated_artifact": {
     "path": "examples/chleo-community-band-room/deck/index.html",
     "hash_kind": "normalized_sha256",
-    "sha256": "499c2f33ee9849edbd722138ae9f274e4d978eef538149366d30b9393404ffc3",
-    "bytes": 94964,
-    "mtime_ms": 1781228785263
+    "sha256": "836f818609c8f05837e185fbe9283bb36c1d28f698b5e8874bc6488127a8c3d7",
+    "bytes": 97543,
+    "mtime_ms": 1781230070103
   },
   "target": {
     "overall_score": 88,
@@ -32,7 +32,7 @@
       ]
     },
     "designer": {
-      "summary": "The deck has a distinctive light Creative Mode style and the current Playwright pass shows no footer/control overlap.",
+      "summary": "The deck has a distinctive light Creative Mode style and the current Playwright pass shows no footer/control overlap, including slide 8, slide 16 and mobile controls.",
       "top_risks": [
         "Appendix slides remain dense by design and should be used for Q&A rather than live narration."
       ]
@@ -58,7 +58,7 @@
     {
       "id": "browser_overlap_qa",
       "status": "pass",
-      "evidence": "Playwright rendered all 22 slides at desktop size and checked high-risk slides at short-laptop and mobile sizes with no overlap issues."
+      "evidence": "Playwright rendered all 22 slides at desktop size and checked high-risk slides at short-laptop and mobile sizes with no overlap issues. The latest pass also verified slide 8, slide 16 and fullscreen controls."
     },
     {
       "id": "edit_state_safety",
@@ -130,7 +130,7 @@
     { "slide_id": "slide_05", "score": 84, "decision": "accept", "strengths": ["Useful competitor table with current price anchors."], "issues": [] },
     { "slide_id": "slide_06", "score": 87, "decision": "accept", "strengths": ["Defines discovery targets and what counts as a real lead."], "issues": [] },
     { "slide_id": "slide_07", "score": 88, "decision": "accept", "strengths": ["Validation ladder avoids blind pre-sales."], "issues": [] },
-    { "slide_id": "slide_08", "score": 85, "decision": "accept", "strengths": ["Property scouting steps are concrete."], "issues": [] },
+    { "slide_id": "slide_08", "score": 86, "decision": "accept", "strengths": ["Property scouting steps are concrete and now visually balanced."], "issues": [] },
     { "slide_id": "slide_09", "score": 87, "decision": "accept", "strengths": ["Site options are compared with a clear stance."], "issues": [] },
     { "slide_id": "slide_10", "score": 88, "decision": "accept", "strengths": ["Use/licensing risk is explained without overclaiming."], "issues": [] },
     { "slide_id": "slide_11", "score": 90, "decision": "accept", "strengths": ["Acoustic distinction is simple and important."], "issues": [] },
@@ -138,7 +138,7 @@
     { "slide_id": "slide_13", "score": 86, "decision": "accept", "strengths": ["Starter gear categories are actionable."], "issues": [] },
     { "slide_id": "slide_14", "score": 88, "decision": "accept", "strengths": ["Quote calls are split by vendor type."], "issues": [] },
     { "slide_id": "slide_15", "score": 89, "decision": "accept", "strengths": ["Startup ranges are scaled correctly and readable."], "issues": [] },
-    { "slide_id": "slide_16", "score": 87, "decision": "accept", "strengths": ["Break-even logic is clearer after title scale repair."], "issues": [] },
+    { "slide_id": "slide_16", "score": 88, "decision": "accept", "strengths": ["Break-even logic is clearer after title and pricing-card repair."], "issues": [] },
     { "slide_id": "slide_17", "score": 89, "decision": "accept", "strengths": ["Operating culture is practical and not corny."], "issues": [] },
     { "slide_id": "slide_18", "score": 88, "decision": "accept", "strengths": ["Gantt chart turns the plan into weeks and outputs."], "issues": [] },
     { "slide_id": "slide_19", "score": 90, "decision": "accept", "strengths": ["Close gives a clear go/no-go gate."], "issues": [] },

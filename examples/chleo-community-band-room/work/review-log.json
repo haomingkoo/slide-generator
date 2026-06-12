@@ -55,6 +55,38 @@
         "Presenter controls need a reserved control band on short laptop screens.",
         "Playwright QA must render every slide after structural deck changes."
       ]
+    },
+    {
+      "date": "2026-06-12",
+      "summary": "Reviewed the follow-up user reports for slide 8 alignment, slide 16 pricing-card overflow and the request for fullscreen presentation controls.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_08",
+          "decision": "visual_edit",
+          "note": "Scoped a location-scouting layout so the spec strip, size ladder and four scouting cards align cleanly without touching the source lane.",
+          "repair_target": "deck/index.html"
+        },
+        {
+          "slide_id": "slide_16",
+          "decision": "visual_edit",
+          "note": "Shortened the visible headline and kept S$50-65/hr on one line inside the launch-test card.",
+          "repair_target": "deck/index.html"
+        },
+        {
+          "slide_id": "deck_controls",
+          "decision": "visual_edit",
+          "note": "Added a Full/Exit fullscreen control and checked that the bottom controls still fit on a 390px mobile viewport.",
+          "repair_target": "deck/index.html"
+        }
+      ],
+      "recurring_issues": [
+        "Scope slide-specific layout classes to the intended slide only.",
+        "Visual QA should include screenshots, not only DOM geometry."
+      ],
+      "new_rules": [
+        "When adding a new control button, verify the control row at mobile width.",
+        "Long numeric prices inside cards should use nowrap plus a tested font size."
+      ]
     }
   ]
 }

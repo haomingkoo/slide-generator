@@ -4,9 +4,9 @@
   "validated_artifact": {
     "path": "examples/chleo-community-band-room/deck/index.html",
     "hash_kind": "normalized_sha256",
-    "sha256": "499c2f33ee9849edbd722138ae9f274e4d978eef538149366d30b9393404ffc3",
-    "bytes": 94964,
-    "mtime_ms": 1781228785263
+    "sha256": "836f818609c8f05837e185fbe9283bb36c1d28f698b5e8874bc6488127a8c3d7",
+    "bytes": 97543,
+    "mtime_ms": 1781230070103
   },
   "source_artifacts": {
     "slide_specs": {
@@ -17,7 +17,7 @@
       "mtime_ms": 1781227109941
     }
   },
-  "generated_at": "2026-06-12T01:55:00.000Z",
+  "generated_at": "2026-06-12T02:10:00.000Z",
   "status": "pass",
   "viewports": [
     {
@@ -47,7 +47,10 @@
     "Measured content, source, metadata and controls bounding boxes; no content/source/meta/control overlap detected.",
     "Verified short-laptop controls do not cover the scaled stage.",
     "Verified corrupt legacy edit storage is removed and does not alter slide text.",
-    "Verified hash navigation activates the requested slide."
+    "Verified hash navigation activates the requested slide.",
+    "Verified slide 8 scouting cards align in one row and clear the footer.",
+    "Verified slide 16 pricing poster stays inside the slide and S$50-65/hr stays on one line.",
+    "Verified Full button enters fullscreen and switches to Exit."
   ],
   "known_limits": [
     "Mobile view is a scaled presentation deck, not a reflowed article.",

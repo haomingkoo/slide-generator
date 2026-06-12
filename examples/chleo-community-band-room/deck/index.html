@@ -966,6 +966,77 @@
       line-height: 0.95;
     }
 
+    .scouting-layout .kicker {
+      margin-bottom: 16px;
+    }
+
+    .scouting-layout .lg {
+      max-width: none;
+      font-size: 86px;
+      white-space: nowrap;
+    }
+
+    .scouting-layout .spec-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .scouting-layout .spec-strip span {
+      justify-content: center;
+      min-height: 52px;
+      padding: 9px 12px 9px 40px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .scouting-layout .size-ladder {
+      width: 100%;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .scouting-layout .size-ladder div {
+      min-height: 92px;
+      padding: 16px 18px;
+      display: grid;
+      align-content: start;
+      font-size: 20px;
+      line-height: 1.16;
+    }
+
+    .scouting-layout .size-ladder b {
+      margin-bottom: 8px;
+      font-size: 27px;
+    }
+
+    .scouting-layout .scout-flow {
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .scouting-layout .flow-card {
+      min-height: 302px;
+      padding: 22px;
+      grid-template-rows: 70px 66px 1fr;
+      row-gap: 10px;
+    }
+
+    .scouting-layout .flow-card b {
+      font-size: 66px;
+    }
+
+    .scouting-layout .flow-card h3 {
+      min-height: 56px;
+      font-size: 31px;
+    }
+
+    .scouting-layout .flow-card p {
+      font-size: 20px;
+      line-height: 1.16;
+    }
+
     .comp-table th:nth-child(1) { width: 22%; }
     .comp-table th:nth-child(2) { width: 25%; }
     .comp-table th:nth-child(3) { width: 19%; }
@@ -1216,8 +1287,8 @@
 
     .revenue-board {
       display: grid;
-      grid-template-columns: 1fr 620px;
-      gap: 42px;
+      grid-template-columns: minmax(0, 1fr) 540px;
+      gap: 60px;
       align-items: center;
     }
 
@@ -1305,16 +1376,20 @@
     }
 
     .pricing-poster {
-      padding: 34px 40px 30px;
+      width: 516px;
+      justify-self: end;
+      margin-right: 30px;
+      padding: 30px 34px 28px;
     }
 
     .pricing-poster b {
-      font-size: 100px;
+      font-size: 72px;
+      white-space: nowrap;
     }
 
     .pricing-poster span {
       margin-top: 16px;
-      font-size: 26px;
+      font-size: 24px;
       line-height: 1.22;
     }
 
@@ -1324,11 +1399,11 @@
     }
 
     .pricing-poster .price-method h3 {
-      font-size: 30px;
+      font-size: 28px;
     }
 
     .pricing-poster .price-method p {
-      font-size: 21px;
+      font-size: 19px;
       line-height: 1.18;
       margin-bottom: 14px;
     }
@@ -1583,6 +1658,7 @@
     .deck-controls button {
       height: 38px;
       min-width: 42px;
+      padding: 0 10px;
       border: 3px solid var(--ink);
       background: var(--yellow);
       color: var(--ink);
@@ -1601,6 +1677,25 @@
       min-width: 78px;
       text-align: center;
       font: 500 13px/1 var(--font-mono);
+    }
+
+    @media (max-width: 520px) {
+      .deck-controls {
+        gap: 5px;
+        padding: 6px;
+      }
+
+      .deck-controls button {
+        height: 34px;
+        min-width: 34px;
+        padding: 0 6px;
+        font-size: 11px;
+      }
+
+      .deck-controls .counter {
+        min-width: 58px;
+        font-size: 11px;
+      }
     }
 
     .notes-panel,
@@ -1884,7 +1979,7 @@
 
       <section class="slide" id="s8" data-title="Permission Before Viewing" data-notes="Property research points to the same rule: do not chase cheap rent first. JTC says industrial change of use must satisfy surrounding-use compatibility and URA 60:40, and advises tenants not to commit before approval. HDB shops have their own change-of-use process. Start with written answers from agents and landlords before viewing.">
         <div class="topbar"><span>Location scouting</span><span class="pill">Written answers first</span></div>
-        <div class="content">
+        <div class="content scouting-layout">
           <span class="kicker reveal">Property hunting</span>
           <h2 class="lg reveal">Permission before viewing.</h2>
           <div class="spec-strip reveal"><span>500-800 sq ft target</span><span>Approved use</span><span>Evening access</span><span>AC + exits</span><span>Low neighbour risk</span></div>
@@ -2039,7 +2134,7 @@
         <div class="content revenue-board">
           <div>
             <span class="kicker reveal">Pricing rule</span>
-            <h2 class="single-line-title reveal">Break-even sets the floor.</h2>
+            <h2 class="single-line-title reveal">Break-even floor.</h2>
             <p class="body-small reveal" style="width:820px;margin-top:22px">Example shown: S$6.5k/month fixed cost before founder salary. Divide by realistic paid hours, then compare with market rates.</p>
             <div class="revenue-bars reveal" style="margin-top:42px">
               <div class="rev-row"><span>80 hrs/mo<small>thin demand</small></span><div class="rev-track"><i style="width:42%;background:var(--pink)"></i></div><b>S$81/hr<small>hard to sell</small></b></div>
@@ -2196,6 +2291,7 @@
     <button id="nextBtn" type="button" aria-label="Next slide">&gt;</button>
     <button id="overviewBtn" type="button">Overview</button>
     <button id="notesBtn" type="button">Notes</button>
+    <button id="fullscreenBtn" type="button">Full</button>
   </nav>
 
   <aside class="notes-panel" id="notesPanel" aria-live="polite"></aside>
@@ -2230,6 +2326,7 @@
         this.overviewPanel = document.getElementById("overviewPanel");
         this.overviewGrid = document.getElementById("overviewGrid");
         this.editToggle = document.getElementById("editToggle");
+        this.fullscreenBtn = document.getElementById("fullscreenBtn");
         this.currentSlide = 0;
         this.editing = false;
         this.wheelLock = false;
@@ -2243,6 +2340,7 @@
         this.setupWheelNav();
         this.setupHashNav();
         this.setupButtons();
+        this.setupFullscreenState();
         this.setupEditing();
         this.restoreEdits();
         const hashIndex = this.indexFromHash();
@@ -2326,6 +2424,7 @@
           if (event.key.toLowerCase() === "o") this.toggleOverview();
           if (event.key.toLowerCase() === "n") this.notesPanel.classList.toggle("open");
           if (event.key.toLowerCase() === "e") this.toggleEditing();
+          if (event.key.toLowerCase() === "f") this.toggleFullscreen();
           if (event.key === "Escape") {
             this.overviewPanel.classList.remove("open");
             this.notesPanel.classList.remove("open");
@@ -2365,7 +2464,22 @@
         document.getElementById("nextBtn").addEventListener("click", () => this.showSlide(this.currentSlide + 1));
         document.getElementById("overviewBtn").addEventListener("click", () => this.toggleOverview());
         document.getElementById("notesBtn").addEventListener("click", () => this.notesPanel.classList.toggle("open"));
+        this.fullscreenBtn.addEventListener("click", () => this.toggleFullscreen());
         document.getElementById("closeOverviewBtn").addEventListener("click", () => this.overviewPanel.classList.remove("open"));
+      }
+
+      setupFullscreenState() {
+        document.addEventListener("fullscreenchange", () => {
+          this.fullscreenBtn.textContent = document.fullscreenElement ? "Exit" : "Full";
+        });
+      }
+
+      toggleFullscreen() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen?.();
+          return;
+        }
+        document.documentElement.requestFullscreen?.();
       }
 
       setupOverview() {
