@@ -20,6 +20,7 @@ const projectDir = path.resolve(target);
 const checks = [
   { path: "input/brief.md", phase: "intake" },
   { path: "work/intake-brief.md", phase: "intake" },
+  { path: "work/deck-plan.md", phase: "planning", optional: true },
   { path: "work/source-map.md", phase: "source_review" },
   { path: "work/claim-ledger.json", phase: "evidence", script: "scripts/validate-claim-ledger.mjs", renderRequired: true },
   { path: "work/slide-specs.json", phase: "evidence_integrity", script: "scripts/lint-claim-refs.mjs", renderRequired: true },

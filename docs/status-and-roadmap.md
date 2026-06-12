@@ -15,6 +15,7 @@ Done:
 - Source-backed demo and eval projects with generated deck/QA output reproduced by test commands.
 - A/B eval harness for the first source-backed eval, comparing the skill output against a frozen self-authored structural proxy baseline.
 - GitHub CI and negative validator fixtures.
+- Practical research-to-deck guide, heuristic slide-system improvement loop, and package/workbench roadmap.
 
 Not done:
 
@@ -22,6 +23,7 @@ Not done:
 - Image-based brand sampling from screenshots, logos, and decks.
 - Native editable PPTX template generation.
 - Native Google Slides API generation.
+- Review workbench UI for slide critique, sources, QA issues and targeted repair.
 - Full accessibility engine beyond focused browser QA.
 - Captured model-specific one-shot baseline comparison.
 - Semantic claim-vs-evidence verification beyond URL/source anchoring and review.
@@ -34,6 +36,8 @@ Not done:
 3. Add verbatim source anchors or retrieval snippets for external-source claims.
 4. Add brand observation from CSS, website screenshots, and uploaded decks.
 5. Add PPTX-specific visual QA and native editable PPTX generation only after the HTML-first path is stable.
+6. Package the CLI around existing scaffold, validation, render, QA and export scripts.
+7. Build a review workbench before attempting a full slide editor.
 
 ## Template Roadmap
 

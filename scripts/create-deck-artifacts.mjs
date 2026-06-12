@@ -34,6 +34,7 @@ try {
   const today = new Date().toISOString().slice(0, 10);
 
   await writeIfMissing(path.join(workDir, "intake-brief.md"), intakeBrief({ title, deckGoal, today }));
+  await writeIfMissing(path.join(workDir, "deck-plan.md"), deckPlan({ title, deckGoal, today }));
   await writeIfMissing(path.join(workDir, "source-map.md"), sourceMap({ today }));
   await writeIfMissing(path.join(workDir, "claim-ledger.json"), JSON.stringify(claimLedger({ title }), null, 2) + "\n");
   await writeIfMissing(path.join(workDir, "audience-model.json"), JSON.stringify(audienceModel({ title }), null, 2) + "\n");
@@ -47,7 +48,7 @@ try {
   await writeIfMissing(path.join(workDir, "review-log.json"), JSON.stringify(reviewLog({ deckGoal, today }), null, 2) + "\n");
 
   console.log(`starter artifacts created for ${path.relative(repoRoot, projectDir) || projectDir}`);
-  console.log("Next: replace starter assumptions with sourced claims before treating factual slides as final.");
+  console.log("Next: complete work/deck-plan.md, then replace starter assumptions with sourced claims before treating factual slides as final.");
 } catch (error) {
   console.error(error.message);
   process.exit(1);
@@ -145,6 +146,82 @@ open_questions:
 - What source files should be treated as authoritative?
 - Who is the primary audience and decision maker?
 - What slide count or talk length should the final deck target?
+`;
+}
+
+function deckPlan({ title, deckGoal, today }) {
+  return `# Deck Plan
+
+Date: ${today}
+Deck title: ${title}
+
+## Contract
+
+- deck_job: Replace with pitch, teaching, executive decision, product demo, research brief, or proposal.
+- audience: Replace with the named audience and decision maker.
+- presenter: Replace with who will speak.
+- target_next_action: Replace with the action the deck should earn.
+- talk_length: Replace with talk length or async-reading target.
+- output_format: HTML draft first, exports only after QA.
+
+## Promise
+
+${deckGoal}
+
+## Audience Shift
+
+- from: Replace with what the audience believes, doubts, or does now.
+- to: Replace with what they should believe, understand, decide, or do after the deck.
+
+## Proof Spine
+
+1. What is the concrete problem or opportunity?
+2. What evidence proves it is real?
+3. What options exist?
+4. What is the recommended path?
+5. What should happen next, by whom, and when?
+
+## Research Plan
+
+| Need | Source target | Proof bar | Status |
+|---|---|---|---|
+| Market or context | User files, official sources, current web checks if allowed | Named source and date-sensitive caveat | TODO |
+| Costs or numbers | Vendor pages, quotes, benchmarks, model assumptions | Source plus calculation method | TODO |
+| Risks or legality | Official authority pages or qualified expert quote | Source, caveat, and launch implication | TODO |
+| User demand | Interview notes, signups, payments, usage logs | Named segment and success signal | TODO |
+
+## Slide Logic
+
+| Slide | Job | Audience question | Proof object | Belongs in main deck because |
+|---|---|---|---|---|
+| 1 | Hook | Why should I care? | Concrete promise | It frames the deck. |
+| 2 | Recommendation | What should we do? | Decision gate | It gives the answer early. |
+| 3 | Evidence | Why believe this? | Claim-ledger backed exhibit | It earns trust. |
+| 4 | Action | What happens next? | Owner, timing, output | It turns the deck into work. |
+
+## Design Direction
+
+Choose one before rendering:
+
+- clean-light: safest for consulting, source-heavy decks and executive review.
+- warm-editorial-light: better for community, culture, education and founder proposals.
+- dark-runtime: use only when the setting or content really benefits from a dark technical mood.
+
+Record the chosen theme in \`work/design-contract.json\`.
+
+## QA Plan
+
+- Title-only slide sorter reads as a coherent story.
+- Every factual slide claim has a claim ID.
+- Dense material moves to appendix or a table.
+- Browser QA checks desktop, laptop and mobile widths.
+- Speaker notes are humanized after the source audit.
+
+## Open Questions
+
+- What is the strongest objection this deck must answer?
+- What decision should the audience make immediately after viewing?
+- Which details belong in appendix rather than the live story?
 `;
 }
 

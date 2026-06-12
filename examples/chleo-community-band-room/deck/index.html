@@ -931,6 +931,39 @@
       box-shadow: 4px 4px 0 var(--ink);
     }
 
+    .size-ladder {
+      width: 1240px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .size-ladder div {
+      border: 3px solid var(--ink);
+      background: var(--cream-2);
+      padding: 12px 14px;
+      font: 500 20px/1.15 var(--font-body);
+    }
+
+    .size-ladder b {
+      display: block;
+      margin-bottom: 4px;
+      font-family: var(--font-display);
+      font-size: 24px;
+      line-height: 0.95;
+    }
+
+    .comp-table th:nth-child(1) { width: 22%; }
+    .comp-table th:nth-child(2) { width: 25%; }
+    .comp-table th:nth-child(3) { width: 19%; }
+    .comp-table th:nth-child(4) { width: 34%; }
+
+    .comp-table td {
+      font-size: 17px;
+      line-height: 1.12;
+    }
+
     /* ===========================================
        ACOUSTICS, FITOUT, AND EQUIPMENT
        =========================================== */
@@ -1696,7 +1729,7 @@
             </div>
           </div>
         </div>
-        <div class="meta"><span>Designed for Chleo Lee</span><span>01 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Designed for Chleo Lee</span><span>01 <span class="dot"></span> 22</span></div>
       </section>
 
       <section class="slide" id="s2" data-title="Validate First. Lease Later." data-notes="This is the recommendation. The first milestone is demand and permission, not a signed lease.">
@@ -1717,7 +1750,7 @@
           </div>
         </div>
         <div class="source"><span>Planning stance: validate demand before fixed rent</span><span>Recommendation</span></div>
-        <div class="meta"><span>Decision slide</span><span>02 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Decision slide</span><span>02 <span class="dot"></span> 22</span></div>
       </section>
 
       <section class="slide" id="s3" data-title="Start as a Rehearsal and Learning Room" data-notes="Keep launch use narrow: rehearsal, lessons, teacher rental, closed workshops. Public shows come later.">
@@ -1736,7 +1769,7 @@
           </div>
         </div>
         <div class="source"><span>Launch as private rehearsal, lessons and closed workshops</span><span>C014</span></div>
-        <div class="meta"><span>Product boundary</span><span>03 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Product boundary</span><span>03 <span class="dot"></span> 22</span></div>
       </section>
 
       <section class="slide" id="s4" data-title="The Gap Is Trust" data-notes="Cheap rooms exist. Chleo should not compete on lowest price. The wedge is reliability, beginner safety and teacher-ready operations.">
@@ -1758,10 +1791,32 @@
           </div>
         </div>
         <div class="source"><span>Sources: <a href="https://www.tagvenue.com/sg/hire/jamming-studios/singapore" target="_blank" rel="noopener">Tagvenue</a>, <a href="https://www.tonehouse.sg/pricing" target="_blank" rel="noopener">Tonehouse</a>, <a href="https://jamstudios.sg/studios/treble-cube-productions/" target="_blank" rel="noopener">Treble Cube</a>, <a href="https://www.tagvenue.com/sg/rooms/singapore/89307/sonictones-jamming-studio-singapore/live-room" target="_blank" rel="noopener">Sonictones</a></span><span>C001-C002</span></div>
-        <div class="meta"><span>Market wedge</span><span>04 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Market wedge</span><span>04 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s5" data-title="Interview 30 Likely Users" data-notes="This is customer discovery, not sales. Chleo should interview and network until she has 30 named likely users with use case, slot, budget and next action.">
+      <section class="slide" id="s5" data-title="Competitor Prices Set the Bands" data-notes="Competitor checks show budget rehearsal, standard jamming, recording/content and livestream price bands. Chleo should price against these bands, not copy one studio.">
+        <div class="topbar"><span>Competitor scan</span><span class="pill">Public price signals</span></div>
+        <div class="content">
+          <span class="kicker reveal">What others charge</span>
+          <h2 class="appendix-title reveal">Competitor prices set the bands.</h2>
+          <table class="appendix-table comp-table reveal">
+            <thead><tr><th>Provider / source</th><th>Listed offer</th><th>Public price signal</th><th>What it tells Chleo</th></tr></thead>
+            <tbody>
+              <tr><td>Treble Cube</td><td>Medium room</td><td>S$25/hr</td><td>Budget floor.</td></tr>
+              <tr><td>Decibel</td><td>Standard room</td><td>S$27/hr; S$69/3h</td><td>Block discounts matter.</td></tr>
+              <tr><td>Epic Studio</td><td>Jam room</td><td>S$32 day; S$34 peak</td><td>Full-band baseline.</td></tr>
+              <tr><td>Sonictones</td><td>300 sq ft live room</td><td>S$35/hr</td><td>Compact room can work.</td></tr>
+              <tr><td>Tagvenue SG</td><td>Jamming studios</td><td>Avg S$55; range S$30-S$108</td><td>Premium needs proof.</td></tr>
+              <tr><td>Tonehouse</td><td>Band recording / livestream</td><td>S$98.90/hr; S$205.20 first 2h</td><td>Capture is an add-on.</td></tr>
+              <tr><td>New Ark listing</td><td>Recording / livestream</td><td>S$80-S$200/hr</td><td>Unverified listing; use as a price signal only.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="source"><span>Sources: <a href="https://www.tagvenue.com/sg/hire/jamming-studios/singapore" target="_blank" rel="noopener">Tagvenue</a>, <a href="https://jamstudios.sg/studios/treble-cube-productions/" target="_blank" rel="noopener">Treble Cube</a>, <a href="https://jamstudios.sg/studios/epic-studio/" target="_blank" rel="noopener">Epic</a>, <a href="https://jamstudios.sg/studios/decibel-studios/" target="_blank" rel="noopener">Decibel</a>, <a href="https://www.tonehouse.sg/pricing" target="_blank" rel="noopener">Tonehouse</a>, <a href="https://jamstudios.sg/studios/new-ark-media/" target="_blank" rel="noopener">New Ark</a></span><span>C001 C002 C021</span></div>
+        <div class="meta"><span>Competition</span><span>05 <span class="dot"></span> 22</span></div>
+      </section>
+
+      <section class="slide" id="s6" data-title="Interview 30 Likely Users" data-notes="This is customer discovery, not sales. Chleo should interview and network until she has 30 named likely users with use case, slot, budget and next action.">
         <div class="topbar"><span>Customer discovery</span><span class="pill">Before lease</span></div>
         <div class="content lead-layout">
           <div class="lead-hero hard bg-green shadow-orange reveal">
@@ -1788,10 +1843,10 @@
           </div>
         </div>
         <div class="source"><span>Sources: <a href="https://soft.com.sg/forums/" target="_blank" rel="noopener">SOFT</a>, <a href="https://www.meetup.com/topics/musicians/sg/" target="_blank" rel="noopener">Meetup</a>, <a href="https://www.superprof.sg/lessons/music/singapore/" target="_blank" rel="noopener">Superprof</a>, <a href="https://jamstudios.sg/matchup/" target="_blank" rel="noopener">JamStudios MatchUp</a></span><span>C016-C017</span></div>
-        <div class="meta"><span>Market validation</span><span>05 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Market validation</span><span>06 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s6" data-title="Turn Interviews Into Proof" data-notes="Do not ask people to prepay for a room they cannot see. Validate with pencil-in slots, paid test sessions in an existing studio, then small refundable waitlist deposits only after a credible preview.">
+      <section class="slide" id="s7" data-title="Turn Interviews Into Proof" data-notes="Do not ask people to prepay for a room they cannot see. Validate with pencil-in slots, paid test sessions in an existing studio, then small refundable waitlist deposits only after a credible preview.">
         <div class="topbar"><span>Demand validation</span><span class="pill">No blind pre-sales</span></div>
         <div class="content">
           <span class="kicker reveal">Proof design</span>
@@ -1803,27 +1858,32 @@
           </div>
         </div>
         <div class="source"><span>Output: contacts, usual slots, price ceiling, gear expectations and repeat intent</span><span>Validation plan</span></div>
-        <div class="meta"><span>Demand test</span><span>06 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Demand test</span><span>07 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s7" data-title="Permission Before Viewing" data-notes="Property research points to the same rule: do not chase cheap rent first. JTC says industrial change of use must satisfy surrounding-use compatibility and URA 60:40, and advises tenants not to commit before approval. HDB shops have their own change-of-use process. Start with written answers from agents and landlords before viewing.">
+      <section class="slide" id="s8" data-title="Permission Before Viewing" data-notes="Property research points to the same rule: do not chase cheap rent first. JTC says industrial change of use must satisfy surrounding-use compatibility and URA 60:40, and advises tenants not to commit before approval. HDB shops have their own change-of-use process. Start with written answers from agents and landlords before viewing.">
         <div class="topbar"><span>Location scouting</span><span class="pill">Written answers first</span></div>
         <div class="content">
           <span class="kicker reveal">Property hunting</span>
           <h2 class="lg reveal">Permission before viewing.</h2>
-          <div class="spec-strip reveal"><span>500-800 sq ft</span><span>Approved use</span><span>Evening access</span><span>AC + exits</span><span>Low neighbour risk</span></div>
+          <div class="spec-strip reveal"><span>500-800 sq ft target</span><span>Approved use</span><span>Evening access</span><span>AC + exits</span><span>Low neighbour risk</span></div>
+          <div class="size-ladder reveal">
+            <div><b>300-450 sq ft</b>Lessons, duo, 3-4 pax writing.</div>
+            <div><b>500-800 sq ft</b>5-6 pax band, 8-12 seated workshop.</div>
+            <div><b>900+ sq ft</b>Classes, content days, showcase prep. Higher risk.</div>
+          </div>
           <div class="scout-flow reveal">
-            <div class="flow-card bg-yellow"><b>01</b><h3>Write brief</h3><p>Target 500-800 sq ft, approvable lessons/rehearsal use, late access, toilets, lift/loading and low residential exposure.</p></div>
-            <div class="flow-card bg-pink"><b>02</b><h3>Search channels</h3><p>Use CommercialGuru, PropertyGuru commercial, SpaceLookup, HDB shops and agents who handle tuition, dance or music tenants.</p></div>
-            <div class="flow-card bg-orange"><b>03</b><h3>Ask before viewing</h3><p>Send the use case: paid lessons, band rehearsal, amplified sound, acoustic works, evening hours and capacity.</p></div>
-            <div class="flow-card bg-green"><b>04</b><h3>View and negotiate</h3><p>View only written-maybe units. Check neighbours, doors, windows, ceiling voids and exits. Negotiate approval contingency.</p></div>
+            <div class="flow-card bg-yellow"><b>01</b><h3>Write brief</h3><p>500-800 sq ft, lessons/rehearsal use, late access, toilets, loading and low residential exposure.</p></div>
+            <div class="flow-card bg-pink"><b>02</b><h3>Search channels</h3><p>Use commercial portals, HDB shops and agents who handle tuition, dance or music tenants.</p></div>
+            <div class="flow-card bg-orange"><b>03</b><h3>Ask before viewing</h3><p>Send use case: lessons, rehearsal, amplified sound, acoustic works and evening hours.</p></div>
+            <div class="flow-card bg-green"><b>04</b><h3>View and negotiate</h3><p>View written-maybe units. Check neighbours, doors, windows, ceiling voids and exits.</p></div>
           </div>
         </div>
         <div class="source"><span>Sources: <a href="https://www.jtc.gov.sg/get-help/managing-your-tenancy-or-lease/changing-the-use-of-your-industrial-property" target="_blank" rel="noopener">JTC change of use</a>, <a href="https://www.hdb.gov.sg/shops-and-offices/managing-an-hdb-shop-or-office/change-of-use/application-process" target="_blank" rel="noopener">HDB change of use</a>, <a href="https://www.commercialguru.com.sg/shop-for-rent" target="_blank" rel="noopener">CommercialGuru listings</a></span><span>C003 C004 C011 C019</span></div>
-        <div class="meta"><span>Real-estate gate</span><span>07 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Real-estate gate</span><span>08 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s8" data-title="Commercial Is Cleaner" data-notes="Industrial may look cheap but can fail the use case. HDB shops may work but are noise-sensitive.">
+      <section class="slide" id="s9" data-title="Commercial Is Cleaner" data-notes="Industrial may look cheap but can fail the use case. HDB shops may work but are noise-sensitive.">
         <div class="topbar"><span>Property options</span><span class="pill">Site risk matrix</span></div>
         <div class="content">
           <span class="kicker reveal">Location choice</span>
@@ -1839,30 +1899,31 @@
           </table>
         </div>
         <div class="source"><span>Sources: Planning Use Classes Rules, JTC, HDB</span><span>C003 C004 C019</span></div>
-        <div class="meta"><span>Site options</span><span>08 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Site options</span><span>09 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s9" data-title="Use Changes the Licence Risk" data-notes="Use drives risk. Public showcases are deferred until licensing, fire-safety and rights checks are confirmed.">
+      <section class="slide" id="s10" data-title="Use Changes the Licence Risk" data-notes="Use drives risk. Public showcases are deferred until licensing, fire-safety and rights checks are confirmed.">
         <div class="topbar"><span>Legal path</span><span class="pill">Defer public shows</span></div>
         <div class="content">
           <span class="kicker reveal">Operating model</span>
-          <h2 class="lg reveal">Licence risk changes by use.</h2>
+          <h2 class="single-line-title reveal">Licence risk changes by use.</h2>
           <div class="spec-strip reveal"><span>Private first</span><span>Lessons confirmed</span><span>Workshops capped</span><span>Public shows later</span></div>
-          <table class="legal-table reveal" style="margin-top:34px">
+          <table class="legal-table reveal" style="margin-top:30px">
             <thead><tr><th>Activity</th><th>Main checks</th><th>Launch stance</th></tr></thead>
             <tbody>
               <tr><td>Private rehearsal</td><td>Approved use, landlord consent, noise.</td><td><span class="status bg-green">possible if confirmed</span></td></tr>
               <tr><td>Paid lessons</td><td>Commercial school / music school fit.</td><td><span class="status bg-yellow">confirm before lease</span></td></tr>
               <tr><td>Closed workshops</td><td>Occupancy, fire safety, use approval.</td><td><span class="status bg-orange">small first</span></td></tr>
+              <tr><td>Recording / livestream</td><td>Rights, releases, YouTube copyright checks, setup time.</td><td><span class="status bg-yellow">add-on later</span></td></tr>
               <tr><td>Public showcases</td><td>SPF PEL, AEL, SCDF, COMPASS/MRSS rights.</td><td><span class="status bg-pink">defer</span></td></tr>
             </tbody>
           </table>
         </div>
-        <div class="source"><span>Sources: SPF PEL, NAC event guide, SCDF, COMPASS/MRSS</span><span>C003 C005 C006 C014</span></div>
-        <div class="meta"><span>Legal matrix</span><span>09 <span class="dot"></span> 21</span></div>
+        <div class="source"><span>Sources: <a href="https://www.police.gov.sg/Business-E-Services/Apply-for-Public-Entertainment-Licence" target="_blank" rel="noopener">SPF PEL</a>, <a href="https://www.nac.gov.sg/resources/toolkits-and-guides/arts-self-employed-persons-%28seps%29-and-freelancers/event-licensing" target="_blank" rel="noopener">NAC event guide</a>, <a href="https://support.google.com/youtube/answer/3367684?hl=en" target="_blank" rel="noopener">YouTube</a>, <a href="https://www.compass.org.sg/faqs/do-i-need-a-compass-public-performance-licence-if-i-already-have-the-public-entertainment-licence-or-the-arts-entertainment-licence/" target="_blank" rel="noopener">COMPASS</a>, <a href="https://www.mrss.com.sg/faq/" target="_blank" rel="noopener">MRSS</a></span><span>C003 C005 C006 C014 C020</span></div>
+        <div class="meta"><span>Legal matrix</span><span>10 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s10" data-title="Treatment Is Not Isolation" data-notes="This is a key credibility slide. Treatment improves room sound. Isolation stops sound leaving the room and can trigger construction cost.">
+      <section class="slide" id="s11" data-title="Treatment Is Not Isolation" data-notes="This is a key credibility slide. Treatment improves room sound. Isolation stops sound leaving the room and can trigger construction cost.">
         <div class="topbar"><span>Acoustics</span><span class="pill">Noise is the deal-breaker</span></div>
         <div class="content">
           <span class="kicker reveal">Critical distinction</span>
@@ -1881,10 +1942,10 @@
           </div>
         </div>
         <div class="source"><span>Sources: Sweetwater, Soundzipper, NEA noise guidance</span><span>C007-C010</span></div>
-        <div class="meta"><span>Sound plan</span><span>10 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Sound plan</span><span>11 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s11" data-title="Build the Room in Layers" data-notes="Quote the room in layers before signing. Layer 2 is only if the site needs real isolation.">
+      <section class="slide" id="s12" data-title="Build the Room in Layers" data-notes="Quote the room in layers before signing. Layer 2 is only if the site needs real isolation.">
         <div class="topbar"><span>Fitout</span><span class="pill">Quote before lease</span></div>
         <div class="content">
           <span class="kicker reveal">Construction logic</span>
@@ -1896,10 +1957,10 @@
           </div>
         </div>
         <div class="source"><span>Cost jump happens when isolation is required, not basic treatment</span><span>C007-C010</span></div>
-        <div class="meta"><span>Fitout layers</span><span>11 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Fitout layers</span><span>12 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s12" data-title="Buy Durable Workhorse Gear" data-notes="This is the practical gear list. Buy proven workhorse models first, not boutique gear or streaming toys. Appendix 19 gives model families and buying checks.">
+      <section class="slide" id="s13" data-title="Buy Durable Workhorse Gear" data-notes="This is the practical gear list. Buy proven workhorse models first, not boutique gear or streaming toys. Appendix 19 gives model families and buying checks.">
         <div class="topbar"><span>Equipment</span><span class="pill">Starter buy sheet</span></div>
         <div class="content">
           <span class="kicker reveal">What Chleo buys first</span>
@@ -1912,10 +1973,10 @@
           </div>
         </div>
         <div class="source"><span>Sources: <a href="https://www.sweelee.com.sg/collections/boss/amplifiers-monitors" target="_blank" rel="noopener">Swee Lee BOSS</a>, <a href="https://shop.shure.com.sg/products/sm58-lc-microphone" target="_blank" rel="noopener">Shure SM58</a>, <a href="https://shop.app/products/6568458715159/behringer-xr18-x-air-18-channel-tablet-controlled-digital-mixer-eu-plug" target="_blank" rel="noopener">Behringer XR18</a></span><span>C013</span></div>
-        <div class="meta"><span>Gear plan</span><span>12 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Gear plan</span><span>13 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s13" data-title="Get the Right Quotes" data-notes="The quote pack tells Chleo who to call and what to ask before signing anything. Appendix 20 expands this into a quote-call table.">
+      <section class="slide" id="s14" data-title="Get the Right Quotes" data-notes="The quote pack tells Chleo who to call and what to ask before signing anything. Appendix 20 expands this into a quote-call table.">
         <div class="topbar"><span>Quote pack</span><span class="pill">No verbal assumptions</span></div>
         <div class="content">
           <span class="kicker reveal">Before signing</span>
@@ -1932,10 +1993,10 @@
           </div>
         </div>
         <div class="source"><span>Sources: <a href="https://www.qbe.com/sg/business-insurance/sme-insurance" target="_blank" rel="noopener">QBE SME</a>, <a href="https://www.scdf.gov.sg/fire-safety-services-listing/plans-submission-process/plan-approval" target="_blank" rel="noopener">SCDF plan approval</a>, equipment retail checks</span><span>C006 C012 C018</span></div>
-        <div class="meta"><span>Quote checklist</span><span>13 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Quote checklist</span><span>14 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s14" data-title="Startup Cash Ranges" data-notes="The bars are scaled to the same S$0 to S$290k axis, fixing the earlier misleading cost visual.">
+      <section class="slide" id="s15" data-title="Startup Cash Ranges" data-notes="The bars are scaled to the same S$0 to S$290k axis, fixing the earlier misleading cost visual.">
         <div class="topbar"><span>Startup costs</span><span class="pill">Planning ranges</span></div>
         <div class="content">
           <span class="kicker reveal">Scaled to S$290k</span>
@@ -1949,10 +2010,10 @@
           <p class="body reveal" style="width:1050px;margin-top:44px">Owned-room planning assumes 500 to 800 sq ft, S$4k to S$6.5k monthly rent, lease cash, fitout/equipment, working capital and contingency.</p>
         </div>
         <div class="source"><span>Sources: Soundzipper, IRAS, rent listings, equipment retail checks</span><span>C010-C015</span></div>
-        <div class="meta"><span>Cost model</span><span>14 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Cost model</span><span>15 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s15" data-title="Break-Even Sets The Floor" data-notes="This slide explains pricing method. S$6.5k is an illustrative fixed monthly cost before founder salary. Break-even floor equals fixed monthly cost divided by paid booked hours. Chleo should test whether S$50-S$65 blended hourly revenue is realistic before signing, then adjust for founder pay, repair reserve and GST if applicable.">
+      <section class="slide" id="s16" data-title="Break-Even Sets The Floor" data-notes="This slide explains pricing method. S$6.5k is an illustrative fixed monthly cost before founder salary. Break-even floor equals fixed monthly cost divided by paid booked hours. Chleo should test whether S$50-S$65 blended hourly revenue is realistic before signing, then adjust for founder pay, repair reserve and GST if applicable.">
         <div class="topbar"><span>Pricing model</span><span class="pill">Break-even floor</span></div>
         <div class="content revenue-board">
           <div>
@@ -1978,10 +2039,10 @@
           </div>
         </div>
         <div class="source"><span>Method: monthly budget / paid booked hours. Benchmark against market rates before signing.</span><span>C001-C002 + model</span></div>
-        <div class="meta"><span>Business model</span><span>15 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Business model</span><span>16 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s16" data-title="Welcoming With Standards" data-notes="A community room still needs rules. The rules protect gear, neighbours, teachers, parents and future collaborators.">
+      <section class="slide" id="s17" data-title="Welcoming With Standards" data-notes="A community room still needs rules. The rules protect gear, neighbours, teachers, parents and future collaborators.">
         <div class="topbar"><span>Studio culture</span><span class="pill">Warm, not anyhow</span></div>
         <div class="content rules-board">
           <div class="hard bg-pink shadow-orange reveal standards-poster">
@@ -1998,10 +2059,10 @@
           </div>
         </div>
         <div class="source"><span>Based on music-operator critique. Operating rules, not regulation.</span><span>Operator lens</span></div>
-        <div class="meta"><span>Operating standard</span><span>16 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Operating standard</span><span>17 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s17" data-title="Run the 90-Day Proof Sprint" data-notes="Do not sign a lease until these artifacts exist.">
+      <section class="slide" id="s18" data-title="Run the 90-Day Proof Sprint" data-notes="Do not sign a lease until these artifacts exist.">
         <div class="topbar"><span>90-day sprint</span><span class="pill">Evidence, not vibes</span></div>
         <div class="content">
           <span class="kicker reveal">Launch path</span>
@@ -2022,10 +2083,10 @@
           </div>
         </div>
         <div class="source"><span>Outputs: tracker, interview log, test sessions, site answers, quote pack, go/no-go memo</span><span>Execution gate</span></div>
-        <div class="meta"><span>Execution plan</span><span>17 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Execution plan</span><span>18 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s18" data-title="Build Only After These Pass" data-notes="Close with the decision rule. Chleo can still pursue the dream, but the gates protect her cash and reputation.">
+      <section class="slide" id="s19" data-title="Build Only After These Pass" data-notes="Close with the decision rule. Chleo can still pursue the dream, but the gates protect her cash and reputation.">
         <div class="diagonal-ribbon ribbon-corner" aria-hidden="true"><i class="bg-yellow"></i><i class="bg-pink"></i><i class="bg-orange"></i></div>
         <div class="topbar"><span>Go / no-go</span><span class="pill">Decision gate</span></div>
         <div class="content">
@@ -2040,10 +2101,10 @@
           </div>
         </div>
         <div class="source"><span>Full source list: work/source-map.md. Audit notes: qa/research-audit.md.</span><span>Decision gate</span></div>
-        <div class="meta"><span>Close</span><span>18 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Close</span><span>19 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s19" data-title="Appendix: Starter Gear Detail" data-notes="Model examples are buying anchors, not mandatory SKUs. Quote current stock, warranty, delivery and setup before buying.">
+      <section class="slide" id="s20" data-title="Appendix: Starter Gear Detail" data-notes="Model examples are buying anchors, not mandatory SKUs. Quote current stock, warranty, delivery and setup before buying.">
         <div class="topbar"><span>Appendix</span><span class="pill">Gear detail</span></div>
         <div class="content">
           <span class="kicker reveal">Buying anchors</span>
@@ -2060,10 +2121,10 @@
           </table>
         </div>
         <div class="source"><span>Sources: Swee Lee, Shure Singapore, Behringer retail checks</span><span>C013</span></div>
-        <div class="meta"><span>Appendix</span><span>19 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Appendix</span><span>20 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s20" data-title="Appendix: Quote Call Sheet" data-notes="This table turns the quote slide into a contact plan. Chleo should collect written outputs, not verbal estimates.">
+      <section class="slide" id="s21" data-title="Appendix: Quote Call Sheet" data-notes="This table turns the quote slide into a contact plan. Chleo should collect written outputs, not verbal estimates.">
         <div class="topbar"><span>Appendix</span><span class="pill">Who to contact</span></div>
         <div class="content">
           <span class="kicker reveal">Quote call sheet</span>
@@ -2081,10 +2142,10 @@
           </table>
         </div>
         <div class="source"><span>Sources: QBE SME, SCDF, JTC/HDB and equipment retail checks</span><span>C006 C012 C013 C018</span></div>
-        <div class="meta"><span>Appendix</span><span>20 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Appendix</span><span>21 <span class="dot"></span> 22</span></div>
       </section>
 
-      <section class="slide" id="s21" data-title="Appendix: Startup Cost Breakdown" data-notes="These are planning ranges, not quotes. The owned-room column sums to the deck's S$66k-S$135k range.">
+      <section class="slide" id="s22" data-title="Appendix: Startup Cost Breakdown" data-notes="These are planning ranges, not quotes. The owned-room column sums to the deck's S$66k-S$135k range.">
         <div class="topbar"><span>Appendix</span><span class="pill">Cost breakdown</span></div>
         <div class="content">
           <span class="kicker reveal">What is inside the ranges</span>
@@ -2103,14 +2164,14 @@
           </table>
         </div>
         <div class="source"><span>Planning model from rent, fitout, gear, insurance and contingency inputs</span><span>C010-C015</span></div>
-        <div class="meta"><span>Appendix</span><span>21 <span class="dot"></span> 21</span></div>
+        <div class="meta"><span>Appendix</span><span>22 <span class="dot"></span> 22</span></div>
       </section>
     </main>
   </div>
 
   <nav class="deck-controls" aria-label="Slide controls">
     <button id="prevBtn" type="button" aria-label="Previous slide">&lt;</button>
-    <span class="counter" id="counter">1 / 21</span>
+    <span class="counter" id="counter">1 / 22</span>
     <button id="nextBtn" type="button" aria-label="Next slide">&gt;</button>
     <button id="overviewBtn" type="button">Overview</button>
     <button id="notesBtn" type="button">Notes</button>

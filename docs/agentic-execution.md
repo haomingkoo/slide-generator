@@ -32,6 +32,7 @@ A run is agentic only if it produces and uses the artifacts, not just the final 
 Minimum evidence of a real run:
 
 - `work/intake-brief.md` has a clear `deck_goal`, audience shift, constraints, assumptions, and open questions.
+- `work/deck-plan.md` records the deck job, audience shift, proof spine, research plan, slide logic, design direction and QA plan for high-stakes decks.
 - `work/claim-ledger.json` exists before factual slides are written.
 - `work/audience-model.json` names likely questions, objections, jargon tolerance, and audience needs.
 - `work/story-spine.json` explains the throughline and slide jobs.
@@ -65,6 +66,7 @@ The artifact contract is the stable part:
 ```txt
 input/brief.md
 work/intake-brief.md
+work/deck-plan.md
 work/claim-ledger.json
 work/audience-model.json
 work/story-spine.json

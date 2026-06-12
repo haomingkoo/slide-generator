@@ -27,3 +27,11 @@
 - Added 90-day execution gates and go/no-go criteria.
 - Rebuilt navigation as one-slide presenter mode with overview and speaker notes.
 - Rebuilt the visual system from `frontend-slides` Creative Mode, with Sakura Chroma and Stencil & Tablet accents.
+
+## Absorbed Into Skill / Repo
+
+- Execution-depth gate: captured here and reflected in discovery, validation, quote-pack, sprint and appendix slides.
+- HTML presenter default: reflected in the fixed-stage deck with overview, notes and mobile scaling.
+- Cost-range chart rule: reflected in common-axis range bars.
+- Planning mode: reflected in `skills/slide-generator/references/planning-mode.md` and `docs/research-to-deck-guide.md`.
+- Deep-agent feedback loop: reflected in `docs/heuristic-slide-system.md`.

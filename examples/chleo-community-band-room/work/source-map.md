@@ -6,6 +6,9 @@
 - Treble Cube listing on JamStudios: S$25 per hour rooms. https://jamstudios.sg/studios/treble-cube-productions/
 - Sonictones live room on Tagvenue: S$35 per hour and hour packages. https://www.tagvenue.com/sg/rooms/singapore/89307/sonictones-jamming-studio-singapore/live-room
 - Tonehouse pricing: Bedroom rehearsal S$11.40 per 30 minutes, band recording S$98.90 per hour. https://www.tonehouse.sg/pricing
+- Epic Studio on JamStudios: weekday S$32 per hour, evening/weekend S$34 per hour, self-practice S$20 per hour. https://jamstudios.sg/studios/epic-studio/
+- Decibel Studios on JamStudios: S$27 per hour and block packages. https://jamstudios.sg/studios/decibel-studios/
+- New Ark Media on JamStudios: unverified listing with rehearsal, recording, video, livestream and live production price signals. https://jamstudios.sg/studios/new-ark-media/
 
 ## Property And Regulation
 
@@ -19,7 +22,11 @@
 - NEA industrial noise control, boundary noise limits. https://www.nea.gov.sg/our-services/pollution-control/noise-pollution/industrial-noise-control
 - NEA good practice guide for entertainment noise mitigation. https://www.nea.gov.sg/docs/default-source/resource/good-practice-guide-for-noise-mitigation-entertainment-outlets.pdf
 - COMPASS public performance FAQ. https://www.compass.org.sg/faqs/do-i-need-a-compass-public-performance-licence-if-i-already-have-the-public-entertainment-licence-or-the-arts-entertainment-licence/
+- COMPASS live-streaming permit, including S$400 live-streaming permit, exclusions, and reproduction/synchronisation caveat. https://www.compass.org.sg/music-users/public-communication-permits/live-streaming/
+- COMPASS video-upload permit, including S$400 non-commercial video upload reference and exclusions. https://www.compass.org.sg/music-users/public-communication-permits/video-upload/
 - MRSS FAQ on public performance of sound recordings. https://www.mrss.com.sg/faq/
+- YouTube Help on livestream copyright issues. https://support.google.com/youtube/answer/3367684
+- YouTube Help on claimed music restrictions and Content ID. https://support.google.com/youtube/answer/6364458
 
 ## Rent And Startup Cost Inputs
 

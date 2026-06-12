@@ -4,52 +4,54 @@
 
 `ready_for_human_review`
 
-The deck has been rebuilt into a 21-slide Creative Mode execution pitch with appendices. It is accurate enough for a proposal conversation, source-backed where claims are factual, and browser-tested on desktop and mobile. It still needs Chleo's taste review before presenting publicly.
+The deck is now a 22-slide Creative Mode proposal with appendices. It is source-backed enough for a proposal conversation, browser-tested on desktop and mobile, and explicit about site-specific legal and cost uncertainty. Chleo should still recheck current prices, rent, equipment availability and authority/landlord requirements before using it for a real lease or purchase decision.
 
 ## Repairs From User Review
 
-- Replaced the shallow draft with a more concrete 21-slide execution deck.
-- Added step-by-step content for customer discovery, validation offers, property scouting, fitout, equipment, quote collection, 90-day execution and go/no-go gates.
-- Rebuilt the visual system using the `frontend-slides` Creative Mode direction, with Sakura Chroma and Stencil & Tablet accents.
-- Changed desktop from scroll-page behavior to a fixed-stage presenter with keyboard controls, overview and speaker notes.
-- Kept mobile as a scaled 16:9 stage so the slide design stays intact on phone width.
-- Fixed card wrapping, footer collisions and mobile overflow.
-- Replaced cost composition bars with proportional cost range bars.
-- Reworked slides 5 and 6 so validation starts with interviews/networking and does not depend on people prepaying for an unseen studio.
-- Tuned slide 3 spacing, slide 4 trust-card rhythm, slide 10 acoustic panels, slide 11 fitout label alignment and slide 16 standards layout.
-- Rebuilt slide 17 as a weekly proof sprint so the next actions are specific: set up tracker, interview users, run paid tests, pre-screen sites, quote the room and write the decision memo.
-- Lifted footer metadata after browser QA so the presenter controls do not collide with sources or slide numbers.
-- Tightened slide 3 and slide 5 layouts so source lines no longer sit on the main visual panels.
-- Added clickable source links on market, discovery and property slides.
-- Reworked slide 12 with model-family examples and added appendix gear detail, vendor quote-call and startup-cost breakdown tables.
-- Reframed slide 15 as a break-even pricing method with a S$50-S$65/hr blended launch test.
-- Rebuilt slide 17 as a Gantt-style sprint chart.
+- Rebuilt the shallow draft into an execution pitch: validate demand, confirm site use, quote the room, then decide.
+- Added a competitor-pricing slide with public price signals and a caveat for the unverified New Ark listing.
+- Added room-size guidance: 300-450 sq ft, 500-800 sq ft and 900+ sq ft use cases.
+- Clarified lead generation as customer discovery first: interviews, named slots, paid partner-room tests, then small refundable holds only after proof.
+- Added Singapore-specific property, licence, music-rights, YouTube/livestream and SCDF/QP caveats.
+- Added more specific gear guidance with model families and buying checks.
+- Reframed break-even as a pricing method: monthly fixed cost divided by paid booked hours.
+- Rebuilt the 90-day plan as a Gantt-style proof sprint.
+- Added appendices for starter gear detail, vendor call sheet and startup cost breakdown.
+- Kept source links in slide footers and expanded `work/source-map.md`.
+- Added `work/deck-plan.md` so the example shows the pre-render planning logic.
+- Updated the slide-generator repo with a research-to-deck guide, planning-mode reference, heuristic slide-system loop, heuristic registry, and package/workbench roadmap.
 
 ## Browser QA
 
 - Desktop viewport: 1440 x 900.
 - Mobile viewport: 390 x 844.
-- Desktop fixed-stage check: 21 slides, zero bounds issues, zero footer/control collisions and zero source/main-visual collisions after the latest footer pass.
-- Mobile viewport result: `horizontalOverflow: false`, `verticalOverflow: false`, scaled stage `390 x 219`, 21 slides.
-- Presenter controls: overview opens with 21 cards; notes panel opens; keyboard navigation advances to slide 2.
-- Browser console: no errors or warnings after favicon fix.
-- Manual screenshot review covered slides 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 and 21.
+- Desktop settled-slide pass: 22 slides, no horizontal overflow, no vertical overflow, no source/control collisions and no meta/control collisions.
+- Mobile settled-slide pass: 22 slides, zero overflow issues and zero source/control collisions.
+- Mobile overview: opens with 22 cards.
+- Mobile notes: opens with readable speaker notes and no viewport overflow.
+- Browser console: no current errors or warnings after reload.
+- Manual screenshot review covered slides 1, 5, 8, 10, 13, 16, 17, 18, 21 and 22.
+
+The generic text audit warns that slides 8, 20 and 21 are text-heavy. Slide 8 stays in the main deck because it answers the property-size and scouting questions directly. Slides 20 and 21 are appendices, so higher density is acceptable.
 
 ## Validator QA
 
 Passed:
 
 ```bash
-node /Users/koohaoming/slides-generator/scripts/validate-slide-specs.mjs .
-node /Users/koohaoming/slides-generator/scripts/validate-claim-ledger.mjs .
-node /Users/koohaoming/slides-generator/scripts/validate-design-contract.mjs .
+node scripts/validate-slide-specs.mjs examples/chleo-community-band-room
+node scripts/lint-claim-refs.mjs examples/chleo-community-band-room
+node scripts/validate-claim-ledger.mjs examples/chleo-community-band-room
+node scripts/validate-design-contract.mjs examples/chleo-community-band-room
+node scripts/validate-story-spine.mjs examples/chleo-community-band-room
+node /Users/koohaoming/.codex/skills/pitch-deck-craft/scripts/deck-audit.mjs examples/chleo-community-band-room/deck/index.html
+git diff --check
 ```
-
-The old generic deck-audit helper was not present in this local `slides-generator` install. The available source/design validators pass, and Playwright was used for rendered layout QA.
 
 ## Accuracy Notes
 
-- Legal feasibility is still site-specific.
-- Startup costs are planning ranges, not quotes.
-- Public showcases remain a later phase until licensing, fire-safety, venue-use and music-rights checks are confirmed.
-- The next real-world step is validation and quote collection, not lease signing.
+- Legal feasibility is address-specific. Confirm actual use, landlord/MCST/HDB/JTC rules, SCDF/QP triggers, licensing and music rights before signing.
+- Startup costs are planning ranges, not vendor quotes.
+- Public showcases and content/livestream offers remain later-phase options until rights, licensing, staffing and setup requirements are checked.
+- Competitor and equipment prices are date-sensitive public signals checked for this proposal, not guaranteed future rates.
+- The next real-world step is the 90-day proof sprint, not lease signing.

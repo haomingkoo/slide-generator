@@ -7,6 +7,7 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Support multiple intake modes: prompt, pasted notes, files, website, existing deck, codebase, brainstorm, and data.
 - Treat source-to-deck as adapters with different extraction and evidence rules; PDF, PPTX, website, spreadsheet, transcript, and codebase inputs are not the same problem.
 - Generate an outline, story spine, or title sorter before high-fidelity rendering.
+- For high-stakes decks, run Planning Mode first: audience shift, proof spine, slide logic, design directions, source plan, and QA plan.
 - Separate whole-deck edits from slide-local edits.
 - Keep insert, rewrite, remix, translate, summarize, and source-to-deck as different operations with different context scopes.
 - Treat brand/style extraction as a first-class phase when brand assets or existing decks exist.
@@ -14,6 +15,7 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Keep visual polish downstream from source audit so style edits cannot silently add unsupported claims.
 - Use browser screenshots for visual review; do not rely on imagined layout quality.
 - Keep APIs, MCPs, and future app integrations around the artifact contract rather than bypassing it.
+- Borrow Gamma's outline-before-render discipline and Canva's theme/asset breadth, but keep this repo stricter on citations, claim ledgers, fixed-slide QA, and export readiness.
 
 ## Guardrail Implications
 

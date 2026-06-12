@@ -7,7 +7,8 @@ The repo builds decks from verified planning artifacts. Do not generate slides d
 ```mermaid
 flowchart TD
   A[Input files] --> B[Intake brief]
-  B --> C[Source review]
+  B --> Z[Deck plan]
+  Z --> C[Source review]
   B --> D[Codebase review if code exists]
   C --> E[Claim ledger]
   D --> E
@@ -38,6 +39,7 @@ flowchart TD
 Every project should produce these files in `projects/<name>/work/` before rendering:
 
 - `intake-brief.md`: audience, purpose, format, tone, constraints, research mode.
+- `deck-plan.md`: deck job, target next action, audience shift, proof spine, research plan, slide logic, theme direction, QA plan, assumptions and open questions.
 - `source-map.md`: what files were read and what each source contributes.
 - `codebase-review.md`: important files, flows, demo path, risks, snippets.
 - `architecture-map.json`: nodes, edges, boundaries, and source evidence.
@@ -89,6 +91,10 @@ The intake phase must produce a clear deck goal before planning:
 - `open_questions`: unknowns that still matter.
 
 If material details are missing, ask once in a batch. If the user wants momentum, proceed with defaults and record them as assumptions in `intake-brief.md`.
+
+For client-facing or research-heavy decks, also complete `deck-plan.md` before rendering. The plan should make the story and proof bar clear enough that a reviewer can critique the deck before seeing any slide design.
+
+See [research-to-deck-guide.md](research-to-deck-guide.md) for the practical workflow used by polished examples.
 
 ## Memory Strategy
 

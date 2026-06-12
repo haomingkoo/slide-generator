@@ -20,6 +20,7 @@ try {
   const scoreArgs = [projectDir];
   if (threshold) scoreArgs.push("--threshold", threshold);
   if (minSlideScore) scoreArgs.push("--min-slide-score", minSlideScore);
+  scoreArgs.push("--write-history");
   runStep("validate quality score artifacts", "scripts/score-deck.mjs", scoreArgs);
   await writeIterationStatus("hard_gates_passed", "Build, browser QA, scorecard, and repair-plan validation passed. Numeric quality score remains advisory.");
   console.log(`deck hard gates and advisory score validated for ${path.relative(repoRoot, projectDir)}`);

@@ -10,7 +10,11 @@
       },
       "evidence": "Tagvenue FAQ states the average is S$55 per hour and the June 2026 range is S$30 to S$108 per hour.",
       "confidence": "high",
-      "allowed_slide_use": ["market benchmark", "pricing strategy", "comparison table"]
+      "allowed_slide_use": [
+        "market benchmark",
+        "pricing strategy",
+        "comparison table"
+      ]
     },
     {
       "claim_id": "C002",
@@ -22,7 +26,10 @@
       },
       "evidence": "Tonehouse lists a Bedroom at S$11.40 per 30 minutes and a Living Room at S$22.40 per 30 minutes; prior checks found Treble Cube around S$25 and Sonictones around S$35.",
       "confidence": "high",
-      "allowed_slide_use": ["market benchmark", "pricing strategy"]
+      "allowed_slide_use": [
+        "market benchmark",
+        "pricing strategy"
+      ]
     },
     {
       "claim_id": "C003",
@@ -34,7 +41,10 @@
       },
       "evidence": "The statutory definition of commercial school includes music school.",
       "confidence": "high",
-      "allowed_slide_use": ["legal scenario matrix", "site checklist"]
+      "allowed_slide_use": [
+        "legal scenario matrix",
+        "site checklist"
+      ]
     },
     {
       "claim_id": "C004",
@@ -46,7 +56,11 @@
       },
       "evidence": "JTC lists compatibility, the URA 60:40 rule, and advice not to commit to tenancy or renovation before receiving the outcome.",
       "confidence": "high",
-      "allowed_slide_use": ["legal scenario matrix", "site checklist", "risk slide"]
+      "allowed_slide_use": [
+        "legal scenario matrix",
+        "site checklist",
+        "risk slide"
+      ]
     },
     {
       "claim_id": "C005",
@@ -58,7 +72,10 @@
       },
       "evidence": "SPF PEL pages include the live performance category and state approximately 3 weeks processing from receipt of application and supporting documents.",
       "confidence": "high",
-      "allowed_slide_use": ["legal scenario matrix", "launch plan"]
+      "allowed_slide_use": [
+        "legal scenario matrix",
+        "launch plan"
+      ]
     },
     {
       "claim_id": "C006",
@@ -70,7 +87,11 @@
       },
       "evidence": "SCDF says changes affecting fire protection systems, escape routes, fire compartments, ACMV or change of use can require plans prepared by a QP.",
       "confidence": "high",
-      "allowed_slide_use": ["legal scenario matrix", "launch plan", "risk slide"]
+      "allowed_slide_use": [
+        "legal scenario matrix",
+        "launch plan",
+        "risk slide"
+      ]
     },
     {
       "claim_id": "C007",
@@ -82,7 +103,10 @@
       },
       "evidence": "NEA industrial noise control page provides day, evening and night dBA limits by affected premises type.",
       "confidence": "high",
-      "allowed_slide_use": ["acoustic reality", "risk slide"]
+      "allowed_slide_use": [
+        "acoustic reality",
+        "risk slide"
+      ]
     },
     {
       "claim_id": "C008",
@@ -94,7 +118,10 @@
       },
       "evidence": "NEA guide lists indoor noise mitigation measures and recommends independent experts where warranted.",
       "confidence": "high",
-      "allowed_slide_use": ["acoustic reality", "site checklist"]
+      "allowed_slide_use": [
+        "acoustic reality",
+        "site checklist"
+      ]
     },
     {
       "claim_id": "C009",
@@ -106,7 +133,9 @@
       },
       "evidence": "Sweetwater explains that acoustic treatment and soundproofing are different design concepts and that effective soundproofing is a construction or remodeling project.",
       "confidence": "high",
-      "allowed_slide_use": ["acoustic reality"]
+      "allowed_slide_use": [
+        "acoustic reality"
+      ]
     },
     {
       "claim_id": "C010",
@@ -118,7 +147,10 @@
       },
       "evidence": "Soundzipper article provides Singapore construction cost ranges for walls, ceilings and floating floors.",
       "confidence": "medium",
-      "allowed_slide_use": ["startup costs", "acoustic reality"]
+      "allowed_slide_use": [
+        "startup costs",
+        "acoustic reality"
+      ]
     },
     {
       "claim_id": "C011",
@@ -130,7 +162,10 @@
       },
       "evidence": "SpaceLookup and CommercialGuru examples show low industrial psf rents, but JTC/URA approval constraints still apply.",
       "confidence": "medium",
-      "allowed_slide_use": ["startup costs", "site options"]
+      "allowed_slide_use": [
+        "startup costs",
+        "site options"
+      ]
     },
     {
       "claim_id": "C012",
@@ -142,7 +177,9 @@
       },
       "evidence": "IRAS lease duty table states 0.4 percent of total rent for lease periods of 4 years or less where AAR exceeds S$1,000.",
       "confidence": "high",
-      "allowed_slide_use": ["startup costs"]
+      "allowed_slide_use": [
+        "startup costs"
+      ]
     },
     {
       "claim_id": "C013",
@@ -154,7 +191,10 @@
       },
       "evidence": "Retail pages and snippets checked on 11 June 2026 provided price anchors for core equipment.",
       "confidence": "medium",
-      "allowed_slide_use": ["startup costs", "setup spec"]
+      "allowed_slide_use": [
+        "startup costs",
+        "setup spec"
+      ]
     },
     {
       "claim_id": "C014",
@@ -163,7 +203,11 @@
       "source": "Synthesized from C003 to C008 plus COMPASS and MRSS public-performance rights sources.",
       "evidence": "Regulatory requirements depend on use case; public performances and copyrighted music in public add licensing exposure.",
       "confidence": "high",
-      "allowed_slide_use": ["recommendation", "launch plan", "risk slide"]
+      "allowed_slide_use": [
+        "recommendation",
+        "launch plan",
+        "risk slide"
+      ]
     },
     {
       "claim_id": "C015",
@@ -172,7 +216,10 @@
       "source": "Startup cost model in deck based on C010 to C013 and explicit planning assumptions.",
       "evidence": "Assumes 500 to 800 sq ft, rent planning S$4k to S$6.5k/month, 3-month security deposit, first-month rent, 24-month lease stamp duty at 0.4 percent, fitout/equipment S$35k to S$75k, working capital/contingency S$15k to S$30k.",
       "confidence": "medium",
-      "allowed_slide_use": ["startup costs", "options table"]
+      "allowed_slide_use": [
+        "startup costs",
+        "options table"
+      ]
     },
     {
       "claim_id": "C016",
@@ -184,7 +231,10 @@
       },
       "evidence": "SOFT describes itself as a Singapore music community and lists forum sections for musicians, bands and events.",
       "confidence": "high",
-      "allowed_slide_use": ["lead generation", "go to market"]
+      "allowed_slide_use": [
+        "lead generation",
+        "go to market"
+      ]
     },
     {
       "claim_id": "C017",
@@ -196,7 +246,10 @@
       },
       "evidence": "Meetup lists Singapore musician groups; Superprof lists music tutor profiles; SOFT lists active local musician/band forum categories.",
       "confidence": "medium",
-      "allowed_slide_use": ["lead generation", "go to market"]
+      "allowed_slide_use": [
+        "lead generation",
+        "go to market"
+      ]
     },
     {
       "claim_id": "C018",
@@ -208,7 +261,11 @@
       },
       "evidence": "QBE lists property all risks, business interruption, public and products liability and miscellaneous property protection as SME insurance options.",
       "confidence": "high",
-      "allowed_slide_use": ["launch plan", "risk slide", "quote pack"]
+      "allowed_slide_use": [
+        "launch plan",
+        "risk slide",
+        "quote pack"
+      ]
     },
     {
       "claim_id": "C019",
@@ -220,7 +277,68 @@
       },
       "evidence": "HDB application guidance points tenants to online submission via GoBusiness for trades requiring application.",
       "confidence": "high",
-      "allowed_slide_use": ["site checklist", "launch plan"]
+      "allowed_slide_use": [
+        "site checklist",
+        "launch plan"
+      ]
+    },
+    {
+      "claim_id": "C020",
+      "claim": "YouTube recording or livestream can be a future studio add-on, but copyrighted songs, covers, backing tracks, archived uploads and public or ticketed event use require separate rights and licensing checks.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.compass.org.sg/music-users/public-communication-permits/live-streaming/",
+        "name": "COMPASS live streaming permit, cross-checked with YouTube Help and MRSS FAQ"
+      },
+      "evidence": "COMPASS lists live-streaming and video-upload permit terms and exclusions; YouTube Help says live streams and uploads are scanned for copyrighted content; MRSS explains separate sound-recording rights.",
+      "confidence": "high",
+      "allowed_slide_use": [
+        "legal scenario matrix",
+        "competitor benchmark",
+        "launch plan"
+      ]
+    },
+    {
+      "claim_id": "C021",
+      "claim": "Singapore studio competitor checks show public price bands around S$25-S$27/hr for budget rooms, S$32-S$35/hr for standard band rehearsal, S$80-S$98.90/hr for recording add-ons, and around S$200/hr or S$205.20 for livestream add-ons.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.tagvenue.com/sg/hire/jamming-studios/singapore",
+        "name": "Tagvenue Singapore benchmark, cross-checked with JamStudios listings, Tonehouse pricing and New Ark listing"
+      },
+      "evidence": "Tagvenue lists a S$55/hr average and S$30-S$108 range. Treble Cube and Decibel list S$25-S$27/hr rooms, Epic and Sonictones show S$32-S$35/hr rehearsal references, Tonehouse shows recording/livestream pricing, and the New Ark JamStudios listing is an unverified public price signal for media add-ons.",
+      "confidence": "medium",
+      "allowed_slide_use": [
+        "competition",
+        "market benchmark",
+        "pricing strategy"
+      ]
+    },
+    {
+      "claim_id": "C022",
+      "claim": "The recommended launch sequence is to validate demand, confirm site permission, collect quote evidence and decide before signing a lease.",
+      "type": "inference",
+      "source": "Synthesized from the customer discovery plan, property approval sources, quote-pack requirements and startup cost model in this deck.",
+      "evidence": "The plan reduces lease risk by requiring named users or test sessions, written site-use answers, vendor quote ranges and a go/no-go memo before committing to fixed rent.",
+      "confidence": "medium",
+      "allowed_slide_use": [
+        "recommendation",
+        "validation plan",
+        "launch plan",
+        "decision gate"
+      ]
+    },
+    {
+      "claim_id": "C023",
+      "claim": "The studio should launch with explicit operating standards for volume, drums, reset, booking, damage and teacher storage so the room stays welcoming without becoming careless.",
+      "type": "inference",
+      "source": "Synthesized from music-operator critique and the deck operating model.",
+      "evidence": "A shared rehearsal-and-learning room needs rules that protect gear, neighbours, instructors, parents and recurring users.",
+      "confidence": "medium",
+      "allowed_slide_use": [
+        "operating standard",
+        "risk slide"
+      ]
     }
   ]
 }

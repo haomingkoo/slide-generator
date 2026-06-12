@@ -10,20 +10,22 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 ## Default Flow
 
 1. Intake the deck job: audience, purpose, live vs async, time limit, target slide count, Q&A needs, output format, brand, research mode, style preference.
-2. Review sources and code before writing claims.
-3. Build `claim-ledger.json` and, when code exists, `architecture-map.json`.
-4. Choose the deck archetype, opening hook, and proof spine before writing the full story.
-5. Write the audience model, story spine, and title-only slide sorter.
-6. Prioritize content against talk length, audience questions, claim strength, and backup needs.
-7. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
-8. Choose the deck quality mode, benefit statement, and proof bar.
-9. Record the phase loop and completion criteria for long-running jobs.
-10. Choose visual aids for hard ideas.
-11. Offer theme options when taste is unclear.
-12. Create slide specs.
-13. Render.
-14. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
-15. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
+2. For complex, public, client-facing, or unclear decks, run Planning Mode before slide specs.
+3. Review sources and code before writing claims.
+4. Build `claim-ledger.json` and, when code exists, `architecture-map.json`.
+5. Choose the deck archetype, opening hook, and proof spine before writing the full story.
+6. Write the audience model, story spine, and title-only slide sorter.
+7. Prioritize content against talk length, audience questions, claim strength, and backup needs.
+8. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
+9. Choose the deck quality mode, benefit statement, and proof bar.
+10. Record the phase loop and completion criteria for long-running jobs.
+11. Choose visual aids for hard ideas.
+12. Offer theme options when taste is unclear.
+13. Create slide specs.
+14. Render.
+15. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
+16. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
+17. When the deck reveals a reusable failure, write the lesson into `qa/`, a reference file, a validator, a template, or an eval. Compress repeated fixes into simpler rules instead of adding endless one-off guidance.
 
 ## One-Shot Drafting
 
@@ -63,6 +65,7 @@ Dark mode is not the default. Pick theme by audience, setting, and brand.
 Read only what the task needs:
 
 - `references/workflow.md`: artifact sequence and repair loops.
+- `references/planning-mode.md`: pre-render planning mode for deck logic, communication, design directions, research loops, and go/no-go gates.
 - `references/goal-and-loop.md`: goal contract, phase gates, critique loop, learning rules, and completion criteria.
 - `references/intake-and-one-shot.md`: one-prompt deck contract, defaults, and source-handling modes.
 - `references/deck-operations.md`: existing-deck edit operations and context routing.
@@ -85,3 +88,5 @@ Read only what the task needs:
 - `references/pdf-ingestion.md`: PDF extraction and OCR workflow.
 - `references/product-workflow-lessons.md`: durable lessons from Gamma, Figma Slides, Gemini Slides, Canva, Plus AI, and SlideSpeak.
 - `references/evals.md`: how to test this skill.
+
+For the maintainer-level continuous-improvement loop, see `docs/heuristic-slide-system.md` in the repo.

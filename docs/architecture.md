@@ -7,7 +7,8 @@
 ```mermaid
 flowchart LR
   A[input/brief.md + sources] --> B[work/intake-brief.md]
-  B --> C[work/source-map.md]
+  B --> P[work/deck-plan.md]
+  P --> C[work/source-map.md]
   C --> D[work/claim-ledger.json]
   D --> E[work/audience-model.json]
   E --> F[work/story-spine.json + slide-sorter.md]

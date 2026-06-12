@@ -12,7 +12,7 @@ This repo has several layers. Keeping the boundaries explicit prevents the packa
 | Examples | `examples/` | Small public demos with committed source/work artifacts. |
 | Evals | `evals/` | Source-backed eval inputs and durable `work/` artifacts; generated `deck/` and `qa/` output should be reproducible. |
 | Tests | `tests/` | Fixtures and negative validator cases. |
-| Maintainer docs | `docs/` | Architecture, policy, roadmap, and research notes. |
+| Maintainer docs | `docs/` | Architecture, policy, roadmap, research notes, heuristic registry, packaging plan, and review workflow. |
 | Local work | `projects/`, `.agent-work/` | User decks and inter-agent review notes; mostly ignored by git. |
 
 ## Canonical Skill And Mirrors

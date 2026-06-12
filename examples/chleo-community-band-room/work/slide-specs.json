@@ -12,6 +12,7 @@
       "slide_job": "hook",
       "title": "Chleo Lee's Community Band Room",
       "claim_ids": [],
+      "no_claims_reason": "Opening title slide with proposal framing and no factual support claim.",
       "unsupported_claims": [],
       "speaker_notes": {
         "key_message": "Open with the real aim: help Chleo test and launch a studio without rushing into lease risk.",
@@ -48,7 +49,9 @@
         "Clear site permission.",
         "Then build one good room."
       ],
-      "claim_ids": [],
+      "claim_ids": [
+        "C022"
+      ],
       "unsupported_claims": [],
       "speaker_notes": {
         "key_message": "The recommendation is staged: customers, permission, quotes, then lease.",
@@ -71,6 +74,9 @@
         "type": "step_reveal",
         "purpose": "Reveal the launch gates in order.",
         "reduced_motion_fallback": "All gates visible."
+      },
+      "claim_uses": {
+        "C022": "recommendation"
       }
     },
     {
@@ -111,6 +117,9 @@
         "type": "step_reveal",
         "purpose": "Show modes as separate operating uses.",
         "reduced_motion_fallback": "All modes visible."
+      },
+      "claim_uses": {
+        "C014": "recommendation"
       }
     },
     {
@@ -151,10 +160,118 @@
         "type": "step_reveal",
         "purpose": "Reveal market reality before wedge.",
         "reduced_motion_fallback": "Static comparison."
+      },
+      "claim_uses": {
+        "C001": "market benchmark",
+        "C002": "market benchmark"
       }
     },
     {
       "slide_id": "slide_05",
+      "layout": "table",
+      "slide_job": "competition",
+      "title": "Competitor prices set the bands.",
+      "body": [
+        "Treble Cube: S$25/hr.",
+        "Decibel: S$27/hr or S$69/3h.",
+        "Epic and Sonictones: S$32-S$35/hr.",
+        "Tagvenue: S$55/hr average.",
+        "Recording and livestream add-ons price higher."
+      ],
+      "claim_ids": [
+        "C001",
+        "C002",
+        "C021"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Competitor checks show named price anchors across budget rehearsal, normal jamming, recording and livestream offers.",
+        "talk_track": [
+          "Use these as price bands, not as exact strategy. Chleo should not copy the cheapest room if her promise is maintained gear, teacher-ready hours and beginner comfort.",
+          "Recording and livestream prices sit in a different band because they need setup, staff, rights checks and clearer deliverables."
+        ],
+        "transition_in": "After the broad market wedge, show concrete competitor price bands.",
+        "transition_out": "Move from market pricing to who Chleo should speak with first.",
+        "timing_seconds": 55,
+        "avoid_saying": [
+          "No competition",
+          "Livestream is automatically easy"
+        ],
+        "claim_ids": [
+          "C001",
+          "C002",
+          "C021"
+        ]
+      },
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Competitor benchmark table turns market research into pricing bands and strategic implications."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep the benchmark readable.",
+        "reduced_motion_fallback": "Static table."
+      },
+      "table": {
+        "headers": [
+          "Provider / source",
+          "Listed offer",
+          "Public price signal",
+          "What it tells Chleo"
+        ],
+        "rows": [
+          [
+            "Treble Cube",
+            "Medium room",
+            "S$25/hr",
+            "Budget floor."
+          ],
+          [
+            "Decibel",
+            "Standard room",
+            "S$27/hr; S$69/3h",
+            "Block discounts matter."
+          ],
+          [
+            "Epic Studio",
+            "Jam room",
+            "S$32 day; S$34 peak",
+            "Full-band baseline."
+          ],
+          [
+            "Sonictones",
+            "300 sq ft live room",
+            "S$35/hr",
+            "Compact room can work."
+          ],
+          [
+            "Tagvenue SG",
+            "Jamming studios",
+            "Avg S$55; range S$30-S$108",
+            "Premium needs proof."
+          ],
+          [
+            "Tonehouse",
+            "Band recording / livestream",
+            "S$98.90/hr; S$205.20 first 2h",
+            "Capture is an add-on."
+          ],
+          [
+            "New Ark listing",
+            "Recording / livestream",
+            "S$80-S$200/hr",
+            "Unverified listing; use as a price signal only."
+          ]
+        ]
+      },
+      "claim_uses": {
+        "C001": "market benchmark",
+        "C002": "market benchmark",
+        "C021": "competition"
+      }
+    },
+    {
+      "slide_id": "slide_06",
       "layout": "narrative",
       "slide_job": "go_to_market",
       "title": "Interview 30 likely users.",
@@ -192,10 +309,14 @@
         "type": "step_reveal",
         "purpose": "Reveal each user pool separately.",
         "reduced_motion_fallback": "All user pools visible."
+      },
+      "claim_uses": {
+        "C016": "lead generation",
+        "C017": "lead generation"
       }
     },
     {
-      "slide_id": "slide_06",
+      "slide_id": "slide_07",
       "layout": "narrative",
       "slide_job": "go_to_market",
       "title": "Turn interviews into proof.",
@@ -204,7 +325,9 @@
         "Paid test session",
         "Refundable waitlist"
       ],
-      "claim_ids": [],
+      "claim_ids": [
+        "C022"
+      ],
       "unsupported_claims": [],
       "speaker_notes": {
         "key_message": "Do not ask people to prepay for a room they cannot see.",
@@ -227,14 +350,18 @@
         "type": "step_reveal",
         "purpose": "Reveal commitment types one by one.",
         "reduced_motion_fallback": "All offers visible."
+      },
+      "claim_uses": {
+        "C022": "validation plan"
       }
     },
     {
-      "slide_id": "slide_07",
+      "slide_id": "slide_08",
       "layout": "narrative",
       "slide_job": "risk",
       "title": "Permission before viewing.",
       "body": [
+        "Room-size ladder: 300-450, 500-800 and 900+ sq ft.",
         "Write brief",
         "Search channels",
         "Ask before viewing",
@@ -250,6 +377,8 @@
       "speaker_notes": {
         "key_message": "Property scouting starts with a written use case and written answers, not viewings.",
         "talk_track": [
+          "The people counts are comfort planning, not legal capacity. Actual capacity depends on unit layout, exits, approved use, fire-safety requirements and landlord conditions.",
+          "300 to 450 sq ft can work for lessons, duo work or a 3 to 4 person writing room. The 500 to 800 sq ft range is the practical owned-room target for a normal band setup plus support space.",
           "Ask agents and landlords about use, sound, fitout, evening access, AC and exits before spending time on site visits."
         ],
         "transition_in": "Move from customer demand to site risk.",
@@ -273,10 +402,16 @@
         "type": "step_reveal",
         "purpose": "Reveal the property process in order.",
         "reduced_motion_fallback": "All steps visible."
+      },
+      "claim_uses": {
+        "C003": "site checklist",
+        "C004": "site checklist",
+        "C011": "site options",
+        "C019": "site checklist"
       }
     },
     {
-      "slide_id": "slide_08",
+      "slide_id": "slide_09",
       "layout": "table",
       "slide_job": "risk",
       "title": "Commercial is cleaner.",
@@ -335,10 +470,15 @@
         "type": "none",
         "purpose": "Keep table stable for discussion.",
         "reduced_motion_fallback": "Static table."
+      },
+      "claim_uses": {
+        "C003": "site checklist",
+        "C004": "risk slide",
+        "C019": "site checklist"
       }
     },
     {
-      "slide_id": "slide_09",
+      "slide_id": "slide_10",
       "layout": "table",
       "slide_job": "risk",
       "title": "Licence risk changes by use.",
@@ -365,6 +505,11 @@
             "Small first"
           ],
           [
+            "Recording / livestream",
+            "Rights, releases, YouTube copyright checks, setup time",
+            "Add-on later"
+          ],
+          [
             "Public showcases",
             "PEL, AEL, SCDF, music rights",
             "Defer"
@@ -375,13 +520,15 @@
         "C003",
         "C005",
         "C006",
-        "C014"
+        "C014",
+        "C020"
       ],
       "unsupported_claims": [],
       "speaker_notes": {
-        "key_message": "Private use is the launch path; public showcases should wait.",
+        "key_message": "Private use is the launch path; recording and livestream can be added later with rights and release checks.",
         "talk_track": [
-          "This is the legality slide that prevents the deck from overpromising."
+          "This is the legality slide that prevents the deck from overpromising.",
+          "YouTube streaming is technically possible, but copyrighted songs, covers, backing tracks, archived uploads and public/ticketed events change the rights and licensing work."
         ],
         "transition_in": "Move from location to operating use.",
         "transition_out": "Explain acoustic risk.",
@@ -393,7 +540,8 @@
           "C003",
           "C005",
           "C006",
-          "C014"
+          "C014",
+          "C020"
         ]
       },
       "visual_aid": {
@@ -404,10 +552,17 @@
         "type": "none",
         "purpose": "Keep legal matrix stable.",
         "reduced_motion_fallback": "Static table."
+      },
+      "claim_uses": {
+        "C003": "legal scenario matrix",
+        "C005": "legal scenario matrix",
+        "C006": "legal scenario matrix",
+        "C014": "risk slide",
+        "C020": "legal scenario matrix"
       }
     },
     {
-      "slide_id": "slide_10",
+      "slide_id": "slide_11",
       "layout": "narrative",
       "slide_job": "risk",
       "title": "Treatment is not isolation.",
@@ -448,10 +603,16 @@
         "type": "step_reveal",
         "purpose": "Reveal treatment before isolation.",
         "reduced_motion_fallback": "Both panels visible."
+      },
+      "claim_uses": {
+        "C007": "acoustic reality",
+        "C008": "acoustic reality",
+        "C009": "acoustic reality",
+        "C010": "acoustic reality"
       }
     },
     {
-      "slide_id": "slide_11",
+      "slide_id": "slide_12",
       "layout": "narrative",
       "slide_job": "architecture_context",
       "title": "Build the room in layers.",
@@ -493,10 +654,16 @@
         "type": "step_reveal",
         "purpose": "Reveal layers from low risk to high cost.",
         "reduced_motion_fallback": "All layers visible."
+      },
+      "claim_uses": {
+        "C007": "acoustic reality",
+        "C008": "site checklist",
+        "C009": "acoustic reality",
+        "C010": "acoustic reality"
       }
     },
     {
-      "slide_id": "slide_12",
+      "slide_id": "slide_13",
       "layout": "narrative",
       "slide_job": "action",
       "title": "Buy durable workhorse gear.",
@@ -533,10 +700,13 @@
         "type": "step_reveal",
         "purpose": "Reveal gear categories in a buy-sheet order.",
         "reduced_motion_fallback": "All gear categories visible."
+      },
+      "claim_uses": {
+        "C013": "setup spec"
       }
     },
     {
-      "slide_id": "slide_13",
+      "slide_id": "slide_14",
       "layout": "narrative",
       "slide_job": "action",
       "title": "Get the right quotes.",
@@ -576,10 +746,15 @@
         "type": "step_reveal",
         "purpose": "Reveal quote groups as a checklist.",
         "reduced_motion_fallback": "All quote groups visible."
+      },
+      "claim_uses": {
+        "C006": "launch plan",
+        "C012": "startup costs",
+        "C018": "quote pack"
       }
     },
     {
-      "slide_id": "slide_14",
+      "slide_id": "slide_15",
       "layout": "narrative",
       "slide_job": "chart_evidence",
       "title": "Startup cash ranges.",
@@ -625,10 +800,18 @@
         "type": "step_reveal",
         "purpose": "Reveal ranges from lowest to highest commitment.",
         "reduced_motion_fallback": "All ranges visible."
+      },
+      "claim_uses": {
+        "C010": "startup costs",
+        "C011": "startup costs",
+        "C012": "startup costs",
+        "C013": "startup costs",
+        "C014": "launch plan",
+        "C015": "startup costs"
       }
     },
     {
-      "slide_id": "slide_15",
+      "slide_id": "slide_16",
       "layout": "narrative",
       "slide_job": "business_model",
       "title": "Break-even sets the floor.",
@@ -670,10 +853,14 @@
         "type": "step_reveal",
         "purpose": "Reveal occupancy scenarios in order.",
         "reduced_motion_fallback": "All scenarios visible."
+      },
+      "claim_uses": {
+        "C001": "pricing strategy",
+        "C002": "pricing strategy"
       }
     },
     {
-      "slide_id": "slide_16",
+      "slide_id": "slide_17",
       "layout": "narrative",
       "slide_job": "trust_boundary",
       "title": "Welcoming, with standards.",
@@ -682,7 +869,9 @@
         "Reset and booking",
         "Damage and teachers"
       ],
-      "claim_ids": [],
+      "claim_ids": [
+        "C023"
+      ],
       "unsupported_claims": [],
       "speaker_notes": {
         "key_message": "A friendly room still needs operating standards.",
@@ -705,10 +894,13 @@
         "type": "step_reveal",
         "purpose": "Reveal operating rules as a standard.",
         "reduced_motion_fallback": "All rules visible."
+      },
+      "claim_uses": {
+        "C023": "operating standard"
       }
     },
     {
-      "slide_id": "slide_17",
+      "slide_id": "slide_18",
       "layout": "narrative",
       "slide_job": "roadmap",
       "title": "Run the 90-day proof sprint.",
@@ -750,10 +942,15 @@
         "type": "step_reveal",
         "purpose": "Reveal each phase in order.",
         "reduced_motion_fallback": "All phases visible."
+      },
+      "claim_uses": {
+        "C004": "site checklist",
+        "C006": "launch plan",
+        "C018": "launch plan"
       }
     },
     {
-      "slide_id": "slide_18",
+      "slide_id": "slide_19",
       "layout": "narrative",
       "slide_job": "close",
       "title": "Build only after these pass.",
@@ -764,7 +961,10 @@
         "Real quotes",
         "Lease protection"
       ],
-      "claim_ids": [],
+      "claim_ids": [
+        "C022",
+        "C014"
+      ],
       "unsupported_claims": [],
       "speaker_notes": {
         "key_message": "The dream moves forward only when the evidence gates pass.",
@@ -787,10 +987,14 @@
         "type": "step_reveal",
         "purpose": "Reveal gates as final checklist.",
         "reduced_motion_fallback": "All gates visible."
+      },
+      "claim_uses": {
+        "C022": "decision gate",
+        "C014": "launch plan"
       }
     },
     {
-      "slide_id": "slide_19",
+      "slide_id": "slide_20",
       "layout": "table",
       "slide_job": "backup",
       "title": "Starter gear detail.",
@@ -868,10 +1072,13 @@
             "Small failures hurt the experience"
           ]
         ]
+      },
+      "claim_uses": {
+        "C013": "setup spec"
       }
     },
     {
-      "slide_id": "slide_20",
+      "slide_id": "slide_21",
       "layout": "table",
       "slide_job": "backup",
       "title": "Who Chleo should call.",
@@ -959,10 +1166,16 @@
             "Operating setup"
           ]
         ]
+      },
+      "claim_uses": {
+        "C006": "launch plan",
+        "C012": "startup costs",
+        "C013": "setup spec",
+        "C018": "quote pack"
       }
     },
     {
-      "slide_id": "slide_21",
+      "slide_id": "slide_22",
       "layout": "table",
       "slide_job": "backup",
       "title": "Startup cost breakdown.",
@@ -1060,6 +1273,14 @@
             "S$145k-S$290k"
           ]
         ]
+      },
+      "claim_uses": {
+        "C010": "startup costs",
+        "C011": "startup costs",
+        "C012": "startup costs",
+        "C013": "startup costs",
+        "C014": "launch plan",
+        "C015": "startup costs"
       }
     }
   ]

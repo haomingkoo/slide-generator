@@ -11,6 +11,18 @@ What this example demonstrates:
 - Human review repairs: better copy, practical steps, inline peer labels, balanced whitespace, footer clearance, mobile scaling and presenter mode.
 - A publishable static HTML deck that can be hosted directly from GitHub Pages.
 
+## How This Teaches Non-Slop Slide Making
+
+Read this as a feedback loop, not just a finished deck:
+
+- `work/intake-brief.md` defines the audience shift, assumptions and open questions before slides are written.
+- `work/slide-sorter.md` proves the deck works as a title-only argument.
+- `work/claim-ledger.json` separates sourced facts from inferences and limits where claims may be used.
+- `qa/slides-generator-feedback.md` records what failed in the first draft and what rules changed.
+- `qa/qa-report.md` shows how the deck was repaired, browser-tested and left with explicit accuracy limits.
+
+Market pricing, rents, equipment prices and regulations are date-sensitive. Recheck those claims before reusing this proposal for a real lease or purchase decision.
+
 Open locally:
 
 ```bash

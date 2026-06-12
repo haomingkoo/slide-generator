@@ -14,6 +14,20 @@ The slide skill should improve through examples, not vibes.
 8. Revise the skill based on recurring failures.
 9. Expand the eval set once the first examples pass.
 
+## Promotion Protocol
+
+Use this when deck review reveals a reusable failure.
+
+1. Write the failure in the deck's `qa/` folder.
+2. Add a row to `docs/heuristic-registry.md`.
+3. Choose the smallest reusable target: skill reference, maintainer doc, validator, template, design contract, example, or eval.
+4. Implement that target without rewriting unrelated workflow.
+5. Prove it with a validator, browser QA, committed example, eval, or captured review artifact.
+6. Mark the registry row as `tested` only after the proof exists.
+7. Compress repeated narrow rules into one clearer rule when the pattern stabilizes.
+
+This is the repo's heuristic-learning loop: absorb review feedback, repair the system, test the repair, then compress the lesson so future decks improve without adding prompt clutter forever.
+
 ## What To Measure
 
 - Story coherence from title-only outline.
