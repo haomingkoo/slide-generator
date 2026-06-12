@@ -1189,6 +1189,1234 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /*
+      Minimal guided-flow pass.
+      The earlier workbench exposed too many registries at once. These overrides
+      keep the existing export logic but make the product feel like onboarding.
+    */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f9fc;
+      color: #141821;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      font-kerning: normal;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #e1e7ef;
+      background: rgba(247, 249, 252, 0.86);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      padding: 14px 24px;
+    }
+
+    .brand {
+      gap: 0;
+    }
+
+    .brand strong {
+      font-size: 15px;
+      font-weight: 720;
+    }
+
+    .brand span,
+    .toplinks .pill {
+      color: #667085;
+      font-size: 12px;
+      font-weight: 520;
+    }
+
+    .toplinks {
+      gap: 18px;
+    }
+
+    .toplinks .pill:hover {
+      color: #101828;
+      transform: none;
+    }
+
+    .shell {
+      max-width: 1120px;
+      padding: 0 24px 64px;
+    }
+
+    .hero {
+      position: relative;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      align-items: center;
+      min-height: min(680px, calc(100dvh - 64px));
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: max(24px, calc((100vw - 1120px) / 2));
+      right: max(24px, calc((100vw - 1120px) / 2));
+      bottom: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, #141821, transparent 72%);
+      opacity: 0.16;
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      min-height: 0;
+      padding: 84px 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .hero-copy::after {
+      display: none;
+    }
+
+    .eyebrow,
+    .tag {
+      min-height: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: #0757ff;
+      font-size: 11px;
+      font-weight: 720;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: 66px;
+      font-weight: 760;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 620px;
+      margin-top: 22px;
+      color: #667085;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .button,
+    .pill {
+      min-height: 38px;
+      border-color: #d0d8e5;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #141821;
+      font-weight: 620;
+      box-shadow: none;
+    }
+
+    .button.primary {
+      border-color: #141821;
+      background: #141821;
+      color: #f7f9fc;
+    }
+
+    .button.quiet {
+      border-color: transparent;
+      background: transparent;
+      color: #667085;
+    }
+
+    .button:hover,
+    .pill:hover {
+      transform: translateY(-1px);
+    }
+
+    .credit-card {
+      align-self: center;
+      position: relative;
+      min-height: 396px;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid #d8e0ea;
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(7, 87, 255, 0.08), transparent 42%),
+        linear-gradient(160deg, transparent 0 62%, rgba(0, 184, 217, 0.12) 62% 100%),
+        linear-gradient(180deg, #ffffff, #f4f7fb);
+      box-shadow: 0 30px 80px rgba(20, 24, 33, 0.08);
+    }
+
+    .credit-card::before {
+      content: "";
+      display: block;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 24px;
+      border: 1px solid #d5deeb;
+      border-radius: 18px;
+      background:
+        linear-gradient(90deg, #0757ff 0 10%, transparent 10%),
+        linear-gradient(90deg, #101828 0 42%, transparent 42%),
+        linear-gradient(90deg, #141821 0 22%, transparent 22%),
+        linear-gradient(90deg, rgba(7, 87, 255, 0.12), transparent 58%),
+        repeating-linear-gradient(0deg, rgba(16, 24, 40, 0.08) 0 1px, transparent 1px 22px),
+        repeating-linear-gradient(90deg, rgba(16, 24, 40, 0.08) 0 1px, transparent 1px 22px),
+        #fbfdff;
+      background-position: 0 0, 24px 34px, 24px 54px, 0 0, 0 0, 0 0, 0 0;
+      background-size: 100% 100%, 62% 8px, 38% 8px, 100% 100%, auto, auto, auto;
+      background-repeat: no-repeat;
+    }
+
+    .credit-card::after {
+      content: "Preview first";
+      position: absolute;
+      top: 34px;
+      right: 34px;
+      padding: 5px 8px;
+      border: 1px solid #d5deeb;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #0757ff;
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .credit-card h2,
+    .panel h2 {
+      color: #141821;
+      font-size: 15px;
+      font-weight: 720;
+    }
+
+    .credit-list {
+      gap: 16px;
+      margin-top: 22px;
+      font-size: 14px;
+    }
+
+    .credit-list li {
+      display: grid;
+      gap: 3px;
+      padding: 0;
+      border: 0;
+    }
+
+    .credit-list strong {
+      color: #141821;
+      font-weight: 680;
+    }
+
+    .credit-list span {
+      color: #667085;
+    }
+
+    .workbench {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding-top: 24px;
+    }
+
+    .workbench > *,
+    .builder-panel > *,
+    .preview-panel > * {
+      min-width: 0;
+    }
+
+    .panel {
+      border: 1px solid #dfe6ef;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 22px 70px rgba(20, 24, 33, 0.06);
+      padding: 24px;
+    }
+
+    .builder-panel {
+      gap: 22px;
+    }
+
+    .step-rail {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-flow: row;
+      grid-auto-columns: auto;
+      gap: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .step-tab {
+      min-height: 54px;
+      padding: 0 0 12px;
+      border: 0;
+      border-bottom: 1px solid #d8e0ea;
+      color: #98a2b3;
+    }
+
+    .step-tab strong {
+      color: inherit;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .step-tab span {
+      color: inherit;
+      font-size: 12px;
+    }
+
+    .step-tab[aria-selected="true"] {
+      border-bottom-color: #141821;
+      background: transparent;
+      color: #141821;
+    }
+
+    .step-tab[aria-selected="true"]::after {
+      content: "";
+      width: 22px;
+      height: 2px;
+      margin-top: 8px;
+      border-radius: 999px;
+      background: #0757ff;
+    }
+
+    .step-tab[aria-selected="true"] strong {
+      color: #141821;
+    }
+
+    .step-panel {
+      min-height: 0;
+    }
+
+    .section-head {
+      align-items: start;
+      margin: 0 0 18px;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .section-head p {
+      max-width: 62ch;
+      margin-top: 6px;
+      color: #667085;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .mix-grid,
+    .template-grid {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(245px, 31%);
+      grid-template-columns: none;
+      gap: 12px;
+      width: 100%;
+      min-width: 0;
+      max-height: none;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      padding: 2px 2px 10px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+
+    .template-grid {
+      grid-auto-columns: minmax(250px, 32%);
+    }
+
+    .palette-grid,
+    .reference-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .source-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filters {
+      grid-template-columns: minmax(260px, 1fr) repeat(3, minmax(130px, 0.35fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .quick-filters {
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .quick-filters .pill {
+      min-height: 30px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    .field,
+    textarea {
+      border-color: #d8e0ea;
+      border-radius: 12px;
+      background: #ffffff;
+    }
+
+    .palette-card,
+    .mix-card,
+    .source-card,
+    .reference-card,
+    .template-card,
+    .detail-card,
+    .proof-item {
+      border-color: #d8e0ea;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: none;
+    }
+
+    .mix-card,
+    .template-card {
+      min-height: 168px;
+      scroll-snap-align: start;
+    }
+
+    .mix-card {
+      padding: 18px;
+    }
+
+    .mix-card::after,
+    .template-card::after,
+    .palette-card::after,
+    .reference-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 16px 14px auto;
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.18;
+      transition: width 180ms var(--ease-out), opacity 180ms var(--ease-out);
+    }
+
+    .mix-card:hover::after,
+    .template-card:hover::after,
+    .palette-card:hover::after,
+    .reference-card:hover::after,
+    .mix-card[aria-pressed="true"]::after,
+    .template-card[aria-pressed="true"]::after,
+    .palette-card[aria-pressed="true"]::after,
+    .reference-card[aria-pressed="true"]::after {
+      width: 54px;
+      opacity: 0.52;
+    }
+
+    .template-card {
+      padding: 14px;
+    }
+
+    .palette-card:hover,
+    .mix-card:hover,
+    .source-card:hover,
+    .reference-card:hover,
+    .template-card:hover,
+    .palette-card[aria-pressed="true"],
+    .mix-card[aria-pressed="true"],
+    .reference-card[aria-pressed="true"],
+    .template-card[aria-pressed="true"] {
+      border-color: #0757ff;
+      box-shadow: none;
+      transform: translateY(-1px);
+    }
+
+    .palette-card[aria-pressed="true"],
+    .mix-card[aria-pressed="true"],
+    .reference-card[aria-pressed="true"],
+    .template-card[aria-pressed="true"] {
+      background: #f4f8ff;
+    }
+
+    .swatches {
+      height: 26px;
+      border: 0;
+      border-radius: 999px;
+    }
+
+    .mix-card .swatches {
+      width: 76%;
+      margin-bottom: 22px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .card-copy {
+      color: #667085;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .template-preview {
+      height: 64px;
+      border-color: #d8e0ea;
+      border-radius: 14px;
+      background:
+        linear-gradient(90deg, rgba(7, 87, 255, 0.1), transparent 46%),
+        #f6fbff;
+      background-size: auto;
+    }
+
+    .preview-panel {
+      position: static;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .slide-stage {
+      border-color: #d8e0ea;
+      border-radius: 22px;
+      padding: 26px;
+      background:
+        linear-gradient(var(--grid-color, #dcebff) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color, #dcebff) 1px, transparent 1px),
+        var(--stage-bg, #f6fbff);
+      background-size: 36px 36px;
+    }
+
+    .slide-stage::after {
+      display: none;
+    }
+
+    .slide-stage h2 {
+      font-size: 40px;
+      font-weight: 720;
+      line-height: 1.04;
+    }
+
+    .stage-chip,
+    .stage-block,
+    .specimen {
+      border-radius: 16px;
+    }
+
+    .specimen-strip {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .details,
+    .export-box,
+    .source-drawer {
+      display: none;
+    }
+
+    body[data-active-step="logic"] .details,
+    body[data-active-step="logic"] .export-box,
+    body[data-active-step="logic"] .source-drawer {
+      display: grid;
+    }
+
+    .source-drawer {
+      border-color: #d8e0ea;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
+    .source-drawer summary {
+      min-height: 46px;
+      color: #475467;
+      font-weight: 620;
+    }
+
+    .source-drawer summary::after {
+      border-color: #d8e0ea;
+      background: #f7f9fc;
+      color: #141821;
+    }
+
+    .step-actions {
+      padding-top: 0;
+    }
+
+    #stepStatus {
+      color: #667085;
+      font-weight: 560;
+    }
+
+    textarea {
+      min-height: 150px;
+      background: #f8fafc;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        align-items: end;
+        min-height: auto;
+        padding: 64px 0 34px;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .credit-card {
+        margin-top: 34px;
+        padding: 22px 0 0;
+        border-left: 0;
+        border-top: 1px solid #d8e0ea;
+      }
+
+      .palette-grid,
+      .reference-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        position: static;
+      }
+
+      .topbar-inner,
+      .shell {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .topbar-inner {
+        gap: 10px;
+      }
+
+      .toplinks {
+        gap: 12px;
+      }
+
+      h1 {
+        font-size: 42px;
+        line-height: 1.04;
+      }
+
+      .hero-copy p:not(.eyebrow) {
+        font-size: 16px;
+      }
+
+      .workbench {
+        padding-top: 8px;
+      }
+
+      .panel {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .step-rail {
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(132px, 1fr);
+        overflow-x: auto;
+      }
+
+      .mix-grid,
+      .template-grid {
+        grid-auto-columns: minmax(250px, 86%);
+      }
+
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .specimen-strip,
+      .proof-grid,
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /*
+      Story-mode pass.
+      This intentionally removes hidden horizontal scroll. The experience is now:
+      color mood -> made slide examples -> slide behavior -> story logic -> export.
+    */
+    body {
+      background: #f5f1e4;
+      color: #2c2e2a;
+    }
+
+    .topbar {
+      border: 0;
+      background: transparent;
+      backdrop-filter: none;
+    }
+
+    .topbar-inner {
+      margin-top: 18px;
+      padding: 10px 12px 10px 18px;
+      border-radius: 50px;
+      background: #ffffff;
+    }
+
+    .brand strong,
+    .step-tab[aria-selected="true"],
+    .step-tab[aria-selected="true"] strong,
+    .credit-card h2,
+    .panel h2,
+    .card-title,
+    h1 {
+      color: #2c2e2a;
+    }
+
+    .brand span,
+    .toplinks .pill,
+    .hero-copy p:not(.eyebrow),
+    .credit-list span,
+    .section-head p,
+    .card-copy,
+    #stepStatus {
+      color: #80827f;
+    }
+
+    .shell {
+      max-width: 1200px;
+    }
+
+    .hero {
+      min-height: min(720px, calc(100dvh - 72px));
+    }
+
+    .hero::before {
+      background: linear-gradient(90deg, #8ed462, transparent 76%);
+    }
+
+    .eyebrow,
+    .tag {
+      color: #2c2e2a;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: 76px;
+      font-weight: 620;
+      line-height: 0.98;
+    }
+
+    .button.primary {
+      border-color: #2c2e2a;
+      background: #2c2e2a;
+      color: #ffffff;
+    }
+
+    .button,
+    .pill,
+    .field,
+    textarea {
+      border-color: #d5d5d4;
+      border-radius: 50px;
+      background: #ffffff;
+      color: #2c2e2a;
+    }
+
+    .button.quiet {
+      color: #80827f;
+    }
+
+    .credit-card {
+      min-height: 430px;
+      border: 0;
+      border-radius: 50px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(142, 212, 98, 0.44), transparent 0 66px, transparent 67px),
+        radial-gradient(circle at 88% 22%, rgba(43, 160, 255, 0.26), transparent 0 82px, transparent 83px),
+        linear-gradient(160deg, transparent 0 58%, rgba(245, 226, 17, 0.44) 58% 100%),
+        #ffffff;
+      box-shadow: none;
+    }
+
+    .credit-card::before {
+      border: 0;
+      border-radius: 42px;
+      background:
+        radial-gradient(circle at 72% 34%, #ff705d 0 23px, transparent 24px),
+        radial-gradient(circle at 28% 76%, #8ed462 0 35px, transparent 36px),
+        linear-gradient(90deg, #2c2e2a 0 46%, transparent 46%),
+        linear-gradient(90deg, #2c2e2a 0 24%, transparent 24%),
+        linear-gradient(135deg, #2ba0ff 0 28%, transparent 28%),
+        #f5f1e4;
+      background-position: 0 0, 0 0, 34px 44px, 34px 68px, 0 0, 0 0;
+      background-size: auto, auto, 68% 10px, 44% 10px, auto, auto;
+      background-repeat: no-repeat;
+    }
+
+    .credit-card::after {
+      border-color: #d5d5d4;
+      color: #2c2e2a;
+    }
+
+    .workbench {
+      max-width: 1080px;
+      gap: 28px;
+      padding-top: 64px;
+    }
+
+    .panel {
+      border-color: #e0dbce;
+      border-radius: 50px;
+      background: #ffffff;
+      box-shadow: none;
+      padding: 34px;
+    }
+
+    .builder-panel {
+      gap: 72px;
+    }
+
+    .step-rail {
+      position: sticky;
+      top: 88px;
+      z-index: 3;
+      margin-bottom: -28px;
+      padding: 8px;
+      border: 0;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.84);
+      backdrop-filter: blur(14px);
+    }
+
+    .step-tab {
+      min-height: 48px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 50px;
+    }
+
+    .step-tab span {
+      display: none;
+    }
+
+    .step-tab[aria-selected="true"] {
+      background: #8ed462;
+    }
+
+    .step-tab[aria-selected="true"]::after {
+      display: none;
+    }
+
+    .step-panel {
+      display: grid;
+      gap: 20px;
+      min-height: min(620px, 84dvh);
+      align-content: center;
+      scroll-margin-top: 118px;
+    }
+
+    .step-panel[data-step-panel="palette"] {
+      order: 3;
+    }
+
+    .step-panel[data-step-panel="direction"] {
+      order: 1;
+    }
+
+    .step-panel[data-step-panel="template"] {
+      order: 2;
+    }
+
+    .step-panel[data-step-panel="logic"] {
+      order: 4;
+    }
+
+    .source-drawer {
+      order: 5;
+    }
+
+    .step-actions {
+      order: 6;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      margin-bottom: 4px;
+    }
+
+    .builder-panel .step-panel .section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .builder-panel .step-panel .section-head .tag {
+      order: -1;
+      white-space: nowrap;
+    }
+
+    .section-head h2 {
+      max-width: 720px;
+      font-size: 42px;
+      font-weight: 620;
+      line-height: 1.04;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      font-size: 17px;
+    }
+
+    .mix-grid,
+    .template-grid,
+    .palette-grid,
+    .reference-grid {
+      display: grid;
+      grid-auto-flow: row;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-height: none;
+      overflow: visible;
+      padding: 0;
+      scroll-snap-type: none;
+    }
+
+    .template-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filters,
+    .quick-filters {
+      display: none;
+    }
+
+    .palette-card,
+    .mix-card,
+    .reference-card,
+    .template-card,
+    .detail-card,
+    .proof-item {
+      min-height: 0;
+      border-color: #e0dbce;
+      border-radius: 50px;
+      background: #ffffff;
+      padding: 21px;
+    }
+
+    .palette-card:hover,
+    .mix-card:hover,
+    .reference-card:hover,
+    .template-card:hover,
+    .palette-card[aria-pressed="true"],
+    .mix-card[aria-pressed="true"],
+    .reference-card[aria-pressed="true"],
+    .template-card[aria-pressed="true"] {
+      border-color: #8ed462;
+      background: #fbfff6;
+    }
+
+    .choice-slide {
+      position: relative;
+      display: grid;
+      align-content: end;
+      aspect-ratio: 16 / 10;
+      margin-bottom: 18px;
+      overflow: hidden;
+      border-radius: 36px;
+      background: #f5f1e4;
+    }
+
+    .choice-slide::before,
+    .choice-slide::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    .choice-slide::before {
+      width: 86px;
+      height: 86px;
+      top: 18px;
+      right: 22px;
+      background: var(--choice-accent, #8ed462);
+      opacity: 0.9;
+    }
+
+    .choice-slide::after {
+      width: 118px;
+      height: 118px;
+      left: -34px;
+      bottom: -32px;
+      background: var(--choice-secondary, #2ba0ff);
+      opacity: 0.22;
+    }
+
+    .choice-slide strong {
+      position: relative;
+      z-index: 1;
+      max-width: 76%;
+      padding: 22px;
+      color: var(--choice-text, #2c2e2a);
+      font-size: 25px;
+      font-weight: 650;
+      line-height: 1.02;
+    }
+
+    .choice-slide::before {
+      animation: soft-float 5.8s ease-in-out infinite;
+    }
+
+    .choice-slide::after {
+      animation: soft-float 7.2s ease-in-out infinite reverse;
+    }
+
+    .mix-card:nth-child(2n) .choice-slide::before {
+      border-radius: 36px;
+    }
+
+    .mix-card:nth-child(3n) .choice-slide {
+      background: #2c2e2a;
+    }
+
+    .mix-card:nth-child(3n) .choice-slide strong {
+      color: #ffffff;
+    }
+
+    .template-preview,
+    .slide-stage,
+    .stage-chip,
+    .stage-block,
+    .specimen,
+    .source-drawer {
+      border-radius: 50px;
+      border-color: #e0dbce;
+    }
+
+    .template-preview {
+      display: block;
+      min-height: 178px;
+      height: auto;
+      padding: 16px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(142, 212, 98, 0.48) 0 28px, transparent 29px),
+        var(--stage-bg, #f5f1e4);
+    }
+
+    .template-preview strong {
+      display: block;
+      width: auto;
+      max-width: 72%;
+      margin: 0 0 18px;
+      color: #2c2e2a;
+      font-size: 18px;
+      line-height: 1.02;
+    }
+
+    .template-preview.preview-dark {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(242, 201, 76, 0.5) 0 28px, transparent 29px),
+        #172033;
+    }
+
+    .template-preview.preview-dark strong {
+      color: #f8fafc;
+    }
+
+    .template-preview > span,
+    .template-preview > i,
+    .template-preview > b {
+      display: none;
+    }
+
+    .mini-deck-strip {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+      transform: translateX(0);
+    }
+
+    .mini-deck-strip small {
+      display: block;
+      aspect-ratio: 16 / 10;
+      border: 1px solid rgba(44, 46, 42, 0.18);
+      border-radius: 18px;
+      background:
+        linear-gradient(90deg, #2c2e2a 0 42%, transparent 42%),
+        radial-gradient(circle at 78% 28%, #8ed462 0 13px, transparent 14px),
+        #ffffff;
+      background-position: 12px 18px, 0 0, 0 0;
+      background-size: 58% 6px, auto, auto;
+      background-repeat: no-repeat;
+      animation: mini-card-pulse 6.6s var(--ease-in-out) infinite;
+    }
+
+    .mini-deck-strip small:nth-child(2) {
+      background:
+        linear-gradient(90deg, #2c2e2a 0 32%, transparent 32%),
+        linear-gradient(90deg, #ff705d 0 22%, transparent 22%),
+        #ffffff;
+      background-position: 12px 18px, 12px 34px, 0 0;
+      background-size: 64% 6px, 48% 6px, auto;
+      background-repeat: no-repeat;
+      animation-delay: 1.4s;
+    }
+
+    .mini-deck-strip small:nth-child(3) {
+      background:
+        radial-gradient(circle at 32% 42%, #2ba0ff 0 18px, transparent 19px),
+        radial-gradient(circle at 68% 58%, #f5e211 0 22px, transparent 23px),
+        #ffffff;
+      animation-delay: 2.8s;
+    }
+
+    @keyframes mini-card-pulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.74;
+      }
+      20%, 42% {
+        transform: translateY(-4px) scale(1.02);
+        opacity: 1;
+      }
+    }
+
+    @keyframes soft-float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(2deg);
+      }
+    }
+
+    .slide-stage {
+      background:
+        radial-gradient(circle at 82% 24%, var(--stage-accent, #8ed462) 0 48px, transparent 49px),
+        linear-gradient(160deg, transparent 0 64%, rgba(245, 226, 17, 0.26) 64% 100%),
+        var(--stage-bg, #f5f1e4);
+      background-size: auto;
+    }
+
+    .slide-stage h2 {
+      max-width: 72%;
+      font-size: 48px;
+      font-weight: 620;
+      line-height: 1;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .gallery-controls span {
+      color: #80827f;
+      font-size: 13px;
+      font-weight: 620;
+    }
+
+    .sample-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .sample-links .button {
+      min-height: 54px;
+      justify-content: flex-start;
+      padding-inline: 18px;
+      text-align: left;
+    }
+
+    .details,
+    .export-box,
+    .source-drawer {
+      display: grid;
+    }
+
+    .step-actions {
+      display: none;
+    }
+
+    body[data-active-step="logic"] .step-actions {
+      display: flex;
+    }
+
+    @media (max-width: 900px) {
+      .mix-grid,
+      .template-grid,
+      .palette-grid,
+      .reference-grid,
+      .sample-links {
+        grid-template-columns: 1fr;
+      }
+
+      .step-rail {
+        position: static;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        overflow: visible;
+      }
+    }
+
+    @media (max-width: 760px) {
+      h1 {
+        font-size: 46px;
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .credit-card {
+        padding: 22px;
+        border: 0;
+        border-radius: 36px;
+      }
+
+      .panel {
+        border-radius: 36px;
+        padding: 22px;
+      }
+
+      .step-panel {
+        min-height: auto;
+        padding: 32px 0;
+        scroll-margin-top: 24px;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head h2 {
+        font-size: 34px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1196,15 +2424,12 @@
     <div class="topbar-inner">
       <div class="brand">
         <strong>Style Workbench</strong>
-        <span>Pick inspirations, mix a direction, export a deck prompt.</span>
+        <span>Guided taste discovery for slide decks.</span>
       </div>
       <nav class="toplinks" aria-label="Credits and references">
-        <a class="pill" href="../../vendor/frontend-slides/NOTICE.md">Template notice</a>
-        <a class="pill" href="https://coolors.co/palettes/popular/powerpoint">Palette reference</a>
-        <a class="pill" href="https://www.happyhues.co/">Color roles</a>
-        <a class="pill" href="https://slideworks.io/resources/bcg-approach-to-great-slides-practical-guide-from-former-consultant">Slide writing</a>
-        <a class="pill" href="https://styles.refero.design/">Style systems</a>
-        <a class="pill" href="https://www.hyperframes.dev/design">Frame design</a>
+        <a class="pill" href="#workbench">Start</a>
+        <a class="pill" href="#preview">Preview</a>
+        <a class="pill" href="#sources" data-show-sources>Sources</a>
       </nav>
     </div>
   </header>
@@ -1212,61 +2437,63 @@
   <main class="shell">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Pick, mix, preview</p>
-        <h1>Build the slide style before the slides.</h1>
+        <p class="eyebrow">Taste first</p>
+        <h1>Make the deck feel designed before a single slide is built.</h1>
         <p>
-          Start with a few inspirations. Mix a template, palette and deck logic. Preview the result, then export a prompt the slide-generator can use without guessing your taste.
+          Start with a few references, answer four simple choices, and leave with a design contract your agent can actually follow.
         </p>
+        <div class="hero-actions">
+          <button class="button primary" id="startDiscovery" type="button">Start discovery</button>
+          <a class="button quiet" href="#sources" data-show-sources>View source policy</a>
+        </div>
       </div>
       <aside class="credit-card">
-        <h2>Source policy</h2>
+        <h2>A quiet path to better slides</h2>
         <ul class="credit-list">
-          <li><strong>Templates:</strong> open-source templates are used only when the license and notice are preserved.</li>
-          <li><strong>Palettes:</strong> public palette sites are references, not endorsements or copied brand systems.</li>
-          <li><strong>Style systems:</strong> external galleries teach artifact shape and QA discipline, not imitation.</li>
-          <li><strong>Motion:</strong> frame references guide pacing and composition, not asset reuse.</li>
-          <li><strong>Private decks:</strong> user-provided slide exports are pattern references only. No raw private assets are included here.</li>
+          <li><strong>Pick a direction</strong><span>Start from a small set of useful styles.</span></li>
+          <li><strong>Refine the feel</strong><span>Choose behavior, color and writing logic one at a time.</span></li>
+          <li><strong>Export the taste</strong><span>Turn the final mix into a prompt, JSON file or DESIGN.md.</span></li>
         </ul>
       </aside>
     </section>
 
-    <section class="workbench">
+    <section class="workbench" id="workbench">
       <div class="panel builder-panel">
         <div class="step-rail" role="tablist" aria-label="Design steps">
           <button class="step-tab" type="button" data-step="direction" aria-selected="true">
             <strong>01 Direction</strong>
-            <span>Start from a vibe</span>
+            <span>Choose the mood</span>
           </button>
           <button class="step-tab" type="button" data-step="template" aria-selected="false">
             <strong>02 Template</strong>
-            <span>Pick slide behavior</span>
+            <span>Shape the slide</span>
           </button>
           <button class="step-tab" type="button" data-step="palette" aria-selected="false">
             <strong>03 Color</strong>
-            <span>Set palette roles</span>
+            <span>Tune the colors</span>
           </button>
           <button class="step-tab" type="button" data-step="logic" aria-selected="false">
             <strong>04 Logic</strong>
-            <span>Choose the writing style</span>
+            <span>Set the argument</span>
           </button>
         </div>
 
         <section class="step-panel" data-step-panel="direction">
           <div class="section-head">
             <div>
-              <h2>Start with a ready mix</h2>
-              <p>Pick a direction, then refine it. Nothing here is final.</p>
+              <h2>What should the deck feel like?</h2>
+              <p>Pick the closest starting point. You can jump around later, but this gives the design a direction.</p>
             </div>
             <span class="tag">recommended</span>
           </div>
           <div id="mixGrid" class="mix-grid"></div>
         </section>
 
-        <section class="step-panel" data-step-panel="template" hidden>
+        <section class="step-panel" data-step-panel="template">
           <div class="section-head">
             <div>
-              <h2>Choose slide behavior</h2>
-              <p>Search by mood, use case or density. The cards show small slide specimens, not just names.</p>
+              <h2>Which slide system should it use?</h2>
+              <p>Browse the mini deck windows. Use the arrows to page through more templates without hidden sideways scrolling.</p>
             </div>
             <span id="templateCount" class="tag">loading</span>
           </div>
@@ -1305,31 +2532,36 @@
           </div>
           <div id="loadNotice" class="notice hidden"></div>
           <div id="templateGrid" class="template-grid"></div>
+          <div class="gallery-controls" aria-label="Template gallery controls">
+            <button class="button" id="prevTemplates" type="button">Previous</button>
+            <span id="templatePageStatus">Page 1</span>
+            <button class="button" id="nextTemplates" type="button">Next</button>
+          </div>
         </section>
 
-        <section class="step-panel" data-step-panel="palette" hidden>
+        <section class="step-panel" data-step-panel="palette">
           <div class="section-head">
             <div>
-              <h2>Choose a palette lane</h2>
-              <p>Use color roles that can survive real slides: background, surface, text, accent and border.</p>
+              <h2>Tune the colors so it becomes yours.</h2>
+              <p>External decks and PDFs are references only. Shift the palette here so the final deck does not look copied.</p>
             </div>
-            <span class="tag">light-first</span>
+            <span class="tag">reference-safe</span>
           </div>
           <div id="paletteGrid" class="palette-grid"></div>
         </section>
 
-        <section class="step-panel" data-step-panel="logic" hidden>
+        <section class="step-panel" data-step-panel="logic">
           <div class="section-head">
             <div>
-              <h2>Choose the deck logic</h2>
-              <p>This decides how the agent writes: consulting clarity, creative exploration, motion frames or design contracts.</p>
+              <h2>How should the deck argue?</h2>
+              <p>Style gets attention. This choice keeps the story sharp, source-backed and useful in a real presentation.</p>
             </div>
             <span class="tag">logic</span>
           </div>
           <div id="referenceGrid" class="reference-grid"></div>
         </section>
 
-        <details class="source-drawer">
+        <details class="source-drawer" id="sources">
           <summary>Source ledger and references</summary>
           <div class="source-drawer-body">
             <p class="source-note">
@@ -1347,7 +2579,7 @@
         </div>
       </div>
 
-      <aside class="preview-panel">
+      <aside class="preview-panel" id="preview">
         <div class="panel">
           <div class="section-head">
             <div>
@@ -1432,6 +2664,10 @@
             </div>
           </div>
           <div class="detail-card">
+            <h3>Reference safety</h3>
+              <p>Use PPT, PDF and web references for structure, pacing and taste. Remix color roles, naming, shapes and visual details before publishing so the final deck reads as original work.</p>
+          </div>
+          <div class="detail-card">
             <h3>Build path</h3>
             <ol class="build-steps">
               <li><span>1</span><p>Clone or open the slide-generator repo.</p></li>
@@ -1445,9 +2681,13 @@
         <div class="panel export-box">
           <div class="section-head">
             <div>
-            <h2>4. Export for the agent</h2>
-              <p>Paste the prompt into an agent, or save the JSON / DESIGN.md into the deck project.</p>
+            <h2>4. Export and preview</h2>
+              <p>Open a full HTML example deck, then copy the prompt, JSON or DESIGN.md when the direction feels right.</p>
             </div>
+          </div>
+          <div class="sample-links">
+            <a class="button" href="../chleo-community-band-room/deck/" target="_blank" rel="noreferrer">Open Chleo deck</a>
+            <a class="button" href="../source-grounded-demo/deck/" target="_blank" rel="noreferrer">Open source demo</a>
           </div>
           <div class="export-actions">
             <button class="button primary" id="copyPrompt">Copy prompt</button>
@@ -1501,6 +2741,16 @@
         original: ["#ef476f", "#ffd166", "#06d6a0", "#118ab2", "#073b4c"]
       },
       {
+        id: "storybook-cream",
+        name: "Storybook Cream",
+        tone: "warm illustrated",
+        source: "Reference-inspired cream-paper palette from the user's MindMarket style note.",
+        sourceUrls: ["https://styles.refero.design/style/9130ad37-bf80-458f-b808-ac0ef6a8d1e9"],
+        bestFor: "community, youth, workshop, creative proposal and founder-led decks",
+        avoid: "using every bright accent as a functional state",
+        colors: ["#f5f1e4", "#ffffff", "#2c2e2a", "#80827f", "#8ed462", "#ff705d", "#e0dbce"]
+      },
+      {
         id: "signal-mint",
         name: "Signal Mint",
         tone: "calm modern",
@@ -1549,7 +2799,8 @@
       {
         id: "sharp-hackathon",
         name: "Sharp Hackathon",
-        description: "Cobalt Grid structure, Cobalt Ice palette, frontend-quality previews and browser QA.",
+        slideTitle: "Proof beats polish.",
+        description: "Precise, bright and demo-ready. Good when judges need to trust the work quickly.",
         paletteId: "cobalt-ice",
         referenceId: "frontend-creative",
         templateSlug: "cobalt-grid",
@@ -1560,7 +2811,8 @@
       {
         id: "consulting-blue",
         name: "Consulting Blue",
-        description: "Decision-led titles, calm blue palette and disciplined exhibit logic.",
+        slideTitle: "Make the decision easy.",
+        description: "Calm, credible and boardroom-safe. Good for decisions, budgets and tradeoffs.",
         paletteId: "ocean-blue-serenity",
         referenceId: "consulting-clarity",
         templateSlug: "blue-professional",
@@ -1571,8 +2823,9 @@
       {
         id: "creative-community",
         name: "Creative Community",
-        description: "Fresh founder/community palette with a more expressive template lane.",
-        paletteId: "watermelon-sorbet",
+        slideTitle: "Make it feel welcoming.",
+        description: "Fresh, welcoming and founder-led. Good for community, workshops and youth projects.",
+        paletteId: "storybook-cream",
         referenceId: "frontend-creative",
         templateSlug: "creative-mode",
         search: "creative",
@@ -1582,7 +2835,8 @@
       {
         id: "agency-executive",
         name: "Executive Minimal",
-        description: "Minimal executive-summary feel with restrained graphite and crisp proof objects.",
+        slideTitle: "Already edited.",
+        description: "Quiet, premium and evidence-first. Good when the work should feel already edited.",
         paletteId: "graphite-citrus",
         referenceId: "agency-minimal",
         templateSlug: "monochrome",
@@ -1593,7 +2847,8 @@
       {
         id: "cool-launch",
         name: "Cool Launch",
-        description: "Campaign strategy lane for GTM, launch and stakeholder update decks.",
+        slideTitle: "Launch with rhythm.",
+        description: "Clean campaign energy. Good for launches, timelines and stakeholder updates.",
         paletteId: "lilac-steel",
         referenceId: "agency-minimal",
         templateSlug: "blue-professional",
@@ -1604,7 +2859,8 @@
       {
         id: "dark-signal",
         name: "Dark Signal",
-        description: "Dark institutional/technical style for serious runtime or systems decks.",
+        slideTitle: "Signal in the dark.",
+        description: "Serious, cinematic and technical. Good for systems, agents and runtime stories.",
         paletteId: "midnight-signal",
         referenceId: "frontend-creative",
         templateSlug: "signal",
@@ -1799,12 +3055,18 @@
       }
     ];
 
+    const defaultReadyMix = readyMixes.find((mix) => mix.id === "creative-community") || readyMixes[0];
+    const defaultPalette = paletteLanes.find((palette) => palette.id === defaultReadyMix.paletteId) || paletteLanes[0];
+    const defaultReference = referenceDisciplines.find((reference) => reference.id === defaultReadyMix.referenceId) || referenceDisciplines[0];
+    const defaultTemplate = fallbackTemplates.find((template) => template.slug === defaultReadyMix.templateSlug) || fallbackTemplates[0];
+
     const state = {
-      palette: paletteLanes[0],
-      reference: referenceDisciplines[0],
+      palette: defaultPalette,
+      reference: defaultReference,
       templates: fallbackTemplates,
-      template: fallbackTemplates[0],
-      readyMixId: "sharp-hackathon",
+      template: defaultTemplate,
+      readyMixId: defaultReadyMix.id,
+      templatePage: 0,
       filters: { search: "", scheme: "all", density: "all", intent: "all" }
     };
 
@@ -1842,7 +3104,12 @@
     const prevStepButton = document.getElementById("prevStep");
     const nextStepButton = document.getElementById("nextStep");
     const stepStatus = document.getElementById("stepStatus");
+    const startDiscoveryButton = document.getElementById("startDiscovery");
+    const prevTemplatesButton = document.getElementById("prevTemplates");
+    const nextTemplatesButton = document.getElementById("nextTemplates");
+    const templatePageStatus = document.getElementById("templatePageStatus");
     let activeStepIndex = 0;
+    let activeStepHoldUntil = 0;
 
     renderReadyMixes();
     renderSources();
@@ -1855,19 +3122,23 @@
 
     searchInput.addEventListener("input", () => {
       state.filters.search = searchInput.value.trim().toLowerCase();
+      state.templatePage = 0;
       renderTemplates();
     });
     schemeSelect.addEventListener("change", () => {
       state.filters.scheme = schemeSelect.value;
+      state.templatePage = 0;
       renderTemplates();
     });
     densitySelect.addEventListener("change", () => {
       state.filters.density = densitySelect.value;
+      state.templatePage = 0;
       renderTemplates();
     });
     intentSelect.addEventListener("change", () => {
       state.filters.intent = intentSelect.value;
       applyIntentFilter();
+      state.templatePage = 0;
       renderTemplates();
     });
     document.querySelectorAll("[data-quick-filter]").forEach((button) => {
@@ -1904,11 +3175,16 @@
         button.setAttribute("aria-pressed", String(mix.id === state.readyMixId));
         const palette = paletteLanes.find((item) => item.id === mix.paletteId) || paletteLanes[0];
         button.innerHTML = `
-          <div class="swatches">${palette.colors.map((color) => `<span style="background:${color}"></span>`).join("")}</div>
+          <div class="choice-slide" style="--choice-accent:${palette.colors[4]}; --choice-secondary:${palette.colors[5]}; --choice-text:${palette.colors[2]}">
+            <strong>${escapeHtml(mix.slideTitle)}</strong>
+          </div>
           <div class="card-title"><span>${escapeHtml(mix.name)}</span><span class="tag">${escapeHtml(mix.intent)}</span></div>
           <p class="card-copy">${escapeHtml(mix.description)}</p>
         `;
-        button.addEventListener("click", () => applyReadyMix(mix));
+        button.addEventListener("click", () => {
+          applyReadyMix(mix);
+          scrollToStep("template");
+        });
         mixGrid.appendChild(button);
       }
     }
@@ -1934,11 +3210,14 @@
       state.palette = paletteLanes.find((item) => item.id === mix.paletteId) || state.palette;
       state.reference = referenceDisciplines.find((item) => item.id === mix.referenceId) || state.reference;
       state.template = state.templates.find((item) => item.slug === mix.templateSlug) || state.template;
-      state.filters.search = mix.search || "";
-      state.filters.scheme = mix.scheme || "all";
-      state.filters.intent = mix.intent || "all";
+      state.filters.search = "";
+      state.filters.scheme = "all";
+      state.filters.density = "all";
+      state.filters.intent = "all";
+      state.templatePage = 0;
       searchInput.value = state.filters.search;
       schemeSelect.value = state.filters.scheme;
+      densitySelect.value = state.filters.density;
       intentSelect.value = state.filters.intent;
       applyIntentFilter();
       renderReadyMixes();
@@ -1946,6 +3225,7 @@
       renderReferences();
       renderTemplates();
       updatePreviewAndExports();
+      setActiveStep("direction");
     }
 
     function applyIntentFilter() {
@@ -1966,6 +3246,28 @@
     document.getElementById("copyPrompt").addEventListener("click", (event) => copyText(promptOut.value, event.currentTarget));
     document.getElementById("copyJson").addEventListener("click", (event) => copyText(jsonOut.value, event.currentTarget));
     document.getElementById("copyDesignMd").addEventListener("click", (event) => copyText(designMdOut.value, event.currentTarget));
+    startDiscoveryButton.addEventListener("click", () => {
+      document.getElementById("workbench").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    prevTemplatesButton.addEventListener("click", () => {
+      holdActiveStep("template");
+      state.templatePage = Math.max(0, state.templatePage - 1);
+      renderTemplates();
+    });
+    nextTemplatesButton.addEventListener("click", () => {
+      holdActiveStep("template");
+      state.templatePage += 1;
+      renderTemplates();
+    });
+    document.querySelectorAll("[data-show-sources]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        setActiveStep("logic");
+        const sourceDrawer = document.getElementById("sources");
+        sourceDrawer.open = true;
+        sourceDrawer.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
     prevStepButton.addEventListener("click", () => setActiveStepByIndex(activeStepIndex - 1));
     nextStepButton.addEventListener("click", () => {
       if (activeStepIndex === steps.length - 1) {
@@ -1975,12 +3277,38 @@
       setActiveStepByIndex(activeStepIndex + 1);
     });
     stepTabs.forEach((button) => {
-      button.addEventListener("click", () => setActiveStep(button.dataset.step));
+      button.addEventListener("click", () => scrollToStep(button.dataset.step));
     });
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.dataset?.stepPanel) {
+          setActiveStep(visible.target.dataset.stepPanel);
+        }
+      }, { rootMargin: "-32% 0px -52% 0px", threshold: [0.15, 0.35, 0.55] });
+      stepPanels.forEach((panel) => observer.observe(panel));
+    }
+    let scrollSyncScheduled = false;
+    window.addEventListener("scroll", () => {
+      if (scrollSyncScheduled) return;
+      scrollSyncScheduled = true;
+      window.requestAnimationFrame(() => {
+        scrollSyncScheduled = false;
+        if (Date.now() < activeStepHoldUntil) return;
+        syncActiveStepFromScroll();
+      });
+    }, { passive: true });
 
     function setActiveStep(step) {
       const index = steps.indexOf(step);
       if (index !== -1) setActiveStepByIndex(index);
+    }
+
+    function holdActiveStep(step, milliseconds = 700) {
+      activeStepHoldUntil = Date.now() + milliseconds;
+      setActiveStep(step);
     }
 
     function setActiveStepByIndex(index) {
@@ -1990,11 +3318,39 @@
         button.setAttribute("aria-selected", String(button.dataset.step === activeStep));
       });
       stepPanels.forEach((panel) => {
-        panel.hidden = panel.dataset.stepPanel !== activeStep;
+        panel.hidden = false;
+        panel.classList.toggle("is-active", panel.dataset.stepPanel === activeStep);
       });
       prevStepButton.disabled = activeStepIndex === 0;
       nextStepButton.textContent = activeStepIndex === steps.length - 1 ? "Review export" : "Next";
       stepStatus.textContent = `Step ${activeStepIndex + 1} of ${steps.length}`;
+      document.body.dataset.activeStep = activeStep;
+    }
+
+    function scrollToStep(step) {
+      setActiveStep(step);
+      document.querySelector(`[data-step-panel="${step}"]`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    function syncActiveStepFromScroll() {
+      const anchorY = window.innerHeight * 0.28;
+      let bestPanel = null;
+      let bestDistance = Infinity;
+      stepPanels.forEach((panel) => {
+        const rect = panel.getBoundingClientRect();
+        if (rect.bottom < 120 || rect.top > window.innerHeight * 0.82) return;
+        const distance = Math.abs(rect.top - anchorY);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestPanel = panel;
+        }
+      });
+      if (bestPanel?.dataset?.stepPanel) {
+        setActiveStep(bestPanel.dataset.stepPanel);
+      }
     }
 
     async function loadTemplateIndex() {
@@ -2003,7 +3359,8 @@
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const index = await response.json();
         state.templates = Array.isArray(index.templates) ? index.templates : fallbackTemplates;
-        state.template = state.templates.find((item) => item.slug === "cobalt-grid") || state.templates[0] || fallbackTemplates[0];
+        const selectedMix = readyMixes.find((mix) => mix.id === state.readyMixId) || defaultReadyMix;
+        state.template = state.templates.find((item) => item.slug === selectedMix.templateSlug) || state.template || state.templates[0] || fallbackTemplates[0];
         loadNotice.classList.add("hidden");
       } catch (error) {
         loadNotice.textContent = "Using a small fallback list because the full template index could not be fetched. Serve this repo through GitHub Pages or a local static server to browse all 34 vendored templates.";
@@ -2029,6 +3386,7 @@
           state.palette = palette;
           renderPalettes();
           updatePreviewAndExports();
+          scrollToStep("logic");
         });
         paletteGrid.appendChild(button);
       }
@@ -2049,6 +3407,8 @@
           state.reference = reference;
           renderReferences();
           updatePreviewAndExports();
+          setActiveStep("logic");
+          document.getElementById("preview").scrollIntoView({ behavior: "smooth", block: "start" });
         });
         referenceGrid.appendChild(button);
       }
@@ -2056,17 +3416,30 @@
 
     function renderTemplates() {
       const filtered = state.templates.filter(templateMatches);
-      templateCount.textContent = `${filtered.length} shown`;
+      const pageSize = 6;
+      const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+      state.templatePage = Math.min(state.templatePage, pageCount - 1);
+      const start = state.templatePage * pageSize;
+      const pageItems = filtered.slice(start, start + pageSize);
+      templateCount.textContent = `${filtered.length} options`;
+      templatePageStatus.textContent = `Page ${state.templatePage + 1} of ${pageCount}`;
+      prevTemplatesButton.disabled = state.templatePage === 0;
+      nextTemplatesButton.disabled = state.templatePage >= pageCount - 1;
       templateGrid.innerHTML = "";
-      for (const template of filtered) {
+      for (const template of pageItems) {
         const button = document.createElement("button");
         button.className = "template-card";
         button.type = "button";
         button.setAttribute("aria-pressed", String(template.slug === state.template.slug));
-        const previewTitle = (template.name || "Slide recipe").split(" ").slice(0, 3).join(" ");
+        const previewTitle = templatePreviewCopy(template).chip;
         const previewClass = template.scheme === "dark" ? "template-preview preview-dark" : "template-preview";
         button.innerHTML = `
-          <div class="${previewClass}"><span></span><strong>${escapeHtml(previewTitle)}</strong><i></i><b></b></div>
+          <div class="${previewClass}">
+            <span></span>
+            <strong>${escapeHtml(previewTitle)}</strong>
+            <em class="mini-deck-strip" aria-hidden="true"><small></small><small></small><small></small></em>
+            <i></i><b></b>
+          </div>
           <div class="card-title"><span>${escapeHtml(template.name)}</span><span class="tag">${escapeHtml(template.scheme || "mixed")}</span></div>
           <p class="card-copy">${escapeHtml(template.tagline || template.best_for || "Template recipe")}</p>
         `;
@@ -2074,6 +3447,7 @@
           state.template = template;
           renderTemplates();
           updatePreviewAndExports();
+          scrollToStep("palette");
         });
         templateGrid.appendChild(button);
       }
@@ -2241,14 +3615,15 @@
         ...state.reference.rules.map((rule) => `- ${rule}`),
         "- Use the template as layout grammar, not as a reason to add filler.",
         "- Keep source, footer and presenter lanes protected.",
-        "- Do not use cream, beige, parchment or bone-paper palettes unless explicitly requested.",
+        "- Do not default to cream, beige, parchment or bone-paper palettes unless the selected palette explicitly uses them.",
+        "- Treat PPT, PDF and web references as inspiration only: remix color roles, shapes, names and layout details before publishing.",
         "- Run browser QA after rendering.",
         "",
         "Credits to preserve:",
         "- frontend-slides by Zara Zhang, MIT license: https://github.com/zarazhangrui/frontend-slides",
         ...state.reference.sourceUrls.map((url) => `- Reference discipline source: ${url}`),
         ...state.palette.sourceUrls.map((url) => `- Palette inspiration: ${url}`),
-        "- Private user-provided decks are pattern references only; do not copy raw assets."
+        "- Private user-provided decks are pattern references only; do not copy raw assets, palettes or layouts directly."
       ].join("\n");
     }
 
@@ -2324,14 +3699,16 @@
             state.template.avoid_for || "decorative filler",
             "unsupported claims",
             "source/footer collisions",
-            "cream, beige, parchment or bone-paper defaults unless requested"
+            "cream, beige, parchment or bone-paper defaults unless selected in the design contract",
+            "direct copying of PPT, PDF or web-reference colors, assets, names or layouts"
           ],
           must_preserve: [
             "visible source attribution",
             "frontend-slides MIT credit when using its template recipes",
             "palette roles rather than random swatches",
             "one proof object per slide",
-            "browser QA before final export"
+            "browser QA before final export",
+            "reference-safe remixing of external decks and galleries"
           ],
           motion: [
             "only add motion after static hierarchy passes QA",
@@ -2371,6 +3748,7 @@
         "## Borrow / Avoid",
         `Borrow: ${state.template.tagline || state.template.best_for || "the selected template grammar"}.`,
         `Avoid: ${state.palette.avoid}; ${state.template.avoid_for || "decorative filler"}.`,
+        "Reference safety: use external PPT, PDF and web decks for structure, pacing and taste only. Remix color roles, shapes, names and layout details before publishing.",
         "",
         "## Colors",
         `- Background: ${background}`,
@@ -2413,6 +3791,7 @@
         "## Motion / Frame Notes",
         "- Add motion only after static hierarchy passes QA.",
         "- For video export, create a separate frame spec with pacing, scale and dwell.",
+        "- Keep motion and animated previews subordinate to slide readability.",
         "",
         "## Accessibility And QA",
         "- Normal text contrast should meet WCAG 4.5:1 where possible.",
@@ -2424,7 +3803,7 @@
         "- frontend-slides by Zara Zhang, MIT license: https://github.com/zarazhangrui/frontend-slides",
         ...state.reference.sourceUrls.map((url) => `- Reference discipline source: ${url}`),
         ...state.palette.sourceUrls.map((url) => `- Palette inspiration: ${url}`),
-        "- Private user-provided decks are pattern references only; do not copy raw assets."
+        "- Private user-provided decks are pattern references only; do not copy raw assets, palettes or layouts directly."
       ].join("\n");
     }
 

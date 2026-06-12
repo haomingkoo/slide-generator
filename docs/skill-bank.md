@@ -67,6 +67,8 @@ Use company and product names only for attribution, license context or private r
 
 Refero-style galleries add a useful workflow rule: inspect real screens and style-system pages before designing, then lock a primary reference direction and a small set of token/component decisions. Do not average references into a bland middle.
 
+Style workbench guidance should stay product-like: introduce Direction, Template, Color and Logic one at a time; keep all steps jumpable; show a grid and explicit paging for large option sets; animate only inside card bounds; and export reference-safety rules so PPT/PDF/web inspiration is remixed before publishing.
+
 For user-provided references, extract durable patterns:
 
 - intake modes,

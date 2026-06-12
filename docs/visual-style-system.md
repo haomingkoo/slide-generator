@@ -51,6 +51,7 @@ Current taste notes:
 - Good alternate light colorways: cobalt/cyan, ink/mint, white/lilac-grey, cool silver/blue, black/green technical, and restrained coral/blue for warmer proposals.
 - Avoid one-note palettes where every surface, accent and chart is just a variant of one hue.
 - Preserve contrast and source-lane legibility before preserving the reference palette.
+- When learning from a user-provided PPT/PDF or a public gallery, remix the palette before publishing unless the source is owned/licensed and the user explicitly wants the original colorway. Structure can inspire; raw colors, names, assets and layout details should not be cloned by default.
 
 ## Style Discovery Flow
 
@@ -84,6 +85,8 @@ Borrow: fixed graph canvas, cobalt hierarchy, hairline rules, stepped signal mar
 Change: replace cream or parchment with ice-blue/white, keep footers outside decoration.
 Avoid: saturated cobalt everywhere, grid lines behind dense copy.
 ```
+
+Workbench UX rule: browsing style options should feel like discovery, not a database dump. Use a guided Direction -> Template -> Color -> Logic flow, keep every step jumpable, show option grids with explicit paging, and preview how a few slide types behave before exposing export text.
 
 ## Building More Style Packs
 

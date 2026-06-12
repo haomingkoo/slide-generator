@@ -94,6 +94,10 @@ A generated `DESIGN.md` should have these sections:
 - Start narrow. Show one decision at a time.
 - Use real-looking slide specimens before showing exported text.
 - Keep source registries behind disclosure controls.
+- Do not use hidden horizontal galleries. Show a grid and explicit paging controls so users know how to browse.
+- Keep the practical pipeline visible: Direction, Template, Color, Logic. Users may jump around, but the default story should follow that order.
+- Animated previews must stay inside their cards on desktop and mobile.
+- Treat PPT, PDF and web examples as references only. Remix palette roles, shape language, naming and layout details before publishing.
 - Avoid company-name imitation in public style names.
 - Let users go back and forth without losing selection state.
 - Use neutral labels for taste dimensions: dense, airy, editorial, technical, playful, restrained.
@@ -106,8 +110,10 @@ Before a workbench change is done:
 
 - the initial screen shows one primary decision, not every source,
 - template cards show specimen previews,
+- template browsing uses visible Previous/Next paging instead of hidden sideways scroll,
 - the selected direction updates the live preview,
 - exported JSON parses,
+- exported prompt, JSON and `DESIGN.md` include reference-safety rules for PPT/PDF/web inspiration,
 - exported prompt includes credits and build path,
 - source ledger stays available but out of the main path,
 - desktop and mobile have no horizontal overflow,
