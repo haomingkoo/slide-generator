@@ -50,6 +50,12 @@ For a serious deck, start with a project scaffold:
 npm run init:deck -- projects/my-deck --theme warm-editorial-light
 ```
 
+For a hackathon, demo day, builder competition, or judged showcase, scaffold the extra intelligence artifacts:
+
+```bash
+npm run init:deck -- projects/my-hackathon --mode hackathon --theme cobalt-grid-light
+```
+
 Then use the files in `projects/my-deck/work/` as the working contract:
 
 1. Fill `input/brief.md` with audience, goal, sources, must-include items and style preference.
@@ -60,7 +66,20 @@ Then use the files in `projects/my-deck/work/` as the working contract:
 6. Render only after the claim ledger, slide specs and design contract are internally consistent.
 7. Run browser QA, inspect screenshots, repair layout and copy, then publish.
 
+Hackathon mode also creates `work/hackathon-intelligence.md`, `work/build-plan.md`, and `work/demo-plan.md` so the agent can research judges, hosts, sponsor tracks, rubrics, public repos, past winners, build feasibility, demo proof and fallback strategy before polishing slides.
+
 See [docs/research-to-deck-guide.md](docs/research-to-deck-guide.md) for the practical anti-slop workflow. See [docs/visual-style-system.md](docs/visual-style-system.md) for how strong HTML slide styles are created and judged. See [docs/heuristic-slide-system.md](docs/heuristic-slide-system.md) for the continuous-improvement loop that turns deck feedback into reusable rules, validators, examples and skill updates. The [Chleo community band room example](examples/chleo-community-band-room) shows the same process applied to a real Singapore business proposal.
+
+To browse style options before generating a deck, run a local static server and open the style workbench:
+
+```bash
+python3 -m http.server 4173
+open http://localhost:4173/examples/style-workbench/
+```
+
+The workbench mixes template recipes, palette lanes and presentation disciplines, then exports a prompt or design-contract JSON for Codex or Claude.
+
+For adding more template sources, see [docs/template-source-registry.md](docs/template-source-registry.md). It separates importable open-source references from reference-only galleries and private deck pattern notes.
 
 ## How It Works
 
@@ -110,6 +129,7 @@ The deterministic scripts do not replace judgment. They make failures visible: m
 |---|---|
 | [`examples/source-grounded-demo`](examples/source-grounded-demo) | Compact source-grounded Marp workflow fixture with artifacts. |
 | [`examples/chleo-community-band-room`](examples/chleo-community-band-room) | Polished HTML proposal deck with research artifacts, critique notes, presenter controls, mobile scaling, source links, and layout repairs from real review feedback. |
+| [`examples/style-workbench`](examples/style-workbench) | Static style picker for templates, color lanes, reference disciplines and exportable design prompts. |
 
 The current Marp PPTX export is a visual handoff, not a native editable PowerPoint template. Native PPTX template editing and native Google Slides export are future work.
 
@@ -137,6 +157,7 @@ npm test
 | `templates/` | Starter slide specs and design contracts. |
 | `renderers/` | Marp themes and rendering assets. |
 | `design-systems/` | Reusable visual systems with theme rationale and design rules. |
+| `vendor/frontend-slides/` | MIT-licensed `frontend-slides` reference templates and style recipes with upstream notice preserved. |
 | `examples/` | Polished demos. |
 | `evals/` | Source-backed eval inputs, structural proxy baselines, and durable `work/` artifacts. |
 | `tests/` | Fixtures and negative guardrail tests. |

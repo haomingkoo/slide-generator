@@ -16,6 +16,9 @@ Done:
 - A/B eval harness for the first source-backed eval, comparing the skill output against a frozen self-authored structural proxy baseline.
 - GitHub CI and negative validator fixtures.
 - Practical research-to-deck guide, heuristic slide-system improvement loop, and package/workbench roadmap.
+- Hackathon intelligence scaffold for judge, host, sponsor, rubric, build-plan and demo-plan research.
+- Vendored `frontend-slides` reference templates with MIT notice, plus a `cobalt-grid-light` non-cream style contract.
+- Static style workbench for browsing template recipes, palette lanes, reference disciplines and exportable design prompts.
 
 Not done:
 
@@ -28,6 +31,7 @@ Not done:
 - Captured model-specific one-shot baseline comparison.
 - Semantic claim-vs-evidence verification beyond URL/source anchoring and review.
 - Autonomous repair execution without Claude/Codex updating the artifacts.
+- Custom HTML two-screen presenter console with synced audience view, next slide, notes, timer and fallback controls.
 
 ## Near-Term Roadmap
 
@@ -38,6 +42,7 @@ Not done:
 5. Add PPTX-specific visual QA and native editable PPTX generation only after the HTML-first path is stable.
 6. Package the CLI around existing scaffold, validation, render, QA and export scripts.
 7. Build a review workbench before attempting a full slide editor.
+8. Add a custom HTML presenter console after the Marp path remains stable.
 
 ## Template Roadmap
 

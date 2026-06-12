@@ -34,6 +34,12 @@ Before planning slides, resolve these fields:
 - `must_include`: required points, sources, examples, demos, or screenshots.
 - `must_avoid`: claims, tone, styles, jargon, competitors, or sensitive material to avoid.
 
+For hackathons and judged demos, also resolve:
+
+- `event_url`, `host`, `sponsors`, `tracks`, `judges`, `rubric`, and `submission_requirements` when known.
+- `build_time_remaining`, `team_skills`, `available_repos`, `available_apis`, `demo_environment`, and `deployment_target`.
+- `demo_fallback`: screenshots, video, seeded local demo, or static walkthrough.
+
 ## Intake Output
 
 After requirements gathering, write `work/intake-brief.md` with a clear goal before creating the claim ledger or story spine.
@@ -126,6 +132,9 @@ A one-shot run should still create durable artifacts:
 - `work/story-spine.json`
 - `work/slide-sorter.md`
 - `work/visual-aid-plan.json`
+- `work/hackathon-intelligence.md` for hackathon/demo competitions
+- `work/build-plan.md` for hackathon/demo competitions
+- `work/demo-plan.md` when live or recorded demo matters
 - `work/theme-options.md` or selected `brand-contract.json`
 - `work/slide-specs.json`
 - rendered draft

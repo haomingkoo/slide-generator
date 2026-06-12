@@ -86,6 +86,11 @@ Useful patterns to encode:
 - Numbered challenge rows: fixed number gutter plus equal-height text rows for campaign problems, risks or approval tasks.
 - Budget allocation ladder: categorical budget chart or table plus numbered spend rationale.
 - KPI strip: four large metrics with unit, period, target source and measurement method.
+- Rules with specimen cards: use for brand, operating standards, source rules or quality gates where examples matter.
+- Framework chain plus side explanation: use when a process has 3 to 5 connected stages and a short explanatory rail.
+- Capability or service portfolio columns: use for product/service offerings where columns need equal visual weight.
+- Coaching/pro-tip callout: use for teaching decks, workshops and how-to decks when one note should stand apart from the main explanation.
+- Design scope/goals/out-of-scope matrix: use for review decks where boundaries prevent misalignment.
 
 Failure modes to avoid:
 

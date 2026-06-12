@@ -14,18 +14,19 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 3. Review sources and code before writing claims.
 4. Build `claim-ledger.json` and, when code exists, `architecture-map.json`.
 5. Choose the deck archetype, opening hook, and proof spine before writing the full story.
-6. Write the audience model, story spine, and title-only slide sorter.
-7. Prioritize content against talk length, audience questions, claim strength, and backup needs.
-8. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
-9. Choose the deck quality mode, benefit statement, and proof bar.
-10. Record the phase loop and completion criteria for long-running jobs.
-11. Choose visual aids for hard ideas.
-12. Offer theme options when taste is unclear.
-13. Create slide specs.
-14. Render.
-15. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
-16. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
-17. When the deck reveals a reusable failure, write the lesson into `qa/`, a reference file, a validator, a template, or an eval. Run `npm run heuristic:status -- <project>` when maintaining this repo. Compress repeated fixes into simpler rules instead of adding endless one-off guidance.
+6. For hackathon, demo-day, builder competition, or judged showcase decks, create `work/hackathon-intelligence.md`, `work/build-plan.md`, and when relevant `work/demo-plan.md` before slide specs. Research judges, hosts, sponsor tracks, rules, repos and past winners when web research is allowed.
+7. Write the audience model, story spine, and title-only slide sorter.
+8. Prioritize content against talk length, audience questions, claim strength, and backup needs.
+9. Check research coverage. If evidence is thin, missing, stale, or conflicted, search only when allowed or ask for sources.
+10. Choose the deck quality mode, benefit statement, and proof bar.
+11. Record the phase loop and completion criteria for long-running jobs.
+12. Choose visual aids for hard ideas.
+13. Offer theme options when taste is unclear.
+14. Create slide specs.
+15. Render.
+16. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
+17. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
+18. When the deck reveals a reusable failure, write the lesson into `qa/`, a reference file, a validator, a template, or an eval. Run `npm run heuristic:status -- <project>` when maintaining this repo. Compress repeated fixes into simpler rules instead of adding endless one-off guidance.
 
 ## One-Shot Drafting
 
@@ -58,6 +59,8 @@ Dark mode is not the default. Pick theme by audience, setting, and brand.
 - Use clean light themes for consulting, academia, classroom, print, and conservative audiences.
 - Use dark runtime themes for security, systems, observability, dramatic demos, or when requested.
 - Use brand-derived themes when brand assets or guidelines exist.
+- Cream, beige, parchment and bone-paper palettes are opt-in, not defaults. If a reference has good structure but the wrong palette, preserve the layout grammar and generate a better colorway.
+- Prefer `cobalt-grid-light` for sharp light technical, hackathon, proposal and product decks when the user wants something closer to Cobalt Grid and not cream.
 - If unsure, produce 2 or 3 title-slide previews before rendering the full deck.
 - If the user provides PDF, PPTX, Gamma, Canva, Figma, or `frontend-slides` references, extract layout grammar and style constraints into `design-contract.json`. Do not copy raw assets or placeholder claims. Read `references/product-workflow-lessons.md`, `references/visual-style-system.md`, and the relevant PDF/PPTX workflow reference.
 
@@ -74,6 +77,7 @@ Read only what the task needs:
 - `references/content-prioritization.md`: main deck versus backup versus dropped content when sources exceed the slide/time budget.
 - `references/deck-archetypes-and-hooks.md`: opening-hook selection and routing to the right deck mode/template.
 - `references/deck-quality-benchmark.md`: mode-specific standards for fundraising, hackathon/demo, executive, technical, and teaching decks.
+- `references/hackathon-intelligence-and-build.md`: judge/host/sponsor research, brainstorm scoring, build plan, demo plan, and hackathon-specific proof strategy.
 - `references/research-coverage.md`: source sufficiency, research triggers, evidence gaps, source quality, and technical proof depth.
 - `references/memory-management.md`: token-efficient iteration.
 - `references/source-grounding.md`: claim ledger and audit rules.

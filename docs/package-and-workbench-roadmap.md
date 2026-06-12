@@ -101,3 +101,31 @@ Minimum useful version:
 - add a small preview example under `examples/`.
 
 This is the path to creating styles as strong as `frontend-slides` while keeping this repo's source-grounding and QA discipline.
+
+The first static step exists at `examples/style-workbench/`. It is not a full editor; it is a style picker that exports a design prompt and design-contract JSON.
+
+## Presenter Console
+
+Marp already provides a useful presenter view. A future custom HTML renderer should meet or exceed it before replacing that path for live talks.
+
+Minimum useful custom console:
+
+- audience window and presenter window stay in sync,
+- current slide, next slide and speaker notes are visible,
+- elapsed timer and slide timing are visible,
+- overview can jump to any slide,
+- presenter controls do not overlay the 16:9 stage,
+- backup link opens the normal audience deck if sync fails.
+
+## Motion And Video
+
+HyperFrames is a useful future reference for deck-to-video work because it treats HTML, CSS, media and seekable animation as deterministic video compositions. Do not pull it into the first package. First, keep the slide workflow stable; then explore a separate export path that translates `design-contract.json` into a video-facing `frame.md` or equivalent.
+
+Useful product lesson from the public HyperFrames design page:
+
+- keep a reusable `design.md` for the visual system,
+- create a separate `frame.md` for a specific 16:9 composition,
+- specify pacing, scale, dwell and motion as part of the artifact,
+- preview frame recipes before asking the agent to render a full video.
+
+That maps well to a future `slides-generator` path: deck contract -> selected slide/frame spec -> HTML preview -> deterministic video export. Keep it separate from the first static slide workflow so the core deck QA remains simple.

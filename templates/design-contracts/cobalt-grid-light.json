@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "source": {
+    "type": "reference-derived-theme",
+    "references": [
+      "design-systems/cobalt-grid-light/DESIGN.md",
+      "vendor/frontend-slides/bold-template-pack/templates/cobalt-grid/design.md"
+    ]
+  },
+  "direction": {
+    "personality": "cool cobalt grid",
+    "audience_fit": "Hackathon, technical, strategy and proposal decks that need a sharp light visual system without cream or parchment tones.",
+    "density": "balanced",
+    "depth": "grid_rules_and_signal_marks",
+    "grid": "fixed_technical_stage"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#f6fbff",
+      "surface": "#ffffff",
+      "text": "#111827",
+      "muted": "#536173",
+      "accent": "#0757ff",
+      "secondary_accent": "#00b8d9",
+      "border": "#b8d7ff"
+    },
+    "typography": {
+      "heading": "Aptos Display, Inter, Helvetica Neue, Arial, sans-serif",
+      "body": "Aptos, Inter, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["15px", "18px", "22px", "30px", "46px", "64px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "28px", "40px", "64px", "88px"]
+    },
+    "radius": ["6px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "One-line cobalt title on a light graph grid, with a short proof subtitle and a thin rule.",
+    "section_slide": "Large assertion with one cobalt axis line and a small evidence tag.",
+    "comparison_slide": "Two or three aligned grid panels with equal heights and short labels.",
+    "table_slide": "Hairline table with cobalt column emphasis, generous row height and protected source lane.",
+    "code_slide": "White code or architecture block on graph canvas with mono labels and no decorative clutter.",
+    "architecture_slide": "Stepped flow, system map or timeline aligned to grid intersections."
+  },
+  "rules": {
+    "avoid": [
+      "cream, beige, parchment or bone-paper defaults",
+      "grid lines behind dense body copy",
+      "using cobalt for every label",
+      "pixel-glitch accents near sources or controls"
+    ],
+    "must_preserve": [
+      "cool light canvas",
+      "strong cobalt accent",
+      "visible alignment grid",
+      "protected footer and source lane",
+      "short point-first titles"
+    ],
+    "accessibility": [
+      "normal text contrast >= 4.5:1",
+      "large text contrast >= 3:1",
+      "do not communicate status by color only",
+      "source text remains readable on mobile"
+    ]
+  },
+  "decisions": [
+    {
+      "decision": "Add a Cobalt Grid light style as a preferred non-cream frontend-slides-inspired lane.",
+      "rationale": "The user prefers Cobalt Grid's sharp light technical feel and explicitly disliked cream and bone-paper defaults.",
+      "date": "2026-06-12"
+    }
+  ]
+}

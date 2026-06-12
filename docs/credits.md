@@ -8,6 +8,7 @@ This repo learns from excellent open-source slide and design tools. Credit here 
 
 - Repository: https://github.com/zarazhangrui/frontend-slides
 - License: MIT, copyright 2025 Zara Zhang.
+- Vendored references: `vendor/frontend-slides/`
 
 What this repo learns from it:
 
@@ -23,6 +24,8 @@ What this repo keeps distinct:
 - Research artifacts, legal/cost caveats and source maps remain first-class.
 - The default workflow is artifact-first: deck plan, source map, claim ledger, story spine, slide sorter, design contract, slide specs, QA, then render.
 - Any copied MIT-licensed code or assets must preserve the required copyright and license notice.
+
+The vendored folder keeps the upstream license in `vendor/frontend-slides/LICENSE` and a repo-local notice in `vendor/frontend-slides/NOTICE.md`.
 
 ## Slidev
 
@@ -45,3 +48,21 @@ These products inform workflow expectations:
 - export and collaboration expectations.
 
 They are product references, not copied implementations.
+
+## Palette And Consulting References
+
+The style workbench also references public inspiration sources:
+
+- Coolors popular PowerPoint palettes: https://coolors.co/palettes/popular/powerpoint
+- Happy Hues: https://www.happyhues.co/
+- Adobe Color: https://color.adobe.com/
+- Color Hunt: https://colorhunt.co/
+- Ampler McKinsey deck collection: https://ampler.io/articles/50-free-mckinsey-powerpoint-slide-decks/
+- Slideworks BCG slide-writing guide: https://slideworks.io/resources/bcg-approach-to-great-slides-practical-guide-from-former-consultant
+- SlideGenius Accenture portfolio: https://www.slidegenius.com/portfolio/accenture
+- HyperFrames design page: https://www.hyperframes.dev/design
+- HyperFrames by HeyGen: https://github.com/heygen-com/hyperframes
+
+These are attribution links and pattern references. They do not grant permission to copy proprietary templates, screenshots, client work or private assets.
+
+For the fuller import/reference policy, see [template-source-registry.md](template-source-registry.md).

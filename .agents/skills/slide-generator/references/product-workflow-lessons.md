@@ -18,6 +18,8 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Borrow Gamma's outline-before-render discipline and Canva's theme/asset breadth, but keep this repo stricter on citations, claim ledgers, fixed-slide QA, and export readiness.
 - Use user-provided PPTX/PDF/Gamma exports as pattern libraries, not asset sources. Extract named layout patterns such as split cover, image-led problem rail, hero metric plus evidence, metric constellation, ask panel, alternating image rail, equal-height card row, obstacle matrix, and commitment rows.
 - For campaign strategy references, extract the campaign arc and patterns: challenge rows, audience insight split, milestone timeline, budget allocation ladder, persona card, KPI strip and approval ask.
+- For `frontend-slides` references, use the vendored compact index first, shortlist templates, and load only selected previews/design files. Preserve MIT credit and generate color variants when the original palette does not fit.
+- Cream, beige, parchment and bone-paper themes are opt-in. Prefer `cobalt-grid-light` when the user wants a sharp light technical/proposal feel.
 
 ## Guardrail Implications
 

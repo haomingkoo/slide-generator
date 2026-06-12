@@ -5,9 +5,15 @@ const repoRoot = path.resolve(new URL("..", import.meta.url).pathname);
 const target = process.argv[2];
 const force = process.argv.includes("--force");
 const theme = readOption("--theme") || "clean-surgical-light";
+const mode = readOption("--mode") || "standard";
 
 if (!target) {
-  console.error("Usage: node scripts/create-deck-artifacts.mjs <project-dir> [--theme clean-surgical-light|warm-editorial-light|dark-runtime] [--force]");
+  console.error("Usage: node scripts/create-deck-artifacts.mjs <project-dir> [--mode standard|hackathon] [--theme clean-surgical-light|warm-editorial-light|dark-runtime|cool-campaign-light|cobalt-grid-light] [--force]");
+  process.exit(2);
+}
+
+if (!new Set(["standard", "hackathon"]).has(mode)) {
+  console.error(`unsupported mode: ${mode}`);
   process.exit(2);
 }
 
@@ -33,8 +39,8 @@ try {
   const deckGoal = inferGoal(brief, title);
   const today = new Date().toISOString().slice(0, 10);
 
-  await writeIfMissing(path.join(workDir, "intake-brief.md"), intakeBrief({ title, deckGoal, today }));
-  await writeIfMissing(path.join(workDir, "deck-plan.md"), deckPlan({ title, deckGoal, today }));
+  await writeIfMissing(path.join(workDir, "intake-brief.md"), intakeBrief({ title, deckGoal, today, mode }));
+  await writeIfMissing(path.join(workDir, "deck-plan.md"), deckPlan({ title, deckGoal, today, mode }));
   await writeIfMissing(path.join(workDir, "source-map.md"), sourceMap({ today }));
   await writeIfMissing(path.join(workDir, "claim-ledger.json"), JSON.stringify(claimLedger({ title }), null, 2) + "\n");
   await writeIfMissing(path.join(workDir, "audience-model.json"), JSON.stringify(audienceModel({ title }), null, 2) + "\n");
@@ -42,12 +48,20 @@ try {
   await writeIfMissing(path.join(workDir, "slide-sorter.md"), slideSorter({ title }) + "\n");
   await writeIfMissing(path.join(workDir, "content-priority.md"), contentPriority({ title }) + "\n");
   await writeIfMissing(path.join(workDir, "visual-aid-plan.json"), JSON.stringify(visualAidPlan(), null, 2) + "\n");
+  if (mode === "hackathon") {
+    await writeIfMissing(path.join(workDir, "hackathon-intelligence.md"), hackathonIntelligence({ today }));
+    await writeIfMissing(path.join(workDir, "build-plan.md"), buildPlan({ today }));
+    await writeIfMissing(path.join(workDir, "demo-plan.md"), demoPlan({ today }));
+  }
   await copyDesignContract(theme, today);
   await writeIfMissing(path.join(workDir, "quality-rubric.json"), JSON.stringify(qualityRubric({ deckGoal }), null, 2) + "\n");
   await writeIfMissing(path.join(workDir, "slide-specs.json"), JSON.stringify(slideSpecs({ title, theme }), null, 2) + "\n");
   await writeIfMissing(path.join(workDir, "review-log.json"), JSON.stringify(reviewLog({ deckGoal, today }), null, 2) + "\n");
 
   console.log(`starter artifacts created for ${path.relative(repoRoot, projectDir) || projectDir}`);
+  if (mode === "hackathon") {
+    console.log("Hackathon mode: complete work/hackathon-intelligence.md, work/build-plan.md and work/demo-plan.md before rendering.");
+  }
   console.log("Next: complete work/deck-plan.md, then replace starter assumptions with sourced claims before treating factual slides as final.");
 } catch (error) {
   console.error(error.message);
@@ -123,13 +137,14 @@ Must avoid:
 `;
 }
 
-function intakeBrief({ title, deckGoal, today }) {
+function intakeBrief({ title, deckGoal, today, mode }) {
   return `# Intake Brief
 
 Date: ${today}
 Deck title: ${title}
 
 deck_goal: ${deckGoal}
+mode: ${mode}
 audience_shift: Replace this with the audience shift after reading the sources.
 success_criteria: Replace this with how the deck will be judged.
 
@@ -146,10 +161,10 @@ open_questions:
 - What source files should be treated as authoritative?
 - Who is the primary audience and decision maker?
 - What slide count or talk length should the final deck target?
-`;
+${mode === "hackathon" ? "- What is the event URL, rubric, host, sponsor track, judge list and demo format?\n" : ""}`;
 }
 
-function deckPlan({ title, deckGoal, today }) {
+function deckPlan({ title, deckGoal, today, mode }) {
   return `# Deck Plan
 
 Date: ${today}
@@ -158,6 +173,7 @@ Deck title: ${title}
 ## Contract
 
 - deck_job: Replace with pitch, teaching, executive decision, product demo, research brief, or proposal.
+- mode: ${mode}
 - audience: Replace with the named audience and decision maker.
 - presenter: Replace with who will speak.
 - target_next_action: Replace with the action the deck should earn.
@@ -189,6 +205,7 @@ ${deckGoal}
 | Costs or numbers | Vendor pages, quotes, benchmarks, model assumptions | Source plus calculation method | TODO |
 | Risks or legality | Official authority pages or qualified expert quote | Source, caveat, and launch implication | TODO |
 | User demand | Interview notes, signups, payments, usage logs | Named segment and success signal | TODO |
+${mode === "hackathon" ? "| Hackathon fit | Event page, rubric, host/sponsor pages, judge profiles, public repos, past winners | Public source plus deck/build implication | TODO |\n" : ""}
 
 ## Slide Logic
 
@@ -205,6 +222,7 @@ Choose one before rendering:
 
 - clean-light: safest for consulting, source-heavy decks and executive review.
 - warm-editorial-light: better for community, culture, education and founder proposals.
+- cobalt-grid-light: sharp light technical or hackathon decks when cream and parchment should be avoided.
 - dark-runtime: use only when the setting or content really benefits from a dark technical mood.
 
 Record the chosen theme in \`work/design-contract.json\`.
@@ -222,7 +240,7 @@ Record the chosen theme in \`work/design-contract.json\`.
 - What is the strongest objection this deck must answer?
 - What decision should the audience make immediately after viewing?
 - Which details belong in appendix rather than the live story?
-`;
+${mode === "hackathon" ? "- What build and demo choices should change after researching judges, hosts and sponsor tracks?\n" : ""}`;
 }
 
 function sourceMap({ today }) {
@@ -380,6 +398,144 @@ dropped_or_deferred:
 `;
 }
 
+function hackathonIntelligence({ today }) {
+  return `# Hackathon Intelligence
+
+Date: ${today}
+
+event:
+format:
+talk_time:
+demo_time:
+qna_time:
+submission_assets:
+
+## Judging Rubric
+
+| Criterion | Weight / priority | What counts as proof | Deck implication |
+|---|---:|---|---|
+| TODO | TODO | TODO | TODO |
+
+## Hosts, Sponsors And Judges
+
+| Person or org | Public signal reviewed | Likely lens | What to show | What to avoid |
+|---|---|---|---|---|
+| TODO | TODO | TODO | TODO | TODO |
+
+## Tracks And Sponsor Goals
+
+| Track | Sponsor / host goal | Required tech | Hidden risk | Proof needed |
+|---|---|---|---|---|
+| TODO | TODO | TODO | TODO | TODO |
+
+## Repos, Docs And Public Direction
+
+| Source | What it suggests | Build implication | Claim IDs |
+|---|---|---|---|
+| TODO | TODO | TODO | TODO |
+
+## Past Winners / Comparable Projects
+
+| Project | What won | Evidence artifact | Lesson |
+|---|---|---|---|
+| TODO | TODO | TODO | TODO |
+
+## Positioning Decision
+
+- project_wedge:
+- strongest_judge_fit_angle:
+- strongest_technical_proof:
+- strongest_user_proof:
+- risky_claim_to_avoid:
+- demo_moment_judges_should_remember:
+
+## Open Questions
+
+- What official event page, rules and judging rubric are authoritative?
+- Which judges, sponsors or hosts matter most for this submission?
+- What must be built, recorded or submitted before deadline?
+`;
+}
+
+function buildPlan({ today }) {
+  return `# Build Plan
+
+Date: ${today}
+
+## Project Wedge
+
+One sentence describing the smallest impressive thing to build.
+
+## Must Ship
+
+| Feature | User proof | Technical proof | Owner | Deadline | Demo status |
+|---|---|---|---|---|---|
+| TODO | TODO | TODO | TODO | TODO | TODO |
+
+## Nice To Have
+
+| Feature | Why it may help | Drop rule |
+|---|---|---|
+| TODO | TODO | TODO |
+
+## Technical Spine
+
+- data/input:
+- model/API/library:
+- state or memory:
+- tool calls/integrations:
+- evaluation/scoring:
+- human review/safety:
+- persistence:
+- deployment:
+
+## Build Sequence
+
+1. Create the smallest end-to-end path.
+2. Add the one technical proof judges should remember.
+3. Add logging, screenshots or evaluation artifacts.
+4. Polish the demo path.
+5. Cut anything that does not improve judging proof.
+
+## Build Risks
+
+| Risk | Trigger | Mitigation | Slide or demo caveat |
+|---|---|---|---|
+| TODO | TODO | TODO | TODO |
+`;
+}
+
+function demoPlan({ today }) {
+  return `# Demo Plan
+
+Date: ${today}
+
+- demo_promise:
+- live_url_or_run_command:
+- backup_video_or_screenshots:
+- exact_script:
+- seed_data:
+- failure_fallback:
+- timing:
+- judge_question_the_demo_answers:
+
+## Demo Path
+
+1. Starting state:
+2. User action:
+3. System behavior:
+4. Visible proof:
+5. Recovery path if live demo fails:
+
+## Presenter Notes
+
+- first_20_seconds:
+- proof_moment:
+- transition_to_architecture:
+- closing_ask:
+`;
+}
+
 function visualAidPlan() {
   return {
     visual_aids: [
@@ -469,9 +625,9 @@ function slideSpecs({ title, theme: themeName }) {
         layout: "quote",
         title: "Next step",
         quote: "Replace assumptions with evidence before polishing the deck.",
-        claim_ids: [],
+        claim_ids: ["claim_001"],
+        claim_use: "starter caveat",
         unsupported_claims: [],
-        no_claims_reason: "Closing instruction rather than factual support.",
         visual_aid: {
           type: "quote",
           purpose: "Close with a clear operating instruction."
@@ -479,7 +635,8 @@ function slideSpecs({ title, theme: themeName }) {
         speaker_notes: {
           key_message: "The next step is source review.",
           talk_track: ["Do not treat the scaffold as final.", "Use the claim ledger as the accuracy spine."],
-          timing_seconds: 30
+          timing_seconds: 30,
+          claim_ids: ["claim_001"]
         }
       }
     ]

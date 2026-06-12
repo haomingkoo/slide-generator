@@ -98,6 +98,7 @@ Rules:
 - Notes may explain a sourced claim, but must not add new unsourced factual claims.
 - `avoid_saying` is for overclaiming, jargon, hype, and claims the evidence does not support.
 - Use `timing_seconds` to catch decks that cannot fit the requested talk length.
+- For live custom HTML decks, notes should be readable in presenter view beside current and next slide.
 
 ## Audience POV Critique
 

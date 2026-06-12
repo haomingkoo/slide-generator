@@ -24,6 +24,7 @@ Use plain names the user can react to:
 |---|---|---|
 | Clean Surgical Light | Consulting, executive, academic, formal proposals | Off-white background, black text, strict grid, one accent, restrained charts |
 | Warm Editorial Light | Founder stories, product narratives, audience-friendly explainers | Warm paper tone, editorial type, human screenshots, generous whitespace |
+| Cobalt Grid Light | Hackathon, technical, product strategy and proposal decks that should stay light but sharp | White or ice-blue graph canvas, cobalt accent, thin rules, signal marks |
 | Creative Light | Pitch decks that need to feel memorable but still readable | Hard borders, poster rhythm, bold color blocks, strong hierarchy, careful footer lanes |
 | Dark Runtime | Security, infrastructure, live technical demos | Dark neutral background, bright semantic labels, readable system diagrams |
 
@@ -64,6 +65,26 @@ Traits:
 - editorial typography,
 - generous whitespace,
 - selective product screenshots or mockups.
+
+## Cobalt Grid Light
+
+Use for:
+
+- hackathon decks,
+- technical proposals,
+- product strategy decks,
+- source-backed decks that need a memorable but still professional light style,
+- users who like Cobalt Grid and dislike cream or bone-paper palettes.
+
+Traits:
+
+- white or ice-blue graph canvas,
+- electric cobalt accent,
+- thin dividers and visible alignment grid,
+- stepped signal marks used sparingly,
+- source and presenter lanes kept clear of decoration.
+
+Avoid cream, beige, parchment and bone-paper backgrounds unless explicitly requested.
 
 ## Dark Runtime
 

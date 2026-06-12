@@ -59,6 +59,26 @@ Repository: https://github.com/zarazhangrui/frontend-slides
 
 Borrow workflow patterns and credit the source. Do not copy code or assets without preserving the MIT copyright and license notice.
 
+This repo vendors selected reference files under `vendor/frontend-slides/` with the upstream MIT license preserved. For normal generation:
+
+1. Read `vendor/frontend-slides/bold-template-pack/selection-index.json`.
+2. Shortlist 2 or 3 candidates from metadata.
+3. Read only shortlisted `preview.md` files.
+4. After the user chooses, read exactly that template's `design.md`.
+5. Convert the design into this repo's artifact workflow and QA gates.
+
+Do not bulk-read every template design file. Do not force the reference palette when the user dislikes it.
+
+## Colorway Rule
+
+Templates are layout and visual-grammar references, not fixed color mandates.
+
+- Cream, beige, parchment and bone-paper palettes are opt-in, not defaults.
+- If the user says a palette is wrong, preserve the useful structure and create a new colorway.
+- Prefer cooler light palettes for professional decks unless a warm editorial mood is requested.
+- `Cobalt Grid` is a strong preferred lane for light technical, hackathon, proposal and product decks: ice-blue or white canvas, electric cobalt accents, thin rules, graph grid and restrained signal marks.
+- Always protect contrast, sources, slide numbers and presenter controls before preserving decorative palette details.
+
 ## Style Pack Contract
 
 A reusable style pack needs:
@@ -91,5 +111,6 @@ When learning from the supplied Gamma exports:
 - Keel-style company deck: restrained dark surface, strong alignment, simple charts/tables, low object count, sparse accent use.
 - Competitive-landscape deck: image-led splits, dark overlays, large mood-setting photos, simple accent-coded diagrams, strong visual continuity.
 - Cool campaign light deck: white field, lavender accent, cool silver image slabs, numbered challenge rows, KPI strip, budget ladder and ask rows.
+- Cobalt Grid: light graph-paper structure, electric cobalt hierarchy, hairline rules, technical signal marks and crisp aligned evidence blocks.
 
 Borrow these as style mechanics. Do not copy proprietary imagery or template assets. For a light proposal deck, translate the mechanics into clean hierarchy, image-led moments, controlled source lanes and fewer crowded multi-purpose slides.

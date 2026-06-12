@@ -51,3 +51,19 @@ Good interactive slides teach a mechanism:
 - staged animation for runtime flow.
 
 The interaction must be understandable without the speaker debugging it live.
+
+## Presenter Console
+
+For Marp output, use the built-in presenter view before building custom presenter infrastructure.
+
+For custom HTML decks meant for live delivery, the renderer should provide or preserve:
+
+- an audience view,
+- a presenter view through a stable query string such as `?view=presenter`,
+- current slide, next slide, notes and timer,
+- overview/jump navigation,
+- keyboard controls shared with the audience view,
+- a sync mechanism such as `BroadcastChannel` or `localStorage`,
+- a fallback normal deck URL if sync fails.
+
+Presenter controls must sit outside the scaled slide stage or the stage must reserve a control band. They should never cover source text, output rows or slide content.

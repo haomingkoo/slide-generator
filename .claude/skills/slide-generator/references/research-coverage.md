@@ -27,6 +27,15 @@ Search or request sources when:
 - the user supplied only rough notes but wants a polished, high-confidence deck,
 - the audience will ask "how do you know?"
 
+For hackathon, demo-day, builder competition or sponsor-track decks, search or request sources for:
+
+- official event page, judging rubric, prize tracks, schedule and submission requirements,
+- host and sponsor goals, docs, APIs, SDKs and recent announcements,
+- named judges, mentors or organizers and their public work,
+- judges' repos, papers, talks, product pages, technical writing and stated interests,
+- past winners, showcase pages, Devpost pages, demo videos and public repos,
+- disclosure rules for AI assistance, generated assets, datasets and prior work.
+
 If research is disabled, do not browse. Instead:
 
 - mark claims as `user_file`, `assumption`, or `inference`,
@@ -119,3 +128,5 @@ If evidence is insufficient:
 - ask for sources when the gap blocks the deck goal.
 
 For high-stakes decks, unresolved high-priority evidence gaps block `ready_to_present`.
+
+For hackathon decks, unresolved judging criteria, missing submission requirements, unknown demo format or unknown sponsor-track constraints block `ready_to_present` unless the deck clearly labels them as assumptions and the presenter accepts that risk.

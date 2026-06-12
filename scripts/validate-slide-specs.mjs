@@ -6,7 +6,8 @@ export const SLIDE_THEMES = new Set([
   "clean-surgical-light",
   "warm-editorial-light",
   "dark-runtime",
-  "cool-campaign-light"
+  "cool-campaign-light",
+  "cobalt-grid-light"
 ]);
 
 export const SLIDE_LAYOUTS = new Set([

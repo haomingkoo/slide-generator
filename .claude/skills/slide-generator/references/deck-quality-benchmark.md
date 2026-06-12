@@ -114,6 +114,16 @@ Start by recording:
 - proof assets available,
 - demo fallback.
 
+For serious hackathons, also research and record:
+
+- host organization goals and recent public direction,
+- sponsor track goals, APIs, SDKs, docs and constraints,
+- named judges' public work, repos, talks, papers, products and judging lens,
+- past winners or comparable projects,
+- disclosure rules for AI assistance, generated assets, datasets and prior work.
+
+This research should change the project and demo plan, not only the deck copy.
+
 Default main-deck archetypes:
 
 1. What it is: project name and one plain sentence.
@@ -139,6 +149,8 @@ Hackathon red flags:
 - Technical depth is hand-waved.
 - Pitch sounds like a fundraising deck when judges score implementation.
 - AI assistance, data limits, or generated assets are hidden when they matter.
+- Judge or sponsor research becomes flattery instead of build, proof and Q&A strategy.
+- Project idea is chosen before checking judge fit, build feasibility and demo clarity.
 
 ## Idea And Argument Critique
 

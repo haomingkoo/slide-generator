@@ -25,6 +25,8 @@ Every serious deck run should follow this loop:
 | Content Priority | Decide what belongs in main deck, backup, appendix or nowhere. | `work/content-priority.md` | human review and slide-count fit | absorbed |
 | Visual Aid Selection | Pick tables, charts, diagrams, timelines, maps, screenshots or image panels based on the slide job. | `work/visual-aid-plan.json`, slide specs | slide-spec validation, rendered review | absorbed |
 | Visual Style System | Choose or create a design contract from audience, brand and references such as Gamma, Canva, Figma Slides or frontend-slides. | `work/design-contract.json`, `design-systems/`, `templates/design-contracts/` | `npm run validate:design -- <project>`, Playwright screenshots | absorbed |
+| Template Gallery | Shortlist open-source template recipes, generate safe color variants, and preserve license notices. | `vendor/frontend-slides/`, `design-systems/`, `templates/design-contracts/` | license notice review, representative browser QA | absorbed |
+| Hackathon Intelligence | Research judges, hosts, sponsors, rubrics, repos and past winners before choosing build and deck strategy. | `work/hackathon-intelligence.md`, `work/build-plan.md`, `work/demo-plan.md` | source audit, build/demo readiness review | absorbed |
 | Rendering | Convert slide specs to fixed presentation output. | `work/slide-specs.json`, `deck/` | `npm run render:marp -- <project> --html`, `npm run inspect:marp -- <project>` | tested |
 | Browser Visual QA | Catch overflow, footer/source collisions, stale browser state, bad mobile controls and unreadable layouts. | `qa/browser-qa.json`, screenshots | `npm run qa:browser -- <project>` plus manual screenshot review for custom HTML | tested |
 | Quality Loop | Score, critique and repair from researcher, critic, designer and delivery lenses. | `work/quality-rubric.json`, `qa/slide-scorecard.json`, `qa/repair-plan.json` | `npm run deck:score -- <project>`, `npm run deck:iterate -- <project>` | tested |
@@ -86,6 +88,11 @@ Useful visual patterns observed from user-provided Gamma/PDF/PPTX exports:
 - budget allocation ladder,
 - KPI strip,
 - persona card.
+- rules with specimen cards,
+- framework chain plus side explanation,
+- capability or service portfolio columns,
+- coaching/pro-tip callout,
+- design scope/goals/out-of-scope matrix.
 
 Every extracted pattern must answer: what slide job does it solve, what evidence does it need, what copy budget keeps it readable, and what browser QA failure would invalidate it.
 
@@ -95,6 +102,7 @@ Reusable style packs created from references:
 - `clean-surgical-light`: executive, consulting and source-heavy decks.
 - `dark-runtime`: technical, security and system decks.
 - `cool-campaign-light`: campaign strategy, launch, go-to-market and marketing proposal decks.
+- `cobalt-grid-light`: light technical/proposal deck system inspired by Cobalt Grid, with cream and bone-paper palettes avoided by default.
 
 ## Deep-Agent Behavior
 

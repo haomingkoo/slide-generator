@@ -32,6 +32,26 @@ The Chleo deck works better after repair because it combines source-backed plann
 
 In this repo, credit the source and borrow the workflow pattern. Do not silently copy template code or assets without preserving MIT license notices.
 
+Selected `frontend-slides` reference files are vendored under `vendor/frontend-slides/` with the upstream MIT license and notice preserved. Use the compact index first:
+
+```txt
+vendor/frontend-slides/bold-template-pack/selection-index.json
+```
+
+Then load only the shortlisted `preview.md` files, and finally the selected template's `design.md`. Do not bulk-read every template design file for normal deck generation.
+
+## Colorway Policy
+
+Templates are recipes, not mandatory palettes. If the user dislikes a palette, keep the layout grammar and generate a new colorway.
+
+Current taste notes:
+
+- Cream, beige, parchment and bone-paper backgrounds are not defaults. Use them only when requested or when the deck genuinely needs a warm archival/editorial feel.
+- `Cobalt Grid` is a preferred light technical lane: white or ice-blue canvas, cobalt accent, visible graph grid, thin rules and signal marks.
+- Good alternate light colorways: cobalt/cyan, ink/mint, white/lilac-grey, cool silver/blue, black/green technical, and restrained coral/blue for warmer proposals.
+- Avoid one-note palettes where every surface, accent and chart is just a variant of one hue.
+- Preserve contrast and source-lane legibility before preserving the reference palette.
+
 ## Style Discovery Flow
 
 For any polished deck where taste is unclear:
@@ -54,6 +74,15 @@ Good theme choices should say what they borrow and what they avoid. Example:
 Creative Light
 Borrow: poster-scale type, hard borders, cream paper, four accent colors.
 Avoid: tiny labels, too many card grids, visual noise around source footers.
+```
+
+If a reference has the right layout but wrong palette, record both decisions:
+
+```txt
+Cobalt Grid Variant
+Borrow: fixed graph canvas, cobalt hierarchy, hairline rules, stepped signal marks.
+Change: replace cream or parchment with ice-blue/white, keep footers outside decoration.
+Avoid: saturated cobalt everywhere, grid lines behind dense copy.
 ```
 
 ## Building More Style Packs
@@ -192,3 +221,34 @@ The best next UI is a style workbench:
 - send one slide back to Codex for targeted repair.
 
 That gives us the useful part of Gamma/Canva/Figma without trying to rebuild all of them first.
+
+The first static version lives at `examples/style-workbench/`. It is intentionally simple: browse template recipes, mix palette lanes and reference disciplines, preview the direction, then export a prompt or design-contract JSON.
+
+Use `docs/template-source-registry.md` before importing more templates. The workbench can list many sources, but vendoring a source requires license review, attribution and a scoped import.
+
+## Consulting References
+
+Consulting deck references should influence thinking discipline, not become copied templates.
+
+- Ampler's McKinsey deck collection is useful as a directory of public consulting slide examples and common framework patterns.
+- Slideworks' BCG slide-writing guide is useful for action titles, storylining, title-only story checks, slide-purpose discipline, chart/table/process selection and quality control.
+- SlideGenius' Accenture portfolio page is useful as an agency-style reference for minimalist executive-summary presentation work and attention-aiding visuals.
+
+Use these as source-attributed references in prompts. Do not copy proprietary images, deck screenshots, client branding or template assets.
+
+## Motion / Frame References
+
+HyperFrames is useful because it separates design language from frame composition:
+
+- `design.md` carries the brand/style system,
+- `frame.md` carries the 16:9 composition and motion direction,
+- pacing, scale, dwell and movement are explicit instead of guessed after export.
+
+For this repo, the sequence is:
+
+1. make the static deck readable and source-safe,
+2. export or derive a compact design contract,
+3. translate selected slides into a frame-facing spec only when motion helps the story,
+4. test that source lanes, footers and presenter controls do not overlap animated content.
+
+Do not use motion as a substitute for weak claims, unclear story flow or shallow research.
