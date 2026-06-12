@@ -91,3 +91,4 @@ Read only what the task needs:
 - `references/evals.md`: how to test this skill.
 
 For the maintainer-level continuous-improvement loop, see `docs/heuristic-slide-system.md` in the repo.
+For the repo-local deck skill bank and deep-agent command layer, see `docs/skill-bank.md`.

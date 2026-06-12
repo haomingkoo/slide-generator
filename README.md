@@ -94,6 +94,7 @@ The deterministic scripts do not replace judgment. They make failures visible: m
 | `npm run sync:skills` | Copy canonical skill files into Codex and Claude runtime mirrors. |
 | `npm run init:deck -- projects/my-deck` | Create a local project scaffold. |
 | `npm run workflow:status -- <project>` | Report which artifacts exist and what to repair next. |
+| `npm run deck:agent -- <project>` | Produce a deep-agent action plan: active skill module, next artifact, command, and verification. |
 | `npm run deck:build -- <project> --render --export` | Validate, render, run browser QA, and optionally export. |
 | `npm run deck:score -- <project>` | Validate hard gates, scorecard, and repair plan; numeric scores are advisory. |
 | `npm run deck:iterate -- <project> -- --threshold 88` | Render, QA, and validate quality artifacts after Claude/Codex writes critique artifacts. |

@@ -84,6 +84,7 @@ Use:
 
 ```bash
 npm test
+npm run deck:agent -- examples/chleo-community-band-room
 npm run heuristic:status
 npm run heuristic:status -- examples/chleo-community-band-room
 npm run workflow:status -- <project>

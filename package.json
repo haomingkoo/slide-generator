@@ -31,6 +31,7 @@
     "sync:skills": "node scripts/sync-skills.mjs",
     "init:deck": "node scripts/create-deck-artifacts.mjs",
     "workflow:status": "node scripts/deck-workflow-status.mjs",
+    "deck:agent": "node scripts/deck-agent-plan.mjs",
     "deck:build": "node scripts/build-deck.mjs",
     "deck:score": "node scripts/score-deck.mjs",
     "deck:iterate": "node scripts/iterate-deck.mjs",
