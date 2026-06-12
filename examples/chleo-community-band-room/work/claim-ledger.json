@@ -1,0 +1,226 @@
+{
+  "claims": [
+    {
+      "claim_id": "C001",
+      "claim": "Tagvenue lists Singapore jamming studios with a June 2026 average around S$55 per hour and a range from S$30 to S$108 per hour.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.tagvenue.com/sg/hire/jamming-studios/singapore",
+        "name": "Tagvenue jamming studios Singapore"
+      },
+      "evidence": "Tagvenue FAQ states the average is S$55 per hour and the June 2026 range is S$30 to S$108 per hour.",
+      "confidence": "high",
+      "allowed_slide_use": ["market benchmark", "pricing strategy", "comparison table"]
+    },
+    {
+      "claim_id": "C002",
+      "claim": "Selected direct-budget competitors list rehearsal or jamming rooms around S$25 to S$35 per hour.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.tonehouse.sg/pricing",
+        "name": "Tonehouse pricing, cross-checked with Treble Cube and Sonictones listings"
+      },
+      "evidence": "Tonehouse lists a Bedroom at S$11.40 per 30 minutes and a Living Room at S$22.40 per 30 minutes; prior checks found Treble Cube around S$25 and Sonictones around S$35.",
+      "confidence": "high",
+      "allowed_slide_use": ["market benchmark", "pricing strategy"]
+    },
+    {
+      "claim_id": "C003",
+      "claim": "Singapore Planning Use Classes Rules include music school under commercial school.",
+      "type": "external_source",
+      "source": {
+        "url": "https://sso.agc.gov.sg/SL/PA1998-R2",
+        "name": "Singapore Planning Use Classes Rules"
+      },
+      "evidence": "The statutory definition of commercial school includes music school.",
+      "confidence": "high",
+      "allowed_slide_use": ["legal scenario matrix", "site checklist"]
+    },
+    {
+      "claim_id": "C004",
+      "claim": "JTC warns industrial change-of-use applications must be compatible with surrounding industries, must not violate URA 60:40 space usage, and should be approved before tenancy or renovation commitments.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.jtc.gov.sg/get-help/managing-your-tenancy-or-lease/changing-the-use-of-your-industrial-property",
+        "name": "JTC change of use for industrial property"
+      },
+      "evidence": "JTC lists compatibility, the URA 60:40 rule, and advice not to commit to tenancy or renovation before receiving the outcome.",
+      "confidence": "high",
+      "allowed_slide_use": ["legal scenario matrix", "site checklist", "risk slide"]
+    },
+    {
+      "claim_id": "C005",
+      "claim": "SPF states any outlet with live performance of music, singing and/or dancing falls under public entertainment licensing conditions; SPF estimated PEL processing time is about 3 weeks from complete application.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.police.gov.sg/Business-E-Services/Apply-for-Public-Entertainment-Licence",
+        "name": "SPF Public Entertainment Licence"
+      },
+      "evidence": "SPF PEL pages include the live performance category and state approximately 3 weeks processing from receipt of application and supporting documents.",
+      "confidence": "high",
+      "allowed_slide_use": ["legal scenario matrix", "launch plan"]
+    },
+    {
+      "claim_id": "C006",
+      "claim": "SCDF states proposed fire safety works require approval with plans submitted by Qualified Persons, and temporary stage shows or events may require Temporary Change of Use approval.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.scdf.gov.sg/fire-safety-services-listing/plans-submission-process/plan-approval",
+        "name": "SCDF plan approval"
+      },
+      "evidence": "SCDF says changes affecting fire protection systems, escape routes, fire compartments, ACMV or change of use can require plans prepared by a QP.",
+      "confidence": "high",
+      "allowed_slide_use": ["legal scenario matrix", "launch plan", "risk slide"]
+    },
+    {
+      "claim_id": "C007",
+      "claim": "NEA factory boundary noise limits become stricter near residential and noise-sensitive premises; for residential affected premises the table shows 65 dBA day, 60 evening and 55 night over the specified period.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.nea.gov.sg/our-services/pollution-control/noise-pollution/industrial-noise-control",
+        "name": "NEA industrial noise control"
+      },
+      "evidence": "NEA industrial noise control page provides day, evening and night dBA limits by affected premises type.",
+      "confidence": "high",
+      "allowed_slide_use": ["acoustic reality", "risk slide"]
+    },
+    {
+      "claim_id": "C008",
+      "claim": "NEA entertainment noise guidance recommends measures such as sound limiters, directional speaker placement, sound absorbing or anti-vibration materials, double-glazed windows and double doors where applicable.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.nea.gov.sg/docs/default-source/resource/good-practice-guide-for-noise-mitigation-entertainment-outlets.pdf",
+        "name": "NEA good practice guide for entertainment noise mitigation"
+      },
+      "evidence": "NEA guide lists indoor noise mitigation measures and recommends independent experts where warranted.",
+      "confidence": "high",
+      "allowed_slide_use": ["acoustic reality", "site checklist"]
+    },
+    {
+      "claim_id": "C009",
+      "claim": "Acoustic treatment and soundproofing solve different problems; treatment improves room sound while isolation requires construction approaches.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.sweetwater.com/insync/tips-soundproofing-home-studio-practice-spot/",
+        "name": "Sweetwater soundproofing and acoustic treatment explainer"
+      },
+      "evidence": "Sweetwater explains that acoustic treatment and soundproofing are different design concepts and that effective soundproofing is a construction or remodeling project.",
+      "confidence": "high",
+      "allowed_slide_use": ["acoustic reality"]
+    },
+    {
+      "claim_id": "C010",
+      "claim": "Soundzipper Singapore examples show insulated wall costs from S$85 to S$317 per sqm, ceiling soundproofing from S$113 to S$248 per sqm, and timber floated flooring around S$279 per sqm.",
+      "type": "external_source",
+      "source": {
+        "url": "https://soundzipper.com/blog/soundproofing-construction-cost/",
+        "name": "Soundzipper Singapore soundproofing construction cost"
+      },
+      "evidence": "Soundzipper article provides Singapore construction cost ranges for walls, ceilings and floating floors.",
+      "confidence": "medium",
+      "allowed_slide_use": ["startup costs", "acoustic reality"]
+    },
+    {
+      "claim_id": "C011",
+      "claim": "Indicative Singapore B1/B2 industrial asking rents include examples around S$2.20 to S$4.90 psf per month, while selected listings show low psf rent exists but does not solve use approval.",
+      "type": "external_source",
+      "source": {
+        "url": "https://spacelookup.com.sg/rental-rates-guide/",
+        "name": "SpaceLookup Singapore rental rates guide, cross-checked with CommercialGuru listings"
+      },
+      "evidence": "SpaceLookup and CommercialGuru examples show low industrial psf rents, but JTC/URA approval constraints still apply.",
+      "confidence": "medium",
+      "allowed_slide_use": ["startup costs", "site options"]
+    },
+    {
+      "claim_id": "C012",
+      "claim": "IRAS lease duty is 0.4 percent of total rent for lease periods of 4 years or less where average annual rent exceeds S$1,000.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.iras.gov.sg/quick-links/tax-rates/stamp-duty",
+        "name": "IRAS stamp duty rates"
+      },
+      "evidence": "IRAS lease duty table states 0.4 percent of total rent for lease periods of 4 years or less where AAR exceeds S$1,000.",
+      "confidence": "high",
+      "allowed_slide_use": ["startup costs"]
+    },
+    {
+      "claim_id": "C013",
+      "claim": "Selected current equipment price anchors include Pearl Export shell pack S$739, BOSS Katana examples S$579 to S$719, Behringer XR18 S$639, and Shure SM58 S$159 to S$219.",
+      "type": "external_source",
+      "source": {
+        "url": "https://shop.shure.com.sg/products/sm58-lc-microphone",
+        "name": "Shure Singapore SM58 price, cross-checked with Swee Lee and Shop listings for other equipment"
+      },
+      "evidence": "Retail pages and snippets checked on 11 June 2026 provided price anchors for core equipment.",
+      "confidence": "medium",
+      "allowed_slide_use": ["startup costs", "setup spec"]
+    },
+    {
+      "claim_id": "C014",
+      "claim": "The recommended launch approach is to start with private rehearsals and lessons, then defer public showcases until site use, fire safety, public entertainment, arts entertainment and music-rights requirements are confirmed.",
+      "type": "inference",
+      "source": "Synthesized from C003 to C008 plus COMPASS and MRSS public-performance rights sources.",
+      "evidence": "Regulatory requirements depend on use case; public performances and copyrighted music in public add licensing exposure.",
+      "confidence": "high",
+      "allowed_slide_use": ["recommendation", "launch plan", "risk slide"]
+    },
+    {
+      "claim_id": "C015",
+      "claim": "For a first owned best-value room, a realistic planning envelope is roughly S$66k to S$135k all-in before stable operations, combining fitout/equipment, lease cash, stamp duty, working capital and contingency.",
+      "type": "inference",
+      "source": "Startup cost model in deck based on C010 to C013 and explicit planning assumptions.",
+      "evidence": "Assumes 500 to 800 sq ft, rent planning S$4k to S$6.5k/month, 3-month security deposit, first-month rent, 24-month lease stamp duty at 0.4 percent, fitout/equipment S$35k to S$75k, working capital/contingency S$15k to S$30k.",
+      "confidence": "medium",
+      "allowed_slide_use": ["startup costs", "options table"]
+    },
+    {
+      "claim_id": "C016",
+      "claim": "SOFT Singapore provides local musician and band forums, including musician/band available and wanted categories.",
+      "type": "external_source",
+      "source": {
+        "url": "https://soft.com.sg/forums/",
+        "name": "SOFT Singapore forums"
+      },
+      "evidence": "SOFT describes itself as a Singapore music community and lists forum sections for musicians, bands and events.",
+      "confidence": "high",
+      "allowed_slide_use": ["lead generation", "go to market"]
+    },
+    {
+      "claim_id": "C017",
+      "claim": "Public Singapore platforms show reachable pools of musicians, tutors and music groups, including SOFT, Meetup musician groups and music tutor platforms.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.meetup.com/topics/musicians/sg/",
+        "name": "Meetup musicians groups Singapore, cross-checked with Superprof and SOFT"
+      },
+      "evidence": "Meetup lists Singapore musician groups; Superprof lists music tutor profiles; SOFT lists active local musician/band forum categories.",
+      "confidence": "medium",
+      "allowed_slide_use": ["lead generation", "go to market"]
+    },
+    {
+      "claim_id": "C018",
+      "claim": "Singapore SME insurance products commonly include or offer property, business interruption and public liability coverage categories relevant to a small studio quote pack.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.qbe.com/sg/business-insurance/sme-insurance",
+        "name": "QBE Singapore SME insurance, cross-checked with AIG and Allianz SME pages"
+      },
+      "evidence": "QBE lists property all risks, business interruption, public and products liability and miscellaneous property protection as SME insurance options.",
+      "confidence": "high",
+      "allowed_slide_use": ["launch plan", "risk slide", "quote pack"]
+    },
+    {
+      "claim_id": "C019",
+      "claim": "HDB commercial change-of-use and tenancy applications are handled through GoBusiness/HDB processes for relevant HDB commercial properties.",
+      "type": "external_source",
+      "source": {
+        "url": "https://www.hdb.gov.sg/shops-and-offices/managing-an-hdb-shop-or-office/change-of-use/application-process",
+        "name": "HDB change-of-use application process"
+      },
+      "evidence": "HDB application guidance points tenants to online submission via GoBusiness for trades requiring application.",
+      "confidence": "high",
+      "allowed_slide_use": ["site checklist", "launch plan"]
+    }
+  ]
+}

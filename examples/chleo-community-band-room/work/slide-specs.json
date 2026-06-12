@@ -1,0 +1,1066 @@
+{
+  "deck": {
+    "title": "Chleo Lee's Community Band Room",
+    "theme": "warm-editorial-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "layout": "title",
+      "slide_job": "hook",
+      "title": "Chleo Lee's Community Band Room",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Open with the real aim: help Chleo test and launch a studio without rushing into lease risk.",
+        "talk_track": [
+          "This is a practical launch proposal, not only a mood board."
+        ],
+        "transition_in": "Start with Chleo's dream and the risk of moving too fast.",
+        "transition_out": "Move to the core recommendation.",
+        "timing_seconds": 35,
+        "avoid_saying": [
+          "Guaranteed demand",
+          "Guaranteed approvals"
+        ],
+        "claim_ids": []
+      },
+      "visual_aid": {
+        "type": "image",
+        "purpose": "Poster-style studio switch visual introduces the room as inviting but controlled."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep the opening title stable for presenter mode.",
+        "reduced_motion_fallback": "Static title slide."
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "layout": "narrative",
+      "slide_job": "recommendation",
+      "title": "Validate first. Lease later.",
+      "body": [
+        "Do not rent first.",
+        "Interview 30 users.",
+        "Clear site permission.",
+        "Then build one good room."
+      ],
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "The recommendation is staged: customers, permission, quotes, then lease.",
+        "talk_track": [
+          "Frame this as risk control, not pessimism."
+        ],
+        "transition_in": "After the title, set the decision rule.",
+        "transition_out": "Define the day-one product.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "A lease is the first milestone"
+        ],
+        "claim_ids": []
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Three-step gate makes the launch order unmistakable."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal the launch gates in order.",
+        "reduced_motion_fallback": "All gates visible."
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "layout": "narrative",
+      "slide_job": "product",
+      "title": "Start as rehearsal plus lessons.",
+      "body": [
+        "Band mode",
+        "Teacher mode",
+        "Workshop mode",
+        "Sharing mode"
+      ],
+      "claim_ids": [
+        "C014"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Launch as a private rehearsal and learning room, not as a public gig venue.",
+        "talk_track": [
+          "This boundary keeps the first version focused and easier to approve."
+        ],
+        "transition_in": "Move from recommendation to product scope.",
+        "transition_out": "Explain why the market gap is trust.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "Open public shows from day one"
+        ],
+        "claim_ids": [
+          "C014"
+        ]
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Four mode cards define what the first room is allowed to be."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Show modes as separate operating uses.",
+        "reduced_motion_fallback": "All modes visible."
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "layout": "narrative",
+      "slide_job": "market",
+      "title": "The gap is trust.",
+      "body": [
+        "Cheap rooms exist.",
+        "Chleo should compete on reliability, teacher-readiness and beginner-safe standards."
+      ],
+      "claim_ids": [
+        "C001",
+        "C002"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Price is not the wedge; trust is.",
+        "talk_track": [
+          "Use the price benchmarks to show Chleo should not race to the bottom."
+        ],
+        "transition_in": "Now explain the market opening.",
+        "transition_out": "Show how to find early users.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "No competitors"
+        ],
+        "claim_ids": [
+          "C001",
+          "C002"
+        ]
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Price cards and trust cards contrast existing market price with differentiation."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal market reality before wedge.",
+        "reduced_motion_fallback": "Static comparison."
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "layout": "narrative",
+      "slide_job": "go_to_market",
+      "title": "Interview 30 likely users.",
+      "body": [
+        "10 teachers",
+        "10 bands",
+        "10 workshop partners"
+      ],
+      "claim_ids": [
+        "C016",
+        "C017"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "This is customer discovery and market validation, not sales.",
+        "talk_track": [
+          "Count named people or groups only when they give contact, use case, usual slot, budget and next action."
+        ],
+        "transition_in": "Move from market gap to sourcing.",
+        "transition_out": "Turn interviews into proof.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "Just post on Instagram"
+        ],
+        "claim_ids": [
+          "C016",
+          "C017"
+        ]
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Customer-discovery funnel splits early demand into three concrete user pools."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal each user pool separately.",
+        "reduced_motion_fallback": "All user pools visible."
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "layout": "narrative",
+      "slide_job": "go_to_market",
+      "title": "Turn interviews into proof.",
+      "body": [
+        "Pencil-in slot",
+        "Paid test session",
+        "Refundable waitlist"
+      ],
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Do not ask people to prepay for a room they cannot see.",
+        "talk_track": [
+          "Validate with pencil-in slots, paid test sessions in an existing studio, then small refundable waitlist deposits after a credible preview."
+        ],
+        "transition_in": "After finding leads, define the validation ladder.",
+        "transition_out": "Move to property scouting.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "Survey interest is enough"
+        ],
+        "claim_ids": []
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Ticket cards show a believable path from interest to commitment."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal commitment types one by one.",
+        "reduced_motion_fallback": "All offers visible."
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "layout": "narrative",
+      "slide_job": "risk",
+      "title": "Permission before viewing.",
+      "body": [
+        "Write brief",
+        "Search channels",
+        "Ask before viewing",
+        "View and negotiate"
+      ],
+      "claim_ids": [
+        "C003",
+        "C004",
+        "C011",
+        "C019"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Property scouting starts with a written use case and written answers, not viewings.",
+        "talk_track": [
+          "Ask agents and landlords about use, sound, fitout, evening access, AC and exits before spending time on site visits."
+        ],
+        "transition_in": "Move from customer demand to site risk.",
+        "transition_out": "Compare site types.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "Cheap rent means suitable rent"
+        ],
+        "claim_ids": [
+          "C003",
+          "C004",
+          "C011",
+          "C019"
+        ]
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Four-step scouting flow gives Chleo a concrete real-estate process."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal the property process in order.",
+        "reduced_motion_fallback": "All steps visible."
+      }
+    },
+    {
+      "slide_id": "slide_08",
+      "layout": "table",
+      "slide_job": "risk",
+      "title": "Commercial is cleaner.",
+      "table": {
+        "headers": [
+          "Site type",
+          "Why it helps",
+          "Watch-outs"
+        ],
+        "rows": [
+          [
+            "Commercial",
+            "Cleaner fit for lessons and service use",
+            "Rent can be higher"
+          ],
+          [
+            "Industrial",
+            "Can be cheaper and more tolerant",
+            "Use restrictions matter"
+          ],
+          [
+            "HDB shop",
+            "Accessible neighbourhood option",
+            "Noise and use sensitivity"
+          ]
+        ]
+      },
+      "claim_ids": [
+        "C003",
+        "C004",
+        "C019"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Commercial units are usually cleaner for this concept; cheaper sites need more checks.",
+        "talk_track": [
+          "The right site is not just the cheapest rent."
+        ],
+        "transition_in": "Compare the shortlisted site categories.",
+        "transition_out": "Show how use changes licensing risk.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "Industrial is automatically allowed"
+        ],
+        "claim_ids": [
+          "C003",
+          "C004",
+          "C019"
+        ]
+      },
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Property comparison table makes tradeoffs explicit."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep table stable for discussion.",
+        "reduced_motion_fallback": "Static table."
+      }
+    },
+    {
+      "slide_id": "slide_09",
+      "layout": "table",
+      "slide_job": "risk",
+      "title": "Licence risk changes by use.",
+      "table": {
+        "headers": [
+          "Activity",
+          "Main checks",
+          "Launch stance"
+        ],
+        "rows": [
+          [
+            "Private rehearsal",
+            "Approved use, landlord consent, noise",
+            "Possible if confirmed"
+          ],
+          [
+            "Paid lessons",
+            "Commercial school or music school fit",
+            "Confirm before lease"
+          ],
+          [
+            "Closed workshops",
+            "Occupancy, fire safety, use approval",
+            "Small first"
+          ],
+          [
+            "Public showcases",
+            "PEL, AEL, SCDF, music rights",
+            "Defer"
+          ]
+        ]
+      },
+      "claim_ids": [
+        "C003",
+        "C005",
+        "C006",
+        "C014"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Private use is the launch path; public showcases should wait.",
+        "talk_track": [
+          "This is the legality slide that prevents the deck from overpromising."
+        ],
+        "transition_in": "Move from location to operating use.",
+        "transition_out": "Explain acoustic risk.",
+        "timing_seconds": 55,
+        "avoid_saying": [
+          "Public events are simple"
+        ],
+        "claim_ids": [
+          "C003",
+          "C005",
+          "C006",
+          "C014"
+        ]
+      },
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Legal matrix separates private rehearsal, lessons, workshops and public shows."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep legal matrix stable.",
+        "reduced_motion_fallback": "Static table."
+      }
+    },
+    {
+      "slide_id": "slide_10",
+      "layout": "narrative",
+      "slide_job": "risk",
+      "title": "Treatment is not isolation.",
+      "body": [
+        "Treatment improves the room.",
+        "Isolation stops sound leaving the room."
+      ],
+      "claim_ids": [
+        "C007",
+        "C008",
+        "C009",
+        "C010"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "The cost jump happens when isolation is required.",
+        "talk_track": [
+          "This distinction makes the acoustic budget more honest."
+        ],
+        "transition_in": "Move from legal use to sound risk.",
+        "transition_out": "Translate sound risk into build layers.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "Foam soundproofs a room"
+        ],
+        "claim_ids": [
+          "C007",
+          "C008",
+          "C009",
+          "C010"
+        ]
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Two sound panels separate room sound from sound leakage."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal treatment before isolation.",
+        "reduced_motion_fallback": "Both panels visible."
+      }
+    },
+    {
+      "slide_id": "slide_11",
+      "layout": "narrative",
+      "slide_job": "architecture_context",
+      "title": "Build the room in layers.",
+      "body": [
+        "Before lease",
+        "Openable room",
+        "If needed"
+      ],
+      "claim_ids": [
+        "C007",
+        "C008",
+        "C009",
+        "C010"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Quote the room in layers before signing.",
+        "talk_track": [
+          "Layer 2 is not assumed; it depends on site noise and construction assessment."
+        ],
+        "transition_in": "Show how the acoustic distinction becomes a fitout plan.",
+        "transition_out": "Move from room works to equipment.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "Build full isolation by default"
+        ],
+        "claim_ids": [
+          "C007",
+          "C008",
+          "C009",
+          "C010"
+        ]
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Layer cards show how costs escalate only when the site requires it."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal layers from low risk to high cost.",
+        "reduced_motion_fallback": "All layers visible."
+      }
+    },
+    {
+      "slide_id": "slide_12",
+      "layout": "narrative",
+      "slide_job": "action",
+      "title": "Buy durable workhorse gear.",
+      "body": [
+        "Pearl Export or Yamaha Stage Custom class kit",
+        "BOSS Katana 100-class amps",
+        "Behringer XR18 or Yamaha MG-class mixer",
+        "Shure SM58-class mics"
+      ],
+      "claim_ids": [
+        "C013"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Buy reliable shared-room gear, not boutique gear.",
+        "talk_track": [
+          "The appendix gives model families and buying checks. Quote current stock and warranty before buying."
+        ],
+        "transition_in": "After fitout, show the buy sheet.",
+        "transition_out": "Show what quotes are needed before signing.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "Any cheap gear is fine"
+        ],
+        "claim_ids": [
+          "C013"
+        ]
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Equipment matrix gives model families, starter categories and planning ranges."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal gear categories in a buy-sheet order.",
+        "reduced_motion_fallback": "All gear categories visible."
+      }
+    },
+    {
+      "slide_id": "slide_13",
+      "layout": "narrative",
+      "slide_job": "action",
+      "title": "Get the right quotes.",
+      "body": [
+        "Acoustic and QP quotes",
+        "Insurance and equipment quotes",
+        "Lease cash and booking ops"
+      ],
+      "claim_ids": [
+        "C006",
+        "C012",
+        "C018"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Chleo needs written quotes and written approval paths before signing.",
+        "talk_track": [
+          "The quote slide names who to call. The appendix expands it into a call sheet with written outputs."
+        ],
+        "transition_in": "Turn equipment and fitout into vendor calls.",
+        "transition_out": "Summarize the startup cash range.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "A rough verbal estimate is enough"
+        ],
+        "claim_ids": [
+          "C006",
+          "C012",
+          "C018"
+        ]
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Six quote cards make the due-diligence contact list concrete."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal quote groups as a checklist.",
+        "reduced_motion_fallback": "All quote groups visible."
+      }
+    },
+    {
+      "slide_id": "slide_14",
+      "layout": "narrative",
+      "slide_job": "chart_evidence",
+      "title": "Startup cash ranges.",
+      "body": [
+        "Partner pilot: S$17k-S$43k",
+        "Owned room: S$66k-S$135k",
+        "Showcase-ready: S$145k-S$290k"
+      ],
+      "claim_ids": [
+        "C010",
+        "C011",
+        "C012",
+        "C013",
+        "C014",
+        "C015"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "The bars share one S$0 to S$290k axis.",
+        "talk_track": [
+          "This fixes the earlier misleading cost visual and keeps the ranges honest."
+        ],
+        "transition_in": "Move from quote categories to cash envelope.",
+        "transition_out": "Explain why occupancy matters.",
+        "timing_seconds": 55,
+        "avoid_saying": [
+          "These are fixed quotes"
+        ],
+        "claim_ids": [
+          "C010",
+          "C011",
+          "C012",
+          "C013",
+          "C014",
+          "C015"
+        ]
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Common-axis range bars compare launch options fairly."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal ranges from lowest to highest commitment.",
+        "reduced_motion_fallback": "All ranges visible."
+      }
+    },
+    {
+      "slide_id": "slide_15",
+      "layout": "narrative",
+      "slide_job": "business_model",
+      "title": "Break-even sets the floor.",
+      "body": [
+        "Use the S$6.5k/month fixed-cost example before founder salary.",
+        "Divide fixed cost by paid booked hours to get the minimum average hourly revenue.",
+        "Test S$50-S$65/hr blended revenue before signing an owned-room lease."
+      ],
+      "claim_ids": [
+        "C001",
+        "C002"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Pricing should start from the break-even floor, then be checked against market rates and paid-hour reality.",
+        "talk_track": [
+          "The chart uses S$6.5k/month as an illustrative fixed cost before founder salary.",
+          "Divide that monthly cost by paid booked hours to get the minimum average hourly revenue.",
+          "At 80 paid hours/month the room needs about S$81/hr, which is hard for a budget-friendly room.",
+          "At 140 paid hours/month the floor falls to about S$46/hr, making a S$50-S$65 blended launch price more realistic.",
+          "Before signing, Chleo should add founder pay, repair reserve and GST where applicable, then test whether the market accepts the price."
+        ],
+        "transition_in": "After startup cash, explain monthly pressure.",
+        "transition_out": "Move to culture and operating standards.",
+        "timing_seconds": 50,
+        "avoid_saying": [
+          "This is a guaranteed revenue forecast"
+        ],
+        "claim_ids": [
+          "C001",
+          "C002"
+        ]
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Break-even bars show how paid booked hours change the minimum hourly revenue floor."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal occupancy scenarios in order.",
+        "reduced_motion_fallback": "All scenarios visible."
+      }
+    },
+    {
+      "slide_id": "slide_16",
+      "layout": "narrative",
+      "slide_job": "trust_boundary",
+      "title": "Welcoming, with standards.",
+      "body": [
+        "Volume and drums",
+        "Reset and booking",
+        "Damage and teachers"
+      ],
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "A friendly room still needs operating standards.",
+        "talk_track": [
+          "These rules protect gear, neighbours, teachers, parents and collaborators."
+        ],
+        "transition_in": "After the business model, define the culture.",
+        "transition_out": "Turn the plan into 90-day evidence.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "Anything goes"
+        ],
+        "claim_ids": []
+      },
+      "visual_aid": {
+        "type": "comparison",
+        "purpose": "Rules grid makes the room feel friendly but disciplined."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal operating rules as a standard.",
+        "reduced_motion_fallback": "All rules visible."
+      }
+    },
+    {
+      "slide_id": "slide_17",
+      "layout": "narrative",
+      "slide_job": "roadmap",
+      "title": "Run the 90-day proof sprint.",
+      "body": [
+        "Week 1 setup",
+        "Weeks 2-3 interviews",
+        "Weeks 4-5 paid test sessions",
+        "Weeks 6-10 site answers and quotes",
+        "Weeks 11-13 go/no-go memo"
+      ],
+      "claim_ids": [
+        "C004",
+        "C006",
+        "C018"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "The sprint has overlapping workstreams and concrete outputs.",
+        "talk_track": [
+          "The Gantt view shows Chleo does not wait for one phase to fully end before starting the next, but the lease decision still comes last."
+        ],
+        "transition_in": "Move from standards to execution.",
+        "transition_out": "Close with go/no-go gates.",
+        "timing_seconds": 55,
+        "avoid_saying": [
+          "Just explore for three months"
+        ],
+        "claim_ids": [
+          "C004",
+          "C006",
+          "C018"
+        ]
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Gantt-style week grid shows overlap across discovery, pilot, site screening, quote collection and decision memo."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal each phase in order.",
+        "reduced_motion_fallback": "All phases visible."
+      }
+    },
+    {
+      "slide_id": "slide_18",
+      "layout": "narrative",
+      "slide_job": "close",
+      "title": "Build only after these pass.",
+      "body": [
+        "30 users",
+        "Legal site",
+        "Noise plan",
+        "Real quotes",
+        "Lease protection"
+      ],
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "The dream moves forward only when the evidence gates pass.",
+        "talk_track": [
+          "This closing keeps the pitch supportive and disciplined."
+        ],
+        "transition_in": "End with the decision rule.",
+        "transition_out": "Invite Chleo to start with validation, not lease signing.",
+        "timing_seconds": 45,
+        "avoid_saying": [
+          "Sign first, solve later"
+        ],
+        "claim_ids": []
+      },
+      "visual_aid": {
+        "type": "architecture",
+        "purpose": "Five go/no-go gates close the pitch with an action standard."
+      },
+      "motion": {
+        "type": "step_reveal",
+        "purpose": "Reveal gates as final checklist.",
+        "reduced_motion_fallback": "All gates visible."
+      }
+    },
+    {
+      "slide_id": "slide_19",
+      "layout": "table",
+      "slide_job": "backup",
+      "title": "Starter gear detail.",
+      "body": [
+        "Drums",
+        "Guitar amps",
+        "Bass",
+        "PA and mics",
+        "Small items"
+      ],
+      "claim_ids": [
+        "C013"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Model examples are buying anchors, not mandatory SKUs.",
+        "talk_track": [
+          "Quote current stock, warranty, delivery and setup before buying."
+        ],
+        "transition_in": "Appendix for gear questions.",
+        "transition_out": "Appendix for vendor calls.",
+        "timing_seconds": 60,
+        "avoid_saying": [
+          "These SKUs are mandatory"
+        ],
+        "claim_ids": [
+          "C013"
+        ]
+      },
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Gear table gives model examples, quote targets and watch-outs."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep appendix stable.",
+        "reduced_motion_fallback": "Static table."
+      },
+      "table": {
+        "headers": [
+          "Category",
+          "Model examples",
+          "Quote target",
+          "Watch out"
+        ],
+        "rows": [
+          [
+            "Drums",
+            "Pearl Export or Yamaha Stage Custom class kit",
+            "S$2k-S$4.5k",
+            "Shell packs may exclude cymbals and good heads"
+          ],
+          [
+            "Guitar amps",
+            "Two BOSS Katana 100-class combos",
+            "S$1.2k-S$2.2k",
+            "Avoid fragile boutique tube amps"
+          ],
+          [
+            "Bass",
+            "Fender Rumble / Ampeg Rocket class combo or DI plus monitor",
+            "S$600-S$1.5k",
+            "Low end travels"
+          ],
+          [
+            "PA + mics",
+            "Behringer XR18 or Yamaha MG-class mixer, Shure SM58-class mics",
+            "S$3k-S$7k",
+            "Budget for stands, cables and spares"
+          ],
+          [
+            "Small items",
+            "DI boxes, stands, power strips, labels and toolkit",
+            "S$1k-S$2.5k",
+            "Small failures hurt the experience"
+          ]
+        ]
+      }
+    },
+    {
+      "slide_id": "slide_20",
+      "layout": "table",
+      "slide_job": "backup",
+      "title": "Who Chleo should call.",
+      "body": [
+        "Acoustic / QP / property",
+        "Insurance / equipment",
+        "Ops setup"
+      ],
+      "claim_ids": [
+        "C006",
+        "C012",
+        "C013",
+        "C018"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "Collect written outputs, not verbal estimates.",
+        "talk_track": [
+          "This is the contact plan behind the quote slide."
+        ],
+        "transition_in": "Appendix for vendor calls.",
+        "transition_out": "Appendix for cost breakdown.",
+        "timing_seconds": 60,
+        "avoid_saying": [
+          "Verbal assurance is enough"
+        ],
+        "claim_ids": [
+          "C006",
+          "C012",
+          "C013",
+          "C018"
+        ]
+      },
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Quote call sheet names contacts, asks and written outputs."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep appendix stable.",
+        "reduced_motion_fallback": "Static table."
+      },
+      "table": {
+        "headers": [
+          "Contact",
+          "Examples",
+          "Ask for",
+          "Written output"
+        ],
+        "rows": [
+          [
+            "Acoustic",
+            "Soundzipper or Singapore acoustic contractor",
+            "Treatment, isolation and leakage risk",
+            "Three scopes"
+          ],
+          [
+            "QP / reno",
+            "Architect, PE, ACMV or renovation contractor",
+            "SCDF trigger, doors, ceiling, AC and exits",
+            "Compliance note and quote"
+          ],
+          [
+            "Property",
+            "Agent, landlord, MCST/HDB/JTC",
+            "Use, sound, evening access and reinstatement",
+            "Written approval path"
+          ],
+          [
+            "Insurance",
+            "SME insurer or broker",
+            "Liability, property and renovation cover",
+            "Premium and exclusions"
+          ],
+          [
+            "Equipment",
+            "Swee Lee, Luther, City Music, Yamaha",
+            "Model quote, warranty and setup",
+            "Buy list"
+          ],
+          [
+            "Ops",
+            "Booking/payment/access vendors",
+            "Deposits, cancellations and logs",
+            "Operating setup"
+          ]
+        ]
+      }
+    },
+    {
+      "slide_id": "slide_21",
+      "layout": "table",
+      "slide_job": "backup",
+      "title": "Startup cost breakdown.",
+      "body": [
+        "Lease and fitout cash",
+        "Gear and admin",
+        "Ops and working capital"
+      ],
+      "claim_ids": [
+        "C010",
+        "C011",
+        "C012",
+        "C013",
+        "C014",
+        "C015"
+      ],
+      "unsupported_claims": [],
+      "speaker_notes": {
+        "key_message": "The startup ranges are made from visible cost buckets.",
+        "talk_track": [
+          "These are planning ranges, not quotes. The owned-room column sums to S$66k-S$135k."
+        ],
+        "transition_in": "Appendix for cost detail.",
+        "transition_out": "End appendix.",
+        "timing_seconds": 60,
+        "avoid_saying": [
+          "These are fixed quotes"
+        ],
+        "claim_ids": [
+          "C010",
+          "C011",
+          "C012",
+          "C013",
+          "C014",
+          "C015"
+        ]
+      },
+      "visual_aid": {
+        "type": "table",
+        "purpose": "Cost breakdown table shows what is inside each launch range."
+      },
+      "motion": {
+        "type": "none",
+        "purpose": "Keep appendix stable.",
+        "reduced_motion_fallback": "Static table."
+      },
+      "table": {
+        "headers": [
+          "Cost bucket",
+          "Partner pilot",
+          "Owned room",
+          "Showcase-ready"
+        ],
+        "rows": [
+          [
+            "Lease cash",
+            "S$0-S$3k",
+            "S$18k-S$30k",
+            "S$30k-S$55k"
+          ],
+          [
+            "Fitout / acoustic",
+            "S$5k-S$12k",
+            "S$20k-S$45k",
+            "S$60k-S$125k"
+          ],
+          [
+            "Gear",
+            "S$7k-S$14k",
+            "S$12k-S$24k",
+            "S$25k-S$45k"
+          ],
+          [
+            "Insurance / QP / admin",
+            "S$1k-S$3k",
+            "S$4k-S$9k",
+            "S$8k-S$18k"
+          ],
+          [
+            "Ops / launch",
+            "S$2k-S$5k",
+            "S$4k-S$7k",
+            "S$7k-S$15k"
+          ],
+          [
+            "Working capital",
+            "S$2k-S$6k",
+            "S$8k-S$20k",
+            "S$15k-S$32k"
+          ],
+          [
+            "Total",
+            "S$17k-S$43k",
+            "S$66k-S$135k",
+            "S$145k-S$290k"
+          ]
+        ]
+      }
+    }
+  ]
+}

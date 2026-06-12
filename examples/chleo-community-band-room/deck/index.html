@@ -1,0 +1,2327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chleo Lee's Community Band Room</title>
+  <meta name="description" content="A source-backed Singapore pitch deck for Chleo Lee's community band room.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23efe9d9'/%3E%3Cpath d='M14 16h36v32H14z' fill='%231f8a4c' stroke='%230f0f0f' stroke-width='4'/%3E%3Ccircle cx='24' cy='32' r='6' fill='%23f5c518'/%3E%3Cpath d='M36 22v20' stroke='%23f5c518' stroke-width='6'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================================
+       THEME: FRONTEND SLIDES / CREATIVE MODE
+       =========================================== */
+    :root {
+      --cream: #EFE9D9;
+      --cream-2: #E4DCC4;
+      --ink: #0F0F0F;
+      --ink-2: #2A2A2A;
+      --green: #1F8A4C;
+      --green-dark: #136636;
+      --pink: #F06CA8;
+      --pink-dark: #D14E8B;
+      --orange: #E85A1F;
+      --yellow: #F5C518;
+      --stage-bg: #0F0F0F;
+      --slide-bg: #EFE9D9;
+      --font-display: "Archivo Black", sans-serif;
+      --font-body: "Space Grotesk", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    /* ===========================================
+       FIXED 16:9 STAGE: FRONTEND SLIDES BASE
+       =========================================== */
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--stage-bg);
+    }
+
+    .deck-viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(239, 233, 217, 0.08) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(239, 233, 217, 0.08) 1px, transparent 1px),
+        var(--stage-bg);
+      background-size: 48px 48px;
+    }
+
+    .deck-stage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      transform-origin: 0 0;
+      background: var(--slide-bg);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .slide.active,
+    .slide.visible {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    img,
+    video,
+    canvas,
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .deck-controls {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+
+    @media print {
+      html,
+      body {
+        width: 1920px;
+        height: auto;
+        overflow: visible;
+        background: #EFE9D9;
+      }
+
+      .deck-viewport {
+        position: static;
+        overflow: visible;
+        background: #EFE9D9;
+      }
+
+      .deck-stage {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none !important;
+        background: none;
+      }
+
+      .slide {
+        position: relative;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        width: 1920px;
+        height: 1080px;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .slide:last-child {
+        break-after: auto;
+        page-break-after: auto;
+      }
+
+      .deck-controls,
+      .notes-panel,
+      .overview-panel,
+      .edit-toggle,
+      .edit-hotzone {
+        display: none !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.2s !important;
+      }
+    }
+
+    /* ===========================================
+       TYPOGRAPHY AND CHROME
+       =========================================== */
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+    p, li, td, th { font-family: var(--font-body); }
+    a { color: inherit; }
+
+    .topbar,
+    .meta {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font: 400 24px/1 var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .topbar { top: 48px; }
+    .meta { bottom: 82px; letter-spacing: 0.06em; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--cream);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      display: inline-block;
+    }
+
+    .content {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      top: 128px;
+      bottom: 92px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 10px 16px;
+      background: var(--ink);
+      color: var(--cream);
+      font: 400 24px/1 var(--font-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .source {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      bottom: 126px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      color: var(--ink-2);
+      font: 400 16px/1.2 var(--font-mono);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .source a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .source a:hover {
+      color: var(--orange);
+    }
+
+    /* ===========================================
+       ANIMATION
+       =========================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition:
+        opacity 520ms var(--ease-out-expo),
+        transform 520ms var(--ease-out-expo);
+    }
+    .visible .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .visible .reveal:nth-child(1) { transition-delay: 70ms; }
+    .visible .reveal:nth-child(2) { transition-delay: 120ms; }
+    .visible .reveal:nth-child(3) { transition-delay: 170ms; }
+    .visible .reveal:nth-child(4) { transition-delay: 220ms; }
+    .visible .reveal:nth-child(5) { transition-delay: 270ms; }
+    .visible .reveal:nth-child(6) { transition-delay: 320ms; }
+
+    /* ===========================================
+       CREATIVE MODE COMPONENTS
+       =========================================== */
+    .hard {
+      border: 4px solid var(--ink);
+      background: var(--cream);
+    }
+
+    .shadow-orange {
+      box-shadow: 24px 24px 0 var(--orange), 24px 24px 0 4px var(--ink);
+    }
+
+    .shadow-ink {
+      box-shadow: 18px 18px 0 var(--ink);
+    }
+
+    .bg-green { background: var(--green); color: var(--cream); }
+    .bg-pink { background: var(--pink); color: var(--ink); }
+    .bg-orange { background: var(--orange); color: var(--cream); }
+    .bg-yellow { background: var(--yellow); color: var(--ink); }
+    .bg-cream2 { background: var(--cream-2); color: var(--ink); }
+    .bg-ink { background: var(--ink); color: var(--cream); }
+
+    .label {
+      font: 400 23px/1 var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .body {
+      font: 400 28px/1.34 var(--font-body);
+    }
+
+    .body-small {
+      font: 400 23px/1.26 var(--font-body);
+    }
+
+    .big-num {
+      font-family: var(--font-display);
+      font-size: 124px;
+      line-height: 0.85;
+      letter-spacing: -0.01em;
+    }
+
+    .huge {
+      font-size: 160px;
+      max-width: 1180px;
+    }
+
+    .xl {
+      font-size: 132px;
+      max-width: 1180px;
+    }
+
+    .lg {
+      font-size: 96px;
+      max-width: 960px;
+    }
+
+    .single-line-title {
+      font-size: 78px;
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    .sm-title {
+      font-size: 72px;
+      line-height: 0.95;
+    }
+
+    .stamp {
+      width: 312px;
+      height: 312px;
+      display: grid;
+      place-items: center;
+      transform: rotate(-6deg);
+      border: 4px solid var(--ink);
+      background: var(--pink);
+      color: var(--ink);
+      font: 400 56px/0.9 var(--font-display);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .stamp span {
+      width: 236px;
+      height: 236px;
+      display: grid;
+      place-items: center;
+      border: 4px solid currentColor;
+      border-radius: 50%;
+      padding: 18px;
+    }
+
+    /* ===========================================
+       TITLE SLIDE
+       =========================================== */
+    .title-layout {
+      position: absolute;
+      left: 96px;
+      right: 96px;
+      top: 150px;
+      bottom: 104px;
+      display: grid;
+      grid-template-columns: 1fr 520px;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .title-layout h1 {
+      font-size: 152px;
+      max-width: 1120px;
+      line-height: 1;
+      height: 480px;
+      padding-bottom: 18px;
+      margin-bottom: -18px;
+    }
+
+    .title-sub {
+      width: 760px;
+      margin-top: 34px;
+      font: 500 34px/1.2 var(--font-body);
+    }
+
+    .switch-poster {
+      height: 600px;
+      border: 4px solid var(--ink);
+      background: var(--green);
+      box-shadow: 28px 28px 0 var(--pink), 28px 28px 0 4px var(--ink);
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+    }
+
+    .switch-poster::before {
+      content: "";
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 138px;
+      height: 160px;
+      border: 4px solid var(--ink);
+      background: var(--cream);
+    }
+
+    .switch-poster::after {
+      content: "";
+      position: absolute;
+      width: 182px;
+      height: 182px;
+      border: 4px solid var(--ink);
+      background: var(--yellow);
+      left: 258px;
+      top: 126px;
+      box-shadow: 16px 16px 0 var(--orange), 16px 16px 0 4px var(--ink);
+    }
+
+    .poster-label {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
+      display: grid;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 40px;
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--cream);
+      z-index: 4;
+    }
+
+    .diagonal-ribbon {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      transform: rotate(-22deg);
+    }
+
+    .diagonal-ribbon i {
+      display: block;
+      width: 760px;
+      height: 30px;
+      border: 4px solid var(--ink);
+      margin-top: -4px;
+    }
+
+    .ribbon-title {
+      right: -150px;
+      top: 142px;
+    }
+
+    .ribbon-corner {
+      right: -250px;
+      bottom: 80px;
+      opacity: 0.96;
+    }
+
+    /* ===========================================
+       DECISION AND MODE SLIDES
+       =========================================== */
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 1fr 620px;
+      gap: 74px;
+      align-items: stretch;
+    }
+
+    .verdict-block {
+      height: 690px;
+      padding: 46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .verdict-block h3 {
+      font-size: 74px;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .step-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      align-items: start;
+      gap: 22px;
+      padding: 22px;
+      border: 4px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .step-row b {
+      font-family: var(--font-display);
+      font-size: 64px;
+      line-height: 0.85;
+    }
+
+    .step-row strong {
+      display: block;
+      font: 400 30px/1 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .step-row span {
+      display: block;
+      margin-top: 8px;
+      font: 400 23px/1.22 var(--font-body);
+    }
+
+    .mode-board {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 52px;
+      align-items: start;
+    }
+
+    .mode-poster {
+      padding: 46px;
+      min-height: 544px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mode-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .mode-card {
+      min-height: 260px;
+      padding: 30px;
+      border: 4px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 28px;
+    }
+
+    .mode-card b {
+      font: 400 76px/0.85 var(--font-display);
+    }
+
+    .mode-card h3 {
+      font-size: 44px;
+    }
+
+    .mode-card p {
+      margin-top: 10px;
+      font: 400 24px/1.24 var(--font-body);
+    }
+
+    /* ===========================================
+       MARKET AND LEAD VISUALS
+       =========================================== */
+    .market-layout {
+      display: grid;
+      grid-template-columns: 650px 1fr;
+      gap: 48px;
+      align-items: stretch;
+    }
+
+    .price-stack {
+      display: grid;
+      gap: 20px;
+      align-content: start;
+    }
+
+    .price-card {
+      min-height: 154px;
+      padding: 28px 32px;
+      border: 4px solid var(--ink);
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .price-card b {
+      font: 400 58px/0.86 var(--font-display);
+      white-space: nowrap;
+    }
+
+    .price-card span {
+      font: 400 22px/1.18 var(--font-body);
+    }
+
+    .trust-stack {
+      min-height: 760px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .trust-card {
+      position: relative;
+      width: 720px;
+      min-height: 168px;
+      padding: 32px;
+      border: 4px solid var(--ink);
+      box-shadow: 18px 18px 0 var(--ink);
+    }
+
+    .trust-card h3 {
+      font-size: 48px;
+    }
+
+    .trust-card p {
+      margin-top: 12px;
+      font: 400 25px/1.24 var(--font-body);
+    }
+
+    .trust-card:nth-child(1) { align-self: center; }
+    .trust-card:nth-child(2) { align-self: flex-end; }
+    .trust-card:nth-child(3) { align-self: center; }
+
+    .lead-layout {
+      display: grid;
+      grid-template-columns: 500px 1fr;
+      gap: 60px;
+      align-items: start;
+      bottom: 150px;
+    }
+
+    .lead-hero {
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .lead-hero b {
+      font: 400 230px/0.85 var(--font-display);
+    }
+
+    .funnel {
+      display: grid;
+      gap: 22px;
+      align-content: center;
+    }
+
+    .funnel-row {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .funnel-count {
+      border: 4px solid var(--ink);
+      display: grid;
+      place-items: center;
+      font: 400 70px/1 var(--font-display);
+    }
+
+    .funnel-card {
+      border: 4px solid var(--ink);
+      padding: 26px 30px;
+    }
+
+    .funnel-card h3 {
+      font-size: 42px;
+    }
+
+    .channel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .channel-tags span {
+      padding: 8px 12px;
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      font: 400 18px/1 var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ===========================================
+       TICKETS, GATES, AND TABLES
+       =========================================== */
+    .ticket-grid,
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .ticket {
+      min-height: 500px;
+      padding: 34px;
+      border: 4px solid var(--ink);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .ticket::before,
+    .ticket::after {
+      content: "";
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      border: 4px solid var(--ink);
+      border-radius: 50%;
+      background: var(--cream);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .ticket::before { left: -25px; }
+    .ticket::after { right: -25px; }
+
+    .ticket h3 {
+      font-size: 54px;
+    }
+
+    .ticket p {
+      font: 400 27px/1.26 var(--font-body);
+    }
+
+    .validation-grid {
+      margin-top: 34px;
+    }
+
+    .validation-grid .ticket {
+      min-height: 390px;
+      padding: 30px;
+    }
+
+    .validation-grid .ticket h3 {
+      font-size: 46px;
+      line-height: 0.95;
+    }
+
+    .validation-grid .ticket p {
+      font: 400 24px/1.22 var(--font-body);
+    }
+
+    .quote-grid {
+      gap: 20px;
+    }
+
+    .quote-grid .ticket {
+      min-height: 188px;
+      padding: 26px;
+    }
+
+    .quote-grid .ticket::before,
+    .quote-grid .ticket::after {
+      display: none;
+    }
+
+    .quote-grid .ticket h3 {
+      font-size: 42px;
+      line-height: 0.96;
+    }
+
+    .quote-grid .ticket p {
+      font: 400 23px/1.18 var(--font-body);
+    }
+
+    .scout-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .flow-card {
+      min-height: 330px;
+      padding: 24px;
+      border: 4px solid var(--ink);
+      display: grid;
+      grid-template-rows: 88px 72px 1fr;
+      align-content: start;
+      row-gap: 12px;
+    }
+
+    .flow-card b {
+      font: 400 76px/0.8 var(--font-display);
+    }
+
+    .flow-card h3 {
+      font-size: 34px;
+      min-height: 58px;
+      display: flex;
+      align-items: end;
+    }
+
+    .flow-card p {
+      font: 400 21px/1.18 var(--font-body);
+    }
+
+    .property-table,
+    .legal-table,
+    .appendix-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 4px solid var(--ink);
+      background: var(--cream-2);
+      font-family: var(--font-body);
+    }
+
+    .property-table th,
+    .property-table td,
+    .legal-table th,
+    .legal-table td,
+    .appendix-table th,
+    .appendix-table td {
+      border: 3px solid var(--ink);
+      padding: 14px 18px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 21px;
+      line-height: 1.12;
+    }
+
+    .property-table th,
+    .legal-table th,
+    .appendix-table th {
+      background: var(--ink);
+      color: var(--cream);
+      font: 400 23px/1 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .property-table td:first-child,
+    .legal-table td:first-child {
+      font: 400 25px/1 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .appendix-title {
+      font-size: 82px;
+      max-width: 1360px;
+    }
+
+    .appendix-table {
+      margin-top: 28px;
+    }
+
+    .appendix-table th,
+    .appendix-table td {
+      padding: 12px 14px;
+      font-size: 18px;
+      line-height: 1.14;
+    }
+
+    .appendix-table th {
+      font-size: 20px;
+    }
+
+    .appendix-table td:first-child {
+      font: 400 23px/0.95 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 7px 10px;
+      border: 3px solid var(--ink);
+      font: 400 15px/1 var(--font-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .spec-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .spec-strip span {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 12px 8px 42px;
+      border: 3px solid var(--ink);
+      background: var(--cream-2);
+      font: 400 16px/1 var(--font-mono);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .spec-strip span::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      transform: translateY(-50%);
+      border: 3px solid var(--ink);
+      background: var(--yellow);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    /* ===========================================
+       ACOUSTICS, FITOUT, AND EQUIPMENT
+       =========================================== */
+    .acoustic-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+    }
+
+    .sound-panel {
+      min-height: 350px;
+      padding: 34px;
+      border: 4px solid var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sound-panel h3 {
+      font-size: 56px;
+    }
+
+    .sound-panel p {
+      width: 520px;
+      margin-top: 18px;
+      font: 400 25px/1.24 var(--font-body);
+    }
+
+    .sound-diagram {
+      position: absolute;
+      right: 42px;
+      bottom: 34px;
+      width: 280px;
+      height: 148px;
+      border: 4px solid var(--ink);
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .sound-diagram::after {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      width: max-content;
+      max-width: 220px;
+      padding: 7px 10px;
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      font: 400 16px/1 var(--font-mono);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .sound-diagram.treat {
+      background:
+        radial-gradient(circle at 42px 46px, var(--ink) 0 9px, transparent 10px),
+        repeating-linear-gradient(90deg, transparent 0 28px, var(--ink) 28px 32px),
+        var(--yellow);
+    }
+
+    .sound-diagram.treat::before {
+      content: ")))";
+      position: absolute;
+      left: 58px;
+      top: 38px;
+      transform: rotate(-7deg);
+      font: 400 58px/1 var(--font-display);
+      letter-spacing: 0.02em;
+    }
+
+    .sound-diagram.treat::after {
+      content: "clearer inside";
+    }
+
+    .sound-diagram.isolate {
+      background:
+        linear-gradient(90deg, transparent 0 56%, var(--ink) 56% 63%, transparent 63%),
+        var(--pink);
+      transform: rotate(-3deg);
+    }
+
+    .sound-diagram.isolate::before {
+      content: ")))  ||";
+      position: absolute;
+      left: 24px;
+      top: 38px;
+      font: 400 52px/1 var(--font-display);
+      letter-spacing: 0.02em;
+    }
+
+    .sound-diagram.isolate::after {
+      content: "less sound outside";
+    }
+
+    .layer-stack {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .layer {
+      min-height: 370px;
+      padding: 26px;
+      border: 4px solid var(--ink);
+      display: grid;
+      grid-template-rows: 92px 1fr;
+      row-gap: 20px;
+    }
+
+    .layer b {
+      font: 400 82px/0.82 var(--font-display);
+    }
+
+    .layer h3 {
+      font-size: 38px;
+      min-height: 46px;
+      display: flex;
+      align-items: end;
+    }
+
+    .layer ul,
+    .gear-card ul {
+      margin: 18px 0 0;
+      padding-left: 24px;
+      font: 400 20px/1.16 var(--font-body);
+    }
+
+    .layer li + li,
+    .gear-card li + li {
+      margin-top: 9px;
+    }
+
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .gear-card {
+      min-height: 250px;
+      padding: 28px;
+      border: 4px solid var(--ink);
+    }
+
+    .gear-card h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 46px;
+    }
+
+    .gear-card h3 span {
+      align-self: start;
+      padding: 9px 12px;
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+      font: 400 19px/1 var(--font-mono);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    /* ===========================================
+       COST AND REVENUE CHARTS
+       =========================================== */
+    .range-chart {
+      display: grid;
+      grid-template-columns: 310px 1fr 286px;
+      gap: 22px;
+      align-items: center;
+      margin-top: 34px;
+    }
+
+    .axis-labels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-left: 332px;
+      margin-right: 308px;
+      font: 400 22px/1 var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .axis-labels span:nth-child(2),
+    .axis-labels span:nth-child(3) { text-align: center; }
+    .axis-labels span:last-child { text-align: right; }
+
+    .range-label,
+    .range-value {
+      font: 400 33px/1 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .range-value {
+      font-size: 29px;
+      white-space: nowrap;
+    }
+
+    .track {
+      position: relative;
+      height: 54px;
+      border: 4px solid var(--ink);
+      background: var(--cream-2);
+    }
+
+    .track::before,
+    .track::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--ink);
+      opacity: 0.42;
+    }
+
+    .track::before { left: 34.48%; }
+    .track::after { left: 68.97%; }
+
+    .range-fill {
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: var(--start);
+      width: var(--width);
+      border: 3px solid var(--ink);
+      background: var(--green);
+    }
+
+    .revenue-board {
+      display: grid;
+      grid-template-columns: 1fr 620px;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .revenue-bars {
+      display: grid;
+      gap: 24px;
+      align-content: center;
+    }
+
+    .rev-row {
+      display: grid;
+      grid-template-columns: 250px 1fr 220px;
+      gap: 20px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .rev-row > span,
+    .rev-row b {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .rev-row b {
+      font-weight: 400;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .rev-row small {
+      font: 400 15px/1 var(--font-mono);
+      letter-spacing: 0.03em;
+      opacity: 0.78;
+    }
+
+    .rev-track {
+      height: 64px;
+      border: 4px solid var(--ink);
+      background: var(--cream-2);
+    }
+
+    .rev-track i {
+      display: block;
+      height: 100%;
+      border-right: 4px solid var(--ink);
+      background: var(--yellow);
+    }
+
+    .metric-poster {
+      padding: 40px;
+      border: 4px solid var(--ink);
+    }
+
+    .metric-poster b {
+      display: block;
+      font: 400 108px/0.85 var(--font-display);
+    }
+
+    .metric-poster span {
+      display: block;
+      margin-top: 18px;
+      font: 400 28px/1.25 var(--font-body);
+    }
+
+    .price-method {
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 3px solid currentColor;
+    }
+
+    .price-method h3 {
+      font-family: var(--font-display);
+      font-size: 34px;
+      line-height: 0.95;
+      margin-bottom: 8px;
+    }
+
+    .price-method p {
+      font: 400 23px/1.22 var(--font-body);
+      margin-bottom: 18px;
+    }
+
+    .pricing-poster {
+      padding: 34px 40px 30px;
+    }
+
+    .pricing-poster b {
+      font-size: 100px;
+    }
+
+    .pricing-poster span {
+      margin-top: 16px;
+      font-size: 26px;
+      line-height: 1.22;
+    }
+
+    .pricing-poster .price-method {
+      margin-top: 24px;
+      padding-top: 18px;
+    }
+
+    .pricing-poster .price-method h3 {
+      font-size: 30px;
+    }
+
+    .pricing-poster .price-method p {
+      font-size: 21px;
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+
+    /* ===========================================
+       STANDARDS, TIMELINE, AND CLOSE
+       =========================================== */
+    .rules-board {
+      display: grid;
+      grid-template-columns: 560px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .rule-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-self: center;
+    }
+
+    .rule {
+      min-height: 190px;
+      padding: 26px;
+      border: 4px solid var(--ink);
+    }
+
+    .rule h3 {
+      font-size: 38px;
+    }
+
+    .rule p {
+      margin-top: 14px;
+      font: 400 21px/1.18 var(--font-body);
+    }
+
+    .standards-poster {
+      min-height: 560px;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .standards-poster h2 {
+      font-size: 54px;
+      line-height: 0.9;
+      max-width: 430px;
+    }
+
+    .standards-poster p {
+      margin-top: 32px;
+      font: 400 27px/1.26 var(--font-body);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .phase {
+      min-height: 360px;
+      padding: 24px;
+      border: 4px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .phase b {
+      font: 400 27px/1 var(--font-mono);
+      letter-spacing: 0.04em;
+    }
+
+    .phase h3 {
+      font-size: 38px;
+    }
+
+    .phase ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+      font: 400 19px/1.16 var(--font-body);
+    }
+
+    .phase li + li { margin-top: 7px; }
+
+    .execution-board {
+      display: grid;
+      margin-top: 24px;
+      border: 4px solid var(--ink);
+      background: var(--cream-2);
+    }
+
+    .exec-row {
+      display: grid;
+      grid-template-columns: 210px 340px 1fr;
+      min-height: 72px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    .exec-row:last-child {
+      border-bottom: 0;
+    }
+
+    .exec-row > * {
+      padding: 14px 18px;
+      border-right: 3px solid var(--ink);
+      display: flex;
+      align-items: center;
+    }
+
+    .exec-row > *:last-child {
+      border-right: 0;
+    }
+
+    .exec-row b {
+      font: 400 20px/1 var(--font-mono);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .exec-row h3 {
+      font-size: 30px;
+      line-height: 0.96;
+    }
+
+    .exec-row p {
+      font: 400 21px/1.16 var(--font-body);
+    }
+
+    .exec-row:nth-child(1) { background: var(--yellow); }
+    .exec-row:nth-child(2) { background: var(--cream-2); }
+    .exec-row:nth-child(3) { background: var(--pink); }
+    .exec-row:nth-child(4) { background: var(--cream-2); }
+    .exec-row:nth-child(5) { background: var(--orange); color: var(--cream); }
+    .exec-row:nth-child(6) { background: var(--green); color: var(--cream); }
+
+    .gantt {
+      display: grid;
+      grid-template-columns: 310px repeat(13, 1fr);
+      margin-top: 24px;
+      border: 4px solid var(--ink);
+      background: var(--cream-2);
+    }
+
+    .gantt > div {
+      min-height: 58px;
+      padding: 12px 10px;
+      border-right: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+      font: 400 16px/1 var(--font-mono);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .gantt > div:nth-child(14n) {
+      border-right: 0;
+    }
+
+    .gantt .head,
+    .gantt .task {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--font-display);
+      font-size: 24px;
+      line-height: 0.95;
+    }
+
+    .gantt .week {
+      text-align: center;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .gantt .bar {
+      padding: 9px 6px;
+      background: var(--cream);
+    }
+
+    .gantt .bar span {
+      display: block;
+      height: 100%;
+      min-height: 34px;
+      border: 3px solid var(--ink);
+      background: var(--yellow);
+    }
+
+    .gantt .bar.pink span { background: var(--pink); }
+    .gantt .bar.orange span { background: var(--orange); }
+    .gantt .bar.green span { background: var(--green); }
+    .gantt .bar.cream span { background: var(--cream-2); }
+
+    .gantt-note {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .gantt-note span {
+      padding: 14px 16px;
+      border: 3px solid var(--ink);
+      background: var(--cream-2);
+      font: 400 19px/1.12 var(--font-body);
+    }
+
+    .gate-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gate {
+      min-height: 320px;
+      padding: 22px;
+      border: 4px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .gate b {
+      font: 400 60px/0.84 var(--font-display);
+    }
+
+    .gate h3 {
+      font-size: 28px;
+    }
+
+    .gate p {
+      font: 400 18px/1.16 var(--font-body);
+    }
+
+    /* ===========================================
+       PRESENTATION CONTROLS
+       =========================================== */
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      box-shadow: 8px 8px 0 var(--orange), 8px 8px 0 3px var(--ink);
+      font-family: var(--font-mono);
+    }
+
+    .deck-controls button {
+      height: 38px;
+      min-width: 42px;
+      border: 3px solid var(--ink);
+      background: var(--yellow);
+      color: var(--ink);
+      font: 500 13px/1 var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 150ms var(--ease-snap), background 150ms var(--ease-snap);
+    }
+
+    .deck-controls button:active {
+      transform: scale(0.96);
+    }
+
+    .deck-controls .counter {
+      min-width: 78px;
+      text-align: center;
+      font: 500 13px/1 var(--font-mono);
+    }
+
+    .notes-panel,
+    .overview-panel {
+      position: fixed;
+      z-index: 1200;
+      border: 4px solid var(--ink);
+      background: var(--cream);
+      color: var(--ink);
+      box-shadow: 18px 18px 0 var(--pink), 18px 18px 0 4px var(--ink);
+      font-family: var(--font-body);
+      display: none;
+    }
+
+    .notes-panel.open,
+    .overview-panel.open {
+      display: block;
+    }
+
+    .notes-panel {
+      right: 26px;
+      bottom: 92px;
+      width: min(520px, calc(100vw - 52px));
+      padding: 24px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .notes-panel b {
+      display: block;
+      margin-bottom: 12px;
+      font: 400 22px/1 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .overview-panel {
+      inset: 28px;
+      padding: 28px;
+      overflow: auto;
+    }
+
+    .overview-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      font: 400 34px/1 var(--font-display);
+      text-transform: uppercase;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .overview-card {
+      min-height: 144px;
+      padding: 16px;
+      border: 3px solid var(--ink);
+      background: var(--cream-2);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 150ms var(--ease-snap), background 150ms var(--ease-snap);
+    }
+
+    .overview-card:hover {
+      transform: translateY(-2px);
+      background: var(--yellow);
+    }
+
+    .overview-card b {
+      font: 400 26px/1 var(--font-display);
+    }
+
+    .overview-card span {
+      margin-top: 12px;
+      font: 400 15px/1.18 var(--font-body);
+      text-transform: uppercase;
+    }
+
+    .edit-hotzone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80px;
+      height: 80px;
+      z-index: 1300;
+      cursor: pointer;
+    }
+
+    .edit-toggle {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 1301;
+      opacity: 0;
+      pointer-events: none;
+      height: 42px;
+      padding: 0 14px;
+      border: 3px solid var(--ink);
+      background: var(--pink);
+      color: var(--ink);
+      font: 500 13px/1 var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: opacity 180ms var(--ease-snap), transform 180ms var(--ease-snap);
+    }
+
+    .edit-toggle.show,
+    .edit-toggle.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    body.editing .slide.visible [contenteditable="true"] {
+      outline: 3px dashed var(--orange);
+      outline-offset: 6px;
+      cursor: text;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 4px solid var(--green);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="deck-viewport">
+    <main class="deck-stage" id="deckStage">
+      <section class="slide title-slide active" id="s1" data-title="Chleo Lee's Community Band Room" data-notes="Open with the real aim: this is a practical path for Chleo to test, price, and launch the room without rushing into lease risk.">
+        <div class="diagonal-ribbon ribbon-title" aria-hidden="true"><i class="bg-pink"></i><i class="bg-yellow"></i><i class="bg-orange"></i><i class="bg-green"></i></div>
+        <div class="topbar"><span>Singapore proposal</span><span class="pill"><span class="dot"></span> 11 Jun 2026</span></div>
+        <div class="title-layout">
+          <div>
+            <h1 class="reveal">Chleo Lee's<br>Community<br>Band Room</h1>
+            <p class="title-sub reveal">A practical pitch for a warm, affordable rehearsal-and-learning studio in Singapore.</p>
+          </div>
+          <div class="switch-poster reveal">
+            <div class="poster-label">
+              <span>Validate first</span>
+              <span>Build one good room</span>
+              <span>Add showcases later</span>
+            </div>
+          </div>
+        </div>
+        <div class="meta"><span>Designed for Chleo Lee</span><span>01 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s2" data-title="Validate First. Lease Later." data-notes="This is the recommendation. The first milestone is demand and permission, not a signed lease.">
+        <div class="topbar"><span>Core recommendation</span><span class="pill">Founder move</span></div>
+        <div class="content decision-grid">
+          <div>
+            <span class="kicker reveal">Best first move</span>
+            <h2 class="huge reveal">Validate first.<br>Lease later.</h2>
+            <p class="body reveal" style="width:760px;margin-top:36px">Chleo should earn the right to rent by proving users, clearing the address, and pricing the build before fixed rent starts.</p>
+          </div>
+          <div class="verdict-block hard bg-green shadow-orange reveal">
+            <h3>Do not rent first.</h3>
+            <div class="step-list">
+              <div class="step-row"><b>1</b><span><strong>Interview 30 users</strong><span>Teachers, bands and workshop partners with a real use case.</span></span></div>
+              <div class="step-row"><b>2</b><span><strong>Run a partner pilot</strong><span>Use an approved space before Chleo carries lease risk.</span></span></div>
+              <div class="step-row"><b>3</b><span><strong>Build after gates pass</strong><span>Use approvals, noise, fire safety, lease terms and quotes.</span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="source"><span>Planning stance: validate demand before fixed rent</span><span>Recommendation</span></div>
+        <div class="meta"><span>Decision slide</span><span>02 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s3" data-title="Start as a Rehearsal and Learning Room" data-notes="Keep launch use narrow: rehearsal, lessons, teacher rental, closed workshops. Public shows come later.">
+        <div class="diagonal-ribbon ribbon-corner" aria-hidden="true"><i class="bg-green"></i><i class="bg-orange"></i><i class="bg-pink"></i></div>
+        <div class="topbar"><span>Day-one product</span><span class="pill">No public venue at launch</span></div>
+        <div class="content mode-board">
+          <div class="mode-poster hard bg-pink shadow-orange reveal">
+            <h2 class="lg">Start as rehearsal plus lessons.</h2>
+            <p class="body">Do not launch as a public gig venue. That raises the approval and licensing burden too early.</p>
+          </div>
+          <div class="mode-grid reveal">
+            <div class="mode-card bg-cream2"><b>B</b><div><h3>Band mode</h3><p>Fast setup, tuned kit, working vocal sound, clean reset.</p></div></div>
+            <div class="mode-card bg-yellow"><b>T</b><div><h3>Teacher mode</h3><p>Daytime blocks, storage cubbies, keys and backing tracks.</p></div></div>
+            <div class="mode-card bg-orange"><b>W</b><div><h3>Workshop mode</h3><p>Closed education sessions with tight capacity and timing.</p></div></div>
+            <div class="mode-card bg-green"><b>S</b><div><h3>Sharing mode</h3><p>Invite-only first. Public events only after checks.</p></div></div>
+          </div>
+        </div>
+        <div class="source"><span>Launch as private rehearsal, lessons and closed workshops</span><span>C014</span></div>
+        <div class="meta"><span>Product boundary</span><span>03 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s4" data-title="The Gap Is Trust" data-notes="Cheap rooms exist. Chleo should not compete on lowest price. The wedge is reliability, beginner safety and teacher-ready operations.">
+        <div class="topbar"><span>Market reality</span><span class="pill">Price is not the wedge</span></div>
+        <div class="content market-layout">
+          <div>
+            <span class="kicker reveal">What exists</span>
+            <h2 class="lg reveal">The gap is trust.</h2>
+            <div class="price-stack reveal" style="margin-top:32px">
+              <div class="price-card bg-yellow"><b>S$55/hr</b><span>Tagvenue listed average for Singapore jamming studios.</span></div>
+              <div class="price-card bg-pink"><b>S$30-108</b><span>Tagvenue listed range checked in June 2026.</span></div>
+              <div class="price-card bg-cream2"><b>S$25-35</b><span>Selected budget/direct listings show cheaper options exist.</span></div>
+            </div>
+          </div>
+          <div class="trust-stack reveal">
+            <div class="trust-card bg-green"><h3>Maintained gear</h3><p>No mystery broken amps, cables, stands or vocal setup.</p></div>
+            <div class="trust-card bg-orange"><h3>Teacher-ready days</h3><p>The room earns outside peak jamming hours.</p></div>
+            <div class="trust-card bg-pink"><h3>Beginner-safe culture</h3><p>Welcoming without becoming careless or messy.</p></div>
+          </div>
+        </div>
+        <div class="source"><span>Sources: <a href="https://www.tagvenue.com/sg/hire/jamming-studios/singapore" target="_blank" rel="noopener">Tagvenue</a>, <a href="https://www.tonehouse.sg/pricing" target="_blank" rel="noopener">Tonehouse</a>, <a href="https://jamstudios.sg/studios/treble-cube-productions/" target="_blank" rel="noopener">Treble Cube</a>, <a href="https://www.tagvenue.com/sg/rooms/singapore/89307/sonictones-jamming-studio-singapore/live-room" target="_blank" rel="noopener">Sonictones</a></span><span>C001-C002</span></div>
+        <div class="meta"><span>Market wedge</span><span>04 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s5" data-title="Interview 30 Likely Users" data-notes="This is customer discovery, not sales. Chleo should interview and network until she has 30 named likely users with use case, slot, budget and next action.">
+        <div class="topbar"><span>Customer discovery</span><span class="pill">Before lease</span></div>
+        <div class="content lead-layout">
+          <div class="lead-hero hard bg-green shadow-orange reveal">
+            <div>
+              <span class="label">Market validation</span>
+              <h2 class="sm-title" style="margin-top:22px">Interview 30 likely users.</h2>
+              <b>30</b>
+            </div>
+            <p class="body">This is discovery, not selling. Count named people or groups with contact, use case, slot, budget and next action.</p>
+          </div>
+          <div class="funnel reveal">
+            <div class="funnel-row">
+              <div class="funnel-count bg-yellow">10</div>
+              <div class="funnel-card bg-cream2"><h3>Teachers</h3><p class="body-small">Find via music schools, tutor listings, Instagram and referrals. Capture weekday slot, student load and storage needs.</p><div class="channel-tags"><span>contact</span><span>slot</span><span>price ceiling</span></div></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-count bg-pink">10</div>
+              <div class="funnel-card bg-cream2"><h3>Bands</h3><p class="body-small">Find via SOFT, Meetup, schools and current jamming users. Capture group owner, usual slot and repeat need.</p><div class="channel-tags"><span>group owner</span><span>usual slot</span><span>test interest</span></div></div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-count bg-orange">10</div>
+              <div class="funnel-card bg-cream2"><h3>Workshop partners</h3><p class="body-small">Find via schools, youth groups and beginner communities. Capture topic, audience size, likely date and owner.</p><div class="channel-tags"><span>topic</span><span>audience size</span><span>next action</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="source"><span>Sources: <a href="https://soft.com.sg/forums/" target="_blank" rel="noopener">SOFT</a>, <a href="https://www.meetup.com/topics/musicians/sg/" target="_blank" rel="noopener">Meetup</a>, <a href="https://www.superprof.sg/lessons/music/singapore/" target="_blank" rel="noopener">Superprof</a>, <a href="https://jamstudios.sg/matchup/" target="_blank" rel="noopener">JamStudios MatchUp</a></span><span>C016-C017</span></div>
+        <div class="meta"><span>Market validation</span><span>05 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s6" data-title="Turn Interviews Into Proof" data-notes="Do not ask people to prepay for a room they cannot see. Validate with pencil-in slots, paid test sessions in an existing studio, then small refundable waitlist deposits only after a credible preview.">
+        <div class="topbar"><span>Demand validation</span><span class="pill">No blind pre-sales</span></div>
+        <div class="content">
+          <span class="kicker reveal">Proof design</span>
+          <h2 class="lg reveal">Turn interviews into proof.</h2>
+          <div class="ticket-grid validation-grid reveal">
+            <div class="ticket bg-yellow"><span class="label">Step 01</span><h3>Pencil-in slot</h3><p>No money yet. Ask: if this opens near X at about S$Y/hr, which weekly slot should I pencil you in for?</p></div>
+            <div class="ticket bg-pink"><span class="label">Step 02</span><h3>Paid test session</h3><p>Use an existing studio. They pay their share, attend, then say if they would repeat at Chleo's room.</p></div>
+            <div class="ticket bg-green"><span class="label">Step 03</span><h3>Refundable waitlist</h3><p>Only after a pilot, room preview or confirmed site. Small refundable deposit for opening-month priority.</p></div>
+          </div>
+        </div>
+        <div class="source"><span>Output: contacts, usual slots, price ceiling, gear expectations and repeat intent</span><span>Validation plan</span></div>
+        <div class="meta"><span>Demand test</span><span>06 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s7" data-title="Permission Before Viewing" data-notes="Property research points to the same rule: do not chase cheap rent first. JTC says industrial change of use must satisfy surrounding-use compatibility and URA 60:40, and advises tenants not to commit before approval. HDB shops have their own change-of-use process. Start with written answers from agents and landlords before viewing.">
+        <div class="topbar"><span>Location scouting</span><span class="pill">Written answers first</span></div>
+        <div class="content">
+          <span class="kicker reveal">Property hunting</span>
+          <h2 class="lg reveal">Permission before viewing.</h2>
+          <div class="spec-strip reveal"><span>500-800 sq ft</span><span>Approved use</span><span>Evening access</span><span>AC + exits</span><span>Low neighbour risk</span></div>
+          <div class="scout-flow reveal">
+            <div class="flow-card bg-yellow"><b>01</b><h3>Write brief</h3><p>Target 500-800 sq ft, approvable lessons/rehearsal use, late access, toilets, lift/loading and low residential exposure.</p></div>
+            <div class="flow-card bg-pink"><b>02</b><h3>Search channels</h3><p>Use CommercialGuru, PropertyGuru commercial, SpaceLookup, HDB shops and agents who handle tuition, dance or music tenants.</p></div>
+            <div class="flow-card bg-orange"><b>03</b><h3>Ask before viewing</h3><p>Send the use case: paid lessons, band rehearsal, amplified sound, acoustic works, evening hours and capacity.</p></div>
+            <div class="flow-card bg-green"><b>04</b><h3>View and negotiate</h3><p>View only written-maybe units. Check neighbours, doors, windows, ceiling voids and exits. Negotiate approval contingency.</p></div>
+          </div>
+        </div>
+        <div class="source"><span>Sources: <a href="https://www.jtc.gov.sg/get-help/managing-your-tenancy-or-lease/changing-the-use-of-your-industrial-property" target="_blank" rel="noopener">JTC change of use</a>, <a href="https://www.hdb.gov.sg/shops-and-offices/managing-an-hdb-shop-or-office/change-of-use/application-process" target="_blank" rel="noopener">HDB change of use</a>, <a href="https://www.commercialguru.com.sg/shop-for-rent" target="_blank" rel="noopener">CommercialGuru listings</a></span><span>C003 C004 C011 C019</span></div>
+        <div class="meta"><span>Real-estate gate</span><span>07 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s8" data-title="Commercial Is Cleaner" data-notes="Industrial may look cheap but can fail the use case. HDB shops may work but are noise-sensitive.">
+        <div class="topbar"><span>Property options</span><span class="pill">Site risk matrix</span></div>
+        <div class="content">
+          <span class="kicker reveal">Location choice</span>
+          <h2 class="xl reveal">Commercial is cleaner.</h2>
+          <table class="property-table reveal" style="margin-top:34px">
+            <thead><tr><th>Option</th><th>Use-case fit</th><th>Confirm before lease</th><th>Stance</th></tr></thead>
+            <tbody>
+              <tr><td>Commercial</td><td>Cleanest story for lessons and community use.</td><td>Rent, approved use, neighbours, AC and fitout.</td><td><span class="status bg-green">best path</span></td></tr>
+              <tr><td>HDB shop</td><td>Possible community fit, but noise-sensitive.</td><td>HDB trade/use process, resident risk, renovation rules.</td><td><span class="status bg-yellow">careful</span></td></tr>
+              <tr><td>Industrial</td><td>Can look cheap, but may fail customer-facing use.</td><td>JTC/URA 60:40, compatibility, landlord approval.</td><td><span class="status bg-orange">conditional</span></td></tr>
+              <tr><td>Home office</td><td>Not suitable for this concept.</td><td>Do not use for band room or amplified rehearsal.</td><td><span class="status bg-pink">no-go</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="source"><span>Sources: Planning Use Classes Rules, JTC, HDB</span><span>C003 C004 C019</span></div>
+        <div class="meta"><span>Site options</span><span>08 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s9" data-title="Use Changes the Licence Risk" data-notes="Use drives risk. Public showcases are deferred until licensing, fire-safety and rights checks are confirmed.">
+        <div class="topbar"><span>Legal path</span><span class="pill">Defer public shows</span></div>
+        <div class="content">
+          <span class="kicker reveal">Operating model</span>
+          <h2 class="lg reveal">Licence risk changes by use.</h2>
+          <div class="spec-strip reveal"><span>Private first</span><span>Lessons confirmed</span><span>Workshops capped</span><span>Public shows later</span></div>
+          <table class="legal-table reveal" style="margin-top:34px">
+            <thead><tr><th>Activity</th><th>Main checks</th><th>Launch stance</th></tr></thead>
+            <tbody>
+              <tr><td>Private rehearsal</td><td>Approved use, landlord consent, noise.</td><td><span class="status bg-green">possible if confirmed</span></td></tr>
+              <tr><td>Paid lessons</td><td>Commercial school / music school fit.</td><td><span class="status bg-yellow">confirm before lease</span></td></tr>
+              <tr><td>Closed workshops</td><td>Occupancy, fire safety, use approval.</td><td><span class="status bg-orange">small first</span></td></tr>
+              <tr><td>Public showcases</td><td>SPF PEL, AEL, SCDF, COMPASS/MRSS rights.</td><td><span class="status bg-pink">defer</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="source"><span>Sources: SPF PEL, NAC event guide, SCDF, COMPASS/MRSS</span><span>C003 C005 C006 C014</span></div>
+        <div class="meta"><span>Legal matrix</span><span>09 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s10" data-title="Treatment Is Not Isolation" data-notes="This is a key credibility slide. Treatment improves room sound. Isolation stops sound leaving the room and can trigger construction cost.">
+        <div class="topbar"><span>Acoustics</span><span class="pill">Noise is the deal-breaker</span></div>
+        <div class="content">
+          <span class="kicker reveal">Critical distinction</span>
+          <h2 class="lg reveal">Treatment is not isolation.</h2>
+          <div class="acoustic-split reveal" style="margin-top:34px">
+            <div class="sound-panel bg-yellow">
+              <h3>Treatment</h3>
+              <p>Panels, clouds, bass traps and gobos make the room clearer. They do not stop drums from leaving the room.</p>
+              <div class="sound-diagram treat" aria-label="Treatment absorbs reflections inside the room"></div>
+            </div>
+            <div class="sound-panel bg-pink">
+              <h3>Isolation</h3>
+              <p>Mass, seals, doors, decoupling and HVAC silencing control leakage. This is where the cost can jump.</p>
+              <div class="sound-diagram isolate" aria-label="Isolation blocks sound leakage leaving the room"></div>
+            </div>
+          </div>
+        </div>
+        <div class="source"><span>Sources: Sweetwater, Soundzipper, NEA noise guidance</span><span>C007-C010</span></div>
+        <div class="meta"><span>Sound plan</span><span>10 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s11" data-title="Build the Room in Layers" data-notes="Quote the room in layers before signing. Layer 2 is only if the site needs real isolation.">
+        <div class="topbar"><span>Fitout</span><span class="pill">Quote before lease</span></div>
+        <div class="content">
+          <span class="kicker reveal">Construction logic</span>
+          <h2 class="lg reveal">Build the room in layers.</h2>
+          <div class="layer-stack reveal" style="margin-top:34px">
+            <div class="layer bg-yellow"><b>0</b><div><h3>Before lease</h3><ul><li>Walk the site with acoustic contractor.</li><li>Check neighbours, doors, windows, ceiling voids.</li><li>Check AC, fresh air, exits and power.</li></ul></div></div>
+            <div class="layer bg-pink"><b>1</b><div><h3>Openable room</h3><ul><li>Door seals or acoustic door if needed.</li><li>Wall panels, clouds, bass traps.</li><li>Drum rug, gobos, storage, lighting.</li></ul></div></div>
+            <div class="layer bg-green"><b>2</b><div><h3>If needed</h3><ul><li>Double wall or decoupled ceiling.</li><li>Floating or isolated floor works.</li><li>HVAC silencers and measured test.</li></ul></div></div>
+          </div>
+        </div>
+        <div class="source"><span>Cost jump happens when isolation is required, not basic treatment</span><span>C007-C010</span></div>
+        <div class="meta"><span>Fitout layers</span><span>11 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s12" data-title="Buy Durable Workhorse Gear" data-notes="This is the practical gear list. Buy proven workhorse models first, not boutique gear or streaming toys. Appendix 19 gives model families and buying checks.">
+        <div class="topbar"><span>Equipment</span><span class="pill">Starter buy sheet</span></div>
+        <div class="content">
+          <span class="kicker reveal">What Chleo buys first</span>
+          <h2 class="single-line-title reveal">Buy durable workhorse gear.</h2>
+          <div class="gear-grid reveal" style="margin-top:34px">
+            <div class="gear-card bg-yellow"><h3>Drums <span>S$2k-S$4.5k</span></h3><ul><li>Pearl Export or Yamaha Stage Custom class kit.</li><li>Hardware, throne, rug, fresh heads and tuning kit.</li><li>Used cymbals or bring-own-breakables policy.</li></ul></div>
+            <div class="gear-card bg-pink"><h3>Backline <span>S$2k-S$5k</span></h3><ul><li>Two BOSS Katana 100-class guitar combos.</li><li>Fender Rumble or Ampeg bass combo, or DI plus monitor.</li><li>Keyboard stand, music stands, DI boxes, spare cables.</li></ul></div>
+            <div class="gear-card bg-orange"><h3>PA + mics <span>S$3k-S$7k</span></h3><ul><li>Behringer XR18 or Yamaha MG-class mixer.</li><li>Four Shure SM58-class vocal mics.</li><li>Two powered speakers, stands, XLRs and labelled spares.</li></ul></div>
+            <div class="gear-card bg-green"><h3>Operations <span>S$2k-S$6k</span></h3><ul><li>Booking, payment, deposits and cancellation rules.</li><li>Teacher cubbies, QR issue form and reset photos.</li><li>Tool kit, cleaning kit, repair reserve, basic CCTV if needed.</li></ul></div>
+          </div>
+        </div>
+        <div class="source"><span>Sources: <a href="https://www.sweelee.com.sg/collections/boss/amplifiers-monitors" target="_blank" rel="noopener">Swee Lee BOSS</a>, <a href="https://shop.shure.com.sg/products/sm58-lc-microphone" target="_blank" rel="noopener">Shure SM58</a>, <a href="https://shop.app/products/6568458715159/behringer-xr18-x-air-18-channel-tablet-controlled-digital-mixer-eu-plug" target="_blank" rel="noopener">Behringer XR18</a></span><span>C013</span></div>
+        <div class="meta"><span>Gear plan</span><span>12 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s13" data-title="Get the Right Quotes" data-notes="The quote pack tells Chleo who to call and what to ask before signing anything. Appendix 20 expands this into a quote-call table.">
+        <div class="topbar"><span>Quote pack</span><span class="pill">No verbal assumptions</span></div>
+        <div class="content">
+          <span class="kicker reveal">Before signing</span>
+          <h2 class="lg reveal">Get the right quotes.</h2>
+          <div class="quote-grid reveal" style="margin-top:34px">
+            <div class="ticket bg-cream2"><span class="label">01</span><h3>Acoustic contractor</h3><p>Ask for treatment, partial isolation and full isolation as separate scopes.</p></div>
+            <div class="ticket bg-yellow"><span class="label">02</span><h3>QP / renovation</h3><p>Ask if partitions, ACMV, exits or use change trigger SCDF submission.</p></div>
+            <div class="ticket bg-pink"><span class="label">03</span><h3>Insurance broker</h3><p>Ask for public liability, equipment/property, business interruption and renovation cover.</p></div>
+          </div>
+          <div class="quote-grid reveal" style="margin-top:24px">
+            <div class="ticket bg-orange"><span class="label">04</span><h3>Gear retailers</h3><p>Call Swee Lee, Luther, City Music and Yamaha. Price new first, then used.</p></div>
+            <div class="ticket bg-green"><span class="label">05</span><h3>Agent / landlord</h3><p>Ask deposit, GST, service charge, fitout period, reinstatement and sound clauses.</p></div>
+            <div class="ticket bg-cream2"><span class="label">06</span><h3>Booking ops</h3><p>Ask for deposits, cancellation rules, issue reporting and access logs.</p></div>
+          </div>
+        </div>
+        <div class="source"><span>Sources: <a href="https://www.qbe.com/sg/business-insurance/sme-insurance" target="_blank" rel="noopener">QBE SME</a>, <a href="https://www.scdf.gov.sg/fire-safety-services-listing/plans-submission-process/plan-approval" target="_blank" rel="noopener">SCDF plan approval</a>, equipment retail checks</span><span>C006 C012 C018</span></div>
+        <div class="meta"><span>Quote checklist</span><span>13 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s14" data-title="Startup Cash Ranges" data-notes="The bars are scaled to the same S$0 to S$290k axis, fixing the earlier misleading cost visual.">
+        <div class="topbar"><span>Startup costs</span><span class="pill">Planning ranges</span></div>
+        <div class="content">
+          <span class="kicker reveal">Scaled to S$290k</span>
+          <h2 class="xl reveal">Startup cash ranges.</h2>
+          <div class="axis-labels reveal" style="margin-top:42px"><span>S$0</span><span>S$100k</span><span>S$200k</span><span>S$290k</span></div>
+          <div class="reveal">
+            <div class="range-chart"><div class="range-label">Partner pilot</div><div class="track"><i class="range-fill" style="--start:5.86%;--width:8.97%"></i></div><div class="range-value">S$17k-S$43k</div></div>
+            <div class="range-chart"><div class="range-label">Owned room</div><div class="track"><i class="range-fill" style="--start:22.76%;--width:23.79%;background:var(--pink)"></i></div><div class="range-value">S$66k-S$135k</div></div>
+            <div class="range-chart"><div class="range-label">Showcase-ready</div><div class="track"><i class="range-fill" style="--start:50%;--width:50%;background:var(--orange)"></i></div><div class="range-value">S$145k-S$290k</div></div>
+          </div>
+          <p class="body reveal" style="width:1050px;margin-top:44px">Owned-room planning assumes 500 to 800 sq ft, S$4k to S$6.5k monthly rent, lease cash, fitout/equipment, working capital and contingency.</p>
+        </div>
+        <div class="source"><span>Sources: Soundzipper, IRAS, rent listings, equipment retail checks</span><span>C010-C015</span></div>
+        <div class="meta"><span>Cost model</span><span>14 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s15" data-title="Break-Even Sets The Floor" data-notes="This slide explains pricing method. S$6.5k is an illustrative fixed monthly cost before founder salary. Break-even floor equals fixed monthly cost divided by paid booked hours. Chleo should test whether S$50-S$65 blended hourly revenue is realistic before signing, then adjust for founder pay, repair reserve and GST if applicable.">
+        <div class="topbar"><span>Pricing model</span><span class="pill">Break-even floor</span></div>
+        <div class="content revenue-board">
+          <div>
+            <span class="kicker reveal">Pricing rule</span>
+            <h2 class="lg reveal">Break-even sets the floor.</h2>
+            <p class="body-small reveal" style="width:820px;margin-top:22px">Example shown: S$6.5k/month fixed cost before founder salary. Divide by realistic paid hours, then compare with market rates.</p>
+            <div class="revenue-bars reveal" style="margin-top:42px">
+              <div class="rev-row"><span>80 hrs/mo<small>thin demand</small></span><div class="rev-track"><i style="width:42%;background:var(--pink)"></i></div><b>S$81/hr<small>hard to sell</small></b></div>
+              <div class="rev-row"><span>140 hrs/mo<small>base case</small></span><div class="rev-track"><i style="width:74%;background:var(--yellow)"></i></div><b>S$46/hr<small>workable floor</small></b></div>
+              <div class="rev-row"><span>190 hrs/mo<small>strong fill</small></span><div class="rev-track"><i style="width:100%;background:var(--green)"></i></div><b>S$34/hr<small>off-peak room</small></b></div>
+            </div>
+          </div>
+          <div class="metric-poster bg-green shadow-orange reveal pricing-poster">
+            <span class="label">Launch test</span>
+            <b>S$50-65/hr</b>
+            <span>Target blended hourly revenue for an owned room, not the cheapest public price.</span>
+            <div class="price-method">
+              <h3>Budget inputs</h3>
+              <p>Rent, service charge, utilities, insurance, software, cleaning and repair reserve. Add founder pay before final pricing.</p>
+              <h3>Price logic</h3>
+              <p>Peak band sessions carry the floor. Teacher blocks and workshops fill hours that would otherwise be empty.</p>
+            </div>
+          </div>
+        </div>
+        <div class="source"><span>Method: monthly budget / paid booked hours. Benchmark against market rates before signing.</span><span>C001-C002 + model</span></div>
+        <div class="meta"><span>Business model</span><span>15 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s16" data-title="Welcoming With Standards" data-notes="A community room still needs rules. The rules protect gear, neighbours, teachers, parents and future collaborators.">
+        <div class="topbar"><span>Studio culture</span><span class="pill">Warm, not anyhow</span></div>
+        <div class="content rules-board">
+          <div class="hard bg-pink shadow-orange reveal standards-poster">
+            <h2>Welcoming,<br>with standards.</h2>
+            <p>The room should feel bright enough to teach, comfortable for first bands, and clean enough for parents and teachers to trust.</p>
+          </div>
+          <div class="rule-list reveal">
+            <div class="rule bg-yellow"><h3>Volume</h3><p>Loud is fine. Uncontrolled is not.</p></div>
+            <div class="rule bg-cream2"><h3>Drums</h3><p>Bring-own-breakables or charge for cymbal wear.</p></div>
+            <div class="rule bg-orange"><h3>Reset</h3><p>Every session ends with a visible room reset.</p></div>
+            <div class="rule bg-green"><h3>Booking</h3><p>Setup and pack-down sit inside booked time.</p></div>
+            <div class="rule bg-pink"><h3>Damage</h3><p>Verified account, deposit or claim path.</p></div>
+            <div class="rule bg-cream2"><h3>Teachers</h3><p>Small cubbies for recurring instructors.</p></div>
+          </div>
+        </div>
+        <div class="source"><span>Based on music-operator critique. Operating rules, not regulation.</span><span>Operator lens</span></div>
+        <div class="meta"><span>Operating standard</span><span>16 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s17" data-title="Run the 90-Day Proof Sprint" data-notes="Do not sign a lease until these artifacts exist.">
+        <div class="topbar"><span>90-day sprint</span><span class="pill">Evidence, not vibes</span></div>
+        <div class="content">
+          <span class="kicker reveal">Launch path</span>
+          <h2 class="lg reveal">Run the 90-day proof sprint.</h2>
+          <div class="gantt reveal">
+            <div class="head">Workstream</div><div class="week">1</div><div class="week">2</div><div class="week">3</div><div class="week">4</div><div class="week">5</div><div class="week">6</div><div class="week">7</div><div class="week">8</div><div class="week">9</div><div class="week">10</div><div class="week">11</div><div class="week">12</div><div class="week">13</div>
+            <div class="task">Set up test</div><div class="bar"><span></span></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            <div class="task">Interview users</div><div></div><div class="bar pink"><span></span></div><div class="bar pink"><span></span></div><div class="bar pink"><span></span></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            <div class="task">Paid test sessions</div><div></div><div></div><div></div><div class="bar orange"><span></span></div><div class="bar orange"><span></span></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            <div class="task">Pre-screen sites</div><div></div><div></div><div></div><div></div><div class="bar cream"><span></span></div><div class="bar cream"><span></span></div><div class="bar cream"><span></span></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            <div class="task">Quote room</div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div><div class="bar"><span></span></div><div></div><div></div><div></div>
+            <div class="task">Decision memo</div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div class="bar green"><span></span></div><div class="bar green"><span></span></div><div class="bar green"><span></span></div>
+          </div>
+          <div class="gantt-note reveal">
+            <span>Week 1 output: concept page, price bands, script, tracker.</span>
+            <span>Weeks 4-10 output: paid tests, site answers, vendor quotes.</span>
+            <span>Weeks 11-13 output: go/no-go memo before any lease.</span>
+          </div>
+        </div>
+        <div class="source"><span>Outputs: tracker, interview log, test sessions, site answers, quote pack, go/no-go memo</span><span>Execution gate</span></div>
+        <div class="meta"><span>Execution plan</span><span>17 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s18" data-title="Build Only After These Pass" data-notes="Close with the decision rule. Chleo can still pursue the dream, but the gates protect her cash and reputation.">
+        <div class="diagonal-ribbon ribbon-corner" aria-hidden="true"><i class="bg-yellow"></i><i class="bg-pink"></i><i class="bg-orange"></i></div>
+        <div class="topbar"><span>Go / no-go</span><span class="pill">Decision gate</span></div>
+        <div class="content">
+          <span class="kicker reveal">Final check</span>
+          <h2 class="lg reveal">Build only after these pass.</h2>
+          <div class="gate-grid reveal">
+            <div class="gate bg-yellow"><b>01</b><div><h3>30 users</h3><p>At least 10 accept a pencil-in slot, join a test session or introduce groups.</p></div></div>
+            <div class="gate bg-pink"><b>02</b><div><h3>Legal site</h3><p>Approved use, landlord consent and change-of-use path are written.</p></div></div>
+            <div class="gate bg-orange"><b>03</b><div><h3>Noise plan</h3><p>Drums, HVAC, doors and neighbours are assessed before lease.</p></div></div>
+            <div class="gate bg-green"><b>04</b><div><h3>Real quotes</h3><p>Fitout, acoustic, gear, insurance, lease cash and contingency are priced.</p></div></div>
+            <div class="gate bg-cream2"><b>05</b><div><h3>Lease protection</h3><p>Approval contingency, fitout period, reinstatement and exit terms are negotiated.</p></div></div>
+          </div>
+        </div>
+        <div class="source"><span>Full source list: work/source-map.md. Audit notes: qa/research-audit.md.</span><span>Decision gate</span></div>
+        <div class="meta"><span>Close</span><span>18 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s19" data-title="Appendix: Starter Gear Detail" data-notes="Model examples are buying anchors, not mandatory SKUs. Quote current stock, warranty, delivery and setup before buying.">
+        <div class="topbar"><span>Appendix</span><span class="pill">Gear detail</span></div>
+        <div class="content">
+          <span class="kicker reveal">Buying anchors</span>
+          <h2 class="appendix-title reveal">Starter gear detail.</h2>
+          <table class="appendix-table reveal">
+            <thead><tr><th>Category</th><th>Model examples</th><th>Quote target</th><th>Watch out</th></tr></thead>
+            <tbody>
+              <tr><td>Drums</td><td>Pearl Export or Yamaha Stage Custom class 5-piece kit, hardware pack, throne, rug, fresh heads.</td><td>S$2k-S$4.5k installed with cymbal policy.</td><td>Shell packs may exclude cymbals, throne, rug and good heads.</td></tr>
+              <tr><td>Guitar amps</td><td>Two BOSS Katana 100-class combos or similar reliable solid-state combos.</td><td>S$1.2k-S$2.2k for two amps.</td><td>Avoid fragile boutique tube amps for shared-room use.</td></tr>
+              <tr><td>Bass</td><td>Fender Rumble / Ampeg Rocket class combo, or bass DI plus powered monitor.</td><td>S$600-S$1.5k.</td><td>Low end travels. Test leakage before lease if possible.</td></tr>
+              <tr><td>PA + mics</td><td>Behringer XR18 or Yamaha MG-class mixer, four Shure SM58-class mics, two powered speakers.</td><td>S$3k-S$7k including stands and cables.</td><td>Budget for XLRs, mic stands, speaker stands and labelled spares.</td></tr>
+              <tr><td>Small items</td><td>DI boxes, music stands, guitar stands, power strips, labels, toolkit, spare sticks and strings.</td><td>S$1k-S$2.5k.</td><td>Small failures create the most customer frustration.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="source"><span>Sources: Swee Lee, Shure Singapore, Behringer retail checks</span><span>C013</span></div>
+        <div class="meta"><span>Appendix</span><span>19 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s20" data-title="Appendix: Quote Call Sheet" data-notes="This table turns the quote slide into a contact plan. Chleo should collect written outputs, not verbal estimates.">
+        <div class="topbar"><span>Appendix</span><span class="pill">Who to contact</span></div>
+        <div class="content">
+          <span class="kicker reveal">Quote call sheet</span>
+          <h2 class="appendix-title reveal">Who Chleo should call.</h2>
+          <table class="appendix-table reveal">
+            <thead><tr><th>Contact</th><th>Examples</th><th>Ask for</th><th>Written output</th></tr></thead>
+            <tbody>
+              <tr><td>Acoustic</td><td>Soundzipper or Singapore acoustic contractor.</td><td>Site walk, treatment scope, isolation scope, leakage risk, test method.</td><td>Three scopes: treatment, partial isolation, full isolation.</td></tr>
+              <tr><td>QP / reno</td><td>Architect, PE, ACMV or renovation contractor with SCDF experience.</td><td>Partitions, doors, ceiling, AC, exits, fire-safety submission trigger.</td><td>Compliance note, drawing needs, quote and timeline.</td></tr>
+              <tr><td>Property</td><td>Commercial agent, landlord, MCST/HDB/JTC contact where relevant.</td><td>Lessons, rehearsal, amplified sound, evening access, acoustic works, reinstatement.</td><td>Written approval path before viewing or offer.</td></tr>
+              <tr><td>Insurance</td><td>SME insurer or broker. Start with QBE category checks.</td><td>Public liability, property/equipment, renovation works, business interruption.</td><td>Premium quote, excess, exclusions and required safeguards.</td></tr>
+              <tr><td>Equipment</td><td>Swee Lee, Luther Music, City Music, Yamaha, used sellers.</td><td>Model quote, warranty, delivery, setup, spares and service support.</td><td>Buy list with current prices and warranty notes.</td></tr>
+              <tr><td>Ops</td><td>Booking/payment/access vendors or simple no-code stack.</td><td>Deposits, cancellation, access logs, QR issue reporting, reset photos.</td><td>Operating setup and monthly software cost.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="source"><span>Sources: QBE SME, SCDF, JTC/HDB and equipment retail checks</span><span>C006 C012 C013 C018</span></div>
+        <div class="meta"><span>Appendix</span><span>20 <span class="dot"></span> 21</span></div>
+      </section>
+
+      <section class="slide" id="s21" data-title="Appendix: Startup Cost Breakdown" data-notes="These are planning ranges, not quotes. The owned-room column sums to the deck's S$66k-S$135k range.">
+        <div class="topbar"><span>Appendix</span><span class="pill">Cost breakdown</span></div>
+        <div class="content">
+          <span class="kicker reveal">What is inside the ranges</span>
+          <h2 class="appendix-title reveal">Startup cost breakdown.</h2>
+          <table class="appendix-table reveal">
+            <thead><tr><th>Cost bucket</th><th>Partner pilot</th><th>Owned room</th><th>Showcase-ready</th></tr></thead>
+            <tbody>
+              <tr><td>Lease cash</td><td>S$0-S$3k</td><td>S$18k-S$30k</td><td>S$30k-S$55k</td></tr>
+              <tr><td>Fitout / acoustic</td><td>S$5k-S$12k</td><td>S$20k-S$45k</td><td>S$60k-S$125k</td></tr>
+              <tr><td>Gear</td><td>S$7k-S$14k</td><td>S$12k-S$24k</td><td>S$25k-S$45k</td></tr>
+              <tr><td>Insurance / QP / admin</td><td>S$1k-S$3k</td><td>S$4k-S$9k</td><td>S$8k-S$18k</td></tr>
+              <tr><td>Ops / launch</td><td>S$2k-S$5k</td><td>S$4k-S$7k</td><td>S$7k-S$15k</td></tr>
+              <tr><td>Working capital</td><td>S$2k-S$6k</td><td>S$8k-S$20k</td><td>S$15k-S$32k</td></tr>
+              <tr><td>Total</td><td>S$17k-S$43k</td><td>S$66k-S$135k</td><td>S$145k-S$290k</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="source"><span>Planning model from rent, fitout, gear, insurance and contingency inputs</span><span>C010-C015</span></div>
+        <div class="meta"><span>Appendix</span><span>21 <span class="dot"></span> 21</span></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="deck-controls" aria-label="Slide controls">
+    <button id="prevBtn" type="button" aria-label="Previous slide">&lt;</button>
+    <span class="counter" id="counter">1 / 21</span>
+    <button id="nextBtn" type="button" aria-label="Next slide">&gt;</button>
+    <button id="overviewBtn" type="button">Overview</button>
+    <button id="notesBtn" type="button">Notes</button>
+  </nav>
+
+  <aside class="notes-panel" id="notesPanel" aria-live="polite"></aside>
+  <div class="overview-panel" id="overviewPanel" role="dialog" aria-label="Slide overview">
+    <div class="overview-head">
+      <span>Slide overview</span>
+      <button id="closeOverviewBtn" type="button" style="border:3px solid var(--ink);background:var(--yellow);font:500 13px/1 var(--font-mono);padding:10px 12px;text-transform:uppercase">Close</button>
+    </div>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </div>
+
+  <div class="edit-hotzone" aria-hidden="true"></div>
+  <button class="edit-toggle" id="editToggle" type="button">Edit</button>
+
+  <script>
+    /* ===========================================
+       SLIDE PRESENTATION CONTROLLER
+       =========================================== */
+    const EDIT_STORAGE_KEY = "chleo-community-band-deck-edits-v3";
+
+    class SlidePresentation {
+      constructor() {
+        this.slides = Array.from(document.querySelectorAll(".slide"));
+        this.stage = document.getElementById("deckStage");
+        this.counter = document.getElementById("counter");
+        this.notesPanel = document.getElementById("notesPanel");
+        this.overviewPanel = document.getElementById("overviewPanel");
+        this.overviewGrid = document.getElementById("overviewGrid");
+        this.editToggle = document.getElementById("editToggle");
+        this.currentSlide = 0;
+        this.editing = false;
+        this.wheelLock = false;
+        this.touchStartX = 0;
+        this.touchStartY = 0;
+        this.setupStageScale();
+        this.setupOverview();
+        this.setupKeyboardNav();
+        this.setupTouchNav();
+        this.setupWheelNav();
+        this.setupButtons();
+        this.setupEditing();
+        this.restoreEdits();
+        const hashIndex = Number((location.hash || "").replace("#s", "")) - 1;
+        this.showSlide(Number.isInteger(hashIndex) && hashIndex >= 0 ? hashIndex : 0);
+      }
+
+      setupStageScale() {
+        const scale = () => {
+          const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+          const x = (window.innerWidth - 1920 * factor) / 2;
+          const y = (window.innerHeight - 1080 * factor) / 2;
+          this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
+        };
+        scale();
+        window.addEventListener("resize", scale);
+      }
+
+      showSlide(index) {
+        this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
+        this.slides.forEach((slide, idx) => {
+          slide.classList.toggle("active", idx === this.currentSlide);
+          slide.classList.toggle("visible", idx === this.currentSlide);
+        });
+        this.counter.textContent = `${this.currentSlide + 1} / ${this.slides.length}`;
+        this.notesPanel.innerHTML = `<b>Speaker note</b>${this.slides[this.currentSlide].dataset.notes || ""}`;
+        history.replaceState(null, "", `#s${this.currentSlide + 1}`);
+      }
+
+      setupKeyboardNav() {
+        window.addEventListener("keydown", (event) => {
+          const target = event.target;
+          if (target && target.getAttribute && target.getAttribute("contenteditable") === "true") {
+            if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "s") {
+              event.preventDefault();
+              this.saveEdits();
+            }
+            return;
+          }
+          if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+            event.preventDefault();
+            this.showSlide(this.currentSlide + 1);
+          }
+          if (event.key === "ArrowLeft" || event.key === "PageUp") {
+            event.preventDefault();
+            this.showSlide(this.currentSlide - 1);
+          }
+          if (event.key === "Home") this.showSlide(0);
+          if (event.key === "End") this.showSlide(this.slides.length - 1);
+          if (event.key.toLowerCase() === "o") this.toggleOverview();
+          if (event.key.toLowerCase() === "n") this.notesPanel.classList.toggle("open");
+          if (event.key.toLowerCase() === "e") this.toggleEditing();
+          if (event.key === "Escape") {
+            this.overviewPanel.classList.remove("open");
+            this.notesPanel.classList.remove("open");
+          }
+        });
+      }
+
+      setupTouchNav() {
+        window.addEventListener("touchstart", (event) => {
+          const touch = event.changedTouches[0];
+          this.touchStartX = touch.clientX;
+          this.touchStartY = touch.clientY;
+        }, { passive: true });
+
+        window.addEventListener("touchend", (event) => {
+          const touch = event.changedTouches[0];
+          const dx = touch.clientX - this.touchStartX;
+          const dy = touch.clientY - this.touchStartY;
+          if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+            this.showSlide(this.currentSlide + (dx < 0 ? 1 : -1));
+          }
+        }, { passive: true });
+      }
+
+      setupWheelNav() {
+        window.addEventListener("wheel", (event) => {
+          if (this.overviewPanel.classList.contains("open")) return;
+          if (Math.abs(event.deltaY) < 42 || this.wheelLock) return;
+          this.wheelLock = true;
+          this.showSlide(this.currentSlide + (event.deltaY > 0 ? 1 : -1));
+          setTimeout(() => { this.wheelLock = false; }, 420);
+        }, { passive: true });
+      }
+
+      setupButtons() {
+        document.getElementById("prevBtn").addEventListener("click", () => this.showSlide(this.currentSlide - 1));
+        document.getElementById("nextBtn").addEventListener("click", () => this.showSlide(this.currentSlide + 1));
+        document.getElementById("overviewBtn").addEventListener("click", () => this.toggleOverview());
+        document.getElementById("notesBtn").addEventListener("click", () => this.notesPanel.classList.toggle("open"));
+        document.getElementById("closeOverviewBtn").addEventListener("click", () => this.overviewPanel.classList.remove("open"));
+      }
+
+      setupOverview() {
+        this.overviewGrid.innerHTML = this.slides.map((slide, idx) => {
+          const title = slide.dataset.title || `Slide ${idx + 1}`;
+          return `<button class="overview-card" type="button" data-slide="${idx}"><b>${String(idx + 1).padStart(2, "0")}</b><span>${title}</span></button>`;
+        }).join("");
+        this.overviewGrid.querySelectorAll("[data-slide]").forEach((button) => {
+          button.addEventListener("click", () => {
+            this.showSlide(Number(button.dataset.slide));
+            this.overviewPanel.classList.remove("open");
+          });
+        });
+      }
+
+      toggleOverview() {
+        this.overviewPanel.classList.toggle("open");
+      }
+
+      setupEditing() {
+        const hotzone = document.querySelector(".edit-hotzone");
+        let hideTimeout = null;
+        const show = () => {
+          clearTimeout(hideTimeout);
+          this.editToggle.classList.add("show");
+        };
+        const scheduleHide = () => {
+          hideTimeout = setTimeout(() => {
+            if (!this.editing) this.editToggle.classList.remove("show");
+          }, 400);
+        };
+        hotzone.addEventListener("mouseenter", show);
+        hotzone.addEventListener("mouseleave", scheduleHide);
+        hotzone.addEventListener("click", () => this.toggleEditing());
+        this.editToggle.addEventListener("mouseenter", show);
+        this.editToggle.addEventListener("mouseleave", scheduleHide);
+        this.editToggle.addEventListener("click", () => this.toggleEditing());
+      }
+
+      editableElements() {
+        return Array.from(document.querySelectorAll(".slide h1, .slide h2, .slide h3, .slide p, .slide li, .slide td, .slide .label"));
+      }
+
+      toggleEditing() {
+        this.editing = !this.editing;
+        document.body.classList.toggle("editing", this.editing);
+        this.editToggle.classList.toggle("active", this.editing);
+        this.editToggle.textContent = this.editing ? "Editing" : "Edit";
+        this.editableElements().forEach((el) => {
+          el.setAttribute("contenteditable", this.editing ? "true" : "false");
+          if (this.editing && !el.dataset.editBound) {
+            el.dataset.editBound = "true";
+            el.addEventListener("input", () => this.saveEdits());
+          }
+        });
+        if (!this.editing) this.saveEdits();
+      }
+
+      saveEdits() {
+        const data = this.editableElements().map((el) => el.innerHTML);
+        localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(data));
+      }
+
+      restoreEdits() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "[]");
+          if (!Array.isArray(saved) || saved.length === 0) return;
+          this.editableElements().forEach((el, idx) => {
+            if (saved[idx]) el.innerHTML = saved[idx];
+          });
+        } catch {
+          localStorage.removeItem(EDIT_STORAGE_KEY);
+        }
+      }
+    }
+
+    new SlidePresentation();
+  </script>
+</body>
+</html>

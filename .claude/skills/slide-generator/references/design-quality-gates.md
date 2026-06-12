@@ -43,6 +43,10 @@ Slide checks:
 - important content has more space around it,
 - alignment follows the grid,
 - repeated slide types share spacing and structure.
+- comparable cards, steps, labels, bars, and table columns line up on a shared axis instead of drifting by paragraph length,
+- large titles do not wrap awkwardly when a one-line title would be clearer,
+- whitespace is balanced across the slide instead of leaving one side empty while another corner is crowded,
+- source lines, slide numbers, presenter controls, and footer metadata have a protected lane.
 
 Deck checks:
 
@@ -52,6 +56,13 @@ Deck checks:
 - comparison, table, quote, code, and architecture slides have distinct roles.
 
 Repair by changing structure first, style second. If everything feels equally loud, mute supporting elements before enlarging the headline.
+
+When a user flags layout issues, translate the complaint into a reusable rule before repairing the slide. Examples:
+
+- "Make these headings inline" means align peer labels to a common row or column and use equal-height cards where comparison matters.
+- "Too much white space" means rebalance the main visual mass, not fill the slide with more words.
+- "Words are spilling" means adjust max widths, type scale, stable dimensions, or copy length; do not rely on browser wrapping by accident.
+- "Buttons/sources overlap" means move footer lanes or reduce visual height until measured boxes no longer collide.
 
 ## Gate 3: Accessibility
 
@@ -100,6 +111,10 @@ Check:
 - no overlapping text, charts, code, or labels,
 - no tiny text in code, tables, captions, or diagrams,
 - no crowded corners,
+- no source line or footer text sitting on top of a visual panel, shadow, chart, or decorative ribbon,
+- no presenter controls covering sources, outputs, slide numbers, or speaker-note affordances,
+- no card grid where peer items look uneven because one paragraph is longer,
+- no headline wrapping caused only by avoidable width constraints,
 - no chart/table cells that require squinting,
 - no visual element that looks interactive but is not,
 - speaker notes do not introduce new factual claims.
@@ -122,6 +137,8 @@ Check:
 
 - notes sound like a person can say them aloud,
 - titles are concrete and not inflated,
+- slide terms that may confuse the audience are defined on the slide, in speaker notes, or in the appendix,
+- instructions name the first practical action, not only a broad phase such as "scout locations" or "find leads",
 - jargon is defined or moved to backup,
 - `avoid_saying` catches overclaims and hype,
 - Q&A answers do not promise more than the evidence supports.

@@ -1,0 +1,55 @@
+{
+  "segments": [
+    {
+      "id": "chleo",
+      "role": "Founder / creative operator",
+      "decision_power": "decider",
+      "current_knowledge": ["Strong passion for a welcoming community band room", "Wants affordable setup without a generic CC feel"],
+      "stakes": ["Avoid overcommitting lease and renovation money", "Protect the plan from regulatory and noise surprises", "Create a space musicians want to return to"],
+      "success_criteria": ["Clear path to launch", "Several budget options", "Legality and blind spots called out", "A proposal she can show others"],
+      "likely_questions": [
+        {"id": "q1", "question": "What is the safest first version?", "priority": "high"},
+        {"id": "q2", "question": "How much money do we really need?", "priority": "high"},
+        {"id": "q3", "question": "Can we host mini debuts and workshops?", "priority": "high"},
+        {"id": "q4", "question": "How do we keep it affordable but not anyhow?", "priority": "medium"}
+      ],
+      "objections": [
+        {"id": "o1", "objection": "The idea may be too expensive once rent and renovation are included.", "severity": "high"},
+        {"id": "o2", "objection": "A cheap unit may not be legally or acoustically suitable.", "severity": "high"},
+        {"id": "o3", "objection": "Singapore already has cheap jamming rooms.", "severity": "medium"}
+      ],
+      "jargon": {
+        "allowed": ["capex", "fitout", "change of use", "public entertainment licence", "acoustic treatment"],
+        "define_on_first_use": ["PE licence", "AEL", "SCDF", "QP", "RT60", "working capital"],
+        "avoid": ["soundproofing when only acoustic panels are meant", "unqualified legal certainty"]
+      }
+    },
+    {
+      "id": "supporters",
+      "role": "Friends, family, collaborators, potential teachers or backers",
+      "decision_power": "influencer",
+      "current_knowledge": ["May know music, but not property or licensing"],
+      "stakes": ["Confidence that this is a serious plan", "Clarity on what help or funding is needed"],
+      "success_criteria": ["Understand the idea in one sentence", "See the budget and launch steps", "Believe the team is cautious and capable"],
+      "likely_questions": [
+        {"id": "q5", "question": "What makes this different from existing studios?", "priority": "high"},
+        {"id": "q6", "question": "What can go wrong?", "priority": "high"},
+        {"id": "q7", "question": "What is the next action?", "priority": "high"}
+      ],
+      "objections": [
+        {"id": "o4", "objection": "The plan sounds nice but not operationally concrete.", "severity": "high"}
+      ],
+      "jargon": {
+        "allowed": ["rent psf", "hourly utilization"],
+        "define_on_first_use": ["utilization", "runway"],
+        "avoid": ["dense legal wording without plain-language consequence"]
+      }
+    }
+  ],
+  "audience_pov_critique": {
+    "what_they_care_about": "Can this idea become a safe, affordable, useful first room without burning money?",
+    "what_will_feel_unproven": "Demand, exact premises approval, acoustic leakage, and recurring occupancy.",
+    "where_deck_sounds_like_us_not_them": "Too much agency acronym detail without saying what it means for Chleo's first decision.",
+    "required_reframe": "Make every regulation, cost and risk point feed into one decision: pilot first, then lease only after approval and demand proof."
+  }
+}

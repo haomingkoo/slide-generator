@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chleo Lee Community Band Room Proposal</title>
+  <style>
+    :root {
+      --paper: #f3eddf;
+      --ink: #111;
+      --muted: #4d463a;
+      --green: #1f8a4c;
+      --pink: #e85c9b;
+      --yellow: #f4c915;
+      --orange: #e85a1f;
+      --line: #111;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) 360px;
+      gap: 40px;
+      align-items: end;
+      min-height: 520px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #fff9;
+    }
+
+    h1 {
+      margin: 24px 0 18px;
+      font-size: clamp(52px, 9vw, 104px);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+      max-width: 780px;
+    }
+
+    .lead {
+      max-width: 720px;
+      font-size: 21px;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--line);
+      padding: 0 18px;
+      background: var(--yellow);
+      box-shadow: 6px 6px 0 var(--orange);
+      font-weight: 900;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .poster {
+      border: 3px solid var(--line);
+      background: var(--green);
+      color: #fff7e8;
+      padding: 28px;
+      box-shadow: 16px 16px 0 var(--pink), 16px 16px 0 3px var(--line);
+    }
+
+    .poster strong {
+      display: block;
+      font-size: 74px;
+      line-height: 0.86;
+      letter-spacing: -0.05em;
+    }
+
+    .poster span {
+      display: block;
+      margin-top: 24px;
+      font-size: 17px;
+      color: #fff7e8;
+    }
+
+    .section {
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 3px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 3px solid var(--line);
+      padding: 20px;
+      background: #fff7;
+      min-height: 156px;
+    }
+
+    .card b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .loop {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      align-items: center;
+      border: 3px solid var(--line);
+      background: #fff7;
+      padding: 16px;
+    }
+
+    .step span {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      background: var(--yellow);
+      border: 3px solid var(--line);
+      font-weight: 900;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .links a {
+      border: 2px solid var(--line);
+      padding: 10px 12px;
+      background: #fff7;
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .poster { max-width: 420px; }
+      .grid { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 48px 1fr; }
+      .step span { width: 42px; height: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Singapore studio proposal</span>
+        <h1>Chleo Lee Community Band Room</h1>
+        <p class="lead">A practical pitch deck for starting an inviting, affordable band room in Singapore without rushing into lease, noise, fitout, or licensing risk.</p>
+        <div class="actions">
+          <a class="btn" href="deck/">Open the deck</a>
+          <a class="btn secondary" href="qa/qa-report.md">Read QA notes</a>
+        </div>
+      </div>
+      <aside class="poster" aria-label="Deck summary">
+        <strong>Validate first.<br>Lease later.</strong>
+        <span>Research-backed deck, presenter controls, mobile scaling, source links, appendices and repair notes.</span>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>What This Puts Together</h2>
+      <div class="grid">
+        <article class="card"><b>Business path</b><p>Demand testing, first 30 likely users, property scouting, vendor quotes and a 90-day go/no-go plan.</p></article>
+        <article class="card"><b>Practical numbers</b><p>Startup cost ranges, equipment examples, quote categories and a break-even pricing method.</p></article>
+        <article class="card"><b>Risk control</b><p>Site-specific legality, acoustic isolation, public showcase caution, insurance and lease-condition checks.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>The Heuristic Loop</h2>
+      <div class="loop">
+        <div class="step"><span>1</span><p><b>Research.</b> Gather market, property, acoustic, equipment, insurance and legality sources.</p></div>
+        <div class="step"><span>2</span><p><b>Ground claims.</b> Convert facts into a claim ledger so slide claims are traceable.</p></div>
+        <div class="step"><span>3</span><p><b>Choose the theme.</b> Pick a light, founder-friendly Creative Light direction before full rendering.</p></div>
+        <div class="step"><span>4</span><p><b>Render and inspect.</b> Use browser screenshots, mobile checks and presenter controls, not just code review.</p></div>
+        <div class="step"><span>5</span><p><b>Repair from critique.</b> Fix language, alignment, wrapping, whitespace, sources, footers and slide flow.</p></div>
+        <div class="step"><span>6</span><p><b>Publish.</b> Ship a static HTML deck that Chleo can open on phone or desktop.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Artifacts</h2>
+      <div class="links">
+        <a href="work/intake-brief.md">Intake brief</a>
+        <a href="work/slide-sorter.md">Slide sorter</a>
+        <a href="work/source-map.md">Source map</a>
+        <a href="work/claim-ledger.json">Claim ledger</a>
+        <a href="work/design-contract.json">Design contract</a>
+        <a href="qa/agent-critiques.md">Critiques</a>
+        <a href="qa/research-audit.md">Research audit</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

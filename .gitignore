@@ -15,6 +15,11 @@ tests/fixtures/*/deck/
 tests/fixtures/*/qa/
 examples/*/deck/
 examples/*/qa/
+!examples/chleo-community-band-room/deck/
+!examples/chleo-community-band-room/deck/index.html
+!examples/chleo-community-band-room/qa/
+!examples/chleo-community-band-room/qa/*.md
+!examples/chleo-community-band-room/qa/*.json
 evals/source-backed/*/deck/
 evals/source-backed/*/qa/
 evals/source-backed/*/exports/

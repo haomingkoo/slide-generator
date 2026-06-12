@@ -1,0 +1,31 @@
+{
+  "target_score": 88,
+  "hard_gates": [
+    "No unsupported regulatory claims",
+    "Startup costs show assumptions and source-backed anchors",
+    "Mobile stage has no horizontal overflow",
+    "No visible text spill or footer collisions in Playwright",
+    "Deck includes concrete next actions for Chleo"
+  ],
+  "repairs_completed": [
+    "Rebuilt deck from scrolling report into fixed-stage Creative Mode presenter with overview and speaker notes.",
+    "Added tactical slides for first-30 customer discovery, validation offers, location scouting, fitout layers, equipment buying, quote pack, 90-day execution and go/no-go gates.",
+    "Changed cost bars to proportional ranges on a S$0-S$290k axis.",
+    "Rewrote awkward copy and removed generic research-loop wording.",
+    "Fixed oversized components on slides 5, 7, 9, 11, 12, 13, 17 and 18 after Playwright screenshot review.",
+    "Tuned slides 3, 4, 10, 11 and 16 for spacing, alignment and footer clearance.",
+    "Rewrote slides 5 and 6 from sales-style leads to customer discovery, pencil-in slots, paid test sessions and a refundable waitlist.",
+    "Rebuilt slide 17 into a week-by-week proof sprint with concrete artifacts.",
+    "Lifted footer metadata so presenter controls no longer collide with sources or slide numbers.",
+    "Added clickable source links on market, discovery and property slides.",
+    "Reworked slide 12 with model-family equipment examples and vendor source links.",
+    "Clarified slide 15 as a paid-hours model, not a utilisation percentage.",
+    "Rebalanced slide 16 so the operating standards use the slide area without spilling.",
+    "Converted slide 17 into a Gantt-style 90-day sprint chart.",
+    "Added appendix tables for starter gear, quote calls and startup cost breakdown."
+  ],
+  "remaining_judgment_calls": [
+    "Cost ranges remain planning estimates until Chleo has a real address, contractor quotes and lease terms.",
+    "Legal feasibility remains site-specific and must be confirmed with landlord, authorities and a Qualified Person where needed."
+  ]
+}

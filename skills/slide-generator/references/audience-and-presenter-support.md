@@ -107,10 +107,38 @@ Before final export, review the deck as the audience:
 - What will feel unsupported?
 - Which terms need a plain-language definition?
 - Which slide sounds like internal tooling language rather than audience value?
+- Which instruction sounds hand-wavy because it names an activity but not the first action?
+- Which phrase sounds generated, awkward, or over-abstract for the person presenting it?
 - Which objection should be answered in the deck, and which belongs in Q&A?
 - Is the next step or decision clear?
 
 Repair the deck if the audience cannot retell the point in plain language.
+
+## Copy And Language Gate
+
+Run this before final visual QA for client-facing, founder-facing, teaching, or public decks.
+
+Check titles:
+
+- A title should state a useful takeaway, not a generic topic label.
+- Keep strong phrasing if it is clearer and more memorable than a sterile rewrite.
+- Do not use clever phrases that require explanation.
+- Avoid inflated language such as "transformative", "game-changing", "seamless", or "revolutionary" unless quoting a source.
+
+Check body copy:
+
+- Define terms the audience may not know, such as "soft hold", "partner-room pilot", or "founder hold".
+- Replace vague instructions with first actions: who to contact, what to ask, what artifact to create, and what counts as evidence.
+- Keep operational steps concrete but not overlong. If detail makes the slide crowded, move it to notes or appendix.
+- Use the user's natural level of formality when appropriate, but clean it up for presentation.
+
+Check speaker notes:
+
+- Notes should sound speakable, not like a report pasted into a presenter script.
+- If the slide introduces a number, method, risk, or recommendation, the notes should explain the reasoning in one or two plain sentences.
+- Do not add new factual claims in notes without claim IDs.
+
+If a user says the language is "weird", "hand-wavy", "too simple", or "AI-sounding", repair the copy before changing the design. Re-run claim-reference checks if the copy changes meaning.
 
 ## Jargon Rule
 

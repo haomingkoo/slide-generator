@@ -1,0 +1,57 @@
+{
+  "audience_shift": {
+    "from": "A community band room is an exciting but fuzzy dream.",
+    "to": "Chleo can pursue it through a staged Singapore launch: validate demand, confirm site use, quote the room, then build one disciplined studio."
+  },
+  "throughline": "Do not start by renting a room; start by proving customers, permission, room economics and operating standards.",
+  "beats": [
+    {
+      "id": "beat_01",
+      "role": "hook and recommendation",
+      "slide_ids": ["slide_01", "slide_02", "slide_03"],
+      "audience_question_ids": ["q1", "q5"],
+      "handles_objection_ids": ["o1", "o4"],
+      "transition": "Move from dream to a launch boundary that avoids public-venue risk."
+    },
+    {
+      "id": "beat_02",
+      "role": "market and customer discovery",
+      "slide_ids": ["slide_04", "slide_05", "slide_06"],
+      "audience_question_ids": ["q2", "q7"],
+      "handles_objection_ids": ["o3"],
+      "transition": "Show that the wedge is trust, then define how interviews become real demand evidence."
+    },
+    {
+      "id": "beat_03",
+      "role": "site and legal gates",
+      "slide_ids": ["slide_07", "slide_08", "slide_09"],
+      "audience_question_ids": ["q3", "q6"],
+      "handles_objection_ids": ["o2"],
+      "transition": "Make location, use class, landlord consent and public-showcase risk explicit before discussing fitout."
+    },
+    {
+      "id": "beat_04",
+      "role": "room, gear and money",
+      "slide_ids": ["slide_10", "slide_11", "slide_12", "slide_13", "slide_14", "slide_15"],
+      "audience_question_ids": ["q4", "q8"],
+      "handles_objection_ids": ["o5"],
+      "transition": "Translate the idea into acoustic layers, a starter buy sheet, quote categories, startup cash and break-even pressure."
+    },
+    {
+      "id": "beat_05",
+      "role": "operating plan and decision",
+      "slide_ids": ["slide_16", "slide_17", "slide_18"],
+      "audience_question_ids": ["q9"],
+      "handles_objection_ids": ["o6"],
+      "transition": "Close with the culture standard, 90-day evidence plan and go/no-go gate."
+    },
+    {
+      "id": "beat_06",
+      "role": "appendix support",
+      "slide_ids": ["slide_19", "slide_20", "slide_21"],
+      "audience_question_ids": ["q4", "q8", "q9"],
+      "handles_objection_ids": ["o5", "o6"],
+      "transition": "Use appendices when the audience asks for gear detail, vendor contacts or cost breakdown."
+    }
+  ]
+}

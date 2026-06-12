@@ -81,6 +81,13 @@ The deterministic scripts do not replace judgment. They make failures visible: m
 | `npm run qa:browser -- <project>` | Run multi-viewport browser QA. |
 | `npm run export:marp -- <project> --pptx --pdf` | Export after render/QA. |
 
+## Examples
+
+| Example | What It Shows |
+|---|---|
+| [`examples/source-grounded-demo`](examples/source-grounded-demo) | Compact source-grounded Marp workflow fixture with artifacts. |
+| [`examples/chleo-community-band-room`](examples/chleo-community-band-room) | Polished HTML proposal deck with research artifacts, critique notes, presenter controls, mobile scaling, source links, and layout repairs from real review feedback. |
+
 The current Marp PPTX export is a visual handoff, not a native editable PowerPoint template. Native PPTX template editing and native Google Slides export are future work.
 
 ## Agent Entry Points
