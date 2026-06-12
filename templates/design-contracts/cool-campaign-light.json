@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "source": {
+    "type": "reference-derived-theme",
+    "references": [
+      "design-systems/cool-campaign-light/DESIGN.md",
+      "docs/research/product-workflow-lessons.md"
+    ]
+  },
+  "direction": {
+    "personality": "cool campaign editorial",
+    "audience_fit": "Campaign strategies, marketing proposals, go-to-market plans, launch plans and business cases that need a clean modern pitch.",
+    "density": "balanced",
+    "depth": "soft_rows_and_image_fields",
+    "grid": "split_editorial"
+  },
+  "tokens": {
+    "colors": {
+      "background": "#f8f8f9",
+      "surface": "#ffffff",
+      "text": "#252326",
+      "muted": "#69656f",
+      "accent": "#7442b8",
+      "secondary_accent": "#cfd8df",
+      "border": "#d8c7ea"
+    },
+    "typography": {
+      "heading": "Aptos Display, Helvetica Neue, Arial, sans-serif",
+      "body": "Aptos, Helvetica Neue, Arial, sans-serif",
+      "mono": "SF Mono, Cascadia Code, Consolas, monospace",
+      "scale": ["15px", "18px", "22px", "30px", "44px", "58px"]
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": ["8px", "12px", "16px", "20px", "28px", "40px", "64px", "84px"]
+    },
+    "radius": ["8px"],
+    "shadow": []
+  },
+  "patterns": {
+    "title_slide": "Wide cool visual band or slab with a short lavender title and small section tag.",
+    "section_slide": "Short assertion with an image rail, used to reset from strategy to execution.",
+    "comparison_slide": "Numbered challenge rows or two-column audience/competitor contrast.",
+    "table_slide": "Budget or channel table with a chart plus a numbered allocation ladder.",
+    "code_slide": "Not a code-first style; use a restrained white or charcoal artifact block only when necessary.",
+    "architecture_slide": "Campaign path, funnel, timeline or workflow shown as a simple sequence with few nodes."
+  },
+  "rules": {
+    "avoid": [
+      "generic metallic texture as evidence",
+      "one-note lavender everywhere",
+      "line charts for categorical budgets",
+      "paragraph-heavy timeline cards"
+    ],
+    "must_preserve": [
+      "cool light background",
+      "lavender accent restraint",
+      "equal-height rows",
+      "short KPI labels",
+      "real evidence behind campaign metrics"
+    ],
+    "accessibility": [
+      "normal text contrast >= 4.5:1",
+      "large text contrast >= 3:1",
+      "KPI labels include units and periods",
+      "status is not communicated by color only"
+    ]
+  },
+  "decisions": [
+    {
+      "decision": "Add a cool light campaign style based on user-provided Campaign Strategy references.",
+      "rationale": "The reference deck adds a distinct proposal pattern: challenge rows, audience insight, milestone timeline, budget allocation, persona, KPI strip and ask rows.",
+      "date": "2026-06-12"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "deck": {
+    "title": "Campaign Strategy Template",
+    "theme": "cool-campaign-light",
+    "size": "16:9",
+    "paginate": true
+  },
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "slide_job": "hook",
+      "layout": "title",
+      "title": "Campaign strategy",
+      "subtitle": "Replace with the campaign promise, target audience and decision needed.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Cover slide promise must be supported by later claim slides.",
+      "visual_aid": {"type": "image", "purpose": "Set campaign mood without pretending the image is evidence."},
+      "speaker_notes": {
+        "key_message": "The audience should know the campaign decision this deck is about.",
+        "talk_track": ["Name the campaign.", "Name the target audience.", "Name the decision needed."],
+        "timing_seconds": 30
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "slide_job": "problem",
+      "layout": "comparison",
+      "title": "The campaign exists because three signals changed",
+      "left": {"title": "Signal 01", "body": ["Replace with metric, period and source."]},
+      "right": {"title": "Implication", "body": ["Replace with the business risk or opportunity."]},
+      "claim_ids": ["replace_with_problem_signal_claim"],
+      "claim_use": "campaign problem signal",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Use numbered rows or paired cards to make the campaign need concrete."},
+      "speaker_notes": {
+        "key_message": "Do not sell the campaign before the audience believes the problem.",
+        "talk_track": ["Show the strongest signal.", "Explain the implication.", "Avoid generic urgency."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_problem_signal_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_03",
+      "slide_job": "insight",
+      "layout": "two_column",
+      "title": "The audience insight changes the message",
+      "left": {"title": "Audience behavior", "body": ["Replace with the observed behavior, segment and evidence."]},
+      "right": {"title": "Campaign wedge", "body": ["Replace with the message or channel decision this insight creates."]},
+      "claim_ids": ["replace_with_audience_insight_claim"],
+      "claim_use": "audience insight",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Connect audience evidence to message strategy."},
+      "speaker_notes": {
+        "key_message": "The campaign strategy should follow from an audience insight, not taste.",
+        "talk_track": ["Name the audience.", "Name the behavior.", "Name the strategic shift."],
+        "timing_seconds": 75,
+        "claim_ids": ["replace_with_audience_insight_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_04",
+      "slide_job": "roadmap",
+      "layout": "architecture",
+      "title": "Execution is staged around launch, learning and conversion",
+      "body": ["Replace each phase with owner, output and success signal."],
+      "mermaid": "flowchart LR\n  A[Setup] --> B[Launch]\n  B --> C[Optimize]\n  C --> D[Final push]\n  D --> E[Report]",
+      "claim_ids": ["replace_with_timeline_claim"],
+      "claim_use": "campaign execution timeline",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "architecture", "purpose": "Show campaign phases without overloading each phase."},
+      "speaker_notes": {
+        "key_message": "A timeline should prove control and learning, not list busy work.",
+        "talk_track": ["Name the phases.", "Highlight the learning checkpoint.", "State the go/no-go threshold."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_timeline_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_05",
+      "slide_job": "budget",
+      "layout": "table",
+      "title": "Budget follows the channels most likely to convert",
+      "table": {
+        "headers": ["Channel", "Budget", "Why this spend", "Success metric"],
+        "rows": [
+          ["Replace", "S$X", "Replace with source-backed rationale", "Replace"],
+          ["Replace", "S$X", "Replace with source-backed rationale", "Replace"],
+          ["Replace", "S$X", "Replace with source-backed rationale", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_budget_claim"],
+      "claim_use": "campaign budget allocation",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Use a table or bar chart for categorical budget allocation."},
+      "speaker_notes": {
+        "key_message": "Budget allocation needs a reason, not only a number.",
+        "talk_track": ["Show the largest spend.", "Explain why.", "Name the metric that will judge it."],
+        "timing_seconds": 80,
+        "claim_ids": ["replace_with_budget_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_06",
+      "slide_job": "audience",
+      "layout": "two_column",
+      "title": "The target persona makes the campaign concrete",
+      "left": {"title": "Primary audience", "body": ["Replace with segment, need, trigger and channel."]},
+      "right": {"title": "Persona spotlight", "body": ["Replace with realistic persona details backed by research, not stereotypes."]},
+      "claim_ids": ["replace_with_persona_claim"],
+      "claim_use": "target audience definition",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "comparison", "purpose": "Keep segment and persona distinct."},
+      "speaker_notes": {
+        "key_message": "Persona should focus message and channel choices.",
+        "talk_track": ["Name the segment.", "Name the purchase trigger.", "Name the implication for creative."],
+        "timing_seconds": 65,
+        "claim_ids": ["replace_with_persona_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "slide_job": "metrics",
+      "layout": "table",
+      "title": "Success is measured by leading and lagging indicators",
+      "table": {
+        "headers": ["Metric", "Target", "Period", "Source / method"],
+        "rows": [
+          ["Qualified leads", "Replace", "Replace", "Replace"],
+          ["Engagement uplift", "Replace", "Replace", "Replace"],
+          ["Influenced revenue", "Replace", "Replace", "Replace"],
+          ["Brand sentiment", "Replace", "Replace", "Replace"]
+        ]
+      },
+      "claim_ids": ["replace_with_metrics_claim"],
+      "claim_use": "campaign success metrics",
+      "unsupported_claims": [],
+      "visual_aid": {"type": "table", "purpose": "Make KPI definitions and measurement method visible."},
+      "speaker_notes": {
+        "key_message": "Metrics must define what counts, when it counts, and how it is measured.",
+        "talk_track": ["Separate leading and lagging indicators.", "Name the dashboard cadence.", "Name the threshold for intervention."],
+        "timing_seconds": 70,
+        "claim_ids": ["replace_with_metrics_claim"]
+      }
+    },
+    {
+      "slide_id": "slide_08",
+      "slide_job": "decision",
+      "layout": "quote",
+      "title": "Approve the campaign, owners and checkpoint",
+      "quote": "Decision needed: budget, timeline, owner and review date.",
+      "claim_ids": [],
+      "unsupported_claims": [],
+      "no_claims_reason": "Decision instruction rather than a factual claim.",
+      "visual_aid": {"type": "quote", "purpose": "Close with a concrete ask."},
+      "speaker_notes": {
+        "key_message": "The close should leave no ambiguity about the requested action.",
+        "talk_track": ["Ask for approval.", "Confirm owner.", "Confirm checkpoint date."],
+        "timing_seconds": 45
+      }
+    }
+  ]
+}

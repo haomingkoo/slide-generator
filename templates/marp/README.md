@@ -18,6 +18,7 @@ npm run render:marp -- projects/my-deck --html
 Use:
 
 - `pitch-deck.json` for generic product, sales, or mixed pitch narratives.
+- `campaign-strategy.json` for campaign strategy, go-to-market, launch and marketing proposal decks with challenge, insight, timeline, budget, persona, metrics and ask.
 - `vc-seed-deck.json` for pre-seed or seed investor meetings.
 - `investor-demo-day-150s.json` for a short investor pitch where clarity and recall matter more than full diligence.
 - `hackathon-demo-3min.json` for a short demo-heavy judging pitch. Use the actual hackathon rubric, time limit, demo path, fallback, and proof assets.

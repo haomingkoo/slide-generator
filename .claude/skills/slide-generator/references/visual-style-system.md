@@ -90,5 +90,6 @@ When learning from the supplied Gamma exports:
 
 - Keel-style company deck: restrained dark surface, strong alignment, simple charts/tables, low object count, sparse accent use.
 - Competitive-landscape deck: image-led splits, dark overlays, large mood-setting photos, simple accent-coded diagrams, strong visual continuity.
+- Cool campaign light deck: white field, lavender accent, cool silver image slabs, numbered challenge rows, KPI strip, budget ladder and ask rows.
 
 Borrow these as style mechanics. Do not copy proprietary imagery or template assets. For a light proposal deck, translate the mechanics into clean hierarchy, image-led moments, controlled source lanes and fewer crowded multi-purpose slides.

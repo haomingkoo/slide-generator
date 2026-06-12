@@ -5,7 +5,8 @@ import path from "node:path";
 export const SLIDE_THEMES = new Set([
   "clean-surgical-light",
   "warm-editorial-light",
-  "dark-runtime"
+  "dark-runtime",
+  "cool-campaign-light"
 ]);
 
 export const SLIDE_LAYOUTS = new Set([
@@ -49,10 +50,13 @@ export const SLIDE_JOBS = new Set([
   "code_evidence",
   "market",
   "customer",
+  "audience",
   "product",
   "traction",
   "business_model",
   "go_to_market",
+  "budget",
+  "metrics",
   "competition",
   "team",
   "ask",

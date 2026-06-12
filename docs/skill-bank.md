@@ -81,9 +81,20 @@ Useful visual patterns observed from user-provided Gamma/PDF/PPTX exports:
 - alternating image rail,
 - equal-height card row,
 - obstacle matrix,
-- commitment rows.
+- commitment rows,
+- numbered challenge rows,
+- budget allocation ladder,
+- KPI strip,
+- persona card.
 
 Every extracted pattern must answer: what slide job does it solve, what evidence does it need, what copy budget keeps it readable, and what browser QA failure would invalidate it.
+
+Reusable style packs created from references:
+
+- `warm-editorial-light`: human-centered teaching, demos and product stories.
+- `clean-surgical-light`: executive, consulting and source-heavy decks.
+- `dark-runtime`: technical, security and system decks.
+- `cool-campaign-light`: campaign strategy, launch, go-to-market and marketing proposal decks.
 
 ## Deep-Agent Behavior
 

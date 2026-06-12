@@ -40,6 +40,7 @@ Bad openings:
 | Investor demo-day | `plain_thesis` or `surprising_result` | `deck-quality-benchmark.md` VC section | `templates/marp/investor-demo-day-150s.json` |
 | Seed fundraising | `plain_thesis`, `concrete_user`, or `why_now` | `deck-quality-benchmark.md` VC section | `templates/marp/vc-seed-deck.json` |
 | Executive decision | `decision_now` | `deck-quality-benchmark.md` Executive section | `templates/marp/consulting-recommendation-10slide.json` |
+| Campaign strategy / launch | `why_now`, `decision_now`, or `surprising_result` | `deck-quality-benchmark.md` Executive section | `templates/marp/campaign-strategy.json` |
 | Hackathon demo | `plain_thesis`, `before_after`, or `rubric_match` | `deck-quality-benchmark.md` Hackathon section | `templates/marp/hackathon-demo-3min.json` |
 | Hackathon finalist | `rubric_match` or `before_after` | `deck-quality-benchmark.md` Hackathon section | `templates/marp/hackathon-finalist-5min.json` |
 | Research conference | `sharp_question`, `gap_statement`, or `surprising_result` | `deck-quality-benchmark.md` Technical/Research section | `templates/marp/research-conference-10min.json` |
@@ -47,6 +48,8 @@ Bad openings:
 | Teaching / explainer | `concrete_user`, `sharp_question`, or `short_story` | `deck-quality-benchmark.md` Teaching section | `templates/marp/teaching-deck.json` |
 
 If the user's request mixes modes, pick the primary audience decision first. Put secondary material in backup.
+
+For campaign strategy, launch and go-to-market proposals, use this arc unless the brief strongly suggests otherwise: campaign promise, challenge signals, audience insight, message/channel wedge, timeline, budget allocation, target persona, success metrics and approval ask. Budget, persona and metrics slides need sources or explicit assumptions.
 
 ## Backup And Appendix
 

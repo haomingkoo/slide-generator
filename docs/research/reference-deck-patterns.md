@@ -83,6 +83,9 @@ Useful patterns to encode:
 - Equal-height cards: three balanced cards with fixed icon, heading and copy budgets.
 - Obstacle matrix: one 2x3 block for risks or constraints instead of many drifting cards.
 - Commitment rows: three large horizontal rows with icon gutters for action plans and owner commitments.
+- Numbered challenge rows: fixed number gutter plus equal-height text rows for campaign problems, risks or approval tasks.
+- Budget allocation ladder: categorical budget chart or table plus numbered spend rationale.
+- KPI strip: four large metrics with unit, period, target source and measurement method.
 
 Failure modes to avoid:
 
@@ -91,6 +94,8 @@ Failure modes to avoid:
 - Paragraph-heavy cards that only look acceptable because the reference has designer spacing.
 - Fake testimonials, fake traction, fake logos, or unverified market figures.
 - Repeating the same split layout until the deck feels templated.
+- Using line charts for categorical budget allocation.
+- Inventing personas or campaign results to fill a pretty template.
 
 ## Mode Findings
 
@@ -115,6 +120,18 @@ Implementation implications:
 - Chart specs should require source, unit, denominator, period, transform, caveat, and highlight.
 - Templates need recommendation, issue tree, option comparison, roadmap, risk, and decision close.
 - QA should flag topic titles, chart-title mismatch, no owner, MECE overlap/gaps, and dense tables in the main story.
+
+### Campaign Strategy And Launch Proposals
+
+Campaign and go-to-market decks need to connect audience insight to execution. A strong campaign strategy arc is: campaign promise, challenge signals, audience insight, message/channel wedge, launch timeline, budget allocation, target persona, success metrics and approval ask.
+
+Implementation implications:
+
+- Templates should include challenge rows, audience insight, milestone timeline, budget allocation, persona, KPI strip and decision ask.
+- Budget slides should default to bar chart or table for categorical allocation. Use line charts only for spend over time or performance over time.
+- KPI slides should require unit, period, method and source before rendering.
+- Persona slides should state the evidence basis, such as interviews, survey, analytics, CRM, social listening or observed behavior.
+- QA should flag unsupported uplift metrics, fake personas, generic urgency, vague "authenticity" claims and timelines without owner/output/success signal.
 
 ### Research And Conference Talks
 

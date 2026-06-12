@@ -17,6 +17,7 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Keep APIs, MCPs, and future app integrations around the artifact contract rather than bypassing it.
 - Borrow Gamma's outline-before-render discipline and Canva's theme/asset breadth, but keep this repo stricter on citations, claim ledgers, fixed-slide QA, and export readiness.
 - Use user-provided PPTX/PDF/Gamma exports as pattern libraries, not asset sources. Extract named layout patterns such as split cover, image-led problem rail, hero metric plus evidence, metric constellation, ask panel, alternating image rail, equal-height card row, obstacle matrix, and commitment rows.
+- For campaign strategy references, extract the campaign arc and patterns: challenge rows, audience insight split, milestone timeline, budget allocation ladder, persona card, KPI strip and approval ask.
 
 ## Guardrail Implications
 
@@ -26,6 +27,7 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Existing deck remixing should preserve the source deck's factual boundaries and create a new design contract only from observable style evidence.
 - For data or spreadsheet decks, create a data contract before charts: source file, columns, transformations, chart intent, and caveats.
 - Reference-deck patterns still need evidence, copy budget and browser QA. Reject stock imagery as proof, fake testimonials, fake traction, huge titles that push content away, and card rows with unequal copy pressure.
+- Campaign templates must not invent personas, uplift metrics, influenced revenue, engagement drops or market-share changes. Budget charts should match the data type: use bars or tables for categorical allocation, lines only for real time series.
 
 ## Product Gaps To Track
 

@@ -205,6 +205,24 @@ Guardrails from these exports:
 - Strong layout does not rescue weak content. If a reference slide is mostly lorem ipsum or generic business copy, keep only the spacing and composition pattern.
 - For Chleo-style proposals, prefer real or source-grounded visuals: venue/site photos, room diagrams, equipment tables, cost bars, lead funnels and timeline charts. Abstract mood imagery should not be the primary proof.
 
+Campaign Strategy export reviewed on 2026-06-12:
+
+- Campaign strategy arc: cover, challenge, audience insight, timeline, budget, target persona, success metrics and approval ask. This is a useful proposal template family distinct from investor, retrospective and community-business decks.
+- Cool campaign light style: white field, lavender accents, cool silver/blue image slabs, thin borders and soft row containers. Useful for marketing, launch and go-to-market proposals when the deck needs to feel modern but not dark.
+- Numbered challenge rows: three equal-height rows with a fixed number gutter are safer than uneven cards for problem signals, blockers or next actions.
+- Audience insight split: image or visual field on one side, three insight blocks on the other. Reuse only when each insight changes a message/channel decision.
+- Milestone timeline: alternating cards around a center rail can work, but copy must stay short: phase, owner, output, success signal.
+- Budget allocation ladder: pair a budget chart/table with numbered spend rationale. Use a bar chart or table for categorical budget; avoid line charts unless the x-axis is time.
+- KPI strip: four large metrics plus short labels work for success criteria, but each KPI needs unit, period, target source and measurement method.
+- Persona card: useful only if backed by research or interviews. Do not invent stereotypes to fill the slide.
+
+New reusable artifacts from this review:
+
+- `templates/design-contracts/cool-campaign-light.json`
+- `design-systems/cool-campaign-light/DESIGN.md`
+- `templates/marp/campaign-strategy.json`
+- `renderers/marp/themes/cool-campaign-light.css`
+
 ## Design Skill Ecosystem
 
 Observed patterns from Claude/Codex design-skill repos and design-tooling writeups:

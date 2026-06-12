@@ -146,6 +146,17 @@ Use this lane for market, brand, business and proposal decks where the audience 
 
 For the Chleo proposal, borrow the discipline, not the darkness: cleaner visual hierarchy, image-led moments where useful, controlled source lanes, and fewer cramped all-purpose slides.
 
+Campaign strategy template:
+
+- light surface with restrained lavender accent,
+- cool silver/blue image fields for visual rhythm,
+- numbered rows for challenge signals and next actions,
+- KPI strip for success metrics,
+- budget chart/table plus allocation rationale,
+- persona slide only when backed by real research.
+
+Use this lane for marketing, launch, go-to-market and campaign proposal decks. Avoid generic metallic texture as proof, fake campaign metrics, fake personas and line charts for categorical budgets.
+
 ## Chrome And Edit-State Guardrails
 
 Slide chrome is part of the layout, not an overlay afterthought.

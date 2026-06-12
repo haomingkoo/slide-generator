@@ -20,6 +20,7 @@ Status values:
 | H007 | The repo lacked a durable pre-render planning artifact. | Complex, public or client-facing decks should create `work/deck-plan.md` before slide specs. | `scripts/create-deck-artifacts.mjs`, `skills/slide-generator/references/planning-mode.md` | New scaffold output and Chleo deck plan | tested |
 | H008 | Improvement lessons were scattered across QA prose. | Repeated failures need registry rows before they become skill rules, validators, templates or evals. | `docs/heuristic-slide-system.md`, this registry, `scripts/heuristic-status.mjs` | `npm run heuristic:status -- examples/chleo-community-band-room` | tested |
 | H009 | Codex and Claude needed a shared local memory layer for user preferences and durable lessons. | Personal cross-agent memory should live outside committed repos, with repo docs linking to it only as an optional local layer. | `/Users/koohaoming/.agent-memory/`, global Codex and Claude instructions | Global local skill `heuristic-system-maintainer` | tested |
+| H010 | User supplied Campaign Strategy PDF/PPTX as a style and content reference. | Reference decks can become reusable style packs and archetype templates when their patterns are extracted, source guardrails are added, and the rendered template passes browser QA. | `cool-campaign-light` design system, Marp theme and `templates/marp/campaign-strategy.json` | Temp render of campaign template plus `node scripts/browser-qa-marp.mjs /tmp/sg-campaign-template`; `npm test` | tested |
 
 ## Promotion Protocol
 
