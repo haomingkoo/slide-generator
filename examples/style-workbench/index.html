@@ -445,11 +445,12 @@
 
     .studio {
       display: grid;
-      grid-template-columns: 250px minmax(0, 1fr) 330px;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 20px;
+      align-items: stretch;
     }
 
+    .builder-sidebar,
     .layer-rail,
     .layer-panel,
     .stack-panel,
@@ -460,11 +461,50 @@
       background: rgba(251, 251, 253, 0.82);
     }
 
+    .builder-sidebar {
+      position: sticky;
+      top: 82px;
+      align-self: start;
+      display: grid;
+      gap: 18px;
+      padding: 16px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(251, 251, 253, 0.92)),
+        var(--surface);
+    }
+
+    .builder-sidebar-head {
+      display: grid;
+      gap: 8px;
+      padding: 4px 2px 0;
+    }
+
+    .builder-sidebar-head span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 720;
+      text-transform: uppercase;
+    }
+
+    .builder-sidebar-head strong {
+      font-size: 22px;
+      line-height: 1.04;
+    }
+
     .layer-rail,
     .stack-panel {
       position: sticky;
       top: 82px;
       padding: 10px;
+    }
+
+    .builder-sidebar .layer-rail,
+    .builder-sidebar .stack-panel {
+      position: static;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      background: transparent;
     }
 
     .layer-tab {
@@ -473,7 +513,7 @@
       grid-template-columns: auto 1fr;
       gap: 12px;
       align-items: center;
-      min-height: 62px;
+      min-height: 54px;
       border: 0;
       border-radius: 14px;
       padding: 10px 12px;
@@ -484,8 +524,8 @@
     }
 
     .layer-tab[aria-selected="true"] {
-      background: var(--surface-strong);
-      color: var(--ink);
+      background: var(--ink);
+      color: #fbfbfd;
       box-shadow: 0 12px 30px rgba(29, 29, 31, 0.06);
     }
 
@@ -502,8 +542,13 @@
     }
 
     .layer-tab[aria-selected="true"] .layer-number {
-      background: var(--ink);
-      color: var(--surface-strong);
+      background: rgba(255, 255, 255, 0.16);
+      color: #fbfbfd;
+    }
+
+    .layer-tab[aria-selected="true"] strong,
+    .layer-tab[aria-selected="true"] span:not(.layer-number) {
+      color: #fbfbfd;
     }
 
     .layer-tab strong {
@@ -518,21 +563,25 @@
     }
 
     .layer-panel {
-      min-height: 640px;
-      padding: 24px;
+      min-height: 690px;
+      padding: 18px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 247, 0.84)),
+        var(--surface);
     }
 
     .panel-top {
       display: flex;
-      align-items: start;
+      align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
+      padding: 6px 6px 0;
     }
 
     .panel-top h3 {
       margin-bottom: 8px;
-      font-size: 28px;
+      font-size: 30px;
       line-height: 1.05;
     }
 
@@ -544,22 +593,78 @@
       line-height: 1.48;
     }
 
+    .builder-canvas {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(284px, 0.55fr);
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .choice-dock {
+      min-height: 582px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      align-content: start;
+      gap: 12px;
+      border: 1px solid rgba(216, 216, 223, 0.86);
+      border-radius: 24px;
+      padding: 14px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(251, 251, 253, 0.96)),
+        var(--surface-strong);
+    }
+
+    .choice-dock-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 2px 2px 0;
+    }
+
+    .choice-dock-head span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+
+    .choice-dock-head strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.12;
+    }
+
+    .choice-count {
+      min-width: max-content;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: var(--surface-strong);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
     .choice-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
 
     .choice {
       position: relative;
-      min-height: 164px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      min-height: 112px;
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
       border: 1px solid rgba(216, 216, 223, 0.9);
-      border-radius: 20px;
-      padding: 18px;
-      background: var(--surface-strong);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(245, 245, 247, 0.52);
       color: var(--ink);
       text-align: left;
       transition: transform 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease);
@@ -589,6 +694,7 @@
 
     .choice[aria-pressed="true"] {
       border-color: var(--ink);
+      background: var(--surface-strong);
       box-shadow: inset 0 0 0 1px var(--ink);
     }
 
@@ -599,33 +705,42 @@
 
     .choice-mark {
       width: 100%;
-      min-height: 74px;
+      min-height: 76px;
       display: block;
     }
 
     .choice-preview {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      height: 74px;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      height: 76px;
+      align-content: center;
     }
 
     .choice-preview span {
-      display: grid;
-      align-content: end;
+      display: block;
+      width: 100%;
+      min-height: 18px;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 8px;
+      border-radius: 8px;
+      padding: 0;
       background: color-mix(in srgb, var(--choice-color, var(--accent)) 8%, var(--surface-strong));
       color: var(--ink);
-      font-size: 10px;
-      font-weight: 720;
-      line-height: 1.05;
+      font-size: 0;
+    }
+
+    .choice-preview span:nth-child(2) {
+      width: 74%;
+      background: color-mix(in srgb, var(--choice-color, var(--accent)) 16%, var(--surface-strong));
+    }
+
+    .choice-preview span:nth-child(3) {
+      width: 52%;
     }
 
     .choice-swatches {
       display: flex;
-      height: 74px;
+      height: 76px;
       border: 1px solid var(--line);
       border-radius: 12px;
       overflow: hidden;
@@ -637,7 +752,7 @@
     }
 
     .choice-code {
-      height: 74px;
+      height: 76px;
       display: grid;
       gap: 6px;
       align-content: center;
@@ -663,9 +778,14 @@
       opacity: 0.45;
     }
 
+    .choice-copy {
+      min-width: 0;
+      display: block;
+    }
+
     .choice h4 {
       margin: 0 0 7px;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.08;
     }
 
@@ -678,30 +798,34 @@
 
     .stack-panel {
       display: grid;
-      gap: 14px;
-      padding: 16px;
+      gap: 12px;
+      padding: 0;
     }
 
     .stack-panel h3 {
       margin: 0;
-      font-size: 15px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 760;
+      text-transform: uppercase;
     }
 
     .stack-list {
       display: grid;
-      gap: 8px;
+      gap: 10px;
     }
 
     .stack-item {
-      padding: 12px;
+      padding: 0 0 10px;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--surface-strong);
+      border-width: 0 0 1px;
+      border-radius: 0;
+      background: transparent;
     }
 
     .stack-item span {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       color: var(--muted);
       font-size: 11px;
       font-weight: 700;
@@ -710,8 +834,8 @@
 
     .stack-item strong {
       display: block;
-      font-size: 14px;
-      line-height: 1.24;
+      font-size: 15px;
+      line-height: 1.22;
     }
 
     .next-step {
@@ -737,7 +861,7 @@
     }
 
     .preview-board {
-      margin-top: 22px;
+      position: relative;
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -749,10 +873,15 @@
       border-radius: 22px;
     }
 
+    .layer-panel .preview-board {
+      margin-top: 0;
+      box-shadow: 0 18px 48px rgba(29, 29, 31, 0.08);
+    }
+
     .preview-board .deck-screen {
       border: 0;
       border-radius: 0;
-      min-height: 360px;
+      min-height: 582px;
     }
 
     .stack-panel .preview-board .deck-screen {
@@ -1439,6 +1568,22 @@
         grid-template-columns: 1fr;
       }
 
+      .builder-sidebar {
+        position: static;
+      }
+
+      .builder-canvas {
+        grid-template-columns: 1fr;
+      }
+
+      .choice-dock {
+        min-height: auto;
+      }
+
+      .choice-dock-head {
+        align-items: start;
+      }
+
       .hero {
         min-height: auto;
         padding-top: 54px;
@@ -1520,13 +1665,33 @@
       }
 
       .layer-panel {
+        order: 1;
         min-height: auto;
         padding: 16px;
         border-radius: 24px;
       }
 
+      .builder-sidebar {
+        order: 2;
+      }
+
       .layer-rail {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .layer-tab {
+        min-height: 50px;
+        gap: 9px;
+        padding: 9px 10px;
+      }
+
+      .layer-number {
+        width: 28px;
+        height: 28px;
+      }
+
+      .stack-list {
+        gap: 8px;
       }
 
       .panel-top {
@@ -1534,8 +1699,21 @@
       }
 
       .choice {
-        min-height: 148px;
+        min-height: 112px;
+        grid-template-columns: 76px minmax(0, 1fr);
         border-radius: 22px;
+      }
+
+      .builder-canvas .preview-board .deck-screen {
+        min-height: 390px;
+      }
+
+      .builder-canvas .choice-dock {
+        order: 1;
+      }
+
+      .builder-canvas .preview-board {
+        order: 2;
       }
 
       .artifact-strip {
@@ -1650,13 +1828,27 @@
 
     <section class="shell section" id="studio" aria-labelledby="studio-title">
       <div class="section-head">
-        <p class="section-kicker">Layer studio</p>
-        <h2 id="studio-title">Choose one layer at a time.</h2>
-        <p>Every click changes the preview, stack and export.</p>
+        <p class="section-kicker">Builder</p>
+        <h2 id="studio-title">Compose the deck brief.</h2>
+        <p>Pick the job, proof route, style and handoff. The canvas updates while the export contract stays ready.</p>
       </div>
 
       <div class="studio">
-        <nav class="layer-rail" aria-label="Builder layers" id="layerRail"></nav>
+        <aside class="builder-sidebar">
+          <div class="builder-sidebar-head">
+            <span>Deck setup</span>
+            <strong>Make four clear choices.</strong>
+          </div>
+          <nav class="layer-rail" aria-label="Builder layers" id="layerRail"></nav>
+          <div class="stack-panel">
+            <h3>Brief so far</h3>
+            <div class="stack-list" id="stackList"></div>
+            <div class="next-step">
+              <span>Next useful step</span>
+              <p id="nextStepCopy">Choose the deck purpose, then the evidence layer becomes easier.</p>
+            </div>
+          </div>
+        </aside>
 
         <section class="layer-panel" aria-live="polite">
           <div class="panel-top">
@@ -1666,37 +1858,39 @@
             </div>
             <button class="button small" id="nextLayerButton" type="button">Next layer</button>
           </div>
-          <div class="choice-grid" id="choiceGrid"></div>
-        </section>
-
-        <aside class="stack-panel">
-          <div class="preview-board" aria-label="Current deck preview">
-            <div class="deck-screen" id="studioScreen">
-              <div class="screen-toolbar">
-                <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
-                <span id="studioToolbar">Live deck preview</span>
-              </div>
-              <div class="screen-body">
-                <div class="preview-copy">
-                  <span class="preview-chip" id="studioChip">Proposal</span>
-                  <div class="preview-title" id="studioPreviewTitle">Make the next decision obvious.</div>
-                  <p id="studioPreviewCopy">A deck should show the audience what to believe, why it is true and what to do next.</p>
+          <div class="builder-canvas">
+            <div class="preview-board" aria-label="Current deck preview">
+              <div class="deck-screen" id="studioScreen">
+                <div class="screen-toolbar">
+                  <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <span id="studioToolbar">Live deck preview</span>
                 </div>
-                <div class="slide-stack" aria-hidden="true">
-                  <div class="slide-card"><span>01</span><strong id="miniSlideOne">Question</strong></div>
-                  <div class="slide-card"><span>02</span><strong id="miniSlideTwo">Evidence</strong></div>
-                  <div class="slide-card"><span>03</span><strong id="miniSlideThree">Decision</strong></div>
+                <div class="screen-body">
+                  <div class="preview-copy">
+                    <span class="preview-chip" id="studioChip">Proposal</span>
+                    <div class="preview-title" id="studioPreviewTitle">Make the next decision obvious.</div>
+                    <p id="studioPreviewCopy">A deck should show the audience what to believe, why it is true and what to do next.</p>
+                  </div>
+                  <div class="slide-stack" aria-hidden="true">
+                    <div class="slide-card"><span>01</span><strong id="miniSlideOne">Question</strong></div>
+                    <div class="slide-card"><span>02</span><strong id="miniSlideTwo">Evidence</strong></div>
+                    <div class="slide-card"><span>03</span><strong id="miniSlideThree">Decision</strong></div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="choice-dock">
+              <div class="choice-dock-head">
+                <div>
+                  <span id="choiceDockKicker">Step 1 of 4</span>
+                  <strong id="choiceDockTitle">Choose one layer option.</strong>
+                </div>
+                <div class="choice-count" id="choiceCount">4 options</div>
+              </div>
+              <div class="choice-grid" id="choiceGrid"></div>
+            </div>
           </div>
-          <h3>Current stack</h3>
-          <div class="stack-list" id="stackList"></div>
-          <div class="next-step">
-            <span>Next useful step</span>
-            <p id="nextStepCopy">Choose the deck purpose, then the evidence layer becomes easier.</p>
-          </div>
-        </aside>
+        </section>
       </div>
     </section>
 
@@ -1830,25 +2024,25 @@
         number: "01",
         title: "Purpose",
         short: "Deck job",
-        copy: "Pick what the deck has to accomplish before choosing how it looks."
+        copy: "Start with the job. A proposal, research brief, demo and workshop need different slide shapes."
       },
       evidence: {
         number: "02",
         title: "Evidence",
         short: "Proof route",
-        copy: "Choose the proof object the audience needs to trust the deck."
+        copy: "Pick what will do the convincing: sources, architecture, numbers or timing."
       },
       style: {
         number: "03",
         title: "Style",
         short: "Visual system",
-        copy: "Pick a restrained visual direction. The colors can be remixed before publishing."
+        copy: "Choose the visual system after the deck job is clear. Color can still be remixed before publishing."
       },
       output: {
         number: "04",
         title: "Output",
         short: "Build artifact",
-        copy: "Decide what the next agent should receive: prompt, contract, DESIGN.md or QA plan."
+        copy: "Choose the handoff for the next build step: prompt, contract, DESIGN.md or QA plan."
       }
     };
 
@@ -1937,7 +2131,7 @@
         {
           id: "studio-minimal",
           name: "Studio Minimal",
-          description: "Quiet, Apple-like, product-first.",
+          description: "Quiet, product-first, built around the slide canvas.",
           bg: "#fbfbfd",
           ink: "#1d1d1f",
           muted: "#6e6e73",
@@ -2070,6 +2264,9 @@
 
     const layerRail = document.getElementById("layerRail");
     const choiceGrid = document.getElementById("choiceGrid");
+    const choiceDockKicker = document.getElementById("choiceDockKicker");
+    const choiceDockTitle = document.getElementById("choiceDockTitle");
+    const choiceCount = document.getElementById("choiceCount");
     const activeLayerTitle = document.getElementById("activeLayerTitle");
     const activeLayerCopy = document.getElementById("activeLayerCopy");
     const nextLayerButton = document.getElementById("nextLayerButton");
@@ -2239,13 +2436,16 @@
       activeLayerTitle.textContent = meta.title;
       activeLayerCopy.textContent = meta.copy;
       nextLayerButton.textContent = state.activeLayer === "output" ? "Review export" : "Next layer";
+      choiceDockKicker.textContent = `Step ${layerOrder.indexOf(state.activeLayer) + 1} of ${layerOrder.length}`;
+      choiceDockTitle.textContent = `Choose ${meta.short.toLowerCase()}.`;
+      choiceCount.textContent = `${choices[state.activeLayer].length} options`;
       choiceGrid.innerHTML = choices[state.activeLayer].map((choice) => {
         const selected = state.selected[state.activeLayer].id === choice.id;
         const color = choice.color || choice.accent || state.selected.style.accent;
         return `
           <button class="choice" type="button" data-choice="${choice.id}" aria-pressed="${selected}" style="--choice-color:${color}">
             <span class="choice-mark" aria-hidden="true">${renderChoiceVisual(choice, state.activeLayer)}</span>
-            <span>
+            <span class="choice-copy">
               <h4>${escapeHtml(choice.name)}</h4>
               <p>${escapeHtml(choice.description)}</p>
             </span>
@@ -2288,17 +2488,26 @@
     }
 
     function renderStack() {
-      stackList.innerHTML = layerOrder.map((layer) => {
-        const meta = layerMeta[layer];
-        const selected = state.selected[layer];
+      const stackRows = [
+        ["Deck shape", `${state.selected.purpose.name} with ${state.selected.evidence.name.toLowerCase()}`],
+        ["Visual direction", `${state.selected.style.name}, ${state.selectedTemplate.name}`],
+        ["Handoff", state.selected.output.name]
+      ];
+      stackList.innerHTML = stackRows.map(([label, value]) => {
         return `
           <div class="stack-item">
-            <span>${meta.title}</span>
-            <strong>${escapeHtml(selected.name)}</strong>
+            <span>${escapeHtml(label)}</span>
+            <strong>${escapeHtml(value)}</strong>
           </div>
         `;
       }).join("");
-      nextStepCopy.textContent = state.selected.output.next || "Export the contract and run a small deck slice first.";
+      const nextByLayer = {
+        purpose: "Next, choose what kind of proof the deck needs.",
+        evidence: "Now choose a visual direction that supports the proof.",
+        style: "Pick the handoff format, then review the export.",
+        output: state.selected.output.next || "Export the contract and run a small deck slice first."
+      };
+      nextStepCopy.textContent = nextByLayer[state.activeLayer];
     }
 
     function renderPreview() {
@@ -2306,7 +2515,7 @@
       const evidence = state.selected.evidence;
       const style = state.selected.style;
       const title = evidence.titleAddon || purpose.title;
-      const copy = `${purpose.copy} Proof route: ${evidence.proof}.`;
+      const copy = `${purpose.copy} Build it around ${evidence.proof}.`;
       const miniSlides = evidence.slides || purpose.slides;
       previewTargets.forEach((target) => {
         target.screen.style.setProperty("--preview-bg", style.bg);
