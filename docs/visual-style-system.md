@@ -230,11 +230,35 @@ Use `docs/template-source-registry.md` before importing more templates. The work
 
 Consulting deck references should influence thinking discipline, not become copied templates.
 
-- Ampler's McKinsey deck collection is useful as a directory of public consulting slide examples and common framework patterns.
-- Slideworks' BCG slide-writing guide is useful for action titles, storylining, title-only story checks, slide-purpose discipline, chart/table/process selection and quality control.
-- SlideGenius' Accenture portfolio page is useful as an agency-style reference for minimalist executive-summary presentation work and attention-aiding visuals.
+- Public consulting deck directories are useful for common framework patterns and appendix structure.
+- Public slide-writing guides are useful for action titles, storylining, title-only story checks, slide-purpose discipline, chart/table/process selection and quality control.
+- Public agency portfolio pages are useful as references for minimalist executive-summary presentation work and attention-aiding visuals.
 
 Use these as source-attributed references in prompts. Do not copy proprietary images, deck screenshots, client branding or template assets.
+
+## Brand-Name Hygiene
+
+Use neutral public labels for style directions. Good labels describe the function or visual system:
+
+- `Consulting Clarity`
+- `Technical Grid`
+- `Editorial Minimal`
+- `Frame Design`
+- `Design Contract`
+
+Avoid public labels such as "Company X style" or "Brand Y deck" unless the user owns that brand or explicitly asks for a private comparison. Company and product names belong in attribution links, license notes and private research logs, not in exported prompts as imitation targets.
+
+When using public style-system galleries such as Refero Styles or `awesome-design-md`, extract the artifact structure:
+
+- preview image or specimen,
+- color palette and semantic roles,
+- typography,
+- spacing and shape,
+- component rules,
+- do and do-not rules,
+- copyable `DESIGN.md` or design contract.
+
+Do not copy screenshots, hosted images or brand assets unless licensing and user permission are explicit.
 
 ## Motion / Frame References
 

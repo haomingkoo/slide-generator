@@ -104,6 +104,8 @@ This is the path to creating styles as strong as `frontend-slides` while keeping
 
 The first static step exists at `examples/style-workbench/`. It is not a full editor; it is a style picker that exports a design prompt and design-contract JSON.
 
+The product spec for turning this into a guided taste-discovery app lives in `docs/style-workbench-product-spec.md`.
+
 ## Presenter Console
 
 Marp already provides a useful presenter view. A future custom HTML renderer should meet or exceed it before replacing that path for live talks.

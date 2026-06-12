@@ -14,6 +14,16 @@ Do not jump from content to one final style. Run visual discovery:
 6. Test representative slide types in the browser: title, table, timeline, comparison, appendix.
 7. If the user supplies a PDF/PPTX reference deck, render it first and extract repeated layout patterns before designing.
 
+When the user is still choosing taste, make the choice feel like a guided product flow:
+
+- ask them to pick a few inspirations rather than describe an abstract vibe,
+- mix template grammar, palette roles and communication discipline separately,
+- show slide specimens or screenshots before full generation,
+- let them choose the closest direction and refine,
+- export a prompt or `design-contract.json` only after the preview is coherent.
+
+Do not expose a giant catalog as the first screen. Source registries and license details belong in a drawer, appendix or supporting doc unless the user is doing due diligence.
+
 ## Good Slide Design
 
 Good slides usually have:
@@ -39,6 +49,22 @@ For Gamma, Canva, Figma, Keynote or PowerPoint references:
 - Identify repeated layout families instead of copying a single slide.
 - Convert the reusable design rules into a design contract or style pack.
 - Do not copy proprietary template assets. Preserve license notices for reusable open-source material.
+
+## Brand-Name Hygiene
+
+Use neutral public names for style directions. Company and product names can appear in attribution links, source registries, license notes and private research logs, but not as public imitation targets.
+
+Good public labels:
+
+- `Consulting Clarity`
+- `Technical Grid`
+- `Editorial Minimal`
+- `Frame Design`
+- `Design Contract`
+
+Avoid exported prompt language such as "make it like Company X" or "Brand Y-style deck" unless the user owns that brand or explicitly asks for a private comparison.
+
+When studying public galleries such as Refero Styles or `awesome-design-md`, extract artifact structure instead of brand identity: preview, palette roles, typography, spacing, component rules, and do/do-not rules.
 
 ## Hard Failure Gates
 

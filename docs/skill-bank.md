@@ -25,7 +25,8 @@ Every serious deck run should follow this loop:
 | Content Priority | Decide what belongs in main deck, backup, appendix or nowhere. | `work/content-priority.md` | human review and slide-count fit | absorbed |
 | Visual Aid Selection | Pick tables, charts, diagrams, timelines, maps, screenshots or image panels based on the slide job. | `work/visual-aid-plan.json`, slide specs | slide-spec validation, rendered review | absorbed |
 | Visual Style System | Choose or create a design contract from audience, brand and references such as Gamma, Canva, Figma Slides or frontend-slides. | `work/design-contract.json`, `design-systems/`, `templates/design-contracts/` | `npm run validate:design -- <project>`, Playwright screenshots | absorbed |
-| Template Gallery | Shortlist open-source template recipes, generate safe color variants, and preserve license notices. | `vendor/frontend-slides/`, `design-systems/`, `templates/design-contracts/` | license notice review, representative browser QA | absorbed |
+| Template Gallery | Shortlist open-source template recipes, generate safe color variants, preserve license notices and show slide specimens before export. | `vendor/frontend-slides/`, `examples/style-workbench/`, `design-systems/`, `templates/design-contracts/` | license notice review, representative browser QA | absorbed |
+| Diagram Intelligence | Pick Mermaid, Excalidraw-style, table, custom SVG or HTML diagrams based on slide job and evidence. | `work/visual-aid-plan.json`, future diagram artifacts | diagram source audit, screenshot review, mobile bounds check | proposed |
 | Hackathon Intelligence | Research judges, hosts, sponsors, rubrics, repos and past winners before choosing build and deck strategy. | `work/hackathon-intelligence.md`, `work/build-plan.md`, `work/demo-plan.md` | source audit, build/demo readiness review | absorbed |
 | Rendering | Convert slide specs to fixed presentation output. | `work/slide-specs.json`, `deck/` | `npm run render:marp -- <project> --html`, `npm run inspect:marp -- <project>` | tested |
 | Browser Visual QA | Catch overflow, footer/source collisions, stale browser state, bad mobile controls and unreadable layouts. | `qa/browser-qa.json`, screenshots | `npm run qa:browser -- <project>` plus manual screenshot review for custom HTML | tested |
@@ -62,6 +63,10 @@ Promote a module only when it prevents a real failure or speeds up a real workfl
 
 Tools like Gamma, Canva, Figma Slides, Plus AI, SlideSpeak and frontend-slides are pattern libraries. Learn their workflow and layout grammar, but do not copy proprietary templates, private account exports or raw downloaded assets into the repo unless the user explicitly asks and licensing/privacy has been checked.
 
+Use company and product names only for attribution, license context or private research notes. Public style directions should use neutral names such as `Technical Grid`, `Editorial Minimal`, `Consulting Clarity` or `Design Contract`; exported prompts should not ask an agent to imitate a named brand.
+
+Refero-style galleries add a useful workflow rule: inspect real screens and style-system pages before designing, then lock a primary reference direction and a small set of token/component decisions. Do not average references into a bland middle.
+
 For user-provided references, extract durable patterns:
 
 - intake modes,
@@ -93,6 +98,8 @@ Useful visual patterns observed from user-provided Gamma/PDF/PPTX exports:
 - capability or service portfolio columns,
 - coaching/pro-tip callout,
 - design scope/goals/out-of-scope matrix.
+- guided style onboarding: choose a few inspirations, mix template/palette/logic, preview slide behavior, export a prompt and design contract.
+- proof-type routing: architecture, tech stack, use case, workflow, cost model and roadmap should pick different visual proof objects before choosing decoration.
 
 Every extracted pattern must answer: what slide job does it solve, what evidence does it need, what copy budget keeps it readable, and what browser QA failure would invalidate it.
 

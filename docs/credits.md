@@ -62,7 +62,13 @@ The style workbench also references public inspiration sources:
 - SlideGenius Accenture portfolio: https://www.slidegenius.com/portfolio/accenture
 - HyperFrames design page: https://www.hyperframes.dev/design
 - HyperFrames by HeyGen: https://github.com/heygen-com/hyperframes
+- Refero Styles: https://styles.refero.design/
+- Refero Skill: https://github.com/referodesign/refero_skill
+- VoltAgent awesome-design-md: https://github.com/VoltAgent/awesome-design-md
+- pptx-design-styles by TodayCode: https://github.com/corazzon/pptx-design-styles
 
 These are attribution links and pattern references. They do not grant permission to copy proprietary templates, screenshots, client work or private assets.
+
+Use company and product names for attribution only. Public-facing style labels should stay neutral unless the user owns the brand or explicitly asks for a private comparison.
 
 For the fuller import/reference policy, see [template-source-registry.md](template-source-registry.md).
