@@ -25,7 +25,7 @@ Create presentation-ready decks through verified artifacts. Do not jump from raw
 14. Render.
 15. Run critique, deterministic claim checks, source audit, browser QA, quality scoring, export QA, and targeted repair.
 16. Humanize speaker notes and final copy without adding claims, then re-run source audit over edited notes.
-17. When the deck reveals a reusable failure, write the lesson into `qa/`, a reference file, a validator, a template, or an eval. Compress repeated fixes into simpler rules instead of adding endless one-off guidance.
+17. When the deck reveals a reusable failure, write the lesson into `qa/`, a reference file, a validator, a template, or an eval. Run `npm run heuristic:status -- <project>` when maintaining this repo. Compress repeated fixes into simpler rules instead of adding endless one-off guidance.
 
 ## One-Shot Drafting
 

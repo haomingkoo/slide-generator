@@ -34,6 +34,7 @@
     "deck:build": "node scripts/build-deck.mjs",
     "deck:score": "node scripts/score-deck.mjs",
     "deck:iterate": "node scripts/iterate-deck.mjs",
+    "heuristic:status": "node scripts/heuristic-status.mjs",
     "eval:ab": "node scripts/score-ab-eval.mjs",
     "brand:extract": "node scripts/extract-brand-contract.mjs",
     "validate:ledger": "node scripts/validate-claim-ledger.mjs",

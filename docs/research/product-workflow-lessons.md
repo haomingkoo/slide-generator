@@ -19,11 +19,14 @@ Lessons for this repo:
 - Keep broad deck edits and slide-local edits separate.
 - Use a flexible intermediate `slide_spec`, but test fixed-slide export early.
 - Treat first draft as momentum, not final output.
+- Keep local Gamma exports private. If a saved page contains account or workspace data, extract only reusable workflow patterns and do not commit raw HTML.
+- Gamma's card/document model suggests a useful internal distinction: `doc_mode` for structured narrative and `present_mode` for fixed-stage delivery. The generator should know which mode it is optimizing for before layout.
 
 Sources:
 
 - https://help.gamma.app/en/articles/11047840-how-can-i-import-slides-or-documents-into-gamma
 - https://gamma.app/explore/content/guides/gamma-ai-instant-presentations
+- User-provided Gamma template export inspected locally on 2026-06-12; treated as private reference material, not a committed source artifact.
 
 ## Figma Slides
 
@@ -173,6 +176,16 @@ Sources:
 - Preserve source traceability even when the source comes from Drive, a website, a PDF, or an imported deck.
 - Support strict source-preservation mode for decks where unsupported elaboration is unacceptable.
 - Keep translation, video narration, and presentation polish downstream from the source audit.
+
+## User-Provided Reference Export Patterns
+
+Observed from local Gamma/PDF/PPTX references provided by the user on 2026-06-12. These are pattern observations, not reusable assets.
+
+- Split image plus evidence grid: a full-height image field can create premium atmosphere, but the evidence side still needs strict grid alignment and readable copy.
+- Comparison rail: large directional arrows can make before/after or incumbent/challenger slides feel energetic, but the content must still name concrete proof points. Symmetry alone is not evidence.
+- Sparse numbered grid: four numbered blocks with long horizontal rules feel polished because the structure is obvious and whitespace is disciplined. This is a useful alternative to cards.
+- Dark cinematic references can look premium, but the repo should not default to dark themes. Theme choice still comes from audience, setting and subject.
+- Placeholder-rich references show layout grammar, not content quality. The skill should borrow spacing and structure while requiring claim IDs, concrete values and source caveats.
 
 ## Design Skill Ecosystem
 

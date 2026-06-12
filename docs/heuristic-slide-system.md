@@ -18,6 +18,20 @@ Source: https://trinkle23897.github.io/learning-beyond-gradients/
 | Regression | `npm test`, validators, browser QA, screenshot review, captured baselines and source-backed evals |
 | Compression | Turn repeated one-off fixes into smaller rules, validators, templates or examples |
 
+## Compared With Karpathy-Style Autoresearch
+
+Karpathy's `autoresearch` pattern is a tight autonomous experiment loop: constrain what the agent may edit, keep the evaluator fixed, run short trials, keep improvements, discard regressions, and preserve the experiment trail. That maps partly to this repo, but slide quality is harder to reduce to one scalar metric.
+
+| Autoresearch ingredient | Slide-generator equivalent |
+|---|---|
+| One mutable target file | Skill references, templates, design contracts, validators, or one deck artifact |
+| Fixed evaluator | Validators, browser QA, scorecards, screenshot review and source audits |
+| Numeric metric | Quality scorecard plus hard gates; visual judgment still needs screenshots |
+| Experiment log | `review-log.json`, `qa/`, heuristic registry and git history |
+| Keep or discard | Commit only when tests/QA pass and the deck improves against the review target |
+
+Use the autoresearch model when a deck-system improvement has a clear measurable proxy, such as overflow count, missing claim refs, stale QA artifacts, low rubric score or failed browser checks. Use the broader heuristic-system model when the improvement depends on taste, narrative clarity, audience fit or source judgment.
+
 ## Deep-Agent Loop
 
 Use specialist passes when the deck matters:
@@ -70,12 +84,18 @@ Use:
 
 ```bash
 npm test
+npm run heuristic:status
+npm run heuristic:status -- examples/chleo-community-band-room
 npm run workflow:status -- <project>
 npm run deck:build -- <project> --render
 npm run qa:browser -- <project>
 ```
 
 For custom HTML decks, use project validators plus Playwright screenshots and explicit bounds checks.
+
+## Cross-Agent Memory
+
+For local continuity across Codex and Claude, use `/Users/koohaoming/.agent-memory/` as the private communication layer. Keep repo-level lessons here only when they should be committed for all users of the repo. Keep personal preferences and local cross-agent notes in shared memory, not in the public repo.
 
 ## What Not To Do
 

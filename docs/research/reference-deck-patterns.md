@@ -66,6 +66,7 @@ Openings and public speaking:
 - Time is a hard design constraint; extra material belongs in notes, backup, appendix, or nowhere.
 - Appendix should answer likely questions, not collect leftovers.
 - Visual quality requires rendered review; source-grounded copy can still become a poor slide.
+- Reference decks are strongest when converted into named layout patterns and quality gates, not copied wholesale.
 
 ## Mode Findings
 
@@ -140,3 +141,4 @@ Use hooks as argument choices, not decoration:
 - Do not treat public deck galleries as authoritative without verification.
 - Do not claim that the presence of a template proves slide quality.
 - Do not turn every source into a runtime rule. Keep detailed research here and concise operational rules in the skill.
+- Do not commit private downloaded deck exports, account HTML, or source assets unless the user explicitly asks and licensing/privacy has been checked.
