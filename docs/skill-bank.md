@@ -24,7 +24,7 @@ Every serious deck run should follow this loop:
 | Source-Backed Research | Convert sources into claims with confidence, caveats and slide-use limits. | `work/source-map.md`, `work/claim-ledger.json` | `npm run validate:ledger -- <project>`, `npm run lint:claim-refs -- <project>` | tested |
 | Content Priority | Decide what belongs in main deck, backup, appendix or nowhere. | `work/content-priority.md` | human review and slide-count fit | absorbed |
 | Visual Aid Selection | Pick tables, charts, diagrams, timelines, maps, screenshots or image panels based on the slide job. | `work/visual-aid-plan.json`, slide specs | slide-spec validation, rendered review | absorbed |
-| Visual Style System | Choose or create a design contract from audience, brand and references such as Gamma, Canva, Figma Slides or frontend-slides. | `work/design-contract.json`, `design-systems/`, `templates/design-contracts/` | `npm run validate:design -- <project>`, Playwright screenshots | absorbed |
+| Visual Style System | Choose or create a design contract from audience, brand, open template packs and reference decks. | `work/design-contract.json`, `design-systems/`, `templates/design-contracts/` | `npm run validate:design -- <project>`, Playwright screenshots | absorbed |
 | Template Gallery | Shortlist open-source template recipes, generate safe color variants, preserve license notices and show slide specimens before export. | `vendor/frontend-slides/`, `examples/style-workbench/`, `design-systems/`, `templates/design-contracts/` | license notice review, representative browser QA | absorbed |
 | Diagram Intelligence | Pick Mermaid, Excalidraw-style, table, custom SVG or HTML diagrams based on slide job and evidence. | `work/visual-aid-plan.json`, future diagram artifacts | diagram source audit, screenshot review, mobile bounds check | proposed |
 | Hackathon Intelligence | Research judges, hosts, sponsors, rubrics, repos and past winners before choosing build and deck strategy. | `work/hackathon-intelligence.md`, `work/build-plan.md`, `work/demo-plan.md` | source audit, build/demo readiness review | absorbed |
@@ -61,13 +61,15 @@ Promote a module only when it prevents a real failure or speeds up a real workfl
 
 ## Reference Policy
 
-Tools like Gamma, Canva, Figma Slides, Plus AI, SlideSpeak and frontend-slides are pattern libraries. Learn their workflow and layout grammar, but do not copy proprietary templates, private account exports or raw downloaded assets into the repo unless the user explicitly asks and licensing/privacy has been checked.
+Commercial slide tools, open template packs and private reference decks are pattern libraries. Learn their workflow and layout grammar, but do not copy proprietary templates, private account exports or raw downloaded assets into the repo unless the user explicitly asks and licensing/privacy has been checked.
 
 Use company and product names only for attribution, license context or private research notes. Public style directions should use neutral names such as `Technical Grid`, `Editorial Minimal`, `Consulting Clarity` or `Design Contract`; exported prompts should not ask an agent to imitate a named brand.
 
 Refero-style galleries add a useful workflow rule: inspect real screens and style-system pages before designing, then lock a primary reference direction and a small set of token/component decisions. Do not average references into a bland middle.
 
 Style workbench guidance should stay product-like: introduce Direction, Template, Color and Logic one at a time; keep all steps jumpable; show a grid and explicit paging for large option sets; animate only inside card bounds; and export reference-safety rules so PPT/PDF/web inspiration is remixed before publishing.
+
+Workbench interactions must feel inspectable: each choice card should show a mini specimen of what it changes, the live preview must stay visible near the choices on desktop, and decorative layer cards must never cover specimen content.
 
 For user-provided references, extract durable patterns:
 

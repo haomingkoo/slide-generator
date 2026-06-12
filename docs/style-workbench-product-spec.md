@@ -72,7 +72,7 @@ Future input modes:
 - CSV or cost model,
 - existing Mermaid,
 - Excalidraw file,
-- Figma/PPTX/PDF reference.
+- design-file, PPTX or PDF reference.
 
 ## DESIGN.md Shape
 
@@ -102,6 +102,8 @@ A generated `DESIGN.md` should have these sections:
 - Let users go back and forth without losing selection state.
 - Use neutral labels for taste dimensions: dense, airy, editorial, technical, playful, restrained.
 - Show the consequence of each choice in the preview panel.
+- Make the preview visible when choices are visible. A click should update the selected card, current stack, live specimen and export in the same interaction.
+- Do not use decorative overlays that cover a slide specimen, source lane, card label, button or export area.
 - Treat mobile as a first-class browsing mode.
 
 ## Quality Gates
@@ -110,8 +112,10 @@ Before a workbench change is done:
 
 - the initial screen shows one primary decision, not every source,
 - template cards show specimen previews,
+- choice cards show what their selection changes, not generic icons,
 - template browsing uses visible Previous/Next paging instead of hidden sideways scroll,
 - the selected direction updates the live preview,
+- the live preview is visible beside choices on desktop and reachable without horizontal movement on mobile,
 - exported JSON parses,
 - exported prompt, JSON and `DESIGN.md` include reference-safety rules for PPT/PDF/web inspiration,
 - exported prompt includes credits and build path,

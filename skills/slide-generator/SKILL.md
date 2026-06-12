@@ -62,7 +62,7 @@ Dark mode is not the default. Pick theme by audience, setting, and brand.
 - Cream, beige, parchment and bone-paper palettes are opt-in, not defaults. If a reference has good structure but the wrong palette, preserve the layout grammar and generate a better colorway.
 - Prefer `cobalt-grid-light` for sharp light technical, hackathon, proposal and product decks when the user wants something closer to Cobalt Grid and not cream.
 - If unsure, produce 2 or 3 title-slide previews before rendering the full deck.
-- If the user provides PDF, PPTX, Gamma, Canva, Figma, or `frontend-slides` references, extract layout grammar and style constraints into `design-contract.json`. Do not copy raw assets or placeholder claims. Read `references/product-workflow-lessons.md`, `references/visual-style-system.md`, and the relevant PDF/PPTX workflow reference.
+- If the user provides PDF, PPTX, commercial slide-tool exports, design files, or `frontend-slides` references, extract layout grammar and style constraints into `design-contract.json`. Do not copy raw assets or placeholder claims. Read `references/product-workflow-lessons.md`, `references/visual-style-system.md`, and the relevant PDF/PPTX workflow reference.
 
 ## References
 
@@ -92,7 +92,7 @@ Read only what the task needs:
 - `references/frontend-rendering.md`: HTML/CSS rendering quality.
 - `references/pptx-workflow.md`: PowerPoint input, output, template, and QA workflow.
 - `references/pdf-ingestion.md`: PDF extraction and OCR workflow.
-- `references/product-workflow-lessons.md`: durable lessons from Gamma, Figma Slides, Gemini Slides, Canva, Plus AI, and SlideSpeak.
+- `references/product-workflow-lessons.md`: durable lessons from commercial slide tools, design-file workflows and deck-generation ecosystems.
 - `references/evals.md`: how to test this skill.
 
 For the maintainer-level continuous-improvement loop, see `docs/heuristic-slide-system.md` in the repo.

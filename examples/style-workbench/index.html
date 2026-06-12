@@ -3,25 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Slide Generator Style Workbench</title>
-  <link rel="icon" href="data:,">
+  <title>Slide System Studio</title>
+  <meta name="description" content="A layered style workbench for building slide design contracts before generation.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1d1f'/%3E%3Cpath d='M7 25 25 7v18H7Z' fill='%230071e3'/%3E%3C/svg%3E">
   <style>
     :root {
-      --bg: #f3f6fb;
-      --paper: #fbfcff;
-      --paper-2: #edf2f8;
-      --ink: #10131b;
-      --muted: #5b6575;
-      --quiet: #8791a1;
-      --line: #c8d2df;
-      --line-strong: #1b2433;
-      --accent: #0757ff;
-      --accent-2: #13b8d6;
-      --signal: #d9ff46;
-      --mint: #4dd5b0;
-      --panel-shadow: 8px 8px 0 rgba(7, 87, 255, 0.08);
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --bg: #f5f5f7;
+      --surface: #fbfbfd;
+      --surface-strong: #ffffff;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --soft: #e8e8ed;
+      --line: #d8d8df;
+      --accent: #0071e3;
+      --accent-2: #34c759;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 28px 70px rgba(29, 29, 31, 0.09);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
       color-scheme: light;
     }
 
@@ -29,3781 +29,1922 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background:
-        linear-gradient(rgba(16, 19, 27, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16, 19, 27, 0.035) 1px, transparent 1px),
-        radial-gradient(circle at 85% 4%, rgba(217, 255, 70, 0.32), transparent 24rem),
-        radial-gradient(circle at 8% 18%, rgba(19, 184, 214, 0.18), transparent 24rem),
+        linear-gradient(180deg, #ffffff 0, var(--bg) 420px),
         var(--bg);
-      background-size: 32px 32px, 32px 32px, auto, auto, auto;
       color: var(--ink);
-      font-family: Aptos, "Avenir Next", system-ui, sans-serif;
-      line-height: 1.45;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      font-kerning: normal;
+      letter-spacing: 0;
     }
 
     a {
-      color: var(--accent);
-    }
-
-    .topbar {
-      border-bottom: 1px solid var(--line-strong);
-      background: rgba(251, 252, 255, 0.88);
-    }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 16px 24px;
-    }
-
-    .brand {
-      display: grid;
-      gap: 2px;
-    }
-
-    .brand strong {
-      font-size: 16px;
-      font-weight: 820;
-      letter-spacing: 0;
-    }
-
-    .brand span {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .toplinks {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 14px;
-    }
-
-    .toplinks .pill {
-      min-height: auto;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 720;
-    }
-
-    .pill,
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 34px;
-      padding: 7px 11px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: var(--paper);
-      color: var(--ink);
-      font-size: 12px;
-      font-weight: 720;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform 180ms var(--ease-out), background 180ms var(--ease-out), color 180ms var(--ease-out);
-    }
-
-    .pill:hover,
-    .button:hover {
-      transform: translateY(-1px);
-    }
-
-    .pill:active,
-    .button:active {
-      transform: scale(0.97);
-    }
-
-    .shell {
-      max-width: 1480px;
-      margin: 0 auto;
-      padding: 24px 24px 48px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.88fr);
-      min-height: 312px;
-      margin-bottom: 18px;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--paper);
-      box-shadow: var(--panel-shadow);
-      animation: rise-in 420ms var(--ease-out) both;
-    }
-
-    .hero-copy {
-      position: relative;
-      min-height: 312px;
-      padding: 32px;
-      border-right: 1px solid var(--line-strong);
-      background:
-        linear-gradient(135deg, transparent 0 72%, rgba(7, 87, 255, 0.08) 72% 73%, transparent 73%),
-        var(--paper);
-    }
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      right: 32px;
-      bottom: 32px;
-      width: 170px;
-      height: 78px;
-      border: 1px solid var(--line-strong);
-      background:
-        linear-gradient(90deg, var(--accent) 0 20%, var(--signal) 20% 42%, var(--mint) 42% 66%, var(--ink) 66% 100%);
-      clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
-    }
-
-    .eyebrow,
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      min-height: 22px;
-      padding: 4px 8px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: var(--signal);
-      color: var(--ink);
-      font-size: 10px;
-      font-weight: 840;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-    }
-
-    h1 {
-      max-width: 700px;
-      margin: 0;
-      font-size: 76px;
-      font-weight: 860;
-      letter-spacing: 0;
-      line-height: 0.92;
-    }
-
-    .hero-copy p {
-      max-width: 650px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .credit-card {
-      padding: 28px;
-      background:
-        linear-gradient(90deg, rgba(16, 19, 27, 0.05) 1px, transparent 1px),
-        linear-gradient(rgba(16, 19, 27, 0.05) 1px, transparent 1px),
-        #e9eef5;
-      background-size: 18px 18px;
-    }
-
-    .credit-card h2,
-    .panel h2 {
-      margin: 0;
-      font-size: 15px;
-      font-weight: 830;
-      letter-spacing: 0;
-    }
-
-    .credit-list {
-      display: grid;
-      gap: 0;
-      margin: 18px 0 0;
-      padding: 0;
-      list-style: none;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .credit-list li {
-      padding: 12px 0;
-      border-top: 1px solid rgba(16, 19, 27, 0.18);
-    }
-
-    .credit-list strong {
-      color: var(--ink);
-    }
-
-    .workbench {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(390px, 0.9fr);
-      gap: 18px;
-      align-items: start;
-      animation: rise-in 480ms var(--ease-out) 80ms both;
-    }
-
-    .panel {
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: rgba(251, 252, 255, 0.96);
-      box-shadow: var(--panel-shadow);
-      padding: 18px;
-    }
-
-    .builder-panel {
-      display: grid;
-      gap: 16px;
-    }
-
-    .step-rail {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(132px, 1fr);
-      gap: 0;
-      overflow-x: auto;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: #ffffff;
-    }
-
-    .step-tab {
-      display: grid;
-      gap: 2px;
-      min-height: 64px;
-      padding: 10px 12px;
-      border: 0;
-      border-right: 1px solid rgba(16, 19, 27, 0.18);
-      background: transparent;
-      color: var(--muted);
-      text-align: left;
-      cursor: pointer;
-      transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 180ms var(--ease-out);
-    }
-
-    .step-tab:last-child {
-      border-right: 0;
-    }
-
-    .step-tab strong {
-      color: var(--ink);
-      font-size: 13px;
-      font-weight: 820;
-    }
-
-    .step-tab span {
-      font-size: 11px;
-    }
-
-    .step-tab[aria-selected="true"] {
-      background: var(--ink);
-      color: #dfe8f7;
-    }
-
-    .step-tab[aria-selected="true"] strong {
-      color: #ffffff;
-    }
-
-    .step-panel {
-      min-height: 560px;
-    }
-
-    .step-panel:not([hidden]) {
-      animation: step-enter 240ms var(--ease-out) both;
-    }
-
-    .step-panel[hidden] {
-      display: none;
-    }
-
-    .step-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 2px;
-    }
-
-    #stepStatus {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 760;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 4px 0 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(16, 19, 27, 0.14);
-    }
-
-    .section-head p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .filters {
-      display: grid;
-      grid-template-columns: minmax(220px, 1fr) 140px 140px 150px;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .quick-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin: 0 0 16px;
-    }
-
-    .quick-filters .pill {
-      border-radius: 8px;
-      background: #ffffff;
-    }
-
-    .field {
-      min-height: 40px;
-      width: 100%;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: #ffffff;
-      color: var(--ink);
-      padding: 8px 10px;
-      font-size: 13px;
-    }
-
-    .field:focus,
-    textarea:focus {
-      outline: 2px solid rgba(7, 87, 255, 0.22);
-      outline-offset: 2px;
-    }
-
-    .palette-grid,
-    .source-grid,
-    .reference-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 0;
-    }
-
-    .mix-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .palette-card,
-    .mix-card,
-    .source-card,
-    .reference-card,
-    .template-card {
-      position: relative;
-      border: 1px solid rgba(16, 19, 27, 0.32);
-      border-radius: 8px;
-      background: #ffffff;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 180ms var(--ease-out), border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out);
-    }
-
-    .palette-card,
-    .source-card,
-    .reference-card,
-    .template-card {
-      padding: 13px;
-    }
-
-    .source-card {
-      min-height: 100px;
       color: inherit;
       text-decoration: none;
     }
 
-    .reference-card {
-      min-height: 126px;
+    button,
+    input,
+    textarea {
+      font: inherit;
     }
 
-    .mix-card {
-      min-height: 146px;
-      padding: 11px;
+    button {
+      cursor: pointer;
     }
 
-    .template-card {
-      min-height: 158px;
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: 12px;
+      z-index: 20;
+      transform: translateY(-140%);
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: var(--surface-strong);
+      transition: transform 180ms var(--ease);
     }
 
-    .palette-card:hover,
-    .mix-card:hover,
-    .source-card:hover,
-    .reference-card:hover,
-    .template-card:hover,
-    .palette-card[aria-pressed="true"],
-    .mix-card[aria-pressed="true"],
-    .reference-card[aria-pressed="true"],
-    .template-card[aria-pressed="true"] {
-      border-color: var(--accent);
-      box-shadow: 5px 5px 0 rgba(7, 87, 255, 0.16);
-      transform: translate(-1px, -1px);
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
-    .palette-card:active,
-    .mix-card:active,
-    .source-card:active,
-    .reference-card:active,
-    .template-card:active {
-      transform: translate(0, 0) scale(0.985);
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 12;
+      background: rgba(251, 251, 253, 0.82);
+      border-bottom: 1px solid rgba(216, 216, 223, 0.72);
+      backdrop-filter: blur(18px);
     }
 
-    .palette-card[aria-pressed="true"],
-    .mix-card[aria-pressed="true"],
-    .reference-card[aria-pressed="true"],
-    .template-card[aria-pressed="true"] {
-      background: #f6faff;
+    .topbar-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 62px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .swatches {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      overflow: hidden;
-      height: 34px;
-      margin-bottom: 10px;
-      border: 1px solid rgba(16, 19, 27, 0.2);
-      border-radius: 6px;
-    }
-
-    .swatches span {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       min-width: 0;
+      font-size: 14px;
+      font-weight: 650;
     }
 
-    .card-title {
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      background:
+        linear-gradient(135deg, var(--ink) 0 48%, transparent 48%),
+        linear-gradient(135deg, transparent 52%, var(--accent) 52% 100%),
+        var(--surface-strong);
+      border: 1px solid var(--line);
+    }
+
+    .toplinks {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 520;
+    }
+
+    .toplinks a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 12px;
+      padding: 0 12px;
+      transition: background 180ms var(--ease), color 180ms var(--ease);
+    }
+
+    .toplinks a:hover,
+    .toplinks a:focus-visible {
+      background: var(--soft);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: min(720px, calc(100dvh - 62px));
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(500px, 1.18fr);
+      gap: 62px;
+      align-items: center;
+      padding: 58px 0 74px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin-bottom: 24px;
+      font-size: clamp(48px, 5.6vw, 78px);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 720;
+    }
+
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 560px;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.52;
+    }
+
+    .actions {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 5px;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0 18px;
+      background: var(--surface-strong);
       color: var(--ink);
-      font-size: 14px;
-      font-weight: 820;
+      font-weight: 620;
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
     }
 
-    .card-title .tag {
-      flex-shrink: 0;
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(29, 29, 31, 0.34);
+      outline: none;
     }
 
-    .card-copy {
-      margin: 0;
+    .button:active {
+      transform: translateY(0);
+    }
+
+    .button.primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--surface-strong);
+    }
+
+    .button.small {
+      min-height: 36px;
+      padding-inline: 13px;
+      font-size: 13px;
+    }
+
+    .product-stage {
+      position: relative;
+      min-height: 486px;
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .deck-device {
+      position: relative;
+      width: min(100%, 630px);
+      aspect-ratio: 16 / 10;
+      border: 1px solid rgba(216, 216, 223, 0.9);
+      border-radius: 34px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .deck-screen {
+      height: 100%;
+      border: 1px solid rgba(216, 216, 223, 0.84);
+      border-radius: 24px;
+      overflow: hidden;
+      user-select: none;
+      background:
+        linear-gradient(90deg, rgba(29, 29, 31, 0.06) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(29, 29, 31, 0.06) 1px, transparent 1px),
+        var(--preview-bg, #fbfbfd);
+      background-size: 56px 56px;
+      color: var(--preview-ink, var(--ink));
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .deck-screen.is-updated .preview-title,
+    .deck-screen.is-updated .preview-copy p,
+    .deck-screen.is-updated .slide-stack {
+      animation: preview-update 260ms var(--ease);
+    }
+
+    @keyframes preview-update {
+      0% {
+        opacity: 0.72;
+        transform: translateY(5px) scale(0.992);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .screen-toolbar {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-bottom: 1px solid rgba(216, 216, 223, 0.78);
+      background: rgba(255, 255, 255, 0.74);
       color: var(--muted);
       font-size: 12px;
+      font-weight: 620;
+    }
+
+    .traffic {
+      display: flex;
+      gap: 7px;
+    }
+
+    .traffic span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line);
+    }
+
+    .screen-body {
+      position: relative;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(180px, 0.64fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .preview-copy {
+      align-self: center;
+    }
+
+    .preview-chip {
+      display: inline-flex;
+      margin-bottom: 18px;
+      color: var(--preview-accent, var(--accent));
+      font-size: 11px;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+
+    .preview-title {
+      margin-bottom: 18px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.04;
+      font-weight: 720;
+    }
+
+    .preview-copy p {
+      max-width: 360px;
+      color: var(--preview-muted, var(--muted));
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .slide-stack {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      align-content: center;
+      height: auto;
+    }
+
+    .slide-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 6.8;
+      border: 1px solid rgba(29, 29, 31, 0.1);
+      border-radius: 14px;
+      background: var(--surface-strong);
+      padding: 12px 14px;
+      box-shadow: 0 14px 30px rgba(29, 29, 31, 0.08);
+      transition: transform 360ms var(--ease), background 260ms var(--ease);
+    }
+
+    .slide-card:nth-child(2) {
+      background: color-mix(in srgb, var(--preview-accent, #0071e3) 12%, #fff);
+    }
+
+    .slide-card span {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .slide-card strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.05;
+    }
+
+    .artifact-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      width: min(100%, 630px);
+    }
+
+    .artifact-strip span {
+      min-height: 50px;
+      display: grid;
+      align-content: center;
+      gap: 3px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 9px 11px;
+      background: rgba(251, 251, 253, 0.76);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.2;
+      user-select: none;
+    }
+
+    .artifact-strip strong {
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid rgba(216, 216, 223, 0.72);
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .section h2 {
+      margin-bottom: 12px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1;
+      font-weight: 720;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .studio {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr) 330px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .layer-rail,
+    .layer-panel,
+    .stack-panel,
+    .export-panel,
+    .template-panel {
+      border: 1px solid rgba(216, 216, 223, 0.86);
+      border-radius: var(--radius-lg);
+      background: rgba(251, 251, 253, 0.82);
+    }
+
+    .layer-rail,
+    .stack-panel {
+      position: sticky;
+      top: 82px;
+      padding: 10px;
+    }
+
+    .layer-tab {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      min-height: 62px;
+      border: 0;
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: transparent;
+      color: var(--muted);
+      text-align: left;
+      transition: background 180ms var(--ease), color 180ms var(--ease);
+    }
+
+    .layer-tab[aria-selected="true"] {
+      background: var(--surface-strong);
+      color: var(--ink);
+      box-shadow: 0 12px 30px rgba(29, 29, 31, 0.06);
+    }
+
+    .layer-number {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .layer-tab[aria-selected="true"] .layer-number {
+      background: var(--ink);
+      color: var(--surface-strong);
+    }
+
+    .layer-tab strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .layer-tab span:not(.layer-number) {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+    }
+
+    .layer-panel {
+      min-height: 640px;
+      padding: 24px;
+    }
+
+    .panel-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .panel-top h3 {
+      margin-bottom: 8px;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+
+    .panel-top p {
+      max-width: 560px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.48;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .choice {
+      position: relative;
+      min-height: 164px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(216, 216, 223, 0.9);
+      border-radius: 20px;
+      padding: 18px;
+      background: var(--surface-strong);
+      color: var(--ink);
+      text-align: left;
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+    }
+
+    .choice::after {
+      content: "";
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--choice-color, var(--accent));
+      opacity: 0;
+      transform: scale(0.4);
+      transition: opacity 180ms var(--ease), transform 180ms var(--ease);
+    }
+
+    .choice:hover,
+    .choice:focus-visible {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+      outline: none;
+      box-shadow: 0 18px 34px rgba(29, 29, 31, 0.07);
+    }
+
+    .choice[aria-pressed="true"] {
+      border-color: var(--ink);
+      box-shadow: inset 0 0 0 1px var(--ink);
+    }
+
+    .choice[aria-pressed="true"]::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .choice-mark {
+      width: 100%;
+      min-height: 74px;
+      display: block;
+    }
+
+    .choice-preview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      height: 74px;
+    }
+
+    .choice-preview span {
+      display: grid;
+      align-content: end;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px;
+      background: color-mix(in srgb, var(--choice-color, var(--accent)) 8%, var(--surface-strong));
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 720;
+      line-height: 1.05;
+    }
+
+    .choice-swatches {
+      display: flex;
+      height: 74px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .choice-swatches span {
+      flex: 1;
+      background: var(--swatch);
+    }
+
+    .choice-code {
+      height: 74px;
+      display: grid;
+      gap: 6px;
+      align-content: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      background: #111214;
+    }
+
+    .choice-code span {
+      height: 7px;
+      border-radius: 99px;
+      background: color-mix(in srgb, var(--choice-color, var(--accent)) 72%, #ffffff);
+    }
+
+    .choice-code span:nth-child(2) {
+      width: 74%;
+      opacity: 0.7;
+    }
+
+    .choice-code span:nth-child(3) {
+      width: 48%;
+      opacity: 0.45;
+    }
+
+    .choice h4 {
+      margin: 0 0 7px;
+      font-size: 18px;
+      line-height: 1.08;
+    }
+
+    .choice p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
       line-height: 1.42;
     }
 
-    .template-grid .card-copy,
-    .source-grid .card-copy {
-      display: -webkit-box;
+    .stack-panel {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+    }
+
+    .stack-panel h3 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .stack-item {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-strong);
+    }
+
+    .stack-item span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .stack-item strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.24;
+    }
+
+    .next-step {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--ink);
+      color: var(--surface-strong);
+    }
+
+    .next-step span {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 11px;
+      font-weight: 720;
+      text-transform: uppercase;
+    }
+
+    .next-step p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.38;
+    }
+
+    .preview-board {
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
+      background: var(--surface-strong);
+    }
+
+    .stack-panel .preview-board {
+      margin-top: 0;
+      border-radius: 22px;
+    }
+
+    .preview-board .deck-screen {
+      border: 0;
+      border-radius: 0;
+      min-height: 360px;
+    }
+
+    .stack-panel .preview-board .deck-screen {
+      min-height: 254px;
+    }
+
+    .stack-panel .screen-toolbar {
+      min-height: 34px;
+      padding: 0 12px;
+      font-size: 10px;
+    }
+
+    .stack-panel .traffic span {
+      width: 8px;
+      height: 8px;
+    }
+
+    .stack-panel .screen-body {
+      grid-template-columns: 1fr;
+      gap: 13px;
+      padding: 16px;
+      align-content: center;
+    }
+
+    .stack-panel .preview-chip {
+      margin-bottom: 8px;
+      font-size: 9px;
+    }
+
+    .stack-panel .preview-title {
+      margin-bottom: 9px;
+      font-size: 24px;
+      line-height: 1.05;
+    }
+
+    .stack-panel .preview-copy p {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .stack-panel .slide-stack {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .stack-panel .slide-card {
+      aspect-ratio: 1 / 0.76;
+      padding: 8px;
+      border-radius: 10px;
+    }
+
+    .stack-panel .slide-card span {
+      margin-bottom: 4px;
+      font-size: 8px;
+    }
+
+    .stack-panel .slide-card strong {
+      font-size: 10px;
+    }
+
+    .template-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .template-panel {
+      padding: 20px;
+    }
+
+    .template-panel h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .template-panel p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .field {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0 16px;
+      background: var(--surface-strong);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
     }
 
     .template-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      max-height: 410px;
-      overflow: auto;
-      padding-right: 4px;
-    }
-
-    .template-preview {
-      position: relative;
-      display: grid;
-      align-content: end;
-      height: 56px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(16, 19, 27, 0.22);
-      border-radius: 6px;
-      background:
-        linear-gradient(135deg, transparent 0 58%, rgba(217, 255, 70, 0.9) 58% 70%, transparent 70%),
-        linear-gradient(90deg, var(--accent), transparent 36%),
-        linear-gradient(var(--line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--line) 1px, transparent 1px),
-        var(--bg);
-      background-size: auto, auto, 16px 16px, 16px 16px, auto;
-      transition: transform 220ms var(--ease-out), filter 220ms var(--ease-out);
-    }
-
-    .template-card:hover .template-preview {
-      filter: saturate(1.08);
-      transform: translateY(-2px);
-    }
-
-    .template-preview.preview-dark {
-      background:
-        linear-gradient(135deg, transparent 0 58%, rgba(217, 255, 70, 0.28) 58% 70%, transparent 70%),
-        linear-gradient(90deg, rgba(0, 184, 217, 0.28), transparent 40%),
-        #111827;
-    }
-
-    .template-preview span {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      width: 38%;
-      height: 5px;
-      border-radius: 999px;
-      background: currentColor;
-      opacity: 0.28;
-    }
-
-    .template-preview strong {
-      position: relative;
-      z-index: 1;
-      width: 72%;
-      margin: 0 8px 8px;
-      color: var(--ink);
-      font-size: 10px;
-      font-weight: 860;
-      line-height: 1.05;
-    }
-
-    .template-preview.preview-dark strong {
-      color: #f8fbff;
-    }
-
-    .template-preview i,
-    .template-preview b {
-      position: absolute;
-      right: 8px;
-      width: 28%;
-      border: 1px solid rgba(16, 19, 27, 0.2);
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.72);
-    }
-
-    .template-preview i {
-      top: 12px;
-      height: 15px;
-    }
-
-    .template-preview b {
-      bottom: 8px;
-      height: 19px;
-    }
-
-    .preview-panel {
-      position: sticky;
-      top: 18px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .slide-stage {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background:
-        linear-gradient(var(--grid-color, #dcebff) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color, #dcebff) 1px, transparent 1px),
-        var(--stage-bg, #f6fbff);
-      background-size: 28px 28px;
-      padding: 28px;
-      transition: background-color 260ms var(--ease-out), border-color 260ms var(--ease-out), color 260ms var(--ease-out);
-    }
-
-    .slide-stage::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 36%;
-      height: 100%;
-      background: linear-gradient(135deg, transparent 0 46%, rgba(7, 87, 255, 0.12) 46% 47%, transparent 47% 100%);
-      pointer-events: none;
-    }
-
-    .stage-chip {
-      display: inline-flex;
-      margin-bottom: 28px;
-      padding: 5px 9px;
-      border: 1px solid var(--stage-border, #b8d7ff);
-      border-radius: 999px;
-      background: var(--stage-surface, #fff);
-      color: var(--stage-accent, #0757ff);
-      font-size: 10px;
-      font-weight: 820;
-      text-transform: uppercase;
-    }
-
-    .slide-stage h2 {
-      max-width: 76%;
-      margin: 0;
-      color: var(--stage-text, #111827);
-      font-size: 50px;
-      font-weight: 850;
-      letter-spacing: 0;
-      line-height: 0.96;
-    }
-
-    .slide-stage[data-visual="poster"] h2 {
-      max-width: 94%;
-      font-size: 58px;
-    }
-
-    .slide-stage[data-visual="minimal"] h2 {
-      max-width: 62%;
-      font-size: 42px;
-      line-height: 1.02;
-    }
-
-    .slide-stage[data-visual="editorial"] h2 {
-      max-width: 78%;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 48px;
-      font-weight: 760;
-    }
-
-    .slide-stage[data-visual="dark"] {
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        #111827;
-      color: #f8fbff;
-    }
-
-    .slide-stage[data-visual="dark"] h2 {
-      color: #f8fbff;
-    }
-
-    .slide-stage[data-visual="dark"] .stage-block {
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .slide-stage.is-refreshing {
-      animation: preview-refresh 280ms var(--ease-out) both;
-    }
-
-    .slide-stage.is-refreshing h2,
-    .slide-stage.is-refreshing .stage-chip,
-    .slide-stage.is-refreshing .stage-block {
-      animation: preview-content 280ms var(--ease-out) both;
-    }
-
-    .stage-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .stage-block {
-      min-height: 76px;
-      border: 1px solid var(--stage-border, #b8d7ff);
-      border-radius: 8px;
-      background: var(--stage-surface, #fff);
-      padding: 11px;
-    }
-
-    .stage-block strong {
-      color: var(--stage-accent, #0757ff);
-      font-size: 11px;
-      text-transform: uppercase;
-    }
-
-    .stage-block p {
-      margin: 6px 0 0;
-      color: var(--stage-muted, #536173);
-      font-size: 12px;
-    }
-
-    .specimen-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .specimen {
-      min-height: 116px;
-      border: 1px solid var(--stage-border, #b8d7ff);
-      border-radius: 8px;
-      background:
-        linear-gradient(var(--grid-color, #dcebff) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color, #dcebff) 1px, transparent 1px),
-        var(--stage-bg, #f6fbff);
-      background-size: 18px 18px;
-      padding: 12px;
-      transition: transform 180ms var(--ease-out), border-color 180ms var(--ease-out);
-    }
-
-    .specimen:hover {
-      border-color: var(--stage-accent, #0757ff);
-      transform: translateY(-2px);
-    }
-
-    .specimen span {
-      display: block;
-      margin-bottom: 12px;
-      color: var(--stage-accent, #0757ff);
-      font-size: 10px;
-      font-weight: 840;
-      text-transform: uppercase;
-    }
-
-    .specimen strong {
-      display: block;
-      color: var(--stage-text, #111827);
-      font-size: 17px;
-      line-height: 1.05;
-    }
-
-    .specimen .mini-bars {
-      display: grid;
-      gap: 5px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
       margin-top: 14px;
     }
 
-    .specimen .mini-bars i {
-      display: block;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--stage-accent, #0757ff);
-      opacity: 0.8;
-    }
-
-    .specimen .mini-bars i:nth-child(2) {
-      width: 76%;
-      background: var(--stage-muted, #536173);
-      opacity: 0.34;
-    }
-
-    .specimen .mini-bars i:nth-child(3) {
-      width: 54%;
-      background: var(--stage-muted, #536173);
-      opacity: 0.25;
-    }
-
-    .details {
+    .template-card {
+      min-height: 158px;
       display: grid;
-      gap: 10px;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: var(--surface-strong);
+      color: var(--ink);
+      text-align: left;
     }
 
-    .detail-card {
-      border: 1px solid rgba(16, 19, 27, 0.22);
-      border-radius: 8px;
-      background: #ffffff;
-      padding: 13px;
+    .template-card[aria-pressed="true"] {
+      border-color: var(--ink);
+      box-shadow: inset 0 0 0 1px var(--ink);
     }
 
-    .detail-card h3 {
-      margin: 0 0 8px;
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 820;
-      text-transform: uppercase;
+    .mini-template {
+      height: 72px;
+      border-radius: 12px;
+      border: 1px solid rgba(29, 29, 31, 0.1);
+      background:
+        linear-gradient(90deg, var(--ink) 0 38%, transparent 38%),
+        linear-gradient(90deg, var(--accent) 0 22%, transparent 22%),
+        var(--soft);
+      background-repeat: no-repeat;
+      background-size: 58% 7px, 38% 7px, auto;
+      background-position: 13px 20px, 13px 36px, 0 0;
     }
 
-    .detail-card p {
+    .template-card h4 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .template-card p {
       margin: 0;
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.35;
     }
 
-    .build-steps {
+    .pager {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .pager span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 620;
+    }
+
+    .export-grid {
       display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .export-panel {
+      padding: 20px;
+    }
+
+    .format-tabs {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .format-tab {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 12px;
+      background: var(--surface-strong);
+      color: var(--muted);
+      font-weight: 620;
+    }
+
+    .format-tab[aria-selected="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--surface-strong);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 360px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+      background: #111214;
+      color: #f5f5f7;
+      font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      outline: none;
+    }
+
+    .guide-list {
+      display: grid;
+      gap: 10px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .build-steps li {
-      display: grid;
-      grid-template-columns: 22px minmax(0, 1fr);
-      gap: 8px;
-      align-items: start;
+    .guide-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
       color: var(--muted);
-      font-size: 12px;
-    }
-
-    .build-steps span {
-      display: grid;
-      place-items: center;
-      width: 22px;
-      height: 22px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: var(--signal);
-      color: var(--ink);
-      font-size: 10px;
-      font-weight: 840;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .proof-item {
-      min-height: 82px;
-      border: 1px solid rgba(16, 19, 27, 0.22);
-      border-radius: 8px;
-      background: #ffffff;
-      padding: 10px;
-    }
-
-    .proof-item strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--ink);
-      font-size: 12px;
-    }
-
-    .proof-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.35;
-    }
-
-    .role-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .role-item {
-      display: grid;
-      grid-template-columns: 20px minmax(0, 1fr);
-      gap: 8px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .role-chip {
-      width: 20px;
-      height: 20px;
-      border: 1px solid rgba(16, 19, 27, 0.18);
-      border-radius: 6px;
-    }
-
-    .export-box {
-      display: grid;
-      gap: 10px;
-    }
-
-    .export-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .button.primary {
-      border-color: var(--line-strong);
-      background: var(--ink);
-      color: #fbfcff;
-    }
-
-    .button:disabled {
-      cursor: not-allowed;
-      opacity: 0.42;
-      transform: none;
-    }
-
-    textarea {
-      min-height: 190px;
-      width: 100%;
-      resize: vertical;
-      border: 1px solid rgba(16, 19, 27, 0.28);
-      border-radius: 8px;
-      background: #f8fbff;
-      color: var(--ink);
-      padding: 12px;
-      font-family: "SF Mono", "Cascadia Code", ui-monospace, monospace;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 1.45;
     }
 
-    .notice {
-      border: 1px solid var(--line-strong);
-      border-radius: 8px;
-      background: #fff7cc;
-      padding: 12px;
-      color: var(--muted);
-      font-size: 13px;
+    .guide-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
     }
 
-    .source-drawer {
-      border: 1px solid rgba(16, 19, 27, 0.32);
-      border-radius: 8px;
-      background: #ffffff;
-    }
-
-    .source-drawer summary {
+    .source-links {
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .source-links a {
+      min-height: 34px;
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 50px;
-      padding: 12px 14px;
-      color: var(--ink);
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 820;
-      list-style: none;
-    }
-
-    .source-drawer summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .source-drawer summary::after {
-      content: "+";
-      display: inline-grid;
-      place-items: center;
-      width: 24px;
-      height: 24px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: var(--signal);
-      color: var(--ink);
-      font-size: 16px;
-      line-height: 1;
-    }
-
-    .source-drawer[open] summary::after {
-      content: "-";
-    }
-
-    .source-drawer-body {
-      display: grid;
-      gap: 12px;
-      padding: 0 14px 14px;
-      border-top: 1px solid rgba(16, 19, 27, 0.12);
-    }
-
-    .source-note {
-      margin: 12px 0 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0 12px;
+      background: var(--surface-strong);
       color: var(--muted);
       font-size: 12px;
+      font-weight: 620;
     }
 
-    .copy-toast {
+    .toast {
       position: fixed;
-      right: 24px;
-      bottom: 24px;
+      right: 22px;
+      bottom: 22px;
       z-index: 20;
-      padding: 10px 12px;
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      background: var(--ink);
-      color: #fbfcff;
-      font-size: 12px;
-      font-weight: 820;
+      transform: translateY(22px);
       opacity: 0;
       pointer-events: none;
-      transform: translateY(10px) scale(0.96);
-      transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out);
+      border-radius: 12px;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: var(--surface-strong);
+      font-size: 13px;
+      font-weight: 650;
+      transition: opacity 180ms var(--ease), transform 180ms var(--ease);
     }
 
-    .copy-toast.is-visible {
+    .toast.is-visible {
+      transform: translateY(0);
       opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    @keyframes rise-in {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes step-enter {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes preview-refresh {
-      0% {
-        transform: scale(0.992);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    @keyframes preview-content {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hidden {
-      display: none;
     }
 
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
 
-    @media (max-width: 1240px) {
-      .template-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 1100px) {
-      .hero,
-      .workbench {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        border-right: 0;
-        border-bottom: 1px solid var(--line-strong);
-      }
-
-      .preview-panel {
-        position: static;
-      }
-    }
-
-    @media (max-width: 760px) {
+    @media (max-width: 980px) {
       .topbar-inner,
       .shell {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .topbar-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero-copy {
-        min-height: 0;
-        padding: 22px;
-      }
-
-      .hero-copy::after {
-        display: none;
-      }
-
-      h1 {
-        font-size: 42px;
-      }
-
-      .filters,
-      .mix-grid,
-      .source-grid,
-      .palette-grid,
-      .reference-grid,
-      .template-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .step-panel {
-        min-height: auto;
-      }
-
-      .workbench {
-        grid-template-columns: 1fr;
-      }
-
-      .slide-stage {
-        padding: 18px;
-      }
-
-      .stage-chip {
-        margin-bottom: 13px;
-      }
-
-      .slide-stage h2 {
-        max-width: 90%;
-        font-size: 24px;
-        line-height: 1.02;
-      }
-
-      .slide-stage[data-visual="poster"] h2,
-      .slide-stage[data-visual="editorial"] h2,
-      .slide-stage[data-visual="minimal"] h2 {
-        font-size: 24px;
-      }
-
-      .stage-row {
-        display: none;
-      }
-
-      .specimen-strip,
-      .proof-grid,
-      .role-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /*
-      Minimal guided-flow pass.
-      The earlier workbench exposed too many registries at once. These overrides
-      keep the existing export logic but make the product feel like onboarding.
-    */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: #f7f9fc;
-      color: #141821;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      font-kerning: normal;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid #e1e7ef;
-      background: rgba(247, 249, 252, 0.86);
-      backdrop-filter: blur(14px);
-    }
-
-    .topbar-inner {
-      max-width: 1120px;
-      padding: 14px 24px;
-    }
-
-    .brand {
-      gap: 0;
-    }
-
-    .brand strong {
-      font-size: 15px;
-      font-weight: 720;
-    }
-
-    .brand span,
-    .toplinks .pill {
-      color: #667085;
-      font-size: 12px;
-      font-weight: 520;
-    }
-
-    .toplinks {
-      gap: 18px;
-    }
-
-    .toplinks .pill:hover {
-      color: #101828;
-      transform: none;
-    }
-
-    .shell {
-      max-width: 1120px;
-      padding: 0 24px 64px;
-    }
-
-    .hero {
-      position: relative;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      align-items: center;
-      min-height: min(680px, calc(100dvh - 64px));
-      margin: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-      overflow: visible;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      left: max(24px, calc((100vw - 1120px) / 2));
-      right: max(24px, calc((100vw - 1120px) / 2));
-      bottom: 32px;
-      height: 1px;
-      background: linear-gradient(90deg, #141821, transparent 72%);
-      opacity: 0.16;
-      pointer-events: none;
-    }
-
-    .hero-copy {
-      min-height: 0;
-      padding: 84px 0;
-      border: 0;
-      background: transparent;
-    }
-
-    .hero-copy::after {
-      display: none;
-    }
-
-    .eyebrow,
-    .tag {
-      min-height: auto;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      color: #0757ff;
-      font-size: 11px;
-      font-weight: 720;
-      letter-spacing: 0;
-    }
-
-    h1 {
-      max-width: 760px;
-      font-size: 66px;
-      font-weight: 760;
-      letter-spacing: 0;
-      line-height: 1;
-    }
-
-    .hero-copy p:not(.eyebrow) {
-      max-width: 620px;
-      margin-top: 22px;
-      color: #667085;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 30px;
-    }
-
-    .button,
-    .pill {
-      min-height: 38px;
-      border-color: #d0d8e5;
-      border-radius: 999px;
-      background: #ffffff;
-      color: #141821;
-      font-weight: 620;
-      box-shadow: none;
-    }
-
-    .button.primary {
-      border-color: #141821;
-      background: #141821;
-      color: #f7f9fc;
-    }
-
-    .button.quiet {
-      border-color: transparent;
-      background: transparent;
-      color: #667085;
-    }
-
-    .button:hover,
-    .pill:hover {
-      transform: translateY(-1px);
-    }
-
-    .credit-card {
-      align-self: center;
-      position: relative;
-      min-height: 396px;
-      padding: 24px;
-      overflow: hidden;
-      border: 1px solid #d8e0ea;
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(7, 87, 255, 0.08), transparent 42%),
-        linear-gradient(160deg, transparent 0 62%, rgba(0, 184, 217, 0.12) 62% 100%),
-        linear-gradient(180deg, #ffffff, #f4f7fb);
-      box-shadow: 0 30px 80px rgba(20, 24, 33, 0.08);
-    }
-
-    .credit-card::before {
-      content: "";
-      display: block;
-      aspect-ratio: 16 / 9;
-      margin-bottom: 24px;
-      border: 1px solid #d5deeb;
-      border-radius: 18px;
-      background:
-        linear-gradient(90deg, #0757ff 0 10%, transparent 10%),
-        linear-gradient(90deg, #101828 0 42%, transparent 42%),
-        linear-gradient(90deg, #141821 0 22%, transparent 22%),
-        linear-gradient(90deg, rgba(7, 87, 255, 0.12), transparent 58%),
-        repeating-linear-gradient(0deg, rgba(16, 24, 40, 0.08) 0 1px, transparent 1px 22px),
-        repeating-linear-gradient(90deg, rgba(16, 24, 40, 0.08) 0 1px, transparent 1px 22px),
-        #fbfdff;
-      background-position: 0 0, 24px 34px, 24px 54px, 0 0, 0 0, 0 0, 0 0;
-      background-size: 100% 100%, 62% 8px, 38% 8px, 100% 100%, auto, auto, auto;
-      background-repeat: no-repeat;
-    }
-
-    .credit-card::after {
-      content: "Preview first";
-      position: absolute;
-      top: 34px;
-      right: 34px;
-      padding: 5px 8px;
-      border: 1px solid #d5deeb;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.78);
-      color: #0757ff;
-      font-size: 11px;
-      font-weight: 650;
-    }
-
-    .credit-card h2,
-    .panel h2 {
-      color: #141821;
-      font-size: 15px;
-      font-weight: 720;
-    }
-
-    .credit-list {
-      gap: 16px;
-      margin-top: 22px;
-      font-size: 14px;
-    }
-
-    .credit-list li {
-      display: grid;
-      gap: 3px;
-      padding: 0;
-      border: 0;
-    }
-
-    .credit-list strong {
-      color: #141821;
-      font-weight: 680;
-    }
-
-    .credit-list span {
-      color: #667085;
-    }
-
-    .workbench {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 18px;
-      max-width: 980px;
-      margin: 0 auto;
-      padding-top: 24px;
-    }
-
-    .workbench > *,
-    .builder-panel > *,
-    .preview-panel > * {
-      min-width: 0;
-    }
-
-    .panel {
-      border: 1px solid #dfe6ef;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 22px 70px rgba(20, 24, 33, 0.06);
-      padding: 24px;
-    }
-
-    .builder-panel {
-      gap: 22px;
-    }
-
-    .step-rail {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      grid-auto-flow: row;
-      grid-auto-columns: auto;
-      gap: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      overflow: visible;
-    }
-
-    .step-tab {
-      min-height: 54px;
-      padding: 0 0 12px;
-      border: 0;
-      border-bottom: 1px solid #d8e0ea;
-      color: #98a2b3;
-    }
-
-    .step-tab strong {
-      color: inherit;
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .step-tab span {
-      color: inherit;
-      font-size: 12px;
-    }
-
-    .step-tab[aria-selected="true"] {
-      border-bottom-color: #141821;
-      background: transparent;
-      color: #141821;
-    }
-
-    .step-tab[aria-selected="true"]::after {
-      content: "";
-      width: 22px;
-      height: 2px;
-      margin-top: 8px;
-      border-radius: 999px;
-      background: #0757ff;
-    }
-
-    .step-tab[aria-selected="true"] strong {
-      color: #141821;
-    }
-
-    .step-panel {
-      min-height: 0;
-    }
-
-    .section-head {
-      align-items: start;
-      margin: 0 0 18px;
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .section-head p {
-      max-width: 62ch;
-      margin-top: 6px;
-      color: #667085;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .mix-grid,
-    .template-grid {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(245px, 31%);
-      grid-template-columns: none;
-      gap: 12px;
-      width: 100%;
-      min-width: 0;
-      max-height: none;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      padding: 2px 2px 10px;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-    }
-
-    .template-grid {
-      grid-auto-columns: minmax(250px, 32%);
-    }
-
-    .palette-grid,
-    .reference-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .source-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .filters {
-      grid-template-columns: minmax(260px, 1fr) repeat(3, minmax(130px, 0.35fr));
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .quick-filters {
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .quick-filters .pill {
-      min-height: 30px;
-      border-radius: 999px;
-      font-size: 12px;
-    }
-
-    .field,
-    textarea {
-      border-color: #d8e0ea;
-      border-radius: 12px;
-      background: #ffffff;
-    }
-
-    .palette-card,
-    .mix-card,
-    .source-card,
-    .reference-card,
-    .template-card,
-    .detail-card,
-    .proof-item {
-      border-color: #d8e0ea;
-      border-radius: 16px;
-      background: #ffffff;
-      box-shadow: none;
-    }
-
-    .mix-card,
-    .template-card {
-      min-height: 168px;
-      scroll-snap-align: start;
-    }
-
-    .mix-card {
-      padding: 18px;
-    }
-
-    .mix-card::after,
-    .template-card::after,
-    .palette-card::after,
-    .reference-card::after {
-      content: "";
-      position: absolute;
-      inset: auto 16px 14px auto;
-      width: 28px;
-      height: 1px;
-      background: currentColor;
-      opacity: 0.18;
-      transition: width 180ms var(--ease-out), opacity 180ms var(--ease-out);
-    }
-
-    .mix-card:hover::after,
-    .template-card:hover::after,
-    .palette-card:hover::after,
-    .reference-card:hover::after,
-    .mix-card[aria-pressed="true"]::after,
-    .template-card[aria-pressed="true"]::after,
-    .palette-card[aria-pressed="true"]::after,
-    .reference-card[aria-pressed="true"]::after {
-      width: 54px;
-      opacity: 0.52;
-    }
-
-    .template-card {
-      padding: 14px;
-    }
-
-    .palette-card:hover,
-    .mix-card:hover,
-    .source-card:hover,
-    .reference-card:hover,
-    .template-card:hover,
-    .palette-card[aria-pressed="true"],
-    .mix-card[aria-pressed="true"],
-    .reference-card[aria-pressed="true"],
-    .template-card[aria-pressed="true"] {
-      border-color: #0757ff;
-      box-shadow: none;
-      transform: translateY(-1px);
-    }
-
-    .palette-card[aria-pressed="true"],
-    .mix-card[aria-pressed="true"],
-    .reference-card[aria-pressed="true"],
-    .template-card[aria-pressed="true"] {
-      background: #f4f8ff;
-    }
-
-    .swatches {
-      height: 26px;
-      border: 0;
-      border-radius: 999px;
-    }
-
-    .mix-card .swatches {
-      width: 76%;
-      margin-bottom: 22px;
-    }
-
-    .card-title {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .card-copy {
-      color: #667085;
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .template-preview {
-      height: 64px;
-      border-color: #d8e0ea;
-      border-radius: 14px;
-      background:
-        linear-gradient(90deg, rgba(7, 87, 255, 0.1), transparent 46%),
-        #f6fbff;
-      background-size: auto;
-    }
-
-    .preview-panel {
-      position: static;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .slide-stage {
-      border-color: #d8e0ea;
-      border-radius: 22px;
-      padding: 26px;
-      background:
-        linear-gradient(var(--grid-color, #dcebff) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color, #dcebff) 1px, transparent 1px),
-        var(--stage-bg, #f6fbff);
-      background-size: 36px 36px;
-    }
-
-    .slide-stage::after {
-      display: none;
-    }
-
-    .slide-stage h2 {
-      font-size: 40px;
-      font-weight: 720;
-      line-height: 1.04;
-    }
-
-    .stage-chip,
-    .stage-block,
-    .specimen {
-      border-radius: 16px;
-    }
-
-    .specimen-strip {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .details,
-    .export-box,
-    .source-drawer {
-      display: none;
-    }
-
-    body[data-active-step="logic"] .details,
-    body[data-active-step="logic"] .export-box,
-    body[data-active-step="logic"] .source-drawer {
-      display: grid;
-    }
-
-    .source-drawer {
-      border-color: #d8e0ea;
-      border-radius: 16px;
-      background: #ffffff;
-    }
-
-    .source-drawer summary {
-      min-height: 46px;
-      color: #475467;
-      font-weight: 620;
-    }
-
-    .source-drawer summary::after {
-      border-color: #d8e0ea;
-      background: #f7f9fc;
-      color: #141821;
-    }
-
-    .step-actions {
-      padding-top: 0;
-    }
-
-    #stepStatus {
-      color: #667085;
-      font-weight: 560;
-    }
-
-    textarea {
-      min-height: 150px;
-      background: #f8fafc;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        align-items: end;
-        min-height: auto;
-        padding: 64px 0 34px;
-      }
-
-      .hero-copy {
-        padding: 0;
-      }
-
-      .credit-card {
-        margin-top: 34px;
-        padding: 22px 0 0;
-        border-left: 0;
-        border-top: 1px solid #d8e0ea;
-      }
-
-      .palette-grid,
-      .reference-grid,
-      .source-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .topbar {
-        position: static;
-      }
-
-      .topbar-inner,
-      .shell {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-
-      .topbar-inner {
-        gap: 10px;
+        width: min(100% - 28px, 720px);
       }
 
       .toplinks {
-        gap: 12px;
+        display: none;
       }
 
-      h1 {
-        font-size: 42px;
-        line-height: 1.04;
-      }
-
-      .hero-copy p:not(.eyebrow) {
-        font-size: 16px;
-      }
-
-      .workbench {
-        padding-top: 8px;
-      }
-
-      .panel {
-        padding: 18px;
-        border-radius: 16px;
-      }
-
-      .step-rail {
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(132px, 1fr);
-        overflow-x: auto;
-      }
-
-      .mix-grid,
-      .template-grid {
-        grid-auto-columns: minmax(250px, 86%);
-      }
-
-      .filters {
+      .hero,
+      .studio,
+      .template-section,
+      .export-grid {
         grid-template-columns: 1fr;
-      }
-
-      .specimen-strip,
-      .proof-grid,
-      .role-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /*
-      Story-mode pass.
-      This intentionally removes hidden horizontal scroll. The experience is now:
-      color mood -> made slide examples -> slide behavior -> story logic -> export.
-    */
-    body {
-      background: #f5f1e4;
-      color: #2c2e2a;
-    }
-
-    .topbar {
-      border: 0;
-      background: transparent;
-      backdrop-filter: none;
-    }
-
-    .topbar-inner {
-      margin-top: 18px;
-      padding: 10px 12px 10px 18px;
-      border-radius: 50px;
-      background: #ffffff;
-    }
-
-    .brand strong,
-    .step-tab[aria-selected="true"],
-    .step-tab[aria-selected="true"] strong,
-    .credit-card h2,
-    .panel h2,
-    .card-title,
-    h1 {
-      color: #2c2e2a;
-    }
-
-    .brand span,
-    .toplinks .pill,
-    .hero-copy p:not(.eyebrow),
-    .credit-list span,
-    .section-head p,
-    .card-copy,
-    #stepStatus {
-      color: #80827f;
-    }
-
-    .shell {
-      max-width: 1200px;
-    }
-
-    .hero {
-      min-height: min(720px, calc(100dvh - 72px));
-    }
-
-    .hero::before {
-      background: linear-gradient(90deg, #8ed462, transparent 76%);
-    }
-
-    .eyebrow,
-    .tag {
-      color: #2c2e2a;
-    }
-
-    h1 {
-      max-width: 800px;
-      font-size: 76px;
-      font-weight: 620;
-      line-height: 0.98;
-    }
-
-    .button.primary {
-      border-color: #2c2e2a;
-      background: #2c2e2a;
-      color: #ffffff;
-    }
-
-    .button,
-    .pill,
-    .field,
-    textarea {
-      border-color: #d5d5d4;
-      border-radius: 50px;
-      background: #ffffff;
-      color: #2c2e2a;
-    }
-
-    .button.quiet {
-      color: #80827f;
-    }
-
-    .credit-card {
-      min-height: 430px;
-      border: 0;
-      border-radius: 50px;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(142, 212, 98, 0.44), transparent 0 66px, transparent 67px),
-        radial-gradient(circle at 88% 22%, rgba(43, 160, 255, 0.26), transparent 0 82px, transparent 83px),
-        linear-gradient(160deg, transparent 0 58%, rgba(245, 226, 17, 0.44) 58% 100%),
-        #ffffff;
-      box-shadow: none;
-    }
-
-    .credit-card::before {
-      border: 0;
-      border-radius: 42px;
-      background:
-        radial-gradient(circle at 72% 34%, #ff705d 0 23px, transparent 24px),
-        radial-gradient(circle at 28% 76%, #8ed462 0 35px, transparent 36px),
-        linear-gradient(90deg, #2c2e2a 0 46%, transparent 46%),
-        linear-gradient(90deg, #2c2e2a 0 24%, transparent 24%),
-        linear-gradient(135deg, #2ba0ff 0 28%, transparent 28%),
-        #f5f1e4;
-      background-position: 0 0, 0 0, 34px 44px, 34px 68px, 0 0, 0 0;
-      background-size: auto, auto, 68% 10px, 44% 10px, auto, auto;
-      background-repeat: no-repeat;
-    }
-
-    .credit-card::after {
-      border-color: #d5d5d4;
-      color: #2c2e2a;
-    }
-
-    .workbench {
-      max-width: 1080px;
-      gap: 28px;
-      padding-top: 64px;
-    }
-
-    .panel {
-      border-color: #e0dbce;
-      border-radius: 50px;
-      background: #ffffff;
-      box-shadow: none;
-      padding: 34px;
-    }
-
-    .builder-panel {
-      gap: 72px;
-    }
-
-    .step-rail {
-      position: sticky;
-      top: 88px;
-      z-index: 3;
-      margin-bottom: -28px;
-      padding: 8px;
-      border: 0;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.84);
-      backdrop-filter: blur(14px);
-    }
-
-    .step-tab {
-      min-height: 48px;
-      padding: 0 14px;
-      border: 0;
-      border-radius: 50px;
-    }
-
-    .step-tab span {
-      display: none;
-    }
-
-    .step-tab[aria-selected="true"] {
-      background: #8ed462;
-    }
-
-    .step-tab[aria-selected="true"]::after {
-      display: none;
-    }
-
-    .step-panel {
-      display: grid;
-      gap: 20px;
-      min-height: min(620px, 84dvh);
-      align-content: center;
-      scroll-margin-top: 118px;
-    }
-
-    .step-panel[data-step-panel="palette"] {
-      order: 3;
-    }
-
-    .step-panel[data-step-panel="direction"] {
-      order: 1;
-    }
-
-    .step-panel[data-step-panel="template"] {
-      order: 2;
-    }
-
-    .step-panel[data-step-panel="logic"] {
-      order: 4;
-    }
-
-    .source-drawer {
-      order: 5;
-    }
-
-    .step-actions {
-      order: 6;
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      margin-bottom: 4px;
-    }
-
-    .builder-panel .step-panel .section-head {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .builder-panel .step-panel .section-head .tag {
-      order: -1;
-      white-space: nowrap;
-    }
-
-    .section-head h2 {
-      max-width: 720px;
-      font-size: 42px;
-      font-weight: 620;
-      line-height: 1.04;
-    }
-
-    .section-head p {
-      max-width: 680px;
-      font-size: 17px;
-    }
-
-    .mix-grid,
-    .template-grid,
-    .palette-grid,
-    .reference-grid {
-      display: grid;
-      grid-auto-flow: row;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      width: 100%;
-      max-height: none;
-      overflow: visible;
-      padding: 0;
-      scroll-snap-type: none;
-    }
-
-    .template-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .filters,
-    .quick-filters {
-      display: none;
-    }
-
-    .palette-card,
-    .mix-card,
-    .reference-card,
-    .template-card,
-    .detail-card,
-    .proof-item {
-      min-height: 0;
-      border-color: #e0dbce;
-      border-radius: 50px;
-      background: #ffffff;
-      padding: 21px;
-    }
-
-    .palette-card:hover,
-    .mix-card:hover,
-    .reference-card:hover,
-    .template-card:hover,
-    .palette-card[aria-pressed="true"],
-    .mix-card[aria-pressed="true"],
-    .reference-card[aria-pressed="true"],
-    .template-card[aria-pressed="true"] {
-      border-color: #8ed462;
-      background: #fbfff6;
-    }
-
-    .choice-slide {
-      position: relative;
-      display: grid;
-      align-content: end;
-      aspect-ratio: 16 / 10;
-      margin-bottom: 18px;
-      overflow: hidden;
-      border-radius: 36px;
-      background: #f5f1e4;
-    }
-
-    .choice-slide::before,
-    .choice-slide::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-    }
-
-    .choice-slide::before {
-      width: 86px;
-      height: 86px;
-      top: 18px;
-      right: 22px;
-      background: var(--choice-accent, #8ed462);
-      opacity: 0.9;
-    }
-
-    .choice-slide::after {
-      width: 118px;
-      height: 118px;
-      left: -34px;
-      bottom: -32px;
-      background: var(--choice-secondary, #2ba0ff);
-      opacity: 0.22;
-    }
-
-    .choice-slide strong {
-      position: relative;
-      z-index: 1;
-      max-width: 76%;
-      padding: 22px;
-      color: var(--choice-text, #2c2e2a);
-      font-size: 25px;
-      font-weight: 650;
-      line-height: 1.02;
-    }
-
-    .choice-slide::before {
-      animation: soft-float 5.8s ease-in-out infinite;
-    }
-
-    .choice-slide::after {
-      animation: soft-float 7.2s ease-in-out infinite reverse;
-    }
-
-    .mix-card:nth-child(2n) .choice-slide::before {
-      border-radius: 36px;
-    }
-
-    .mix-card:nth-child(3n) .choice-slide {
-      background: #2c2e2a;
-    }
-
-    .mix-card:nth-child(3n) .choice-slide strong {
-      color: #ffffff;
-    }
-
-    .template-preview,
-    .slide-stage,
-    .stage-chip,
-    .stage-block,
-    .specimen,
-    .source-drawer {
-      border-radius: 50px;
-      border-color: #e0dbce;
-    }
-
-    .template-preview {
-      display: block;
-      min-height: 178px;
-      height: auto;
-      padding: 16px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 85% 20%, rgba(142, 212, 98, 0.48) 0 28px, transparent 29px),
-        var(--stage-bg, #f5f1e4);
-    }
-
-    .template-preview strong {
-      display: block;
-      width: auto;
-      max-width: 72%;
-      margin: 0 0 18px;
-      color: #2c2e2a;
-      font-size: 18px;
-      line-height: 1.02;
-    }
-
-    .template-preview.preview-dark {
-      background:
-        radial-gradient(circle at 85% 20%, rgba(242, 201, 76, 0.5) 0 28px, transparent 29px),
-        #172033;
-    }
-
-    .template-preview.preview-dark strong {
-      color: #f8fafc;
-    }
-
-    .template-preview > span,
-    .template-preview > i,
-    .template-preview > b {
-      display: none;
-    }
-
-    .mini-deck-strip {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      width: 100%;
-      transform: translateX(0);
-    }
-
-    .mini-deck-strip small {
-      display: block;
-      aspect-ratio: 16 / 10;
-      border: 1px solid rgba(44, 46, 42, 0.18);
-      border-radius: 18px;
-      background:
-        linear-gradient(90deg, #2c2e2a 0 42%, transparent 42%),
-        radial-gradient(circle at 78% 28%, #8ed462 0 13px, transparent 14px),
-        #ffffff;
-      background-position: 12px 18px, 0 0, 0 0;
-      background-size: 58% 6px, auto, auto;
-      background-repeat: no-repeat;
-      animation: mini-card-pulse 6.6s var(--ease-in-out) infinite;
-    }
-
-    .mini-deck-strip small:nth-child(2) {
-      background:
-        linear-gradient(90deg, #2c2e2a 0 32%, transparent 32%),
-        linear-gradient(90deg, #ff705d 0 22%, transparent 22%),
-        #ffffff;
-      background-position: 12px 18px, 12px 34px, 0 0;
-      background-size: 64% 6px, 48% 6px, auto;
-      background-repeat: no-repeat;
-      animation-delay: 1.4s;
-    }
-
-    .mini-deck-strip small:nth-child(3) {
-      background:
-        radial-gradient(circle at 32% 42%, #2ba0ff 0 18px, transparent 19px),
-        radial-gradient(circle at 68% 58%, #f5e211 0 22px, transparent 23px),
-        #ffffff;
-      animation-delay: 2.8s;
-    }
-
-    @keyframes mini-card-pulse {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.74;
-      }
-      20%, 42% {
-        transform: translateY(-4px) scale(1.02);
-        opacity: 1;
-      }
-    }
-
-    @keyframes soft-float {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-8px) rotate(2deg);
-      }
-    }
-
-    .slide-stage {
-      background:
-        radial-gradient(circle at 82% 24%, var(--stage-accent, #8ed462) 0 48px, transparent 49px),
-        linear-gradient(160deg, transparent 0 64%, rgba(245, 226, 17, 0.26) 64% 100%),
-        var(--stage-bg, #f5f1e4);
-      background-size: auto;
-    }
-
-    .slide-stage h2 {
-      max-width: 72%;
-      font-size: 48px;
-      font-weight: 620;
-      line-height: 1;
-    }
-
-    .gallery-controls {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .gallery-controls span {
-      color: #80827f;
-      font-size: 13px;
-      font-weight: 620;
-    }
-
-    .sample-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .sample-links .button {
-      min-height: 54px;
-      justify-content: flex-start;
-      padding-inline: 18px;
-      text-align: left;
-    }
-
-    .details,
-    .export-box,
-    .source-drawer {
-      display: grid;
-    }
-
-    .step-actions {
-      display: none;
-    }
-
-    body[data-active-step="logic"] .step-actions {
-      display: flex;
-    }
-
-    @media (max-width: 900px) {
-      .mix-grid,
-      .template-grid,
-      .palette-grid,
-      .reference-grid,
-      .sample-links {
-        grid-template-columns: 1fr;
-      }
-
-      .step-rail {
-        position: static;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-flow: row;
-        grid-auto-columns: auto;
-        overflow: visible;
-      }
-    }
-
-    @media (max-width: 760px) {
-      h1 {
-        font-size: 46px;
       }
 
       .hero {
-        padding-top: 42px;
-      }
-
-      .credit-card {
-        padding: 22px;
-        border: 0;
-        border-radius: 36px;
-      }
-
-      .panel {
-        border-radius: 36px;
-        padding: 22px;
-      }
-
-      .step-panel {
         min-height: auto;
-        padding: 32px 0;
-        scroll-margin-top: 24px;
+        padding-top: 54px;
       }
 
-      .section-head {
+      .product-stage {
+        min-height: 450px;
+      }
+
+      .layer-rail,
+      .stack-panel {
+        position: static;
+      }
+
+      .layer-rail {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .choice-grid,
+      .template-grid {
         grid-template-columns: 1fr;
       }
 
-      .section-head h2 {
-        font-size: 34px;
+      .artifact-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 24px, 440px);
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .hero-copy > p:not(.eyebrow) {
+        font-size: 17px;
+      }
+
+      .deck-device {
+        aspect-ratio: auto;
+        border-radius: 24px;
+        padding: 8px;
+      }
+
+      .deck-screen {
+        border-radius: 18px;
+        min-height: 360px;
+      }
+
+      .screen-body {
+        grid-template-columns: 1fr;
+        padding: 22px;
+        gap: 20px;
+      }
+
+      .preview-title {
+        font-size: 32px;
+      }
+
+      .preview-copy p {
+        font-size: 13px;
+      }
+
+      .layer-panel {
+        min-height: auto;
+        padding: 16px;
+        border-radius: 24px;
+      }
+
+      .layer-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-top {
+        display: grid;
+      }
+
+      .choice {
+        min-height: 148px;
+        border-radius: 22px;
+      }
+
+      .artifact-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 50px 0;
       }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#studio">Skip to builder</a>
   <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand">
-        <strong>Style Workbench</strong>
-        <span>Guided taste discovery for slide decks.</span>
-      </div>
-      <nav class="toplinks" aria-label="Credits and references">
-        <a class="pill" href="#workbench">Start</a>
-        <a class="pill" href="#preview">Preview</a>
-        <a class="pill" href="#sources" data-show-sources>Sources</a>
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Slide System Studio</span>
+      </a>
+      <nav class="toplinks" aria-label="Page sections">
+        <a href="#studio">Builder</a>
+        <a href="#templates">Templates</a>
+        <a href="#export">Export</a>
+        <a href="#method">Method</a>
       </nav>
     </div>
   </header>
 
-  <main class="shell">
-    <section class="hero">
+  <main>
+    <section class="shell hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Taste first</p>
-        <h1>Make the deck feel designed before a single slide is built.</h1>
-        <p>
-          Start with a few references, answer four simple choices, and leave with a design contract your agent can actually follow.
-        </p>
-        <div class="hero-actions">
-          <button class="button primary" id="startDiscovery" type="button">Start discovery</button>
-          <a class="button quiet" href="#sources" data-show-sources>View source policy</a>
+        <p class="eyebrow">Slide design workbench</p>
+        <h1 id="hero-title">Build the slide system first.</h1>
+        <p>Choose the job, proof route, template grammar and delivery mode. The preview updates with each decision so the deck is not just a theme pasted on top.</p>
+        <div class="actions">
+          <a class="button primary" href="#studio">Open builder</a>
+          <a class="button" href="#templates">See templates</a>
         </div>
       </div>
-      <aside class="credit-card">
-        <h2>A quiet path to better slides</h2>
-        <ul class="credit-list">
-          <li><strong>Pick a direction</strong><span>Start from a small set of useful styles.</span></li>
-          <li><strong>Refine the feel</strong><span>Choose behavior, color and writing logic one at a time.</span></li>
-          <li><strong>Export the taste</strong><span>Turn the final mix into a prompt, JSON file or DESIGN.md.</span></li>
-        </ul>
-      </aside>
+
+      <div class="product-stage" aria-label="Live slide preview">
+        <div class="deck-device">
+          <div class="deck-screen" id="heroScreen">
+            <div class="screen-toolbar">
+              <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span id="heroToolbar">Purpose + proof + style</span>
+            </div>
+            <div class="screen-body">
+              <div class="preview-copy">
+                <span class="preview-chip" id="heroChip">Proposal</span>
+                <div class="preview-title" id="heroPreviewTitle">Make the next decision obvious.</div>
+                <p id="heroPreviewCopy">A deck should show the audience what to believe, why it is true and what to do next.</p>
+              </div>
+              <div class="slide-stack" aria-hidden="true">
+                <div class="slide-card"><span>01</span><strong id="heroMiniSlideOne">Question</strong></div>
+                <div class="slide-card"><span>02</span><strong id="heroMiniSlideTwo">Evidence</strong></div>
+                <div class="slide-card"><span>03</span><strong id="heroMiniSlideThree">Decision</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="artifact-strip" aria-label="Builder steps">
+          <span><strong>01 Purpose</strong> What must the deck do?</span>
+          <span><strong>02 Proof</strong> What makes it credible?</span>
+          <span><strong>03 Style</strong> What should it feel like?</span>
+          <span><strong>04 Delivery</strong> What should the agent build?</span>
+        </div>
+      </div>
     </section>
 
-    <section class="workbench" id="workbench">
-      <div class="panel builder-panel">
-        <div class="step-rail" role="tablist" aria-label="Design steps">
-          <button class="step-tab" type="button" data-step="direction" aria-selected="true">
-            <strong>01 Direction</strong>
-            <span>Choose the mood</span>
-          </button>
-          <button class="step-tab" type="button" data-step="template" aria-selected="false">
-            <strong>02 Template</strong>
-            <span>Shape the slide</span>
-          </button>
-          <button class="step-tab" type="button" data-step="palette" aria-selected="false">
-            <strong>03 Color</strong>
-            <span>Tune the colors</span>
-          </button>
-          <button class="step-tab" type="button" data-step="logic" aria-selected="false">
-            <strong>04 Logic</strong>
-            <span>Set the argument</span>
-          </button>
-        </div>
-
-        <section class="step-panel" data-step-panel="direction">
-          <div class="section-head">
-            <div>
-              <h2>What should the deck feel like?</h2>
-              <p>Pick the closest starting point. You can jump around later, but this gives the design a direction.</p>
-            </div>
-            <span class="tag">recommended</span>
-          </div>
-          <div id="mixGrid" class="mix-grid"></div>
-        </section>
-
-        <section class="step-panel" data-step-panel="template">
-          <div class="section-head">
-            <div>
-              <h2>Which slide system should it use?</h2>
-              <p>Browse the mini deck windows. Use the arrows to page through more templates without hidden sideways scrolling.</p>
-            </div>
-            <span id="templateCount" class="tag">loading</span>
-          </div>
-          <div class="filters">
-            <input id="search" class="field" type="search" placeholder="Search: consulting, hackathon, editorial, cobalt, dark">
-            <select id="scheme" class="field">
-              <option value="all">All schemes</option>
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-            </select>
-            <select id="density" class="field">
-              <option value="all">All density</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-            <select id="intent" class="field">
-              <option value="all">All intents</option>
-              <option value="consulting">Consulting</option>
-              <option value="hackathon">Hackathon</option>
-              <option value="proposal">Proposal</option>
-              <option value="creative">Creative</option>
-              <option value="technical">Technical</option>
-              <option value="motion">Motion / video</option>
-            </select>
-          </div>
-          <div class="quick-filters" aria-label="Quick search filters">
-            <button class="pill" type="button" data-quick-filter="consulting">Consulting</button>
-            <button class="pill" type="button" data-quick-filter="hackathon">Hackathon</button>
-            <button class="pill" type="button" data-quick-filter="cobalt">Cobalt</button>
-            <button class="pill" type="button" data-quick-filter="creative">Creative</button>
-            <button class="pill" type="button" data-quick-filter="editorial">Editorial</button>
-            <button class="pill" type="button" data-quick-filter="motion">Motion</button>
-            <button class="pill" type="button" data-quick-filter="dark">Dark</button>
-            <button class="pill" type="button" data-quick-filter="">Clear</button>
-          </div>
-          <div id="loadNotice" class="notice hidden"></div>
-          <div id="templateGrid" class="template-grid"></div>
-          <div class="gallery-controls" aria-label="Template gallery controls">
-            <button class="button" id="prevTemplates" type="button">Previous</button>
-            <span id="templatePageStatus">Page 1</span>
-            <button class="button" id="nextTemplates" type="button">Next</button>
-          </div>
-        </section>
-
-        <section class="step-panel" data-step-panel="palette">
-          <div class="section-head">
-            <div>
-              <h2>Tune the colors so it becomes yours.</h2>
-              <p>External decks and PDFs are references only. Shift the palette here so the final deck does not look copied.</p>
-            </div>
-            <span class="tag">reference-safe</span>
-          </div>
-          <div id="paletteGrid" class="palette-grid"></div>
-        </section>
-
-        <section class="step-panel" data-step-panel="logic">
-          <div class="section-head">
-            <div>
-              <h2>How should the deck argue?</h2>
-              <p>Style gets attention. This choice keeps the story sharp, source-backed and useful in a real presentation.</p>
-            </div>
-            <span class="tag">logic</span>
-          </div>
-          <div id="referenceGrid" class="reference-grid"></div>
-        </section>
-
-        <details class="source-drawer" id="sources">
-          <summary>Source ledger and references</summary>
-          <div class="source-drawer-body">
-            <p class="source-note">
-              Open-source recipes can be vendored when the license is clear. Other galleries are used as research references, not copied styles.
-              <a href="../../docs/template-source-registry.md">Read the source registry.</a>
-            </p>
-            <div id="sourceGrid" class="source-grid"></div>
-          </div>
-        </details>
-
-        <div class="step-actions">
-          <button class="button" id="prevStep" type="button">Back</button>
-          <span id="stepStatus">Step 1 of 4</span>
-          <button class="button primary" id="nextStep" type="button">Next</button>
-        </div>
+    <section class="shell section" id="studio" aria-labelledby="studio-title">
+      <div class="section-head">
+        <p class="section-kicker">Layer studio</p>
+        <h2 id="studio-title">Choose one layer at a time.</h2>
+        <p>Every click changes the preview, stack and export.</p>
       </div>
 
-      <aside class="preview-panel" id="preview">
-        <div class="panel">
-          <div class="section-head">
+      <div class="studio">
+        <nav class="layer-rail" aria-label="Builder layers" id="layerRail"></nav>
+
+        <section class="layer-panel" aria-live="polite">
+          <div class="panel-top">
             <div>
-              <h2>Preview</h2>
-              <p id="selectionSummary">Cobalt Ice plus Cobalt Grid.</p>
+              <h3 id="activeLayerTitle">Purpose</h3>
+              <p id="activeLayerCopy">Pick what the deck has to accomplish before choosing how it looks.</p>
             </div>
-            <span class="tag">16:9</span>
+            <button class="button small" id="nextLayerButton" type="button">Next layer</button>
           </div>
-          <div id="stage" class="slide-stage">
-            <span id="stageChip" class="stage-chip">proposal deck</span>
-            <h2 id="stageTitle">Point-first slides with a visible proof grid.</h2>
-            <div class="stage-row">
-              <div class="stage-block">
-                <strong id="stageProofLabel">Proof object</strong>
-                <p id="stageProofCopy">Table, chart, demo path or source-backed exhibit.</p>
+          <div class="choice-grid" id="choiceGrid"></div>
+        </section>
+
+        <aside class="stack-panel">
+          <div class="preview-board" aria-label="Current deck preview">
+            <div class="deck-screen" id="studioScreen">
+              <div class="screen-toolbar">
+                <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span id="studioToolbar">Live deck preview</span>
               </div>
-              <div class="stage-block">
-                <strong id="stageRuleLabel">Source lane</strong>
-                <p id="stageRuleCopy">Footers and presenter controls stay outside content.</p>
+              <div class="screen-body">
+                <div class="preview-copy">
+                  <span class="preview-chip" id="studioChip">Proposal</span>
+                  <div class="preview-title" id="studioPreviewTitle">Make the next decision obvious.</div>
+                  <p id="studioPreviewCopy">A deck should show the audience what to believe, why it is true and what to do next.</p>
+                </div>
+                <div class="slide-stack" aria-hidden="true">
+                  <div class="slide-card"><span>01</span><strong id="miniSlideOne">Question</strong></div>
+                  <div class="slide-card"><span>02</span><strong id="miniSlideTwo">Evidence</strong></div>
+                  <div class="slide-card"><span>03</span><strong id="miniSlideThree">Decision</strong></div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="specimen-strip" aria-label="Slide specimens">
-            <div class="specimen">
-              <span>Title slide</span>
-              <strong>One decision, one proof.</strong>
-              <div class="mini-bars"><i></i><i></i><i></i></div>
-            </div>
-            <div class="specimen">
-              <span>Comparison</span>
-              <strong>Options line up before they compete.</strong>
-              <div class="mini-bars"><i></i><i></i><i></i></div>
-            </div>
-            <div class="specimen">
-              <span>Timeline</span>
-              <strong>Steps show owners, gates and outputs.</strong>
-              <div class="mini-bars"><i></i><i></i><i></i></div>
-            </div>
+          <h3>Current stack</h3>
+          <div class="stack-list" id="stackList"></div>
+          <div class="next-step">
+            <span>Next useful step</span>
+            <p id="nextStepCopy">Choose the deck purpose, then the evidence layer becomes easier.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="shell section" id="templates" aria-labelledby="templates-title">
+      <div class="section-head">
+        <p class="section-kicker">Optional library</p>
+        <h2 id="templates-title">Templates are ingredients, not the meal.</h2>
+        <p>Browse the open template pack only after the deck logic is clear. Use it as layout grammar, then remix colors before publishing.</p>
+      </div>
+
+      <div class="template-section">
+        <div class="template-panel">
+          <h3>Selected template</h3>
+          <p id="templateDetail">Loading template options from the vendored open template pack.</p>
+          <input class="field" id="templateSearch" type="search" placeholder="Search templates">
+          <div class="pager">
+            <button class="button small" id="prevTemplates" type="button">Previous</button>
+            <span id="templatePageStatus">Page 1</span>
+            <button class="button small" id="nextTemplates" type="button">Next</button>
+          </div>
+        </div>
+        <div class="template-panel">
+          <div class="template-grid" id="templateGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="export" aria-labelledby="export-title">
+      <div class="section-head">
+        <p class="section-kicker">Output</p>
+        <h2 id="export-title">Leave with something an agent can use.</h2>
+        <p>The export is a design contract: deck job, proof route, selected template, color roles, build path, credits and QA rules.</p>
+      </div>
+
+      <div class="export-grid">
+        <div class="export-panel">
+          <h3>How to use it</h3>
+          <ul class="guide-list">
+            <li><strong>1. Start with sources.</strong> Collect the brief, links, screenshots, charts, assets and claims before generation.</li>
+            <li><strong>2. Use the prompt or JSON.</strong> Paste the prompt into Codex or save the JSON as `work/design-contract.json`.</li>
+            <li><strong>3. Generate a small slice.</strong> Build title, proof, comparison and appendix slides before making the full deck.</li>
+            <li><strong>4. Run browser QA.</strong> Check desktop, short laptop and mobile before publishing.</li>
+          </ul>
+          <div class="actions">
+            <a class="button small" href="../chleo-community-band-room/deck/" target="_blank" rel="noreferrer">Open proposal example</a>
+            <a class="button small" href="../source-grounded-demo/deck/" target="_blank" rel="noreferrer">Open source demo</a>
           </div>
         </div>
 
-        <div class="panel details">
-          <div class="section-head">
-            <div>
-              <h2>Selected mix</h2>
-              <p>Template, color roles and thinking discipline.</p>
-            </div>
-            <span class="tag">mix & match</span>
+        <div class="export-panel">
+          <div class="format-tabs" role="tablist" aria-label="Export formats">
+            <button class="format-tab" type="button" data-format="prompt" aria-selected="true">Prompt</button>
+            <button class="format-tab" type="button" data-format="json" aria-selected="false">JSON</button>
+            <button class="format-tab" type="button" data-format="design" aria-selected="false">DESIGN.md</button>
           </div>
-          <div class="detail-card">
-            <h3>Design recipe</h3>
-            <p id="templateDetail"></p>
-          </div>
-          <div class="detail-card">
-            <h3>Color formatting</h3>
-            <p id="paletteDetail"></p>
-            <div id="roleGrid" class="role-grid"></div>
-          </div>
-          <div class="detail-card">
-            <h3>Communication logic</h3>
-            <p id="referenceDetail"></p>
-          </div>
-          <div class="detail-card">
-            <h3>Proof types</h3>
-            <div class="proof-grid">
-              <div class="proof-item">
-                <strong>Architecture</strong>
-                <p>Mermaid for source-backed structure; whiteboard style for executive explanation.</p>
-              </div>
-              <div class="proof-item">
-                <strong>Tech stack</strong>
-                <p>Layer frontend, backend, data, AI, infra, security and observability.</p>
-              </div>
-              <div class="proof-item">
-                <strong>Use cases</strong>
-                <p>Show one scenario, actor, trigger, system action and result.</p>
-              </div>
-              <div class="proof-item">
-                <strong>Cost / roadmap</strong>
-                <p>Use shared axes, assumptions, owners, gates and output artifacts.</p>
-              </div>
-            </div>
-          </div>
-          <div class="detail-card">
-            <h3>Reference safety</h3>
-              <p>Use PPT, PDF and web references for structure, pacing and taste. Remix color roles, naming, shapes and visual details before publishing so the final deck reads as original work.</p>
-          </div>
-          <div class="detail-card">
-            <h3>Build path</h3>
-            <ol class="build-steps">
-              <li><span>1</span><p>Clone or open the slide-generator repo.</p></li>
-              <li><span>2</span><p>Collect logos, screenshots, charts and source links before generation.</p></li>
-              <li><span>3</span><p>Copy the prompt or save the JSON design contract.</p></li>
-              <li><span>4</span><p>Generate the deck, run browser QA, then publish through GitHub Pages or Vercel.</p></li>
-            </ol>
+          <textarea id="exportText" aria-label="Exported design contract"></textarea>
+          <div class="actions" style="margin-top: 12px;">
+            <button class="button primary" id="copyExport" type="button">Copy current export</button>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="panel export-box">
-          <div class="section-head">
-            <div>
-            <h2>4. Export and preview</h2>
-              <p>Open a full HTML example deck, then copy the prompt, JSON or DESIGN.md when the direction feels right.</p>
-            </div>
-          </div>
-          <div class="sample-links">
-            <a class="button" href="../chleo-community-band-room/deck/" target="_blank" rel="noreferrer">Open Chleo deck</a>
-            <a class="button" href="../source-grounded-demo/deck/" target="_blank" rel="noreferrer">Open source demo</a>
-          </div>
-          <div class="export-actions">
-            <button class="button primary" id="copyPrompt">Copy prompt</button>
-            <button class="button" id="copyJson">Copy JSON</button>
-            <button class="button" id="copyDesignMd">Copy DESIGN.md</button>
-          </div>
-          <textarea id="promptOut" aria-label="Exported design prompt"></textarea>
-          <textarea id="jsonOut" aria-label="Exported design contract JSON"></textarea>
-          <textarea id="designMdOut" aria-label="Exported DESIGN.md"></textarea>
+    <section class="shell section" id="method" aria-labelledby="method-title">
+      <div class="section-head">
+        <p class="section-kicker">Method</p>
+        <h2 id="method-title">What the workbench protects.</h2>
+        <p>The product keeps taste, evidence and delivery separate. References can inspire the system, but the exported deck should still be original.</p>
+      </div>
+      <div class="template-panel">
+        <ul class="guide-list">
+          <li><strong>Source mode.</strong> Start from a topic, pasted notes or imported files, but convert them into claims, assets and open questions before layout.</li>
+          <li><strong>Theme layers.</strong> Treat color, type, shape, stroke, shadow, logo and image style as editable tokens, not as one frozen theme.</li>
+          <li><strong>Template mixing.</strong> Layout recipes can mix. A template is grammar, not a prison.</li>
+          <li><strong>Delivery quality.</strong> Presenter notes, audience view, offline prep, overview mode and mobile behavior belong in the definition of a good deck.</li>
+          <li><strong>Calm task flow.</strong> Pick the path, run the next step, review the artifact, then expand. Do not generate a full deck before the first slice works.</li>
+        </ul>
+        <div class="source-links">
+          <a href="../../docs/style-workbench-product-spec.md">Product spec</a>
+          <a href="../../docs/visual-style-system.md">Visual rules</a>
+          <a href="../../docs/skill-bank.md">Skill bank</a>
+          <a href="https://github.com/zarazhangrui/frontend-slides" target="_blank" rel="noreferrer">Open template credit</a>
         </div>
-      </aside>
+      </div>
     </section>
   </main>
-  <div id="copyToast" class="copy-toast" role="status" aria-live="polite">Copied</div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
 
   <script>
-    const paletteLanes = [
-      {
-        id: "cobalt-ice",
-        name: "Cobalt Ice",
-        tone: "sharp light",
-        source: "Derived in this repo from Cobalt Grid and Coolors Ocean Blue Serenity.",
-        sourceUrls: [
-          "https://github.com/zarazhangrui/frontend-slides",
-          "https://coolors.co/palettes/popular/powerpoint"
-        ],
-        bestFor: "hackathon, technical, strategy and professional proposal decks",
-        avoid: "cream, parchment, saturated cobalt everywhere",
-        colors: ["#f6fbff", "#ffffff", "#111827", "#536173", "#0757ff", "#00b8d9", "#b8d7ff"]
+    const layerOrder = ["purpose", "evidence", "style", "output"];
+    const layerMeta = {
+      purpose: {
+        number: "01",
+        title: "Purpose",
+        short: "Deck job",
+        copy: "Pick what the deck has to accomplish before choosing how it looks."
       },
-      {
-        id: "ocean-blue-serenity",
-        name: "Ocean Blue Serenity",
-        tone: "trusted cool",
-        source: "Coolors popular PowerPoint palette, adapted for deck roles.",
-        sourceUrls: ["https://coolors.co/palettes/popular/powerpoint"],
-        bestFor: "serious proposals, education, finance-light, Singapore business decks",
-        avoid: "using all nine blues at equal strength",
-        colors: ["#caf0f8", "#ffffff", "#03045e", "#486176", "#0077b6", "#48cae4", "#ade8f4"],
-        original: ["#03045e", "#023e8a", "#0077b6", "#0096c7", "#00b4d8", "#48cae4", "#90e0ef", "#ade8f4", "#caf0f8"]
+      evidence: {
+        number: "02",
+        title: "Evidence",
+        short: "Proof route",
+        copy: "Choose the proof object the audience needs to trust the deck."
       },
-      {
-        id: "watermelon-sorbet",
-        name: "Watermelon Sorbet",
-        tone: "fresh energetic",
-        source: "Coolors popular PowerPoint palette, restrained for decks.",
-        sourceUrls: ["https://coolors.co/palettes/popular/powerpoint"],
-        bestFor: "community, youth, workshop, creative launch and founder decks",
-        avoid: "large pink backgrounds or rainbow usage",
-        colors: ["#fbfffe", "#ffffff", "#073b4c", "#4e6571", "#118ab2", "#06d6a0", "#ffd166"],
-        original: ["#ef476f", "#ffd166", "#06d6a0", "#118ab2", "#073b4c"]
+      style: {
+        number: "03",
+        title: "Style",
+        short: "Visual system",
+        copy: "Pick a restrained visual direction. The colors can be remixed before publishing."
       },
-      {
-        id: "storybook-cream",
-        name: "Storybook Cream",
-        tone: "warm illustrated",
-        source: "Reference-inspired cream-paper palette from the user's MindMarket style note.",
-        sourceUrls: ["https://styles.refero.design/style/9130ad37-bf80-458f-b808-ac0ef6a8d1e9"],
-        bestFor: "community, youth, workshop, creative proposal and founder-led decks",
-        avoid: "using every bright accent as a functional state",
-        colors: ["#f5f1e4", "#ffffff", "#2c2e2a", "#80827f", "#8ed462", "#ff705d", "#e0dbce"]
-      },
-      {
-        id: "signal-mint",
-        name: "Signal Mint",
-        tone: "calm modern",
-        source: "Original repo palette inspired by Happy Hues color-in-context workflow.",
-        sourceUrls: ["https://www.happyhues.co/"],
-        bestFor: "learning products, wellness-adjacent decks, friendly technical explainers",
-        avoid: "green equals success everywhere",
-        colors: ["#f5fbf8", "#ffffff", "#10231f", "#60746d", "#0f9f8f", "#7dd3c7", "#cceee8"]
-      },
-      {
-        id: "lilac-steel",
-        name: "Lilac Steel",
-        tone: "cool campaign",
-        source: "Original repo palette from local Campaign Strategy pattern study. Private source deck not included.",
-        sourceUrls: ["../../docs/research/product-workflow-lessons.md"],
-        bestFor: "go-to-market, campaign strategy, launch planning and stakeholder updates",
-        avoid: "one-note lavender or metallic stock texture",
-        colors: ["#f8f8f9", "#ffffff", "#252326", "#69656f", "#7442b8", "#cfd8df", "#d8c7ea"]
-      },
-      {
-        id: "graphite-citrus",
-        name: "Graphite Citrus",
-        tone: "premium contrast",
-        source: "Original repo palette inspired by Adobe Color and Color Hunt discovery workflows.",
-        sourceUrls: ["https://color.adobe.com/", "https://colorhunt.co/"],
-        bestFor: "executive, portfolio, brand review and high-contrast pitch moments",
-        avoid: "black and yellow hazard-strip styling",
-        colors: ["#f7f8f5", "#ffffff", "#1b1f23", "#5d6671", "#c4d600", "#00a6a6", "#d8dfd2"]
-      },
-      {
-        id: "midnight-signal",
-        name: "Midnight Signal",
-        tone: "dark institutional",
-        source: "Original repo palette for signal-heavy technical and motion decks.",
-        sourceUrls: [
-          "https://github.com/zarazhangrui/frontend-slides",
-          "https://www.hyperframes.dev/design"
-        ],
-        bestFor: "systems, infrastructure, runtime, AI-agent and video-frame decks",
-        avoid: "dark slides with weak contrast or hidden footnotes",
-        colors: ["#0e1726", "#172033", "#f8fafc", "#a9b4c5", "#f2c94c", "#5ac8b8", "#2b3a55"]
+      output: {
+        number: "04",
+        title: "Output",
+        short: "Build artifact",
+        copy: "Decide what the next agent should receive: prompt, contract, DESIGN.md or QA plan."
       }
-    ];
-
-    const readyMixes = [
-      {
-        id: "sharp-hackathon",
-        name: "Sharp Hackathon",
-        slideTitle: "Proof beats polish.",
-        description: "Precise, bright and demo-ready. Good when judges need to trust the work quickly.",
-        paletteId: "cobalt-ice",
-        referenceId: "frontend-creative",
-        templateSlug: "cobalt-grid",
-        search: "cobalt",
-        scheme: "light",
-        intent: "hackathon"
-      },
-      {
-        id: "consulting-blue",
-        name: "Consulting Blue",
-        slideTitle: "Make the decision easy.",
-        description: "Calm, credible and boardroom-safe. Good for decisions, budgets and tradeoffs.",
-        paletteId: "ocean-blue-serenity",
-        referenceId: "consulting-clarity",
-        templateSlug: "blue-professional",
-        search: "professional",
-        scheme: "light",
-        intent: "consulting"
-      },
-      {
-        id: "creative-community",
-        name: "Creative Community",
-        slideTitle: "Make it feel welcoming.",
-        description: "Fresh, welcoming and founder-led. Good for community, workshops and youth projects.",
-        paletteId: "storybook-cream",
-        referenceId: "frontend-creative",
-        templateSlug: "creative-mode",
-        search: "creative",
-        scheme: "light",
-        intent: "creative"
-      },
-      {
-        id: "agency-executive",
-        name: "Executive Minimal",
-        slideTitle: "Already edited.",
-        description: "Quiet, premium and evidence-first. Good when the work should feel already edited.",
-        paletteId: "graphite-citrus",
-        referenceId: "agency-minimal",
-        templateSlug: "monochrome",
-        search: "monochrome",
-        scheme: "light",
-        intent: "proposal"
-      },
-      {
-        id: "cool-launch",
-        name: "Cool Launch",
-        slideTitle: "Launch with rhythm.",
-        description: "Clean campaign energy. Good for launches, timelines and stakeholder updates.",
-        paletteId: "lilac-steel",
-        referenceId: "agency-minimal",
-        templateSlug: "blue-professional",
-        search: "professional",
-        scheme: "light",
-        intent: "proposal"
-      },
-      {
-        id: "dark-signal",
-        name: "Dark Signal",
-        slideTitle: "Signal in the dark.",
-        description: "Serious, cinematic and technical. Good for systems, agents and runtime stories.",
-        paletteId: "midnight-signal",
-        referenceId: "frontend-creative",
-        templateSlug: "signal",
-        search: "signal",
-        scheme: "dark",
-        intent: "technical"
-      }
-    ];
-
-    const templateSources = [
-      {
-        name: "Open template pack",
-        status: "imported",
-        detail: "34 vendored bold template recipes, MIT credit preserved.",
-        url: "https://github.com/zarazhangrui/frontend-slides"
-      },
-      {
-        name: "HTML template source",
-        status: "candidate",
-        detail: "Upstream 34-template HTML library behind the bold pack.",
-        url: "https://github.com/zarazhangrui/beautiful-html-templates"
-      },
-      {
-        name: "PPTX layout library",
-        status: "candidate",
-        detail: "36 themes, 15 full-deck templates, 31 layouts and presenter-mode ideas.",
-        url: "https://github.com/lewislulu/html-ppt-skill"
-      },
-      {
-        name: "Frame design system",
-        status: "candidate-reference",
-        detail: "Frame.md/design.md workflow for 16:9 pacing, scale, dwell and motion. Study before deck-to-video export.",
-        url: "https://www.hyperframes.dev/design"
-      },
-      {
-        name: "HTML slide runtime",
-        status: "candidate-reference",
-        detail: "MIT HTML presentation framework with demos and 40+ components; exclude demo images.",
-        url: "https://github.com/webslides/webslides"
-      },
-      {
-        name: "Mature presenter runtime",
-        status: "reference",
-        detail: "Mature MIT runtime with themes, speaker notes, export and API.",
-        url: "https://github.com/hakimel/reveal.js"
-      },
-      {
-        name: "Developer slide themes",
-        status: "reference",
-        detail: "Good theme inspiration, but package asset licenses need per-theme checks.",
-        url: "https://sli.dev/resources/theme-gallery"
-      },
-      {
-        name: "PPTX style catalog",
-        status: "reference-only",
-        detail: "30 PPTX style descriptions. README says MIT, but no license file is present, so do not vendor yet.",
-        url: "https://github.com/corazzon/pptx-design-styles"
-      },
-      {
-        name: "DESIGN.md catalog",
-        status: "candidate-reference",
-        detail: "Large MIT collection of AI-readable design-system notes. Useful for contract shape and preview UX.",
-        url: "https://github.com/VoltAgent/awesome-design-md"
-      },
-      {
-        name: "Style research gallery",
-        status: "reference-only",
-        detail: "Browse visual systems, then extract color, type, spacing and rules without copying brand assets.",
-        url: "https://styles.refero.design/"
-      }
-    ];
-
-    const referenceDisciplines = [
-      {
-        id: "consulting-clarity",
-        name: "Consulting Clarity",
-        source: "Public consulting slide-writing references and example-deck directories.",
-        sourceUrls: [
-          "https://ampler.io/articles/50-free-mckinsey-powerpoint-slide-decks/",
-          "https://slideworks.io/resources/bcg-approach-to-great-slides-practical-guide-from-former-consultant"
-        ],
-        rules: [
-          "Use action titles that tell the story when read alone.",
-          "Start from the decision or main question, then support it.",
-          "Choose the body format by slide purpose: chart, table, process, timeline or brief text.",
-          "Use appendix for detail that defends the recommendation but slows the live story."
-        ],
-        avoid: "topic-label titles, chart junk, unsupported executive claims, unaligned figures"
-      },
-      {
-        id: "agency-minimal",
-        name: "Agency Minimal",
-        source: "Public agency portfolio reference and local private-deck pattern notes.",
-        sourceUrls: [
-          "https://www.slidegenius.com/portfolio/accenture",
-          "../../docs/research/product-workflow-lessons.md"
-        ],
-        rules: [
-          "Use minimalist slides so the audience can focus on the key message.",
-          "Keep the brand or topic signal visible without filling the slide with decoration.",
-          "Use a disciplined process: ideation, interpretation, iteration, implementation.",
-          "Let visuals aid attention, not replace evidence."
-        ],
-        avoid: "generic agency copy, unsourced client claims, decorative imagery as proof"
-      },
-      {
-        id: "frontend-creative",
-        name: "Frontend Creative",
-        source: "frontend-slides by Zara Zhang, MIT licensed.",
-        sourceUrls: ["https://github.com/zarazhangrui/frontend-slides"],
-        rules: [
-          "Generate visual previews before committing to the full deck.",
-          "Use fixed 16:9 HTML stages and browser QA.",
-          "Load template references progressively from the compact index.",
-          "Use distinctive style without hiding weak content."
-        ],
-        avoid: "generic AI aesthetics, uncredited template reuse, decorative overflow"
-      },
-      {
-        id: "motion-frame",
-        name: "Motion Frame",
-        source: "Public frame-design reference and open-source frame workflow.",
-        sourceUrls: [
-          "https://www.hyperframes.dev/design",
-          "https://github.com/heygen-com/hyperframes"
-        ],
-        rules: [
-          "Treat design.md as the brand/style input and frame.md as the composition/motion output.",
-          "Specify pacing, scale, dwell and motion only after the static slide is readable.",
-          "Keep 16:9 frame composition, source hierarchy and proof objects stable before video export.",
-          "Use premade frames as inspiration; do not copy assets or hide weak deck logic behind animation."
-        ],
-        avoid: "motion that hides evidence, copied premade assets, video export before static slide QA"
-      },
-      {
-        id: "design-md-research",
-        name: "Design Contract",
-        source: "Public DESIGN.md galleries and Refero-style design-system pages.",
-        sourceUrls: [
-          "https://styles.refero.design/",
-          "https://github.com/VoltAgent/awesome-design-md"
-        ],
-        rules: [
-          "Inspect real screens before choosing a style direction.",
-          "Extract artifact structure: colors, typography, spacing, components, do and do-not rules.",
-          "Keep brand names out of the final style name unless the user owns or explicitly references that brand.",
-          "Use screenshots and visual QA to reject generic card-heavy output."
-        ],
-        avoid: "brand imitation, screenshot copying, vague mood words without tokens or rules"
-      }
-    ];
-
-    const fallbackTemplates = [
-      {
-        slug: "cobalt-grid",
-        name: "Cobalt Grid",
-        tagline: "Electric cobalt on a graph-paper canvas.",
-        mood: ["technical", "clean", "sharp"],
-        tone: ["cobalt", "grid"],
-        formality: "medium-high",
-        density: "medium",
-        scheme: "light",
-        best_for: "Technical, hackathon, product and proposal decks.",
-        avoid_for: "Warm editorial or heritage moods.",
-        design_md: "vendor/frontend-slides/bold-template-pack/templates/cobalt-grid/design.md"
-      },
-      {
-        slug: "blue-professional",
-        name: "Blue Professional",
-        tagline: "Clean professional blue system.",
-        mood: ["professional", "modern"],
-        tone: ["clean", "polished"],
-        formality: "medium-high",
-        density: "medium",
-        scheme: "light",
-        best_for: "B2B, consulting and executive review decks.",
-        avoid_for: "Decks that need expressive energy.",
-        design_md: "vendor/frontend-slides/bold-template-pack/templates/blue-professional/design.md"
-      },
-      {
-        slug: "creative-mode",
-        name: "Creative Mode",
-        tagline: "Bold creative deck energy.",
-        mood: ["creative", "expressive"],
-        tone: ["bold", "design-led"],
-        formality: "medium",
-        density: "medium",
-        scheme: "light",
-        best_for: "Brand, portfolio and proposal decks.",
-        avoid_for: "Highly formal regulatory decks.",
-        design_md: "vendor/frontend-slides/bold-template-pack/templates/creative-mode/design.md"
-      }
-    ];
-
-    const defaultReadyMix = readyMixes.find((mix) => mix.id === "creative-community") || readyMixes[0];
-    const defaultPalette = paletteLanes.find((palette) => palette.id === defaultReadyMix.paletteId) || paletteLanes[0];
-    const defaultReference = referenceDisciplines.find((reference) => reference.id === defaultReadyMix.referenceId) || referenceDisciplines[0];
-    const defaultTemplate = fallbackTemplates.find((template) => template.slug === defaultReadyMix.templateSlug) || fallbackTemplates[0];
-
-    const state = {
-      palette: defaultPalette,
-      reference: defaultReference,
-      templates: fallbackTemplates,
-      template: defaultTemplate,
-      readyMixId: defaultReadyMix.id,
-      templatePage: 0,
-      filters: { search: "", scheme: "all", density: "all", intent: "all" }
     };
 
-    const mixGrid = document.getElementById("mixGrid");
-    const sourceGrid = document.getElementById("sourceGrid");
-    const paletteGrid = document.getElementById("paletteGrid");
-    const referenceGrid = document.getElementById("referenceGrid");
-    const templateGrid = document.getElementById("templateGrid");
-    const templateCount = document.getElementById("templateCount");
-    const loadNotice = document.getElementById("loadNotice");
-    const searchInput = document.getElementById("search");
-    const schemeSelect = document.getElementById("scheme");
-    const densitySelect = document.getElementById("density");
-    const intentSelect = document.getElementById("intent");
-    const stage = document.getElementById("stage");
-    const stageChip = document.getElementById("stageChip");
-    const stageTitle = document.getElementById("stageTitle");
-    const stageProofLabel = document.getElementById("stageProofLabel");
-    const stageProofCopy = document.getElementById("stageProofCopy");
-    const stageRuleLabel = document.getElementById("stageRuleLabel");
-    const stageRuleCopy = document.getElementById("stageRuleCopy");
-    const previewPanel = document.querySelector(".preview-panel");
-    const selectionSummary = document.getElementById("selectionSummary");
-    const templateDetail = document.getElementById("templateDetail");
-    const paletteDetail = document.getElementById("paletteDetail");
-    const referenceDetail = document.getElementById("referenceDetail");
-    const roleGrid = document.getElementById("roleGrid");
-    const promptOut = document.getElementById("promptOut");
-    const jsonOut = document.getElementById("jsonOut");
-    const designMdOut = document.getElementById("designMdOut");
-    const copyToast = document.getElementById("copyToast");
-    const steps = ["direction", "template", "palette", "logic"];
-    const stepTabs = Array.from(document.querySelectorAll("[data-step]"));
-    const stepPanels = Array.from(document.querySelectorAll("[data-step-panel]"));
-    const prevStepButton = document.getElementById("prevStep");
-    const nextStepButton = document.getElementById("nextStep");
-    const stepStatus = document.getElementById("stepStatus");
-    const startDiscoveryButton = document.getElementById("startDiscovery");
-    const prevTemplatesButton = document.getElementById("prevTemplates");
-    const nextTemplatesButton = document.getElementById("nextTemplates");
-    const templatePageStatus = document.getElementById("templatePageStatus");
-    let activeStepIndex = 0;
-    let activeStepHoldUntil = 0;
-
-    renderReadyMixes();
-    renderSources();
-    renderPalettes();
-    renderReferences();
-    renderTemplates();
-    updatePreviewAndExports();
-    setActiveStep("direction");
-    loadTemplateIndex();
-
-    searchInput.addEventListener("input", () => {
-      state.filters.search = searchInput.value.trim().toLowerCase();
-      state.templatePage = 0;
-      renderTemplates();
-    });
-    schemeSelect.addEventListener("change", () => {
-      state.filters.scheme = schemeSelect.value;
-      state.templatePage = 0;
-      renderTemplates();
-    });
-    densitySelect.addEventListener("change", () => {
-      state.filters.density = densitySelect.value;
-      state.templatePage = 0;
-      renderTemplates();
-    });
-    intentSelect.addEventListener("change", () => {
-      state.filters.intent = intentSelect.value;
-      applyIntentFilter();
-      state.templatePage = 0;
-      renderTemplates();
-    });
-    document.querySelectorAll("[data-quick-filter]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const value = button.getAttribute("data-quick-filter") || "";
-        state.filters.search = value;
-        searchInput.value = value;
-        if (value === "dark") {
-          state.filters.scheme = "dark";
-          schemeSelect.value = "dark";
-        } else if (value === "motion") {
-          state.filters.intent = "motion";
-          intentSelect.value = "motion";
-          state.filters.search = "";
-          applyIntentFilter();
-        } else if (!value) {
-          state.filters.scheme = "all";
-          state.filters.density = "all";
-          state.filters.intent = "all";
-          schemeSelect.value = "all";
-          densitySelect.value = "all";
-          intentSelect.value = "all";
+    const choices = {
+      purpose: [
+        {
+          id: "proposal",
+          name: "Proposal",
+          description: "For a decision, budget or green light.",
+          chip: "Proposal",
+          title: "Make the next decision obvious.",
+          copy: "Lead with the recommendation, then prove it with the fewest credible objects.",
+          slides: ["Question", "Evidence", "Decision"],
+          color: "#0071e3"
+        },
+        {
+          id: "research",
+          name: "Research brief",
+          description: "For source-backed findings and caveats.",
+          chip: "Research",
+          title: "Turn the research into a clear position.",
+          copy: "Separate findings, assumptions and open questions so the audience can trust the work.",
+          slides: ["Finding", "Source", "Caveat"],
+          color: "#5856d6"
+        },
+        {
+          id: "technical",
+          name: "Technical demo",
+          description: "For architecture, systems and build proof.",
+          chip: "Technical",
+          title: "Show the system before the claims.",
+          copy: "Use architecture, flow, constraints and demo path before broad product language.",
+          slides: ["System", "Flow", "Demo"],
+          color: "#00a889"
+        },
+        {
+          id: "workshop",
+          name: "Workshop",
+          description: "For facilitation, teaching and group action.",
+          chip: "Workshop",
+          title: "Help the room move together.",
+          copy: "Make the agenda, activity, decision point and owner visible on each section.",
+          slides: ["Agenda", "Activity", "Output"],
+          color: "#ff9500"
         }
-        renderTemplates();
-      });
+      ],
+      evidence: [
+        {
+          id: "source-table",
+          name: "Source table",
+          description: "Best for claims, citations, competitors and pricing.",
+          titleAddon: "Evidence must survive inspection.",
+          proof: "table, citation IDs, source links",
+          slides: ["Claim", "Source", "Decision"],
+          color: "#0071e3"
+        },
+        {
+          id: "architecture",
+          name: "Architecture map",
+          description: "Best for systems, data flow and trust boundaries.",
+          titleAddon: "Make the system inspectable.",
+          proof: "Mermaid first, custom diagram when presentation polish matters",
+          slides: ["System", "Boundary", "Demo"],
+          color: "#00a889"
+        },
+        {
+          id: "cost-model",
+          name: "Cost model",
+          description: "Best for budgets, ranges, break-even and tradeoffs.",
+          titleAddon: "Show the range before the ask.",
+          proof: "range bars, sensitivity table, monthly model",
+          slides: ["Assume", "Range", "Decision"],
+          color: "#ff9500"
+        },
+        {
+          id: "roadmap",
+          name: "Roadmap",
+          description: "Best for launches, pilots and go/no-go gates.",
+          titleAddon: "Turn plans into gates.",
+          proof: "timeline, milestone table, Gantt when dependencies matter",
+          slides: ["Week", "Gate", "Owner"],
+          color: "#af52de"
+        }
+      ],
+      style: [
+        {
+          id: "studio-minimal",
+          name: "Studio Minimal",
+          description: "Quiet, Apple-like, product-first.",
+          bg: "#fbfbfd",
+          ink: "#1d1d1f",
+          muted: "#6e6e73",
+          accent: "#0071e3",
+          avoid: "extra decoration, heavy gradients, large template grids"
+        },
+        {
+          id: "soft-product",
+          name: "Soft Product",
+          description: "Warm neutral, calm cards, friendly for non-technical audiences.",
+          bg: "#f7f3ee",
+          ink: "#25221f",
+          muted: "#756f68",
+          accent: "#2f7d68",
+          avoid: "cream overload, childish rounded shapes, low contrast"
+        },
+        {
+          id: "editorial-proof",
+          name: "Editorial Proof",
+          description: "Large type, visible source trail, restrained accent.",
+          bg: "#f8f7f4",
+          ink: "#171717",
+          muted: "#6f6d68",
+          accent: "#b45309",
+          avoid: "magazine decoration without evidence"
+        },
+        {
+          id: "dark-signal",
+          name: "Dark Signal",
+          description: "Dark technical mode for systems, runtime and demos.",
+          bg: "#111214",
+          ink: "#f5f5f7",
+          muted: "#a1a1aa",
+          accent: "#34d399",
+          avoid: "weak contrast, neon glow, tiny chart text"
+        }
+      ],
+      output: [
+        {
+          id: "agent-prompt",
+          name: "Agent prompt",
+          description: "Fastest handoff for Codex or Claude.",
+          next: "Paste the prompt into your agent and ask for a small slide slice first.",
+          color: "#0071e3"
+        },
+        {
+          id: "json-contract",
+          name: "JSON contract",
+          description: "Best for a repeatable repo workflow.",
+          next: "Save as work/design-contract.json before deck generation.",
+          color: "#5856d6"
+        },
+        {
+          id: "design-md",
+          name: "DESIGN.md",
+          description: "Best for humans and agents to share visual rules.",
+          next: "Keep it beside the project so future decks reuse the same taste.",
+          color: "#00a889"
+        },
+        {
+          id: "qa-plan",
+          name: "QA checklist",
+          description: "Best when publishing or presenting to others.",
+          next: "Run desktop, short laptop and mobile checks before sharing.",
+          color: "#ff9500"
+        }
+      ]
+    };
+
+    const fallbackTemplates = [
+      { slug: "cobalt-grid", name: "Cobalt Grid", tagline: "Sharp grid system for technical proposals.", scheme: "light", design_md: "bold-template-pack/templates/cobalt-grid/design.md" },
+      { slug: "monochrome", name: "Monochrome", tagline: "Black and ivory editorial restraint.", scheme: "light", design_md: "bold-template-pack/templates/monochrome/design.md" },
+      { slug: "blue-professional", name: "Blue Professional", tagline: "Clean professional blue system.", scheme: "light", design_md: "bold-template-pack/templates/blue-professional/design.md" },
+      { slug: "signal", name: "Signal", tagline: "Quiet institutional dark mode.", scheme: "mixed", design_md: "bold-template-pack/templates/signal/design.md" }
+    ];
+
+    const state = {
+      activeLayer: "purpose",
+      selected: {
+        purpose: choices.purpose[0],
+        evidence: choices.evidence[0],
+        style: choices.style[0],
+        output: choices.output[0]
+      },
+      templates: fallbackTemplates,
+      selectedTemplate: fallbackTemplates[0],
+      templatePage: 0,
+      templateSearch: "",
+      exportFormat: "prompt"
+    };
+
+    const layerRail = document.getElementById("layerRail");
+    const choiceGrid = document.getElementById("choiceGrid");
+    const activeLayerTitle = document.getElementById("activeLayerTitle");
+    const activeLayerCopy = document.getElementById("activeLayerCopy");
+    const nextLayerButton = document.getElementById("nextLayerButton");
+    const stackList = document.getElementById("stackList");
+    const nextStepCopy = document.getElementById("nextStepCopy");
+    const templateGrid = document.getElementById("templateGrid");
+    const templateDetail = document.getElementById("templateDetail");
+    const templateSearch = document.getElementById("templateSearch");
+    const templatePageStatus = document.getElementById("templatePageStatus");
+    const prevTemplates = document.getElementById("prevTemplates");
+    const nextTemplates = document.getElementById("nextTemplates");
+    const exportText = document.getElementById("exportText");
+    const copyExport = document.getElementById("copyExport");
+    const toast = document.getElementById("toast");
+    const formatTabs = Array.from(document.querySelectorAll(".format-tab"));
+
+    const previewTargets = [
+      {
+        screen: document.getElementById("heroScreen"),
+        toolbar: document.getElementById("heroToolbar"),
+        chip: document.getElementById("heroChip"),
+        title: document.getElementById("heroPreviewTitle"),
+        copy: document.getElementById("heroPreviewCopy")
+      },
+      {
+        screen: document.getElementById("studioScreen"),
+        toolbar: document.getElementById("studioToolbar"),
+        chip: document.getElementById("studioChip"),
+        title: document.getElementById("studioPreviewTitle"),
+        copy: document.getElementById("studioPreviewCopy")
+      }
+    ];
+
+    render();
+    loadTemplates();
+
+    nextLayerButton.addEventListener("click", () => {
+      const current = layerOrder.indexOf(state.activeLayer);
+      state.activeLayer = layerOrder[Math.min(current + 1, layerOrder.length - 1)];
+      render();
     });
 
-    function renderReadyMixes() {
-      mixGrid.innerHTML = "";
-      for (const mix of readyMixes) {
-        const button = document.createElement("button");
-        button.className = "mix-card";
-        button.type = "button";
-        button.setAttribute("aria-pressed", String(mix.id === state.readyMixId));
-        const palette = paletteLanes.find((item) => item.id === mix.paletteId) || paletteLanes[0];
-        button.innerHTML = `
-          <div class="choice-slide" style="--choice-accent:${palette.colors[4]}; --choice-secondary:${palette.colors[5]}; --choice-text:${palette.colors[2]}">
-            <strong>${escapeHtml(mix.slideTitle)}</strong>
-          </div>
-          <div class="card-title"><span>${escapeHtml(mix.name)}</span><span class="tag">${escapeHtml(mix.intent)}</span></div>
-          <p class="card-copy">${escapeHtml(mix.description)}</p>
-        `;
-        button.addEventListener("click", () => {
-          applyReadyMix(mix);
-          scrollToStep("template");
-        });
-        mixGrid.appendChild(button);
-      }
-    }
-
-    function renderSources() {
-      sourceGrid.innerHTML = "";
-      for (const source of templateSources) {
-        const card = document.createElement("a");
-        card.className = "source-card";
-        card.href = source.url;
-        card.target = "_blank";
-        card.rel = "noreferrer";
-        card.innerHTML = `
-          <div class="card-title"><span>${escapeHtml(source.name)}</span><span class="tag">${escapeHtml(source.status)}</span></div>
-          <p class="card-copy">${escapeHtml(source.detail)}</p>
-        `;
-        sourceGrid.appendChild(card);
-      }
-    }
-
-    function applyReadyMix(mix) {
-      state.readyMixId = mix.id;
-      state.palette = paletteLanes.find((item) => item.id === mix.paletteId) || state.palette;
-      state.reference = referenceDisciplines.find((item) => item.id === mix.referenceId) || state.reference;
-      state.template = state.templates.find((item) => item.slug === mix.templateSlug) || state.template;
-      state.filters.search = "";
-      state.filters.scheme = "all";
-      state.filters.density = "all";
-      state.filters.intent = "all";
+    templateSearch.addEventListener("input", () => {
+      state.templateSearch = templateSearch.value.trim().toLowerCase();
       state.templatePage = 0;
-      searchInput.value = state.filters.search;
-      schemeSelect.value = state.filters.scheme;
-      densitySelect.value = state.filters.density;
-      intentSelect.value = state.filters.intent;
-      applyIntentFilter();
-      renderReadyMixes();
-      renderPalettes();
-      renderReferences();
       renderTemplates();
-      updatePreviewAndExports();
-      setActiveStep("direction");
-    }
-
-    function applyIntentFilter() {
-      if (state.filters.intent === "consulting") {
-        state.filters.search = state.filters.search || "professional";
-      } else if (state.filters.intent === "hackathon") {
-        state.filters.search = state.filters.search || "cobalt";
-      } else if (state.filters.intent === "creative") {
-        state.filters.search = state.filters.search || "creative";
-      } else if (state.filters.intent === "technical") {
-        state.filters.search = state.filters.search || "signal";
-      } else if (state.filters.intent === "motion") {
-        state.filters.search = state.filters.search || "cobalt";
-      }
-      searchInput.value = state.filters.search;
-    }
-
-    document.getElementById("copyPrompt").addEventListener("click", (event) => copyText(promptOut.value, event.currentTarget));
-    document.getElementById("copyJson").addEventListener("click", (event) => copyText(jsonOut.value, event.currentTarget));
-    document.getElementById("copyDesignMd").addEventListener("click", (event) => copyText(designMdOut.value, event.currentTarget));
-    startDiscoveryButton.addEventListener("click", () => {
-      document.getElementById("workbench").scrollIntoView({ behavior: "smooth", block: "start" });
     });
-    prevTemplatesButton.addEventListener("click", () => {
-      holdActiveStep("template");
+
+    prevTemplates.addEventListener("click", () => {
       state.templatePage = Math.max(0, state.templatePage - 1);
       renderTemplates();
     });
-    nextTemplatesButton.addEventListener("click", () => {
-      holdActiveStep("template");
+
+    nextTemplates.addEventListener("click", () => {
       state.templatePage += 1;
       renderTemplates();
     });
-    document.querySelectorAll("[data-show-sources]").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        setActiveStep("logic");
-        const sourceDrawer = document.getElementById("sources");
-        sourceDrawer.open = true;
-        sourceDrawer.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    formatTabs.forEach((button) => {
+      button.addEventListener("click", () => {
+        state.exportFormat = button.dataset.format;
+        renderExport();
       });
     });
-    prevStepButton.addEventListener("click", () => setActiveStepByIndex(activeStepIndex - 1));
-    nextStepButton.addEventListener("click", () => {
-      if (activeStepIndex === steps.length - 1) {
-        document.querySelector(".export-box").scrollIntoView({ behavior: "smooth", block: "start" });
-        return;
+
+    copyExport.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(exportText.value);
+      } catch {
+        exportText.select();
+        document.execCommand("copy");
       }
-      setActiveStepByIndex(activeStepIndex + 1);
+      toast.classList.add("is-visible");
+      window.clearTimeout(copyExport.timer);
+      copyExport.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 900);
     });
-    stepTabs.forEach((button) => {
-      button.addEventListener("click", () => scrollToStep(button.dataset.step));
-    });
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.dataset?.stepPanel) {
-          setActiveStep(visible.target.dataset.stepPanel);
-        }
-      }, { rootMargin: "-32% 0px -52% 0px", threshold: [0.15, 0.35, 0.55] });
-      stepPanels.forEach((panel) => observer.observe(panel));
-    }
-    let scrollSyncScheduled = false;
-    window.addEventListener("scroll", () => {
-      if (scrollSyncScheduled) return;
-      scrollSyncScheduled = true;
-      window.requestAnimationFrame(() => {
-        scrollSyncScheduled = false;
-        if (Date.now() < activeStepHoldUntil) return;
-        syncActiveStepFromScroll();
-      });
-    }, { passive: true });
 
-    function setActiveStep(step) {
-      const index = steps.indexOf(step);
-      if (index !== -1) setActiveStepByIndex(index);
-    }
-
-    function holdActiveStep(step, milliseconds = 700) {
-      activeStepHoldUntil = Date.now() + milliseconds;
-      setActiveStep(step);
-    }
-
-    function setActiveStepByIndex(index) {
-      activeStepIndex = Math.max(0, Math.min(steps.length - 1, index));
-      const activeStep = steps[activeStepIndex];
-      stepTabs.forEach((button) => {
-        button.setAttribute("aria-selected", String(button.dataset.step === activeStep));
-      });
-      stepPanels.forEach((panel) => {
-        panel.hidden = false;
-        panel.classList.toggle("is-active", panel.dataset.stepPanel === activeStep);
-      });
-      prevStepButton.disabled = activeStepIndex === 0;
-      nextStepButton.textContent = activeStepIndex === steps.length - 1 ? "Review export" : "Next";
-      stepStatus.textContent = `Step ${activeStepIndex + 1} of ${steps.length}`;
-      document.body.dataset.activeStep = activeStep;
-    }
-
-    function scrollToStep(step) {
-      setActiveStep(step);
-      document.querySelector(`[data-step-panel="${step}"]`)?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-
-    function syncActiveStepFromScroll() {
-      const anchorY = window.innerHeight * 0.28;
-      let bestPanel = null;
-      let bestDistance = Infinity;
-      stepPanels.forEach((panel) => {
-        const rect = panel.getBoundingClientRect();
-        if (rect.bottom < 120 || rect.top > window.innerHeight * 0.82) return;
-        const distance = Math.abs(rect.top - anchorY);
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          bestPanel = panel;
-        }
-      });
-      if (bestPanel?.dataset?.stepPanel) {
-        setActiveStep(bestPanel.dataset.stepPanel);
-      }
-    }
-
-    async function loadTemplateIndex() {
+    async function loadTemplates() {
       try {
         const response = await fetch("../../vendor/frontend-slides/bold-template-pack/selection-index.json", { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const index = await response.json();
-        state.templates = Array.isArray(index.templates) ? index.templates : fallbackTemplates;
-        const selectedMix = readyMixes.find((mix) => mix.id === state.readyMixId) || defaultReadyMix;
-        state.template = state.templates.find((item) => item.slug === selectedMix.templateSlug) || state.template || state.templates[0] || fallbackTemplates[0];
-        loadNotice.classList.add("hidden");
-      } catch (error) {
-        loadNotice.textContent = "Using a small fallback list because the full template index could not be fetched. Serve this repo through GitHub Pages or a local static server to browse all 34 vendored templates.";
-        loadNotice.classList.remove("hidden");
+        if (Array.isArray(index.templates) && index.templates.length) {
+          state.templates = index.templates;
+          state.selectedTemplate =
+            state.templates.find((item) => item.slug === "cobalt-grid") ||
+            state.templates.find((item) => item.slug === "monochrome") ||
+            state.templates[0];
+        }
+      } catch {
+        state.templates = fallbackTemplates;
+        state.selectedTemplate = fallbackTemplates[0];
       }
       renderTemplates();
-      updatePreviewAndExports();
+      renderExport();
     }
 
-    function renderPalettes() {
-      paletteGrid.innerHTML = "";
-      for (const palette of paletteLanes) {
-        const button = document.createElement("button");
-        button.className = "palette-card";
-        button.type = "button";
-        button.setAttribute("aria-pressed", String(palette.id === state.palette.id));
-        button.innerHTML = `
-          <div class="swatches">${palette.colors.map((color) => `<span style="background:${color}"></span>`).join("")}</div>
-          <div class="card-title"><span>${escapeHtml(palette.name)}</span><span class="tag">${escapeHtml(palette.tone)}</span></div>
-          <p class="card-copy">${escapeHtml(palette.bestFor)}</p>
-        `;
-        button.addEventListener("click", () => {
-          state.palette = palette;
-          renderPalettes();
-          updatePreviewAndExports();
-          scrollToStep("logic");
-        });
-        paletteGrid.appendChild(button);
-      }
+    function render() {
+      renderLayerRail();
+      renderChoices();
+      renderStack();
+      renderPreview();
+      renderTemplates();
+      renderExport();
     }
 
-    function renderReferences() {
-      referenceGrid.innerHTML = "";
-      for (const reference of referenceDisciplines) {
-        const button = document.createElement("button");
-        button.className = "reference-card";
-        button.type = "button";
-        button.setAttribute("aria-pressed", String(reference.id === state.reference.id));
-        button.innerHTML = `
-          <div class="card-title"><span>${escapeHtml(reference.name)}</span><span class="tag">${escapeHtml(reference.id)}</span></div>
-          <p class="card-copy">${escapeHtml(reference.source)}</p>
+    function renderLayerRail() {
+      layerRail.innerHTML = layerOrder.map((layer) => {
+        const meta = layerMeta[layer];
+        return `
+          <button class="layer-tab" type="button" data-layer="${layer}" aria-selected="${state.activeLayer === layer}">
+            <span class="layer-number">${meta.number}</span>
+            <span><strong>${escapeHtml(meta.title)}</strong><span>${escapeHtml(meta.short)}</span></span>
+          </button>
         `;
+      }).join("");
+
+      layerRail.querySelectorAll(".layer-tab").forEach((button) => {
         button.addEventListener("click", () => {
-          state.reference = reference;
-          renderReferences();
-          updatePreviewAndExports();
-          setActiveStep("logic");
-          document.getElementById("preview").scrollIntoView({ behavior: "smooth", block: "start" });
+          state.activeLayer = button.dataset.layer;
+          render();
         });
-        referenceGrid.appendChild(button);
+      });
+    }
+
+    function renderChoices() {
+      const meta = layerMeta[state.activeLayer];
+      activeLayerTitle.textContent = meta.title;
+      activeLayerCopy.textContent = meta.copy;
+      nextLayerButton.textContent = state.activeLayer === "output" ? "Review export" : "Next layer";
+      choiceGrid.innerHTML = choices[state.activeLayer].map((choice) => {
+        const selected = state.selected[state.activeLayer].id === choice.id;
+        const color = choice.color || choice.accent || state.selected.style.accent;
+        return `
+          <button class="choice" type="button" data-choice="${choice.id}" aria-pressed="${selected}" style="--choice-color:${color}">
+            <span class="choice-mark" aria-hidden="true">${renderChoiceVisual(choice, state.activeLayer)}</span>
+            <span>
+              <h4>${escapeHtml(choice.name)}</h4>
+              <p>${escapeHtml(choice.description)}</p>
+            </span>
+          </button>
+        `;
+      }).join("");
+
+      choiceGrid.querySelectorAll(".choice").forEach((button) => {
+        button.addEventListener("click", () => {
+          const selected = choices[state.activeLayer].find((item) => item.id === button.dataset.choice);
+          state.selected[state.activeLayer] = selected || state.selected[state.activeLayer];
+          flashPreview();
+          render();
+        });
+      });
+    }
+
+    function renderChoiceVisual(choice, layer) {
+      if (layer === "style") {
+        return `
+          <span class="choice-swatches">
+            <span style="--swatch:${escapeHtml(choice.bg)}"></span>
+            <span style="--swatch:${escapeHtml(choice.ink)}"></span>
+            <span style="--swatch:${escapeHtml(choice.muted)}"></span>
+            <span style="--swatch:${escapeHtml(choice.accent)}"></span>
+          </span>
+        `;
       }
+
+      if (layer === "output") {
+        return `<span class="choice-code"><span></span><span></span><span></span></span>`;
+      }
+
+      const labels = choice.slides || choice.proof?.split(",").slice(0, 3) || ["Plan", "Proof", "Deck"];
+      return `
+        <span class="choice-preview">
+          ${labels.slice(0, 3).map((label) => `<span>${escapeHtml(label.trim())}</span>`).join("")}
+        </span>
+      `;
+    }
+
+    function renderStack() {
+      stackList.innerHTML = layerOrder.map((layer) => {
+        const meta = layerMeta[layer];
+        const selected = state.selected[layer];
+        return `
+          <div class="stack-item">
+            <span>${meta.title}</span>
+            <strong>${escapeHtml(selected.name)}</strong>
+          </div>
+        `;
+      }).join("");
+      nextStepCopy.textContent = state.selected.output.next || "Export the contract and run a small deck slice first.";
+    }
+
+    function renderPreview() {
+      const purpose = state.selected.purpose;
+      const evidence = state.selected.evidence;
+      const style = state.selected.style;
+      const title = evidence.titleAddon || purpose.title;
+      const copy = `${purpose.copy} Proof route: ${evidence.proof}.`;
+      const miniSlides = evidence.slides || purpose.slides;
+      previewTargets.forEach((target) => {
+        target.screen.style.setProperty("--preview-bg", style.bg);
+        target.screen.style.setProperty("--preview-ink", style.ink);
+        target.screen.style.setProperty("--preview-muted", style.muted);
+        target.screen.style.setProperty("--preview-accent", style.accent);
+        target.toolbar.textContent = `${purpose.name} + ${evidence.name}`;
+        target.chip.textContent = purpose.chip;
+        target.title.textContent = title;
+        target.copy.textContent = copy;
+      });
+      [
+        ["heroMiniSlideOne", miniSlides[0]],
+        ["heroMiniSlideTwo", miniSlides[1]],
+        ["heroMiniSlideThree", miniSlides[2]],
+        ["miniSlideOne", miniSlides[0]],
+        ["miniSlideTwo", miniSlides[1]],
+        ["miniSlideThree", miniSlides[2]]
+      ].forEach(([id, label]) => {
+        const node = document.getElementById(id);
+        if (node) node.textContent = label;
+      });
+    }
+
+    function flashPreview() {
+      previewTargets.forEach((target) => {
+        target.screen.classList.remove("is-updated");
+        void target.screen.offsetWidth;
+        target.screen.classList.add("is-updated");
+      });
     }
 
     function renderTemplates() {
-      const filtered = state.templates.filter(templateMatches);
+      const filtered = state.templates.filter((template) => {
+        if (!state.templateSearch) return true;
+        return [template.name, template.slug, template.tagline, template.best_for, template.scheme]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase()
+          .includes(state.templateSearch);
+      });
       const pageSize = 6;
       const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
       state.templatePage = Math.min(state.templatePage, pageCount - 1);
-      const start = state.templatePage * pageSize;
-      const pageItems = filtered.slice(start, start + pageSize);
-      templateCount.textContent = `${filtered.length} options`;
+      const page = filtered.slice(state.templatePage * pageSize, state.templatePage * pageSize + pageSize);
       templatePageStatus.textContent = `Page ${state.templatePage + 1} of ${pageCount}`;
-      prevTemplatesButton.disabled = state.templatePage === 0;
-      nextTemplatesButton.disabled = state.templatePage >= pageCount - 1;
-      templateGrid.innerHTML = "";
-      for (const template of pageItems) {
-        const button = document.createElement("button");
-        button.className = "template-card";
-        button.type = "button";
-        button.setAttribute("aria-pressed", String(template.slug === state.template.slug));
-        const previewTitle = templatePreviewCopy(template).chip;
-        const previewClass = template.scheme === "dark" ? "template-preview preview-dark" : "template-preview";
-        button.innerHTML = `
-          <div class="${previewClass}">
-            <span></span>
-            <strong>${escapeHtml(previewTitle)}</strong>
-            <em class="mini-deck-strip" aria-hidden="true"><small></small><small></small><small></small></em>
-            <i></i><b></b>
-          </div>
-          <div class="card-title"><span>${escapeHtml(template.name)}</span><span class="tag">${escapeHtml(template.scheme || "mixed")}</span></div>
-          <p class="card-copy">${escapeHtml(template.tagline || template.best_for || "Template recipe")}</p>
-        `;
-        button.addEventListener("click", () => {
-          state.template = template;
-          renderTemplates();
-          updatePreviewAndExports();
-          scrollToStep("palette");
-        });
-        templateGrid.appendChild(button);
-      }
-    }
-
-    function templateMatches(template) {
-      if (state.filters.scheme !== "all" && template.scheme !== state.filters.scheme) return false;
-      if (state.filters.density !== "all" && template.density !== state.filters.density) return false;
-      if (!state.filters.search) return true;
-      const haystack = [
-        template.name,
-        template.slug,
-        template.tagline,
-        template.best_for,
-        template.avoid_for,
-        ...(template.mood || []),
-        ...(template.tone || [])
-      ].filter(Boolean).join(" ").toLowerCase();
-      return haystack.includes(state.filters.search);
-    }
-
-    function updatePreviewAndExports() {
-      const [background, surface, text, muted, accent, secondary, border] = state.palette.colors;
-      for (const element of [stage, previewPanel]) {
-        element.style.setProperty("--stage-bg", background);
-        element.style.setProperty("--stage-surface", surface);
-        element.style.setProperty("--stage-text", text);
-        element.style.setProperty("--stage-muted", muted);
-        element.style.setProperty("--stage-accent", accent);
-        element.style.setProperty("--stage-border", border);
-        element.style.setProperty("--grid-color", tint(border, 0.72));
-      }
-      selectionSummary.textContent = `${state.palette.name} plus ${state.template.name}, guided by ${state.reference.name}.`;
-      const preview = templatePreviewCopy(state.template);
-      stage.dataset.visual = preview.visual;
-      stageChip.textContent = preview.chip;
-      stageTitle.textContent = preview.title;
-      stageProofLabel.textContent = preview.proofLabel;
-      stageProofCopy.textContent = preview.proofCopy;
-      stageRuleLabel.textContent = preview.ruleLabel;
-      stageRuleCopy.textContent = preview.ruleCopy;
-      refreshStageMotion();
-      templateDetail.textContent = `${state.template.tagline || state.template.best_for || "Template recipe"} Best for: ${state.template.best_for || "selected deck style"}. Avoid: ${state.template.avoid_for || "decorative filler"}.`;
-      paletteDetail.textContent = `${state.palette.source} Best for: ${state.palette.bestFor}. Avoid: ${state.palette.avoid}.`;
-      referenceDetail.textContent = `${state.reference.source} Main rule: ${state.reference.rules[0]}`;
-      roleGrid.innerHTML = [
-        ["Background", background],
-        ["Surface", surface],
-        ["Text", text],
-        ["Muted", muted],
-        ["Accent", accent],
-        ["Secondary", secondary],
-        ["Border", border]
-      ].map(([label, color]) => `
-        <div class="role-item">
-          <span class="role-chip" style="background:${color}"></span>
-          <span>${escapeHtml(label)} ${escapeHtml(color)}</span>
-        </div>
+      prevTemplates.disabled = state.templatePage === 0;
+      nextTemplates.disabled = state.templatePage >= pageCount - 1;
+      templateDetail.textContent = `${state.selectedTemplate.name}: ${state.selectedTemplate.tagline || state.selectedTemplate.best_for || "Selected layout grammar."}`;
+      templateGrid.innerHTML = page.map((template) => `
+        <button class="template-card" type="button" data-template="${template.slug}" aria-pressed="${template.slug === state.selectedTemplate.slug}">
+          <span class="mini-template" aria-hidden="true"></span>
+          <span>
+            <h4>${escapeHtml(template.name)}</h4>
+            <p>${escapeHtml(template.tagline || template.best_for || "Template recipe")}</p>
+          </span>
+        </button>
       `).join("");
-      promptOut.value = buildPrompt();
-      jsonOut.value = JSON.stringify(buildDesignContract(), null, 2);
-      designMdOut.value = buildDesignMd();
+
+      templateGrid.querySelectorAll(".template-card").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.selectedTemplate = state.templates.find((template) => template.slug === button.dataset.template) || state.selectedTemplate;
+          renderTemplates();
+          renderExport();
+        });
+      });
     }
 
-    function refreshStageMotion() {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      stage.classList.remove("is-refreshing");
-      void stage.offsetWidth;
-      stage.classList.add("is-refreshing");
-    }
-
-    function templatePreviewCopy(template) {
-      const slug = (template.slug || "").toLowerCase();
-      const name = template.name || "Selected template";
-      if (template.scheme === "dark" || slug.includes("signal") || slug.includes("studio") || slug.includes("orbit")) {
-        return {
-          visual: "dark",
-          chip: "dark frame",
-          title: `${name}: high-contrast proof before polish.`,
-          proofLabel: "Main artifact",
-          proofCopy: "Use one screenshot, metric, diagram or source-backed table.",
-          ruleLabel: "Control layer",
-          ruleCopy: "Notes, footer and presenter controls stay outside the slide content."
-        };
-      }
-      if (slug.includes("poster") || slug.includes("block") || slug.includes("platform") || slug.includes("creative")) {
-        return {
-          visual: "poster",
-          chip: "expressive deck",
-          title: `${name}: one bold claim, one visible artifact.`,
-          proofLabel: "Hero proof",
-          proofCopy: "Let the demo screen, quote, chart or comparison carry the slide.",
-          ruleLabel: "Editing rule",
-          ruleCopy: "Cut paragraphs first. Add visual energy only after the message is clear."
-        };
-      }
-      if (slug.includes("editorial") || slug.includes("vellum") || slug.includes("cartesian") || slug.includes("long-table")) {
-        return {
-          visual: "editorial",
-          chip: "editorial rhythm",
-          title: `${name}: calm pacing with a sharp source trail.`,
-          proofLabel: "Evidence line",
-          proofCopy: "Use citations, tables and short captions as the credibility layer.",
-          ruleLabel: "Rhythm",
-          ruleCopy: "Alternate dense proof slides with short reset slides."
-        };
-      }
-      if (slug.includes("professional") || slug.includes("monochrome") || slug.includes("neo-grid")) {
-        return {
-          visual: "minimal",
-          chip: "executive frame",
-          title: `${name}: restrained slides for decisions.`,
-          proofLabel: "Decision object",
-          proofCopy: "Show the tradeoff table, budget model, timeline or recommendation.",
-          ruleLabel: "Hierarchy",
-          ruleCopy: "Use action titles and aligned exhibits before adding decorative detail."
-        };
-      }
-      return {
-        visual: "grid",
-        chip: "proposal deck",
-        title: `${name}: point-first slides with a visible proof grid.`,
-        proofLabel: "Proof object",
-        proofCopy: "Table, chart, demo path or source-backed exhibit.",
-        ruleLabel: "Source lane",
-        ruleCopy: "Footers and presenter controls stay outside content."
+    function renderExport() {
+      formatTabs.forEach((button) => {
+        button.setAttribute("aria-selected", String(button.dataset.format === state.exportFormat));
+      });
+      const outputs = {
+        prompt: buildPrompt(),
+        json: JSON.stringify(buildContract(), null, 2),
+        design: buildDesignMd()
       };
+      exportText.value = outputs[state.exportFormat];
     }
 
     function buildPrompt() {
+      const contract = buildContract();
       return [
-        "Use the slide-generator skill with this design direction.",
+        "Use the slide-generator skill with this design contract.",
         "",
-        `Style name: ${state.palette.name} + ${state.template.name}`,
-        `Palette tone: ${state.palette.tone}`,
-        `Reference discipline: ${state.reference.name}`,
-        `Template recipe: ${state.template.name} (${state.template.slug})`,
-        `Template reference: ${normalizeTemplatePath(state.template.design_md)}`,
-        `Best for: ${state.palette.bestFor}`,
-        `Avoid: ${state.palette.avoid}; ${state.template.avoid_for || "do not let decoration override source-backed proof"}.`,
-        "",
-        "Color roles:",
-        `- background: ${state.palette.colors[0]}`,
-        `- surface: ${state.palette.colors[1]}`,
-        `- text: ${state.palette.colors[2]}`,
-        `- muted: ${state.palette.colors[3]}`,
-        `- accent: ${state.palette.colors[4]}`,
-        `- secondary accent: ${state.palette.colors[5]}`,
-        `- border: ${state.palette.colors[6]}`,
-        "",
-        "Suggested build path:",
-        "- Clone or open the repo: https://github.com/haomingkoo/slide-generator",
-        "- Prepare the slide brief, source links, logos, screenshots, charts and required image assets before generation.",
-        "- Use this design direction as the design contract. Do not start from an empty generic theme.",
-        "- Generate 2 to 3 style directions if taste is still uncertain, then pick the closest and refine.",
-        "- Run browser QA on desktop and mobile before publishing.",
-        "",
-        "Proof and diagram routing:",
-        "- Architecture: use Mermaid for source-backed component/data-flow structure; use Excalidraw-style whiteboard visuals only when the audience needs a more approachable executive explanation.",
-        "- Tech stack: show layers for frontend, backend, data, AI, infrastructure, security and observability.",
-        "- Use cases: show actor, trigger, system action and outcome before broad claims.",
-        "- Cost or roadmap: show assumptions, shared axes, owners, gates and output artifacts.",
+        `Deck job: ${contract.deck.job}`,
+        `Evidence route: ${contract.deck.evidence_route}`,
+        `Visual system: ${contract.visual.name}`,
+        `Template: ${contract.visual.template.name} (${contract.visual.template.slug})`,
+        `Output mode: ${contract.output.name}`,
         "",
         "Rules:",
-        ...state.reference.rules.map((rule) => `- ${rule}`),
-        "- Use the template as layout grammar, not as a reason to add filler.",
-        "- Keep source, footer and presenter lanes protected.",
-        "- Do not default to cream, beige, parchment or bone-paper palettes unless the selected palette explicitly uses them.",
-        "- Treat PPT, PDF and web references as inspiration only: remix color roles, shapes, names and layout details before publishing.",
-        "- Run browser QA after rendering.",
+        "- Start with purpose and proof before visual decoration.",
+        "- Build a small slice first: title, proof, comparison and appendix.",
+        "- Use the selected template as layout grammar, not as a reason to add filler.",
+        "- Remix colors, shapes, names and layout details from external PPT/PDF/web references before publishing.",
+        "- Keep sources, notes, controls and footer lanes outside slide content.",
+        "- Run desktop, short laptop and mobile browser QA before publishing.",
         "",
-        "Credits to preserve:",
+        "Credits:",
         "- frontend-slides by Zara Zhang, MIT license: https://github.com/zarazhangrui/frontend-slides",
-        ...state.reference.sourceUrls.map((url) => `- Reference discipline source: ${url}`),
-        ...state.palette.sourceUrls.map((url) => `- Palette inspiration: ${url}`),
-        "- Private user-provided decks are pattern references only; do not copy raw assets, palettes or layouts directly."
+        "- External references are inspiration only; do not copy proprietary assets."
       ].join("\n");
     }
 
-    function buildDesignContract() {
+    function buildContract() {
+      const purpose = state.selected.purpose;
+      const evidence = state.selected.evidence;
+      const style = state.selected.style;
+      const output = state.selected.output;
       return {
-        version: 1,
+        version: 2,
         source: {
-          type: "style-workbench-selection",
+          type: "layered-style-workbench",
           references: [
             "examples/style-workbench/index.html",
-            normalizeTemplatePath(state.template.design_md),
-            ...state.reference.sourceUrls,
-            ...state.palette.sourceUrls
+            "docs/style-workbench-product-spec.md",
+            "docs/visual-style-system.md",
+            "docs/skill-bank.md"
           ]
         },
-        direction: {
-          personality: `${state.palette.name} plus ${state.template.name}`,
-          audience_fit: state.palette.bestFor,
-          density: state.template.density || "medium",
-          depth: "template_recipe_plus_palette_roles",
-          grid: state.template.slug || "custom"
+        deck: {
+          job: purpose.name,
+          job_id: purpose.id,
+          evidence_route: evidence.name,
+          evidence_id: evidence.id,
+          proof: evidence.proof,
+          first_slice: ["title", "proof", "comparison", "appendix"]
         },
-        tokens: {
+        visual: {
+          name: style.name,
+          id: style.id,
           colors: {
-            background: state.palette.colors[0],
-            surface: state.palette.colors[1],
-            text: state.palette.colors[2],
-            muted: state.palette.colors[3],
-            accent: state.palette.colors[4],
-            secondary_accent: state.palette.colors[5],
-            border: state.palette.colors[6]
+            background: style.bg,
+            text: style.ink,
+            muted: style.muted,
+            accent: style.accent
           },
-          typography: {
-            heading: "Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif",
-            body: "Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif",
-            mono: "SF Mono, Cascadia Code, Consolas, monospace",
-            scale: ["15px", "18px", "22px", "30px", "46px", "64px"]
-          },
-          spacing: {
-            base: "4px",
-            scale: ["8px", "12px", "16px", "20px", "28px", "40px", "64px", "88px"]
-          },
-          radius: ["8px"],
-          shadow: []
+          avoid: style.avoid,
+          template: {
+            name: state.selectedTemplate.name,
+            slug: state.selectedTemplate.slug,
+            reference: normalizeTemplatePath(state.selectedTemplate.design_md)
+          }
         },
-        patterns: {
-          title_slide: "Point-first title using the selected template's composition grammar and the selected palette roles.",
-          section_slide: "Short assertion with a strong visual reset.",
-          comparison_slide: "Aligned peer panels or rows with equal visual weight.",
-          table_slide: "Readable table with protected source lane and no decorative overlap.",
-          code_slide: "High-contrast code or artifact block only when it proves the point.",
-          architecture_slide: "Source-backed flow aligned to the selected template grid.",
-          tech_stack_slide: "Layered stack with frontend, backend, data, AI, infrastructure, security and observability.",
-          use_case_slide: "Actor, trigger, system action and outcome.",
-          roadmap_slide: "Milestones with owners, gates and output artifacts."
+        output: {
+          name: output.name,
+          id: output.id,
+          next_step: output.next
         },
-        diagram_routing: {
-          mermaid: "Use for structured architecture, sequence, ER, flowchart and Gantt diagrams.",
-          excalidraw_style: "Use for approachable executive whiteboard explanations and workshop diagrams.",
-          custom_html_svg: "Use when the diagram needs presentation-grade styling, animation, mobile safety or tight deck integration.",
-          evidence_rule: "No diagram node or edge without source input or an inference label."
-        },
-        workflow: [
-          "Collect brief, audience, source links and media assets before generation.",
-          "Generate multiple style directions only when taste is uncertain.",
-          "Pick the closest direction, then refine palette, template and deck logic.",
-          "Run desktop and mobile browser QA before publishing."
-        ],
         rules: {
+          preserve: [
+            "source attribution",
+            "reference-safe remixing",
+            "one proof object per slide",
+            "mobile-safe layout",
+            "browser QA before publishing"
+          ],
           avoid: [
-            state.palette.avoid,
-            state.reference.avoid,
-            state.template.avoid_for || "decorative filler",
+            "template dumping",
             "unsupported claims",
             "source/footer collisions",
-            "cream, beige, parchment or bone-paper defaults unless selected in the design contract",
-            "direct copying of PPT, PDF or web-reference colors, assets, names or layouts"
-          ],
-          must_preserve: [
-            "visible source attribution",
-            "frontend-slides MIT credit when using its template recipes",
-            "palette roles rather than random swatches",
-            "one proof object per slide",
-            "browser QA before final export",
-            "reference-safe remixing of external decks and galleries"
-          ],
-          motion: [
-            "only add motion after static hierarchy passes QA",
-            "document pacing, scale and dwell when creating a frame.md export path",
-            "keep presenter/source lanes outside animated content"
-          ],
-          accessibility: [
-            "normal text contrast >= 4.5:1",
-            "large text contrast >= 3:1",
-            "do not communicate meaning by color only",
-            "mobile view keeps source and controls outside content"
+            "direct copying of external PPT/PDF/web references"
           ]
-        },
-        decisions: [
-          {
-            decision: `Use ${state.palette.name} with ${state.template.name}.`,
-            rationale: `${state.palette.source} Template recipe selected from the vendored frontend-slides index.`,
-            date: new Date().toISOString().slice(0, 10)
-          },
-          {
-            decision: `Use ${state.reference.name} as the deck logic discipline.`,
-            rationale: state.reference.source,
-            date: new Date().toISOString().slice(0, 10)
-          }
-        ]
+        }
       };
     }
 
     function buildDesignMd() {
-      const [background, surface, text, muted, accent, secondary, border] = state.palette.colors;
+      const contract = buildContract();
       return [
-        `# ${state.palette.name} + ${state.template.name}`,
+        `# ${contract.visual.name} Slide System`,
         "",
-        "## Overview",
-        `${state.palette.name} plus ${state.template.name} creates a ${state.palette.tone} slide system for ${state.palette.bestFor}. Use it when the deck needs visible proof objects, clear source lanes and browser-tested HTML slides.`,
+        "## Purpose",
+        `This deck system is for ${contract.deck.job.toLowerCase()} work. It uses ${contract.deck.evidence_route.toLowerCase()} as the main proof route.`,
         "",
-        "## Borrow / Avoid",
-        `Borrow: ${state.template.tagline || state.template.best_for || "the selected template grammar"}.`,
-        `Avoid: ${state.palette.avoid}; ${state.template.avoid_for || "decorative filler"}.`,
-        "Reference safety: use external PPT, PDF and web decks for structure, pacing and taste only. Remix color roles, shapes, names and layout details before publishing.",
+        "## Visual Tokens",
+        `- Background: ${contract.visual.colors.background}`,
+        `- Text: ${contract.visual.colors.text}`,
+        `- Muted: ${contract.visual.colors.muted}`,
+        `- Accent: ${contract.visual.colors.accent}`,
         "",
-        "## Colors",
-        `- Background: ${background}`,
-        `- Surface: ${surface}`,
-        `- Text: ${text}`,
-        `- Muted text: ${muted}`,
-        `- Accent: ${accent}`,
-        `- Secondary accent: ${secondary}`,
-        `- Border: ${border}`,
+        "## Template Grammar",
+        `Use ${contract.visual.template.name} (${contract.visual.template.slug}) as the layout reference.`,
+        `Reference file: ${contract.visual.template.reference}`,
         "",
-        "## Typography",
-        "- Heading: Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif.",
-        "- Body: Aptos, Avenir Next, Helvetica Neue, Arial, sans-serif.",
-        "- Mono/data: SF Mono, Cascadia Code, Consolas, monospace.",
-        "- Use fixed type sizes. Do not scale font size with viewport width.",
+        "## Proof Route",
+        `Primary proof: ${contract.deck.proof}.`,
+        "Build title, proof, comparison and appendix slides before the full deck.",
         "",
-        "## Layout Grammar",
-        "- Build fixed 16:9 slides with protected footer and source lanes.",
-        "- Use action titles that explain the point before the audience reads the body.",
-        "- Give each slide one proof object: table, chart, timeline, screenshot, image panel or diagram.",
-        "- Use appendix slides for source-heavy detail that slows the live story.",
+        "## Reference Safety",
+        "External PPT, PDF and web references are pattern references only. Remix color roles, shapes, names and layout details before publishing.",
         "",
-        "## Components",
-        "- Tables: align columns, preserve source IDs and avoid wrapping into footer lanes.",
-        "- Comparisons: use equal-height rows or aligned cards with one shared axis.",
-        "- Timelines: show owners, gates and outputs, not only date ranges.",
-        "- Architecture: use Mermaid for structured source-backed diagrams; use Excalidraw-style only for whiteboard explanations.",
-        "- Tech stack: separate frontend, backend, data, AI, infrastructure, security and observability.",
-        "- Use cases: show actor, trigger, system action and outcome.",
-        "- Image panels: use real product, place, person or evidence images when possible.",
-        "- Source lane: sources stay readable and separate from controls.",
-        "",
-        "## Slide Types",
-        "- Title: short claim plus one supporting visual cue.",
-        "- Table: title states the conclusion; table proves it.",
-        "- Timeline: each step has an action, owner, output and gate.",
-        "- Comparison: options line up before they compete.",
-        "- Appendix: dense facts are allowed, but chrome must not overlap.",
-        "",
-        "## Motion / Frame Notes",
-        "- Add motion only after static hierarchy passes QA.",
-        "- For video export, create a separate frame spec with pacing, scale and dwell.",
-        "- Keep motion and animated previews subordinate to slide readability.",
-        "",
-        "## Accessibility And QA",
-        "- Normal text contrast should meet WCAG 4.5:1 where possible.",
-        "- Large text contrast should meet WCAG 3:1 where possible.",
-        "- Check desktop, short laptop and mobile screenshots.",
-        "- Reject horizontal overflow, footer collisions and source/control overlap.",
-        "",
-        "## Credits",
-        "- frontend-slides by Zara Zhang, MIT license: https://github.com/zarazhangrui/frontend-slides",
-        ...state.reference.sourceUrls.map((url) => `- Reference discipline source: ${url}`),
-        ...state.palette.sourceUrls.map((url) => `- Palette inspiration: ${url}`),
-        "- Private user-provided decks are pattern references only; do not copy raw assets, palettes or layouts directly."
+        "## QA",
+        "- Check desktop, short laptop and mobile.",
+        "- Confirm no text overlaps footer, notes, sources or controls.",
+        "- Confirm exported JSON parses.",
+        "- Keep frontend-slides MIT credit when using vendored recipes."
       ].join("\n");
     }
 
@@ -3812,52 +1953,12 @@
       return value.startsWith("vendor/") ? value : `vendor/frontend-slides/${value}`;
     }
 
-    function tint(color, amount) {
-      const normalized = color.replace("#", "");
-      if (normalized.length !== 6) return color;
-      const r = parseInt(normalized.slice(0, 2), 16);
-      const g = parseInt(normalized.slice(2, 4), 16);
-      const b = parseInt(normalized.slice(4, 6), 16);
-      const mix = (channel) => Math.round(channel + (255 - channel) * amount).toString(16).padStart(2, "0");
-      return `#${mix(r)}${mix(g)}${mix(b)}`;
-    }
-
-    async function copyText(value, button) {
-      try {
-        await navigator.clipboard.writeText(value);
-      } catch {
-        const helper = document.createElement("textarea");
-        helper.value = value;
-        document.body.appendChild(helper);
-        helper.select();
-        document.execCommand("copy");
-        helper.remove();
-      }
-      showCopied(button);
-    }
-
-    function showCopied(button) {
-      const original = button?.textContent;
-      if (button) {
-        button.textContent = "Copied";
-        window.setTimeout(() => {
-          button.textContent = original;
-        }, 900);
-      }
-      copyToast.classList.add("is-visible");
-      window.clearTimeout(showCopied.toastTimer);
-      showCopied.toastTimer = window.setTimeout(() => {
-        copyToast.classList.remove("is-visible");
-      }, 1200);
-    }
-
     function escapeHtml(value) {
       return String(value ?? "")
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
     }
   </script>
 </body>
