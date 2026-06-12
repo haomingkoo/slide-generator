@@ -16,6 +16,7 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Use browser screenshots for visual review; do not rely on imagined layout quality.
 - Keep APIs, MCPs, and future app integrations around the artifact contract rather than bypassing it.
 - Borrow Gamma's outline-before-render discipline and Canva's theme/asset breadth, but keep this repo stricter on citations, claim ledgers, fixed-slide QA, and export readiness.
+- Use user-provided PPTX/PDF/Gamma exports as pattern libraries, not asset sources. Extract named layout patterns such as split cover, image-led problem rail, hero metric plus evidence, metric constellation, ask panel, alternating image rail, equal-height card row, obstacle matrix, and commitment rows.
 
 ## Guardrail Implications
 
@@ -24,6 +25,7 @@ Use this compact reference when choosing workflow behavior inspired by Gamma, Fi
 - Translation, narration, video, and remix operations must not add factual claims unless they add claim IDs.
 - Existing deck remixing should preserve the source deck's factual boundaries and create a new design contract only from observable style evidence.
 - For data or spreadsheet decks, create a data contract before charts: source file, columns, transformations, chart intent, and caveats.
+- Reference-deck patterns still need evidence, copy budget and browser QA. Reject stock imagery as proof, fake testimonials, fake traction, huge titles that push content away, and card rows with unequal copy pressure.
 
 ## Product Gaps To Track
 

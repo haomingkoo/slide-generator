@@ -28,7 +28,7 @@ Every serious deck run should follow this loop:
 | Rendering | Convert slide specs to fixed presentation output. | `work/slide-specs.json`, `deck/` | `npm run render:marp -- <project> --html`, `npm run inspect:marp -- <project>` | tested |
 | Browser Visual QA | Catch overflow, footer/source collisions, stale browser state, bad mobile controls and unreadable layouts. | `qa/browser-qa.json`, screenshots | `npm run qa:browser -- <project>` plus manual screenshot review for custom HTML | tested |
 | Quality Loop | Score, critique and repair from researcher, critic, designer and delivery lenses. | `work/quality-rubric.json`, `qa/slide-scorecard.json`, `qa/repair-plan.json` | `npm run deck:score -- <project>`, `npm run deck:iterate -- <project>` | tested |
-| PPTX/PDF Ingestion | Study existing deck files for content, layout grammar, theme and export constraints. | source extracts, `template_intelligence.json` in future | PDF/PPTX extraction checks, source audit | proposed |
+| PPTX/PDF Ingestion | Study existing deck files for content, layout grammar, theme and export constraints. | source extracts, `template_intelligence.json` in future | PDF/PPTX extraction checks, source audit | absorbed |
 | Heuristic System | Promote repeated failures into docs, skill rules, validators, templates, examples or evals. | `docs/heuristic-registry.md`, `work/review-log.json`, `qa/` | `npm run heuristic:status -- <project>` | tested |
 | Publishing | Publish HTML examples and verify live output. | `examples/`, GitHub Pages output | live fetch, browser review, export QA if needed | absorbed |
 
@@ -70,6 +70,20 @@ For user-provided references, extract durable patterns:
 - fixed-size export QA,
 - visual layout patterns,
 - editing and presenter controls.
+
+Useful visual patterns observed from user-provided Gamma/PDF/PPTX exports:
+
+- split cover,
+- image-led problem rail,
+- hero metric plus evidence,
+- 2x3 metric constellation,
+- ask panel,
+- alternating image rail,
+- equal-height card row,
+- obstacle matrix,
+- commitment rows.
+
+Every extracted pattern must answer: what slide job does it solve, what evidence does it need, what copy budget keeps it readable, and what browser QA failure would invalidate it.
 
 ## Deep-Agent Behavior
 

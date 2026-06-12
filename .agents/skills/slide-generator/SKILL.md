@@ -59,6 +59,7 @@ Dark mode is not the default. Pick theme by audience, setting, and brand.
 - Use dark runtime themes for security, systems, observability, dramatic demos, or when requested.
 - Use brand-derived themes when brand assets or guidelines exist.
 - If unsure, produce 2 or 3 title-slide previews before rendering the full deck.
+- If the user provides PDF, PPTX, Gamma, Canva, Figma, or `frontend-slides` references, extract layout grammar and style constraints into `design-contract.json`. Do not copy raw assets or placeholder claims. Read `references/product-workflow-lessons.md`, `references/visual-style-system.md`, and the relevant PDF/PPTX workflow reference.
 
 ## References
 

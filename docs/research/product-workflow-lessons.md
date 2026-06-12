@@ -187,6 +187,24 @@ Observed from local Gamma/PDF/PPTX references provided by the user on 2026-06-12
 - Dark cinematic references can look premium, but the repo should not default to dark themes. Theme choice still comes from audience, setting and subject.
 - Placeholder-rich references show layout grammar, not content quality. The skill should borrow spacing and structure while requiring claim IDs, concrete values and source caveats.
 
+Additional Startup Pitch and Team Retrospective exports reviewed on 2026-06-12:
+
+- Split cover: one half carries the visual identity, one half carries a short title and subtitle. Useful for proposal covers and section resets, but the image should be directly tied to the subject, not abstract filler.
+- Image-led problem slide: a tall image field plus a three-step evidence rail can make a problem memorable. Reuse the structure as `pain -> quantified proof -> consequence`; do not reuse generic pain-copy.
+- Hero metric with evidence: a single large number works only when the denominator, period, method and source are visible. This should become a chart/table pattern, not an unsupported vanity stat.
+- Metric constellation: a 2x3 field of key numbers can work for traction, validation or budget snapshots. It needs short labels, consistent units and no decorative gauges unless the arc encodes real progress.
+- Ask panel: a chart on the left and three decision rows on the right is a strong structure for funding, lease approval or go/no-go decisions.
+- Alternating image rail: switching the image slab from right to left across adjacent slides creates rhythm without adding ornament. Use it for light editorial decks when there is one main visual and one main argument.
+- Equal-height card row: three cards work when every card has the same height, icon position, heading length and body copy budget. Unequal card copy is what makes a slide feel sloppy.
+- Obstacle matrix: a 2x3 matrix in one soft block is cleaner than six floating cards for risks, constraints or market blockers.
+- Commitment rows: three horizontal rows with a fixed icon gutter are safer than cramming many process steps into one slide. Use this for action plans, vendor quote tasks and owner/accountability slides.
+
+Guardrails from these exports:
+
+- Do not copy downloaded deck assets, screenshots, template art, fake quotes or placeholder company claims into this repo.
+- Strong layout does not rescue weak content. If a reference slide is mostly lorem ipsum or generic business copy, keep only the spacing and composition pattern.
+- For Chleo-style proposals, prefer real or source-grounded visuals: venue/site photos, room diagrams, equipment tables, cost bars, lead funnels and timeline charts. Abstract mood imagery should not be the primary proof.
+
 ## Design Skill Ecosystem
 
 Observed patterns from Claude/Codex design-skill repos and design-tooling writeups:

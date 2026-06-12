@@ -68,6 +68,30 @@ Openings and public speaking:
 - Visual quality requires rendered review; source-grounded copy can still become a poor slide.
 - Reference decks are strongest when converted into named layout patterns and quality gates, not copied wholesale.
 
+## Local Reference Pattern Study
+
+User-provided Gamma/PDF/PPTX exports reviewed locally on 2026-06-12 confirm a practical rule for this repo: use references as layout grammar, then replace generic content with sourced proof.
+
+Useful patterns to encode:
+
+- Split cover: visual field plus short title field.
+- Image-led problem: full-height image plus a three-step `pain / proof / consequence` rail.
+- Hero metric plus evidence: one dominant number with denominator, period, method and source nearby.
+- Metric constellation: 2x3 grid for traction, demand signals, budget checkpoints or validation proof.
+- Ask panel: simple chart or model on one side, decision rows on the other.
+- Alternating image rail: change image side across slides to create rhythm in light editorial decks.
+- Equal-height cards: three balanced cards with fixed icon, heading and copy budgets.
+- Obstacle matrix: one 2x3 block for risks or constraints instead of many drifting cards.
+- Commitment rows: three large horizontal rows with icon gutters for action plans and owner commitments.
+
+Failure modes to avoid:
+
+- Stock or abstract imagery acting as evidence.
+- Huge title blocks pushing the actual proof off the slide.
+- Paragraph-heavy cards that only look acceptable because the reference has designer spacing.
+- Fake testimonials, fake traction, fake logos, or unverified market figures.
+- Repeating the same split layout until the deck feels templated.
+
 ## Mode Findings
 
 ### VC And Fundraising
