@@ -86,3 +86,18 @@ The workbench should make these edit scopes visible. That keeps agent repairs ta
 5. Controlled visual editor: exposes safe fields such as title, bullets, source label, chart values and theme tokens.
 
 Build the UI only after the CLI can reliably create, validate, render and QA a deck.
+
+## Template Studio
+
+After the review workbench, add a template studio. Its job is to create and graduate reusable style packs.
+
+Minimum useful version:
+
+- pick an existing deck project,
+- generate 3 style previews,
+- preview the same five slide types in each style: title, table, timeline, comparison and appendix,
+- score each preview on clarity, distinctiveness, source/footer safety, mobile behavior and density handling,
+- save the winning system as `design-systems/<style>/DESIGN.md` plus `templates/design-contracts/<style>.json`,
+- add a small preview example under `examples/`.
+
+This is the path to creating styles as strong as `frontend-slides` while keeping this repo's source-grounding and QA discipline.

@@ -33,3 +33,15 @@ OCR claims should have lower confidence unless verified by another source or hum
 ## Exporting PDF
 
 For HTML decks, export to PDF only after browser QA. For PPTX decks, export to PDF after PPTX visual QA.
+
+## Style References
+
+When a PDF is supplied as a slide-design reference:
+
+1. Render every page to PNG at presentation resolution.
+2. Make a contact sheet so the full deck flow can be judged at once.
+3. Inspect several individual slides at full size.
+4. Extract text separately with `pdftotext` so content quality and visual quality are not confused.
+5. Record the reusable style mechanics: title scale, image usage, grid, density, table treatment, chart treatment, source/footer behavior and mobile expectations.
+
+Use the PDF to learn composition. Do not treat template filler text as research evidence.

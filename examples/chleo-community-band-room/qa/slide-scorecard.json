@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "iteration": 1,
+  "scored_at": "2026-06-12",
+  "deck_goal": "Help Chleo Lee evaluate and pitch a practical Singapore community band room without signing a risky lease too early.",
+  "validated_artifact": {
+    "path": "examples/chleo-community-band-room/deck/index.html",
+    "hash_kind": "normalized_sha256",
+    "sha256": "499c2f33ee9849edbd722138ae9f274e4d978eef538149366d30b9393404ffc3",
+    "bytes": 94964,
+    "mtime_ms": 1781228785263
+  },
+  "target": {
+    "overall_score": 88,
+    "minimum_slide_score": 80
+  },
+  "overall_score": 88,
+  "minimum_slide_score": 80,
+  "verdict": "ready_for_human_review",
+  "role_reviews": {
+    "researcher": {
+      "source_coverage": "sufficient",
+      "summary": "Market pricing, legal/licensing, property and cost claims are source-backed or labeled as planning models.",
+      "evidence_gaps": [
+        "Final cost and legality still require a real address, landlord answers, contractor quotes and any required QP review."
+      ]
+    },
+    "story_strategist": {
+      "summary": "The deck now follows a clean decision path: validate demand, screen the site, quote the build, then decide whether to lease.",
+      "top_risks": [
+        "The proposal is practical, but Chleo still needs live outreach and real site quotes before the plan becomes executable."
+      ]
+    },
+    "designer": {
+      "summary": "The deck has a distinctive light Creative Mode style and the current Playwright pass shows no footer/control overlap.",
+      "top_risks": [
+        "Appendix slides remain dense by design and should be used for Q&A rather than live narration."
+      ]
+    },
+    "critic": {
+      "summary": "The deck is much stronger after repairing stale edit storage and protected chrome. It is ready for human review, not a substitute for professional lease/legal advice.",
+      "top_risks": [
+        "A viewer may still underestimate how site-specific noise and approval risk are."
+      ]
+    }
+  },
+  "hard_gates": [
+    {
+      "id": "source_grounding",
+      "status": "pass",
+      "evidence": "validate-claim-ledger and lint-claim-refs pass for examples/chleo-community-band-room."
+    },
+    {
+      "id": "regulatory_caveats",
+      "status": "pass",
+      "evidence": "Legal and property slides defer public showcases and require written approvals, landlord consent and site-specific checks."
+    },
+    {
+      "id": "browser_overlap_qa",
+      "status": "pass",
+      "evidence": "Playwright rendered all 22 slides at desktop size and checked high-risk slides at short-laptop and mobile sizes with no overlap issues."
+    },
+    {
+      "id": "edit_state_safety",
+      "status": "pass",
+      "evidence": "Corrupt legacy edit storage was seeded in browser QA and removed without altering slide 15 text."
+    },
+    {
+      "id": "human_review",
+      "status": "pass",
+      "evidence": "User-reported slide failures were reproduced conceptually, repaired and reviewed via contact-sheet screenshots."
+    }
+  ],
+  "dimension_scores": [
+    {
+      "dimension_id": "audience_fit",
+      "score": 90,
+      "rationale": "The deck is focused on Chleo's first decision rather than abstract studio ambition.",
+      "evidence": "Slides 2, 6, 7, 8, 14 and 19 give concrete gates before signing.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "story_flow",
+      "score": 91,
+      "rationale": "The slide order moves from recommendation to market, demand, site, legal, fitout, gear, money and decision gate.",
+      "evidence": "Title-only flow remains coherent across 22 slides.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "evidence_strength",
+      "score": 88,
+      "rationale": "Key factual claims are source-backed; cost and pricing slides are clearly modeled.",
+      "evidence": "Claim ledger and claim-reference validators pass.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "visual_explanation",
+      "score": 86,
+      "rationale": "The deck uses tables, cards, charts, a Gantt and gates for distinct jobs, though some appendix slides remain dense.",
+      "evidence": "Slides 5, 8, 10, 15, 16, 18, 20 and 21 carry comparison or planning visuals.",
+      "repair_priority": "medium"
+    },
+    {
+      "dimension_id": "design_polish",
+      "score": 87,
+      "rationale": "The visual style is distinctive and the latest browser pass fixed the major instability from stale edits and controls overlap.",
+      "evidence": "Desktop, short-laptop and mobile Playwright checks passed.",
+      "repair_priority": "medium"
+    },
+    {
+      "dimension_id": "delivery_readiness",
+      "score": 88,
+      "rationale": "The presenter can explain the decision logic and use appendices for deeper Q&A.",
+      "evidence": "Slides 7, 14, 18, 19 and appendices turn the plan into actions.",
+      "repair_priority": "low"
+    },
+    {
+      "dimension_id": "qa_readiness",
+      "score": 87,
+      "rationale": "The deck surfaces demand, legal, noise, fitout, cash and lease risks without pretending they are already solved.",
+      "evidence": "Slides 8, 10, 11, 12, 14, 15 and 19 name the main blind spots.",
+      "repair_priority": "low"
+    }
+  ],
+  "slide_scores": [
+    { "slide_id": "slide_01", "score": 90, "decision": "accept", "strengths": ["Clear title and memorable proposal framing."], "issues": [] },
+    { "slide_id": "slide_02", "score": 91, "decision": "accept", "strengths": ["Strong recommendation and decision discipline."], "issues": [] },
+    { "slide_id": "slide_03", "score": 88, "decision": "accept", "strengths": ["Clear launch boundary for the first product."], "issues": [] },
+    { "slide_id": "slide_04", "score": 88, "decision": "accept", "strengths": ["Market wedge is visible and grounded in price signals."], "issues": [] },
+    { "slide_id": "slide_05", "score": 84, "decision": "accept", "strengths": ["Useful competitor table with current price anchors."], "issues": [] },
+    { "slide_id": "slide_06", "score": 87, "decision": "accept", "strengths": ["Defines discovery targets and what counts as a real lead."], "issues": [] },
+    { "slide_id": "slide_07", "score": 88, "decision": "accept", "strengths": ["Validation ladder avoids blind pre-sales."], "issues": [] },
+    { "slide_id": "slide_08", "score": 85, "decision": "accept", "strengths": ["Property scouting steps are concrete."], "issues": [] },
+    { "slide_id": "slide_09", "score": 87, "decision": "accept", "strengths": ["Site options are compared with a clear stance."], "issues": [] },
+    { "slide_id": "slide_10", "score": 88, "decision": "accept", "strengths": ["Use/licensing risk is explained without overclaiming."], "issues": [] },
+    { "slide_id": "slide_11", "score": 90, "decision": "accept", "strengths": ["Acoustic distinction is simple and important."], "issues": [] },
+    { "slide_id": "slide_12", "score": 88, "decision": "accept", "strengths": ["Fitout layers show where cost jumps."], "issues": [] },
+    { "slide_id": "slide_13", "score": 86, "decision": "accept", "strengths": ["Starter gear categories are actionable."], "issues": [] },
+    { "slide_id": "slide_14", "score": 88, "decision": "accept", "strengths": ["Quote calls are split by vendor type."], "issues": [] },
+    { "slide_id": "slide_15", "score": 89, "decision": "accept", "strengths": ["Startup ranges are scaled correctly and readable."], "issues": [] },
+    { "slide_id": "slide_16", "score": 87, "decision": "accept", "strengths": ["Break-even logic is clearer after title scale repair."], "issues": [] },
+    { "slide_id": "slide_17", "score": 89, "decision": "accept", "strengths": ["Operating culture is practical and not corny."], "issues": [] },
+    { "slide_id": "slide_18", "score": 88, "decision": "accept", "strengths": ["Gantt chart turns the plan into weeks and outputs."], "issues": [] },
+    { "slide_id": "slide_19", "score": 90, "decision": "accept", "strengths": ["Close gives a clear go/no-go gate."], "issues": [] },
+    { "slide_id": "slide_20", "score": 80, "decision": "accept", "strengths": ["Gear appendix answers model-level questions."], "issues": [] },
+    { "slide_id": "slide_21", "score": 80, "decision": "accept", "strengths": ["Call-sheet appendix makes vendor outreach concrete."], "issues": [] },
+    { "slide_id": "slide_22", "score": 85, "decision": "accept", "strengths": ["Cost appendix explains what sits inside the startup ranges."], "issues": [] }
+  ],
+  "summary": {
+    "score_rationale": "The deck passes as ready for human review after fixing the local edit corruption bug, protected chrome spacing, title scale on dense slides and all reported footer/control overlap issues.",
+    "strongest_slides": ["slide_02", "slide_11", "slide_19"],
+    "weakest_slides": ["slide_20", "slide_21"],
+    "top_repairs": [
+      "Use appendices 20 and 21 only for Q&A, not live narration.",
+      "Replace planning estimates with vendor quotes once Chleo has a candidate site."
+    ]
+  }
+}

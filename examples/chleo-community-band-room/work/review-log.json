@@ -1,0 +1,60 @@
+{
+  "deck_goal": "Help Chleo Lee evaluate and pitch a practical Singapore community band room without signing a risky lease too early.",
+  "sessions": [
+    {
+      "date": "2026-06-12",
+      "summary": "Reviewed user-reported failures where stale edit storage injected old slide text into new layouts and controls overlapped footer zones. Repaired the deck controller, protected chrome spacing and reran browser QA.",
+      "slide_reviews": [
+        {
+          "slide_id": "slide_05",
+          "decision": "visual_edit",
+          "note": "Competitor table now fits inside protected content bounds with tighter rows.",
+          "repair_target": "deck/index.html"
+        },
+        {
+          "slide_id": "slide_06",
+          "decision": "accept",
+          "note": "Customer discovery slide explains interview targets without mixing property-option content."
+        },
+        {
+          "slide_id": "slide_11",
+          "decision": "accept",
+          "note": "Acoustics slide keeps treatment/isolation distinction readable above source lane."
+        },
+        {
+          "slide_id": "slide_13",
+          "decision": "accept",
+          "note": "Gear slide remains dense but readable and uses appendix for deeper model detail."
+        },
+        {
+          "slide_id": "slide_15",
+          "decision": "visual_edit",
+          "note": "Startup cost title scale reduced so the bar chart is the visual focus.",
+          "repair_target": "deck/index.html"
+        },
+        {
+          "slide_id": "slide_16",
+          "decision": "visual_edit",
+          "note": "Break-even title scale reduced and corrupt local edit restore regression tested.",
+          "repair_target": "deck/index.html"
+        },
+        {
+          "slide_id": "slide_18",
+          "decision": "visual_edit",
+          "note": "90-day sprint title scale reduced so the Gantt chart keeps enough vertical space.",
+          "repair_target": "deck/index.html"
+        }
+      ],
+      "recurring_issues": [
+        "Do not restore local edits into a changed deck by element index.",
+        "Do not let source, metadata or controls share the content grid.",
+        "Do not trust URL hash screenshots unless hash navigation is wired to the deck controller."
+      ],
+      "new_rules": [
+        "HTML decks with edit mode need versioned or signature-checked saved edits.",
+        "Presenter controls need a reserved control band on short laptop screens.",
+        "Playwright QA must render every slide after structural deck changes."
+      ]
+    }
+  ]
+}

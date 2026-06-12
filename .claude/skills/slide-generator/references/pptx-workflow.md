@@ -10,6 +10,9 @@ Analyze both text and visuals:
 2. Generate slide thumbnails.
 3. Identify layouts, theme, fonts, density, and repeated components.
 4. Note placeholder text and template constraints.
+5. If the PPTX is a style reference, extract reusable design rules rather than copying the template: title scale, grid, image treatment, table behavior, palette and footer/chrome handling.
+
+When possible, ask for the matching PDF too. PPTX exposes structure; PDF gives the most reliable rendered visual reference.
 
 ## Template-Based Editing
 

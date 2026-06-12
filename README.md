@@ -60,7 +60,7 @@ Then use the files in `projects/my-deck/work/` as the working contract:
 6. Render only after the claim ledger, slide specs and design contract are internally consistent.
 7. Run browser QA, inspect screenshots, repair layout and copy, then publish.
 
-See [docs/research-to-deck-guide.md](docs/research-to-deck-guide.md) for the practical anti-slop workflow. See [docs/heuristic-slide-system.md](docs/heuristic-slide-system.md) for the continuous-improvement loop that turns deck feedback into reusable rules, validators, examples and skill updates. The [Chleo community band room example](examples/chleo-community-band-room) shows the same process applied to a real Singapore business proposal.
+See [docs/research-to-deck-guide.md](docs/research-to-deck-guide.md) for the practical anti-slop workflow. See [docs/visual-style-system.md](docs/visual-style-system.md) for how strong HTML slide styles are created and judged. See [docs/heuristic-slide-system.md](docs/heuristic-slide-system.md) for the continuous-improvement loop that turns deck feedback into reusable rules, validators, examples and skill updates. The [Chleo community band room example](examples/chleo-community-band-room) shows the same process applied to a real Singapore business proposal.
 
 ## How It Works
 
@@ -134,6 +134,7 @@ npm test
 | `scripts/` | Validators, scaffolders, renderer wrappers, QA, export, and sync tools. |
 | `templates/` | Starter slide specs and design contracts. |
 | `renderers/` | Marp themes and rendering assets. |
+| `design-systems/` | Reusable visual systems with theme rationale and design rules. |
 | `examples/` | Polished demos. |
 | `evals/` | Source-backed eval inputs, structural proxy baselines, and durable `work/` artifacts. |
 | `tests/` | Fixtures and negative guardrail tests. |
@@ -152,6 +153,6 @@ A deck is not complete because it rendered. It is ready only when:
 - speaker notes are usable for delivery,
 - the review log has no unresolved high-severity slide issues.
 
-See [docs/package-boundaries.md](docs/package-boundaries.md), [docs/architecture.md](docs/architecture.md), [docs/no-hallucination-policy.md](docs/no-hallucination-policy.md), and [docs/status-and-roadmap.md](docs/status-and-roadmap.md) for the detailed maintainer view.
+See [docs/package-boundaries.md](docs/package-boundaries.md), [docs/architecture.md](docs/architecture.md), [docs/no-hallucination-policy.md](docs/no-hallucination-policy.md), [docs/status-and-roadmap.md](docs/status-and-roadmap.md), and [docs/credits.md](docs/credits.md) for the detailed maintainer view.
 
 For packaging and UI direction, see [docs/package-and-workbench-roadmap.md](docs/package-and-workbench-roadmap.md).

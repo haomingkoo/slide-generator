@@ -31,6 +31,9 @@
       --font-mono: "JetBrains Mono", monospace;
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+      --content-bottom: 188px;
+      --source-bottom: 128px;
+      --meta-bottom: 76px;
     }
 
     * { box-sizing: border-box; }
@@ -194,7 +197,7 @@
     }
 
     .topbar { top: 48px; }
-    .meta { bottom: 82px; letter-spacing: 0.06em; }
+    .meta { bottom: var(--meta-bottom); letter-spacing: 0.06em; }
 
     .pill {
       display: inline-flex;
@@ -219,7 +222,7 @@
       left: 96px;
       right: 96px;
       top: 128px;
-      bottom: 92px;
+      bottom: var(--content-bottom);
     }
 
     .kicker {
@@ -237,7 +240,7 @@
       position: absolute;
       left: 96px;
       right: 96px;
-      bottom: 126px;
+      bottom: var(--source-bottom);
       display: flex;
       justify-content: space-between;
       gap: 24px;
@@ -245,6 +248,16 @@
       font: 400 16px/1.2 var(--font-mono);
       letter-spacing: 0.02em;
       text-transform: uppercase;
+    }
+
+    .source span:first-child {
+      max-width: 1420px;
+      overflow-wrap: anywhere;
+    }
+
+    .source span:last-child {
+      flex: 0 0 auto;
+      white-space: nowrap;
     }
 
     .source a {
@@ -647,7 +660,6 @@
       grid-template-columns: 500px 1fr;
       gap: 60px;
       align-items: start;
-      bottom: 150px;
     }
 
     .lead-hero {
@@ -959,8 +971,17 @@
     .comp-table th:nth-child(3) { width: 19%; }
     .comp-table th:nth-child(4) { width: 34%; }
 
+    .comp-table {
+      margin-top: 20px;
+    }
+
+    .comp-table th,
     .comp-table td {
-      font-size: 17px;
+      padding: 9px 12px;
+    }
+
+    .comp-table td {
+      font-size: 16px;
       line-height: 1.12;
     }
 
@@ -2000,7 +2021,7 @@
         <div class="topbar"><span>Startup costs</span><span class="pill">Planning ranges</span></div>
         <div class="content">
           <span class="kicker reveal">Scaled to S$290k</span>
-          <h2 class="xl reveal">Startup cash ranges.</h2>
+          <h2 class="single-line-title reveal">Startup cash ranges.</h2>
           <div class="axis-labels reveal" style="margin-top:42px"><span>S$0</span><span>S$100k</span><span>S$200k</span><span>S$290k</span></div>
           <div class="reveal">
             <div class="range-chart"><div class="range-label">Partner pilot</div><div class="track"><i class="range-fill" style="--start:5.86%;--width:8.97%"></i></div><div class="range-value">S$17k-S$43k</div></div>
@@ -2018,7 +2039,7 @@
         <div class="content revenue-board">
           <div>
             <span class="kicker reveal">Pricing rule</span>
-            <h2 class="lg reveal">Break-even sets the floor.</h2>
+            <h2 class="single-line-title reveal">Break-even sets the floor.</h2>
             <p class="body-small reveal" style="width:820px;margin-top:22px">Example shown: S$6.5k/month fixed cost before founder salary. Divide by realistic paid hours, then compare with market rates.</p>
             <div class="revenue-bars reveal" style="margin-top:42px">
               <div class="rev-row"><span>80 hrs/mo<small>thin demand</small></span><div class="rev-track"><i style="width:42%;background:var(--pink)"></i></div><b>S$81/hr<small>hard to sell</small></b></div>
@@ -2066,7 +2087,7 @@
         <div class="topbar"><span>90-day sprint</span><span class="pill">Evidence, not vibes</span></div>
         <div class="content">
           <span class="kicker reveal">Launch path</span>
-          <h2 class="lg reveal">Run the 90-day proof sprint.</h2>
+          <h2 class="single-line-title reveal">Run the 90-day proof sprint.</h2>
           <div class="gantt reveal">
             <div class="head">Workstream</div><div class="week">1</div><div class="week">2</div><div class="week">3</div><div class="week">4</div><div class="week">5</div><div class="week">6</div><div class="week">7</div><div class="week">8</div><div class="week">9</div><div class="week">10</div><div class="week">11</div><div class="week">12</div><div class="week">13</div>
             <div class="task">Set up test</div><div class="bar"><span></span></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
@@ -2193,7 +2214,12 @@
     /* ===========================================
        SLIDE PRESENTATION CONTROLLER
        =========================================== */
-    const EDIT_STORAGE_KEY = "chleo-community-band-deck-edits-v3";
+    const EDIT_STORAGE_KEY = "chleo-community-band-deck-edits-v4";
+    const LEGACY_EDIT_STORAGE_KEYS = [
+      "chleo-community-band-deck-edits-v1",
+      "chleo-community-band-deck-edits-v2",
+      "chleo-community-band-deck-edits-v3"
+    ];
 
     class SlidePresentation {
       constructor() {
@@ -2209,38 +2235,72 @@
         this.wheelLock = false;
         this.touchStartX = 0;
         this.touchStartY = 0;
+        this.clearLegacyEdits();
         this.setupStageScale();
         this.setupOverview();
         this.setupKeyboardNav();
         this.setupTouchNav();
         this.setupWheelNav();
+        this.setupHashNav();
         this.setupButtons();
         this.setupEditing();
         this.restoreEdits();
-        const hashIndex = Number((location.hash || "").replace("#s", "")) - 1;
-        this.showSlide(Number.isInteger(hashIndex) && hashIndex >= 0 ? hashIndex : 0);
+        const hashIndex = this.indexFromHash();
+        this.showSlide(hashIndex >= 0 ? hashIndex : 0);
+      }
+
+      clearLegacyEdits() {
+        LEGACY_EDIT_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+        if (new URLSearchParams(location.search).has("resetEdits")) {
+          localStorage.removeItem(EDIT_STORAGE_KEY);
+        }
+      }
+
+      indexFromHash() {
+        const match = /^#s(\d+)$/.exec(location.hash || "");
+        if (!match) return -1;
+        return Number(match[1]) - 1;
       }
 
       setupStageScale() {
         const scale = () => {
-          const factor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+          const chromeReserve = Math.min(110, Math.max(86, window.innerHeight * 0.12));
+          const availableHeight = Math.max(420, window.innerHeight - chromeReserve);
+          const factor = Math.min(window.innerWidth / 1920, availableHeight / 1080);
           const x = (window.innerWidth - 1920 * factor) / 2;
-          const y = (window.innerHeight - 1080 * factor) / 2;
+          const y = Math.max(0, (availableHeight - 1080 * factor) / 2);
           this.stage.style.transform = `translate(${x}px, ${y}px) scale(${factor})`;
         };
         scale();
         window.addEventListener("resize", scale);
       }
 
-      showSlide(index) {
+      showSlide(index, options = {}) {
+        const { updateHash = true } = options;
         this.currentSlide = Math.max(0, Math.min(index, this.slides.length - 1));
         this.slides.forEach((slide, idx) => {
-          slide.classList.toggle("active", idx === this.currentSlide);
-          slide.classList.toggle("visible", idx === this.currentSlide);
+          const active = idx === this.currentSlide;
+          slide.classList.toggle("active", active);
+          slide.classList.toggle("visible", active);
+          slide.setAttribute("aria-hidden", active ? "false" : "true");
+          if (active) {
+            slide.removeAttribute("inert");
+          } else {
+            slide.setAttribute("inert", "");
+          }
         });
         this.counter.textContent = `${this.currentSlide + 1} / ${this.slides.length}`;
         this.notesPanel.innerHTML = `<b>Speaker note</b>${this.slides[this.currentSlide].dataset.notes || ""}`;
-        history.replaceState(null, "", `#s${this.currentSlide + 1}`);
+        if (updateHash) history.replaceState(null, "", `#s${this.currentSlide + 1}`);
+      }
+
+      setupHashNav() {
+        window.addEventListener("hashchange", () => {
+          const hashIndex = this.indexFromHash();
+          if (hashIndex >= 0 && hashIndex !== this.currentSlide) {
+            this.showSlide(hashIndex, { updateHash: false });
+          }
+        });
       }
 
       setupKeyboardNav() {
@@ -2349,6 +2409,24 @@
         return Array.from(document.querySelectorAll(".slide h1, .slide h2, .slide h3, .slide p, .slide li, .slide td, .slide .label"));
       }
 
+      editSignature() {
+        return {
+          slideCount: this.slides.length,
+          elementCount: this.editableElements().length,
+          titles: this.slides.map((slide) => slide.dataset.title || "")
+        };
+      }
+
+      signaturesMatch(a, b) {
+        return Boolean(
+          a &&
+          b &&
+          a.slideCount === b.slideCount &&
+          a.elementCount === b.elementCount &&
+          JSON.stringify(a.titles) === JSON.stringify(b.titles)
+        );
+      }
+
       toggleEditing() {
         this.editing = !this.editing;
         document.body.classList.toggle("editing", this.editing);
@@ -2365,16 +2443,23 @@
       }
 
       saveEdits() {
-        const data = this.editableElements().map((el) => el.innerHTML);
+        const data = {
+          signature: this.editSignature(),
+          values: this.editableElements().map((el) => el.innerHTML)
+        };
         localStorage.setItem(EDIT_STORAGE_KEY, JSON.stringify(data));
       }
 
       restoreEdits() {
         try {
-          const saved = JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "[]");
-          if (!Array.isArray(saved) || saved.length === 0) return;
+          const saved = JSON.parse(localStorage.getItem(EDIT_STORAGE_KEY) || "null");
+          if (!saved) return;
+          if (Array.isArray(saved) || !this.signaturesMatch(saved.signature, this.editSignature())) {
+            localStorage.removeItem(EDIT_STORAGE_KEY);
+            return;
+          }
           this.editableElements().forEach((el, idx) => {
-            if (saved[idx]) el.innerHTML = saved[idx];
+            if (saved.values[idx]) el.innerHTML = saved.values[idx];
           });
         } catch {
           localStorage.removeItem(EDIT_STORAGE_KEY);

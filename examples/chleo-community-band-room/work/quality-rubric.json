@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "deck_mode": "executive_consulting",
+  "target": {
+    "overall_score": 88,
+    "minimum_slide_score": 80,
+    "max_repair_iterations": 3,
+    "stop_condition": "ready_for_human_review or blocked_on_evidence"
+  },
+  "hard_gates": [
+    {
+      "id": "source_grounding",
+      "type": "validator",
+      "command": "node scripts/lint-claim-refs.mjs examples/chleo-community-band-room",
+      "requirement": "Every factual slide claim resolves to the claim ledger."
+    },
+    {
+      "id": "regulatory_caveats",
+      "type": "source_audit",
+      "requirement": "Legal and property claims stay site-specific and source-backed."
+    },
+    {
+      "id": "browser_overlap_qa",
+      "type": "browser_qa",
+      "requirement": "Desktop, short-laptop and mobile checks show no visible text spill, footer collision or controls overlap."
+    },
+    {
+      "id": "edit_state_safety",
+      "type": "browser_qa",
+      "requirement": "Old local edits cannot restore into changed slide structures."
+    },
+    {
+      "id": "human_review",
+      "type": "human_review",
+      "requirement": "A reviewer checked slide flow, density and whether the proposal gives Chleo concrete next actions."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "audience_fit",
+      "label": "Audience fit",
+      "weight": 15,
+      "question": "Does the deck help Chleo decide what to do next?",
+      "pass_criteria": [
+        "Recommendation is practical for a first studio.",
+        "Risk is explained without killing the ambition.",
+        "Singapore-specific constraints are visible."
+      ],
+      "repair_guidance": "Rewrite from Chleo's decision point before adding more slides."
+    },
+    {
+      "id": "story_flow",
+      "label": "Story flow",
+      "weight": 15,
+      "question": "Do the titles tell a clean launch argument?",
+      "pass_criteria": [
+        "The deck starts with validate-before-lease.",
+        "Market, demand, site, legal, fitout and money appear in a sensible order.",
+        "The close gives a go/no-go rule."
+      ],
+      "repair_guidance": "Fix slide order and title-only flow before visual repair."
+    },
+    {
+      "id": "evidence_strength",
+      "label": "Evidence strength",
+      "weight": 20,
+      "question": "Are key claims sourced or clearly modeled?",
+      "pass_criteria": [
+        "Market pricing and regulatory claims have claim IDs.",
+        "Startup costs expose assumptions.",
+        "Weak or site-specific proof is caveated."
+      ],
+      "repair_guidance": "Add sources, reduce claim strength or move detail to appendix."
+    },
+    {
+      "id": "visual_explanation",
+      "label": "Visual explanation",
+      "weight": 15,
+      "question": "Do visuals make the plan easier to understand?",
+      "pass_criteria": [
+        "Tables, charts, Gantt and gates each have a clear job.",
+        "Dense detail is mostly contained in appendix slides.",
+        "The visual system supports a live pitch."
+      ],
+      "repair_guidance": "Replace paragraph-heavy slides with one proof object."
+    },
+    {
+      "id": "design_polish",
+      "label": "Design polish",
+      "weight": 15,
+      "question": "Does the rendered deck look deliberate and stable?",
+      "pass_criteria": [
+        "Chrome, controls and source lanes are protected.",
+        "Titles do not push content into the footer.",
+        "The visual style is consistent without feeling like a generic template."
+      ],
+      "repair_guidance": "Use screenshots and bounding boxes before changing CSS."
+    },
+    {
+      "id": "delivery_readiness",
+      "label": "Delivery readiness",
+      "weight": 10,
+      "question": "Can the presenter use this deck without hand-waving?",
+      "pass_criteria": [
+        "The 90-day sprint has concrete outputs.",
+        "Price and budget logic can be explained from the slide.",
+        "Appendices support questions without overwhelming the main flow."
+      ],
+      "repair_guidance": "Move supporting detail into notes or appendix and tighten the main slide."
+    },
+    {
+      "id": "qa_readiness",
+      "label": "Q&A readiness",
+      "weight": 10,
+      "question": "Does the deck surface likely blind spots?",
+      "pass_criteria": [
+        "Lease, noise, licensing and fitout risks are named.",
+        "Demand validation is not treated as guaranteed sales.",
+        "Cost ranges are planning ranges, not quotes."
+      ],
+      "repair_guidance": "Add direct answers for risks that a landlord, parent, teacher or investor would ask."
+    }
+  ],
+  "role_reviews": {
+    "researcher": "Check source-backed Singapore claims, cost-model assumptions and site-specific caveats.",
+    "story_strategist": "Check whether the deck flows from dream to validation to lease gate to launch decision.",
+    "designer": "Check screenshots for title scale, protected footer lanes, visual balance and mobile/short-laptop behavior.",
+    "critic": "Review from Chleo's point of view and call out any step that still sounds like hand-waving."
+  }
+}

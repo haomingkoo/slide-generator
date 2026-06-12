@@ -78,6 +78,7 @@ Read only what the task needs:
 - `references/source-grounding.md`: claim ledger and audit rules.
 - `references/visual-aid-catalog.md`: comparison, mechanism, demo, and teaching visuals.
 - `references/theme-selection.md`: light, dark, brand, and audience-fit decisions.
+- `references/visual-style-system.md`: frontend-quality style discovery, `frontend-slides` credit, and reusable style-pack creation.
 - `references/design-contract.md`: persistent design memory for tokens, layout patterns, and visual decisions.
 - `references/design-quality-gates.md`: hierarchy, clutter, accessibility, anti-generic design, and polish review after rendering.
 - `references/quality-score-loop.md`: researcher, critic, designer, and repairer score loop with thresholds and stop conditions.
