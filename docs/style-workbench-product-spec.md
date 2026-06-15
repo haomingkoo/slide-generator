@@ -89,6 +89,22 @@ A generated `DESIGN.md` should have these sections:
 9. **Accessibility And QA**: contrast, mobile behavior, footer/source clearance and overflow checks.
 10. **Credits**: open-source licenses, reference links and private-asset boundaries.
 
+## Frame Lab Contract
+
+The Frame Lab is the bridge between style discovery and deck generation. It should let the user tune a reusable frame pack before asking an agent to build the slides.
+
+A frame pack must include:
+
+- at least 12 visible template systems with specimen thumbnails,
+- palette presets with semantic color roles,
+- density and typography controls,
+- live previews for title, proof, comparison and appendix slides,
+- `DESIGN.md`, `frame.md` and `design-contract.json` exports,
+- explicit open-source credit and reference-safety rules,
+- browser QA checks for desktop and mobile.
+
+The live preview is not a decorative mockup. It is a failure detector. If the preview shows footer overlap, clipped text, hidden controls or horizontal overflow, the exported system is not ready.
+
 ## Design Rules For The App
 
 - Start narrow. Show one decision at a time.
@@ -115,6 +131,8 @@ Before a workbench change is done:
 - choice cards show what their selection changes, not generic icons,
 - choice-card specimens use readable shapes or slide structure, not tiny text labels,
 - template browsing uses visible Previous/Next paging instead of hidden sideways scroll,
+- Frame Lab shows at least 12 frame systems and a live slide-job preview,
+- Frame Lab export includes `DESIGN.md`, `frame.md` and parseable `design-contract.json`,
 - the selected direction updates the live preview,
 - the live preview is visible beside choices on desktop and reachable without horizontal movement on mobile,
 - on mobile, choice controls appear before any tall preview so users can act without hunting,

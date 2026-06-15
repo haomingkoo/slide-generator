@@ -88,6 +88,8 @@ Avoid: saturated cobalt everywhere, grid lines behind dense copy.
 
 Workbench UX rule: browsing style options should feel like discovery, not a database dump. Use a guided Direction -> Template -> Color -> Logic flow, keep every step jumpable, show option grids with explicit paging, and preview how a few slide types behave before exposing export text.
 
+Frame Lab rule: any reusable frame pack must prove itself on title, proof, comparison and appendix specimens before export. The preview should use real footer/source lanes, not absolute overlays that can collide with copy. On mobile, the preview can become a thumbnail, but it must never clip text or create horizontal overflow.
+
 ## Building More Style Packs
 
 A new style pack should be a small design system, not only a color palette.

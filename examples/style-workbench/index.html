@@ -1388,6 +1388,603 @@
       line-height: 1.35;
     }
 
+    .frame-lab-shell {
+      overflow: hidden;
+      border: 1px solid rgba(216, 216, 223, 0.88);
+      border-radius: 34px;
+      background: #0d0e10;
+      color: #f5f5f7;
+      box-shadow: 0 28px 80px rgba(29, 29, 31, 0.12);
+    }
+
+    .frame-lab-bar {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0 22px;
+    }
+
+    .frame-lab-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 720;
+    }
+
+    .frame-lab-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, #f5f5f7 0 46%, transparent 46%),
+        linear-gradient(135deg, transparent 54%, #34d399 54% 100%),
+        #111214;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .frame-lab-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: rgba(245, 245, 247, 0.54);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .frame-lab-steps span {
+      min-height: 30px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 0 10px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .frame-lab-steps span:nth-child(3) {
+      background: #f5f5f7;
+      color: #111214;
+    }
+
+    .frame-lab-workspace {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.76fr) minmax(0, 1.52fr) minmax(270px, 0.72fr);
+      min-height: 650px;
+    }
+
+    .frame-library,
+    .frame-tuner {
+      min-width: 0;
+      padding: 20px;
+      background: #0d0e10;
+    }
+
+    .frame-library {
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .frame-tuner {
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .frame-panel-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .frame-panel-title span {
+      display: block;
+      margin-bottom: 5px;
+      color: rgba(245, 245, 247, 0.48);
+      font-size: 11px;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+
+    .frame-panel-title strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.08;
+    }
+
+    .frame-panel-title em {
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      padding: 4px 9px;
+      color: rgba(245, 245, 247, 0.5);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .frame-source-box {
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .frame-source-box label {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(245, 245, 247, 0.54);
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .frame-source-box textarea {
+      min-height: 124px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      background: #111214;
+      color: #f5f5f7;
+    }
+
+    .frame-source-box p {
+      margin: 10px 0 0;
+      color: rgba(245, 245, 247, 0.48);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .frame-card-grid {
+      display: grid;
+      gap: 12px;
+      max-height: 452px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .frame-card {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      color: inherit;
+      text-align: left;
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+    }
+
+    .frame-card:hover,
+    .frame-card:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(245, 245, 247, 0.28);
+      outline: none;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .frame-card[aria-pressed="true"] {
+      border-color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .frame-thumb {
+      position: relative;
+      min-height: 66px;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--thumb-ink, #111214) 16%, transparent);
+      border-radius: 12px;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--thumb-ink, #111214) 7%, transparent) 1px, transparent 1px),
+        linear-gradient(0deg, color-mix(in srgb, var(--thumb-ink, #111214) 7%, transparent) 1px, transparent 1px),
+        var(--thumb-bg, #f7f8fb);
+      background-size: 18px 18px;
+    }
+
+    .frame-thumb::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 44%;
+      height: 58%;
+      background: var(--thumb-accent, #0071e3);
+      clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .frame-thumb[data-pattern="block"]::after {
+      inset: auto 10px 9px auto;
+      width: 42%;
+      height: 52%;
+      clip-path: none;
+      background:
+        linear-gradient(90deg, var(--thumb-accent) 0 48%, transparent 48%),
+        linear-gradient(0deg, transparent 0 52%, var(--thumb-surface) 52%);
+      box-shadow: -18px -13px 0 color-mix(in srgb, var(--thumb-accent) 42%, var(--thumb-bg));
+    }
+
+    .frame-thumb[data-pattern="poster"]::after {
+      inset: 10px 10px auto auto;
+      width: 30%;
+      height: calc(100% - 20px);
+      clip-path: none;
+      border-left: 1px solid color-mix(in srgb, var(--thumb-ink) 28%, transparent);
+      background:
+        linear-gradient(0deg, var(--thumb-accent) 0 8px, transparent 8px 16px) 0 0 / 100% 24px,
+        transparent;
+    }
+
+    .frame-thumb[data-pattern="pixel"]::after {
+      width: 42%;
+      height: 62%;
+      clip-path: none;
+      background:
+        linear-gradient(90deg, var(--thumb-accent) 0 32%, transparent 32% 42%, var(--thumb-accent) 42% 72%, transparent 72%),
+        linear-gradient(0deg, transparent 0 24%, var(--thumb-surface) 24% 44%, transparent 44% 56%, var(--thumb-accent) 56% 76%, transparent 76%);
+      background-size: 14px 14px;
+    }
+
+    .frame-thumb[data-pattern="soft"]::after {
+      inset: auto 10px 10px auto;
+      width: 38%;
+      height: 54%;
+      border-radius: 999px;
+      clip-path: none;
+      box-shadow: -28px -15px 0 color-mix(in srgb, var(--thumb-accent) 34%, var(--thumb-bg));
+    }
+
+    .frame-thumb[data-pattern="window"]::after {
+      inset: 9px 9px auto auto;
+      width: 44%;
+      height: 56%;
+      clip-path: none;
+      border: 2px solid var(--thumb-ink);
+      background:
+        linear-gradient(var(--thumb-accent) 0 13px, transparent 13px),
+        var(--thumb-surface);
+    }
+
+    .frame-thumb span {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 44%;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--thumb-accent, #0071e3);
+      box-shadow: 0 14px 0 color-mix(in srgb, var(--thumb-accent, #0071e3) 34%, transparent);
+    }
+
+    .frame-card h4 {
+      margin: 0 0 5px;
+      font-size: 14px;
+      line-height: 1.12;
+    }
+
+    .frame-card p {
+      margin: 0;
+      color: rgba(245, 245, 247, 0.46);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .frame-stage {
+      min-width: 0;
+      display: grid;
+      grid-template-rows: auto auto auto;
+      align-content: start;
+      gap: 16px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(52, 211, 153, 0.16), transparent 28%),
+        #101113;
+    }
+
+    .frame-stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: rgba(245, 245, 247, 0.56);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .frame-stage-top strong {
+      color: #f5f5f7;
+      font-size: 16px;
+    }
+
+    .frame-stage-screen {
+      display: grid;
+      place-items: center;
+      min-height: 440px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      background: #070708;
+      padding: 16px;
+    }
+
+    .frame-slide {
+      position: relative;
+      width: min(100%, 780px);
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      border-radius: 12px;
+      background:
+        linear-gradient(90deg, color-mix(in srgb, var(--frame-text, #111214) 5%, transparent) 1px, transparent 1px),
+        linear-gradient(0deg, color-mix(in srgb, var(--frame-text, #111214) 5%, transparent) 1px, transparent 1px),
+        var(--frame-bg, #f7f8fb);
+      background-size: 42px 42px;
+      color: var(--frame-text, #111214);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    .frame-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: 28%;
+      background: color-mix(in srgb, var(--frame-accent, #0071e3) 22%, var(--frame-bg, #f7f8fb));
+      clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .frame-slide[data-pattern="block"]::after {
+      inset: auto 42px 42px auto;
+      width: 28%;
+      height: 38%;
+      clip-path: none;
+      background:
+        linear-gradient(90deg, var(--frame-accent) 0 48%, transparent 48%),
+        linear-gradient(0deg, transparent 0 52%, var(--frame-surface, #fff) 52%);
+      box-shadow: -54px -42px 0 color-mix(in srgb, var(--frame-accent) 36%, var(--frame-bg));
+    }
+
+    .frame-slide[data-pattern="poster"]::after {
+      inset: 52px 58px auto auto;
+      width: 18%;
+      height: calc(100% - 104px);
+      clip-path: none;
+      border-left: 1px solid color-mix(in srgb, var(--frame-text) 26%, transparent);
+      background:
+        linear-gradient(0deg, var(--frame-accent) 0 12px, transparent 12px 26px) 0 0 / 100% 42px,
+        transparent;
+    }
+
+    .frame-slide[data-pattern="pixel"]::after {
+      width: 30%;
+      height: 48%;
+      clip-path: none;
+      background:
+        linear-gradient(90deg, var(--frame-accent) 0 32%, transparent 32% 42%, var(--frame-accent) 42% 72%, transparent 72%),
+        linear-gradient(0deg, transparent 0 24%, var(--frame-surface, #fff) 24% 44%, transparent 44% 56%, var(--frame-accent) 56% 76%, transparent 76%);
+      background-size: 32px 32px;
+    }
+
+    .frame-slide[data-pattern="soft"]::after {
+      inset: auto 54px 54px auto;
+      width: 24%;
+      height: 38%;
+      border-radius: 999px;
+      clip-path: none;
+      box-shadow: -72px -48px 0 color-mix(in srgb, var(--frame-accent) 32%, var(--frame-bg));
+    }
+
+    .frame-slide[data-pattern="window"]::after {
+      inset: 54px 54px auto auto;
+      width: 28%;
+      height: 42%;
+      clip-path: none;
+      border: 3px solid var(--frame-text);
+      background:
+        linear-gradient(var(--frame-accent) 0 28px, transparent 28px),
+        var(--frame-surface, #fff);
+    }
+
+    .frame-slide-body {
+      position: relative;
+      z-index: 1;
+      min-height: 0;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+      padding: var(--frame-pad, 52px) var(--frame-pad, 52px) 8px;
+    }
+
+    .frame-slide-kicker {
+      color: var(--frame-accent, #0071e3);
+      font-size: 13px;
+      font-weight: 760;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .frame-slide h3 {
+      max-width: 12ch;
+      margin: 0;
+      font-size: var(--frame-title, 44px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .frame-slide p {
+      max-width: 42ch;
+      margin: 0;
+      color: color-mix(in srgb, var(--frame-text, #111214) 62%, transparent);
+      font-size: 14px;
+      line-height: 1.48;
+    }
+
+    .frame-slide-dots {
+      position: absolute;
+      z-index: 2;
+      right: 58px;
+      top: 54px;
+      display: grid;
+      grid-template-columns: repeat(3, 8px);
+      gap: 10px;
+    }
+
+    .frame-slide-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--frame-accent, #0071e3);
+      opacity: 0.36;
+    }
+
+    .frame-slide-footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0 var(--frame-pad, 52px) 22px;
+      color: color-mix(in srgb, var(--frame-text, #111214) 48%, transparent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .frame-slide-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .frame-slide-button {
+      min-height: 68px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(245, 245, 247, 0.54);
+      text-align: left;
+      transition: background 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+    }
+
+    .frame-slide-button:hover,
+    .frame-slide-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+      border-color: rgba(245, 245, 247, 0.24);
+    }
+
+    .frame-slide-button[aria-pressed="true"] {
+      border-color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.1);
+      color: #f5f5f7;
+    }
+
+    .frame-slide-button strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+      color: inherit;
+    }
+
+    .frame-tune-group {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .frame-tune-label {
+      color: rgba(245, 245, 247, 0.48);
+      font-size: 11px;
+      font-weight: 760;
+      text-transform: uppercase;
+    }
+
+    .palette-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .palette-preset {
+      min-height: 42px;
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      color: inherit;
+      text-align: left;
+    }
+
+    .palette-preset[aria-pressed="true"] {
+      border-color: #f5f5f7;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .palette-bars {
+      display: flex;
+      overflow: hidden;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .palette-bars span {
+      flex: 1;
+      background: var(--color);
+    }
+
+    .palette-preset strong {
+      display: block;
+      font-size: 12px;
+    }
+
+    .palette-preset small {
+      color: rgba(245, 245, 247, 0.42);
+      font-size: 11px;
+    }
+
+    .segment-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .segment-row button {
+      min-height: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(245, 245, 247, 0.56);
+      font-weight: 650;
+    }
+
+    .segment-row button[aria-pressed="true"] {
+      background: #f5f5f7;
+      color: #111214;
+    }
+
+    .frame-export-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .frame-export-actions .button {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      color: #f5f5f7;
+    }
+
+    .frame-export-actions .button.primary {
+      background: #f5f5f7;
+      color: #111214;
+    }
+
     .pager {
       display: flex;
       align-items: center;
@@ -1564,6 +2161,7 @@
       .hero,
       .studio,
       .template-section,
+      .frame-lab-workspace,
       .export-grid {
         grid-template-columns: 1fr;
       }
@@ -1615,6 +2213,24 @@
       .template-detail-panel,
       .template-gallery-panel {
         min-height: auto;
+      }
+
+      .frame-library,
+      .frame-tuner {
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .frame-stage {
+        order: 1;
+      }
+
+      .frame-library {
+        order: 2;
+      }
+
+      .frame-tuner {
+        order: 3;
       }
 
       .modal-body {
@@ -1736,6 +2352,67 @@
         min-height: 190px;
       }
 
+      .frame-lab-bar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .frame-lab-workspace {
+        min-height: auto;
+      }
+
+      .frame-source-box textarea {
+        min-height: 112px;
+      }
+
+      .frame-card-grid {
+        max-height: none;
+        overflow: visible;
+      }
+
+      .frame-stage,
+      .frame-library,
+      .frame-tuner {
+        padding: 16px;
+      }
+
+      .frame-stage-screen {
+        min-height: auto;
+        padding: 10px;
+      }
+
+      .frame-slide {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .frame-slide-body {
+        gap: 10px;
+        padding: 26px;
+      }
+
+      .frame-slide h3 {
+        font-size: 25px;
+      }
+
+      .frame-slide p {
+        display: none;
+      }
+
+      .frame-slide-kicker {
+        font-size: 9px;
+      }
+
+      .frame-slide-footer,
+      .frame-slide-dots {
+        display: none;
+      }
+
+      .frame-slide-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .modal-backdrop {
         padding: 12px;
       }
@@ -1778,6 +2455,7 @@
       <nav class="toplinks" aria-label="Page sections">
         <a href="#studio">Builder</a>
         <a href="#templates">Templates</a>
+        <a href="#frame-lab">Frame Lab</a>
         <a href="#export">Export</a>
         <a href="#method">Method</a>
       </nav>
@@ -1921,6 +2599,7 @@
             <input class="field" id="templateSearch" type="search" placeholder="Search by mood, use case or name">
             <div class="template-actions">
               <button class="button small" id="openSelectedTemplate" type="button">Open structure</button>
+              <a class="button small" href="#frame-lab">Fine-tune in Frame Lab</a>
             </div>
             <div class="pager">
               <button class="button small" id="prevTemplates" type="button">Previous</button>
@@ -1931,6 +2610,121 @@
         </div>
         <div class="template-panel template-gallery-panel">
           <div class="template-grid" id="templateGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="frame-lab" aria-labelledby="frame-lab-title">
+      <div class="section-head">
+        <p class="section-kicker">Frame lab</p>
+        <h2 id="frame-lab-title">Tune the frame pack before generation.</h2>
+        <p>Browse many frame systems, remix palette and density, preview real slide jobs, then download a pack the agent can use.</p>
+      </div>
+
+      <div class="frame-lab-shell">
+        <div class="frame-lab-bar">
+          <div class="frame-lab-brand">
+            <span class="frame-lab-mark" aria-hidden="true"></span>
+            <span>Slide Frame Lab</span>
+          </div>
+          <div class="frame-lab-steps" aria-label="Frame lab flow">
+            <span>1. Intake</span>
+            <span>2. Frames</span>
+            <span>3. Tune</span>
+            <span>4. Download</span>
+          </div>
+        </div>
+
+        <div class="frame-lab-workspace">
+          <aside class="frame-library">
+            <div class="frame-panel-title">
+              <div>
+                <span>Source</span>
+                <strong>Start from a brief.</strong>
+              </div>
+              <em>design.md</em>
+            </div>
+            <div class="frame-source-box">
+              <label for="frameBriefInput">Paste notes or design rules</label>
+              <textarea id="frameBriefInput" spellcheck="false">Audience: judges and builders.
+Deck job: prove the system, demo path and evidence.
+Style: clean, sharp, mobile-safe, source-backed.</textarea>
+              <p>The pack keeps this as context. It does not copy private deck assets.</p>
+            </div>
+
+            <div class="frame-panel-title">
+              <div>
+                <span>Frame library</span>
+                <strong>Pick a system.</strong>
+              </div>
+              <em id="frameCount">12 shown</em>
+            </div>
+            <div class="frame-card-grid" id="frameCardGrid"></div>
+          </aside>
+
+          <section class="frame-stage" aria-label="Frame preview">
+            <div class="frame-stage-top">
+              <div>
+                <strong id="frameStageTitle">Cobalt Grid</strong>
+                <span id="frameStageMeta">Template + palette + slide job</span>
+              </div>
+              <span id="frameStagePage">01 / 04</span>
+            </div>
+            <div class="frame-stage-screen">
+              <article class="frame-slide" id="frameSlidePreview">
+                <div class="frame-slide-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="frame-slide-body">
+                  <span class="frame-slide-kicker" id="frameSlideKicker">Frame System</span>
+                  <h3 id="frameSlideTitle">A good deck is a system, not a skin.</h3>
+                  <p id="frameSlideCopy">The frame pack preserves template grammar, palette roles, slide jobs and QA rules so the next agent does not guess.</p>
+                </div>
+                <div class="frame-slide-footer">
+                  <span id="frameSlideFooterLeft">source-backed</span>
+                  <span id="frameSlideFooterRight">01 / 04</span>
+                </div>
+              </article>
+            </div>
+            <div class="frame-slide-strip" id="frameSlideStrip"></div>
+          </section>
+
+          <aside class="frame-tuner">
+            <div class="frame-panel-title">
+              <div>
+                <span>Fine tune</span>
+                <strong id="frameTuneTitle">Cobalt Grid</strong>
+              </div>
+              <em id="frameTuneStatus">live</em>
+            </div>
+
+            <div class="frame-tune-group">
+              <div class="frame-tune-label">Palette presets</div>
+              <div class="palette-stack" id="paletteStack"></div>
+            </div>
+
+            <div class="frame-tune-group">
+              <div class="frame-tune-label">Density</div>
+              <div class="segment-row" id="densitySegments">
+                <button type="button" data-density="airy" aria-pressed="false">Airy</button>
+                <button type="button" data-density="balanced" aria-pressed="true">Balanced</button>
+                <button type="button" data-density="dense" aria-pressed="false">Dense</button>
+              </div>
+            </div>
+
+            <div class="frame-tune-group">
+              <div class="frame-tune-label">Typography</div>
+              <div class="segment-row" id="typeSegments">
+                <button type="button" data-type="system" aria-pressed="true">System</button>
+                <button type="button" data-type="editorial" aria-pressed="false">Editorial</button>
+                <button type="button" data-type="technical" aria-pressed="false">Technical</button>
+              </div>
+            </div>
+
+            <div class="frame-export-actions">
+              <button class="button primary" id="downloadFramePack" type="button">Download frame pack</button>
+              <button class="button" id="copyFramePrompt" type="button">Copy agent prompt</button>
+              <button class="button" id="restoreFrameDefaults" type="button">Restore defaults</button>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -2245,6 +3039,48 @@
       "vellum": { bg: "#111b2f", ink: "#f6dc86", surface: "#18243a", accent: "#75a99f", pattern: "grid", label: "Vellum" }
     };
 
+    const framePalettePresets = [
+      { id: "cobalt-ice", name: "Cobalt Ice", mood: "sharp light", bg: "#f6fbff", surface: "#ffffff", text: "#111827", accent: "#0757ff", secondary: "#00b8d9" },
+      { id: "mint-signal", name: "Mint Signal", mood: "calm proof", bg: "#f3fbf8", surface: "#ffffff", text: "#17231f", accent: "#0f9f7a", secondary: "#8ee5c7" },
+      { id: "coral-graphite", name: "Coral Graphite", mood: "warm executive", bg: "#f8f4ef", surface: "#fffaf4", text: "#1f1d1a", accent: "#e85d5d", secondary: "#6b6b6b" },
+      { id: "night-verde", name: "Night Verde", mood: "dark technical", bg: "#111614", surface: "#18211d", text: "#f2fbf6", accent: "#34d399", secondary: "#7dd3fc" },
+      { id: "lilac-steel", name: "Lilac Steel", mood: "cool campaign", bg: "#f7f6fb", surface: "#ffffff", text: "#20202a", accent: "#7357ff", secondary: "#b8c0ff" },
+      { id: "yellow-ink", name: "Yellow Ink", mood: "poster energy", bg: "#fff7d6", surface: "#fffdf3", text: "#1c1a16", accent: "#f5c400", secondary: "#2446ff" },
+      { id: "clean-white", name: "Clean White", mood: "neutral pack", bg: "#fbfbfd", surface: "#ffffff", text: "#1d1d1f", accent: "#6e6e73", secondary: "#d8d8df" },
+      { id: "signal-navy", name: "Signal Navy", mood: "institutional", bg: "#101928", surface: "#172235", text: "#f7f1dc", accent: "#c5a35c", secondary: "#75a99f" }
+    ];
+
+    const frameSlides = [
+      {
+        id: "title",
+        label: "Title",
+        kicker: "Frame System",
+        title: "Decks need systems, not skins.",
+        copy: "The frame pack preserves layout grammar, palette roles and QA rules before the full deck is generated."
+      },
+      {
+        id: "proof",
+        label: "Proof",
+        kicker: "Evidence",
+        title: "One proof object carries the slide.",
+        copy: "Use a table, chart, architecture map or source-backed exhibit before decoration."
+      },
+      {
+        id: "comparison",
+        label: "Compare",
+        kicker: "Decision",
+        title: "Aligned options beat opinion.",
+        copy: "Peer rows, shared scales and explicit caveats make tradeoffs easier to trust."
+      },
+      {
+        id: "appendix",
+        label: "Appendix",
+        kicker: "Source Trail",
+        title: "Depth defends the story.",
+        copy: "Put citations, vendor notes, assumptions and breakdowns where they can be inspected."
+      }
+    ];
+
     const state = {
       activeLayer: "purpose",
       selected: {
@@ -2259,7 +3095,11 @@
       templateSearch: "",
       modalTemplate: fallbackTemplates[0],
       modalTrigger: null,
-      exportFormat: "prompt"
+      exportFormat: "prompt",
+      framePalette: framePalettePresets[0],
+      frameDensity: "balanced",
+      frameType: "system",
+      activeFrameSlide: frameSlides[0]
     };
 
     const layerRail = document.getElementById("layerRail");
@@ -2287,6 +3127,27 @@
     const templateModalSlides = document.getElementById("templateModalSlides");
     const closeTemplateModal = document.getElementById("closeTemplateModal");
     const useModalTemplate = document.getElementById("useModalTemplate");
+    const frameBriefInput = document.getElementById("frameBriefInput");
+    const frameCardGrid = document.getElementById("frameCardGrid");
+    const frameCount = document.getElementById("frameCount");
+    const frameStageTitle = document.getElementById("frameStageTitle");
+    const frameStageMeta = document.getElementById("frameStageMeta");
+    const frameStagePage = document.getElementById("frameStagePage");
+    const frameSlidePreview = document.getElementById("frameSlidePreview");
+    const frameSlideKicker = document.getElementById("frameSlideKicker");
+    const frameSlideTitle = document.getElementById("frameSlideTitle");
+    const frameSlideCopy = document.getElementById("frameSlideCopy");
+    const frameSlideFooterLeft = document.getElementById("frameSlideFooterLeft");
+    const frameSlideFooterRight = document.getElementById("frameSlideFooterRight");
+    const frameSlideStrip = document.getElementById("frameSlideStrip");
+    const frameTuneTitle = document.getElementById("frameTuneTitle");
+    const frameTuneStatus = document.getElementById("frameTuneStatus");
+    const paletteStack = document.getElementById("paletteStack");
+    const densitySegments = document.getElementById("densitySegments");
+    const typeSegments = document.getElementById("typeSegments");
+    const downloadFramePack = document.getElementById("downloadFramePack");
+    const copyFramePrompt = document.getElementById("copyFramePrompt");
+    const restoreFrameDefaults = document.getElementById("restoreFrameDefaults");
     const contractSummary = document.getElementById("contractSummary");
     const exportText = document.getElementById("exportText");
     const copyExport = document.getElementById("copyExport");
@@ -2353,6 +3214,7 @@
     useModalTemplate.addEventListener("click", () => {
       state.selectedTemplate = state.modalTemplate || state.selectedTemplate;
       renderTemplates();
+      renderFrameLab();
       renderExport();
       closeTemplateStructure();
     });
@@ -2381,6 +3243,62 @@
       copyExport.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 900);
     });
 
+    frameBriefInput.addEventListener("input", () => {
+      frameTuneStatus.textContent = "edited";
+    });
+
+    densitySegments.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.frameDensity = button.dataset.density;
+        renderFrameLab();
+      });
+    });
+
+    typeSegments.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.frameType = button.dataset.type;
+        renderFrameLab();
+      });
+    });
+
+    restoreFrameDefaults.addEventListener("click", () => {
+      state.framePalette = framePalettePresets[0];
+      state.frameDensity = "balanced";
+      state.frameType = "system";
+      state.activeFrameSlide = frameSlides[0];
+      frameBriefInput.value = [
+        "Audience: judges and builders.",
+        "Deck job: prove the system, demo path and evidence.",
+        "Style: clean, sharp, mobile-safe, source-backed."
+      ].join("\n");
+      renderFrameLab();
+    });
+
+    copyFramePrompt.addEventListener("click", async () => {
+      const pack = buildFramePack();
+      const prompt = [
+        "Use this frame pack to build the next slide deck.",
+        "",
+        `Template: ${pack.template.name}`,
+        `Palette: ${pack.palette.name}`,
+        `Density: ${pack.density}`,
+        `Typography: ${pack.typography}`,
+        "",
+        "Build a small slice first: title, proof, comparison and appendix.",
+        "Run browser QA on desktop and mobile before publishing.",
+        "",
+        pack.files["frame.md"]
+      ].join("\n");
+      await navigator.clipboard.writeText(prompt);
+      showToast("Frame prompt copied");
+    });
+
+    downloadFramePack.addEventListener("click", () => {
+      const pack = buildFramePack();
+      downloadText("slide-frame-pack.json", JSON.stringify(pack, null, 2), "application/json");
+      showToast("Frame pack downloaded");
+    });
+
     async function loadTemplates() {
       try {
         const response = await fetch("../../vendor/frontend-slides/bold-template-pack/selection-index.json", { cache: "no-store" });
@@ -2400,6 +3318,7 @@
         state.modalTemplate = state.selectedTemplate;
       }
       renderTemplates();
+      renderFrameLab();
       renderExport();
     }
 
@@ -2409,6 +3328,7 @@
       renderStack();
       renderPreview();
       renderTemplates();
+      renderFrameLab();
       renderExport();
     }
 
@@ -2557,7 +3477,7 @@
           .toLowerCase()
           .includes(state.templateSearch);
       });
-      const pageSize = 4;
+      const pageSize = 6;
       const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
       state.templatePage = Math.min(state.templatePage, pageCount - 1);
       let page = filtered.slice(state.templatePage * pageSize, state.templatePage * pageSize + pageSize);
@@ -2709,6 +3629,306 @@
           <p>${escapeHtml(copy)}</p>
         </article>
       `).join("");
+    }
+
+    function getFrameTemplates() {
+      const preferred = [
+        "cobalt-grid",
+        "blue-professional",
+        "block-frame",
+        "bold-poster",
+        "broadside",
+        "capsule",
+        "creative-mode",
+        "editorial-forest",
+        "signal",
+        "studio",
+        "monochrome",
+        "retro-windows"
+      ];
+      const bySlug = new Map(state.templates.map((template) => [template.slug, template]));
+      const picked = preferred.map((slug) => bySlug.get(slug)).filter(Boolean);
+      const fallback = state.templates.filter((template) => !picked.some((item) => item.slug === template.slug));
+      const frames = [...picked, ...fallback].slice(0, 12);
+      if (!frames.some((template) => template.slug === state.selectedTemplate.slug)) {
+        return [state.selectedTemplate, ...frames.slice(0, 11)];
+      }
+      return frames;
+    }
+
+    function renderFrameLab() {
+      if (!frameCardGrid || !paletteStack || !frameSlideStrip || !frameSlidePreview) return;
+
+      const frames = getFrameTemplates();
+      frameCount.textContent = `${frames.length} shown`;
+      frameStageTitle.textContent = state.selectedTemplate.name;
+      frameTuneTitle.textContent = state.selectedTemplate.name;
+      frameTuneStatus.textContent = "live";
+      frameStageMeta.textContent = `${state.framePalette.name} / ${state.frameDensity} / ${state.frameType}`;
+
+      renderFrameCards(frames);
+      renderPaletteStack();
+      renderFrameSlideStrip();
+      densitySegments.querySelectorAll("button").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.density === state.frameDensity));
+      });
+      typeSegments.querySelectorAll("button").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.type === state.frameType));
+      });
+      applyFramePreview();
+    }
+
+    function renderFrameCards(frames) {
+      frameCardGrid.innerHTML = frames.map((template) => {
+        const visual = getTemplateVisual(template);
+        return `
+          <button class="frame-card" type="button" data-frame-template="${escapeHtml(template.slug)}" aria-pressed="${template.slug === state.selectedTemplate.slug}">
+            <span class="frame-thumb" data-pattern="${escapeHtml(visual.pattern)}" style="${templateVisualStyle(visual)}" aria-hidden="true"><span></span></span>
+            <span>
+              <h4>${escapeHtml(template.name)}</h4>
+              <p>${escapeHtml(template.tagline || template.best_for || "Template recipe")}</p>
+            </span>
+          </button>
+        `;
+      }).join("");
+
+      frameCardGrid.querySelectorAll(".frame-card").forEach((button) => {
+        button.addEventListener("click", () => {
+          const template = state.templates.find((item) => item.slug === button.dataset.frameTemplate);
+          if (!template) return;
+          state.selectedTemplate = template;
+          state.modalTemplate = template;
+          state.templatePage = 0;
+          renderTemplates();
+          renderFrameLab();
+          renderExport();
+        });
+      });
+    }
+
+    function renderPaletteStack() {
+      paletteStack.innerHTML = framePalettePresets.map((palette) => `
+        <button class="palette-preset" type="button" data-frame-palette="${escapeHtml(palette.id)}" aria-pressed="${palette.id === state.framePalette.id}">
+          <span class="palette-bars" aria-hidden="true">
+            <span style="--color:${escapeHtml(palette.bg)}"></span>
+            <span style="--color:${escapeHtml(palette.surface)}"></span>
+            <span style="--color:${escapeHtml(palette.text)}"></span>
+            <span style="--color:${escapeHtml(palette.accent)}"></span>
+            <span style="--color:${escapeHtml(palette.secondary)}"></span>
+          </span>
+          <span>
+            <strong>${escapeHtml(palette.name)}</strong>
+            <small>${escapeHtml(palette.mood)}</small>
+          </span>
+        </button>
+      `).join("");
+
+      paletteStack.querySelectorAll(".palette-preset").forEach((button) => {
+        button.addEventListener("click", () => {
+          const palette = framePalettePresets.find((item) => item.id === button.dataset.framePalette);
+          if (!palette) return;
+          state.framePalette = palette;
+          renderFrameLab();
+        });
+      });
+    }
+
+    function renderFrameSlideStrip() {
+      frameSlideStrip.innerHTML = frameSlides.map((slide, index) => `
+        <button class="frame-slide-button" type="button" data-frame-slide="${escapeHtml(slide.id)}" aria-pressed="${slide.id === state.activeFrameSlide.id}">
+          <strong>${String(index + 1).padStart(2, "0")} / ${escapeHtml(slide.label)}</strong>
+          <span>${escapeHtml(slide.kicker)}</span>
+        </button>
+      `).join("");
+
+      frameSlideStrip.querySelectorAll(".frame-slide-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const slide = frameSlides.find((item) => item.id === button.dataset.frameSlide);
+          if (!slide) return;
+          state.activeFrameSlide = slide;
+          renderFrameLab();
+        });
+      });
+    }
+
+    function applyFramePreview() {
+      const template = state.selectedTemplate;
+      const visual = getTemplateVisual(template);
+      const palette = state.framePalette;
+      const slide = state.activeFrameSlide;
+      const slideIndex = frameSlides.findIndex((item) => item.id === slide.id);
+      const density = {
+        airy: { pad: "54px", title: "38px" },
+        balanced: { pad: "46px", title: "36px" },
+        dense: { pad: "38px", title: "32px" }
+      }[state.frameDensity] || { pad: "46px", title: "36px" };
+      const typeClass = {
+        system: "Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif",
+        editorial: "Newsreader, Georgia, Times New Roman, serif",
+        technical: "IBM Plex Mono, SFMono-Regular, Consolas, monospace"
+      }[state.frameType] || "Aptos Display, Avenir Next, Helvetica Neue, Arial, sans-serif";
+
+      frameSlidePreview.dataset.pattern = visual.pattern;
+      frameSlidePreview.style.setProperty("--frame-bg", palette.bg);
+      frameSlidePreview.style.setProperty("--frame-surface", palette.surface);
+      frameSlidePreview.style.setProperty("--frame-text", palette.text);
+      frameSlidePreview.style.setProperty("--frame-accent", palette.accent);
+      frameSlidePreview.style.setProperty("--frame-pad", density.pad);
+      frameSlidePreview.style.setProperty("--frame-title", density.title);
+      frameSlidePreview.style.fontFamily = typeClass;
+      frameSlideKicker.textContent = slide.kicker;
+      frameSlideTitle.textContent = slide.title;
+      frameSlideCopy.textContent = slide.copy;
+      frameSlideFooterLeft.textContent = `${template.name} / ${palette.name}`;
+      frameSlideFooterRight.textContent = `${String(slideIndex + 1).padStart(2, "0")} / ${String(frameSlides.length).padStart(2, "0")}`;
+      frameStagePage.textContent = `${String(slideIndex + 1).padStart(2, "0")} / ${String(frameSlides.length).padStart(2, "0")}`;
+    }
+
+    function buildFramePack() {
+      const template = state.selectedTemplate;
+      const visual = getTemplateVisual(template);
+      const palette = state.framePalette;
+      const brief = frameBriefInput.value.trim();
+      const contract = {
+        version: 1,
+        source: {
+          type: "style-workbench-frame-lab",
+          references: [
+            "examples/style-workbench/index.html",
+            normalizeTemplatePath(template.design_md),
+            "docs/style-workbench-product-spec.md",
+            "docs/visual-style-system.md"
+          ]
+        },
+        template: {
+          name: template.name,
+          slug: template.slug,
+          reference: normalizeTemplatePath(template.design_md),
+          original_credit: "frontend-slides by Zara Zhang, MIT licensed",
+          visual_pattern: visual.pattern
+        },
+        palette: {
+          id: palette.id,
+          name: palette.name,
+          mood: palette.mood,
+          colors: {
+            background: palette.bg,
+            surface: palette.surface,
+            text: palette.text,
+            accent: palette.accent,
+            secondary: palette.secondary
+          }
+        },
+        density: state.frameDensity,
+        typography: state.frameType,
+        brief,
+        slide_jobs: frameSlides.map((slide) => ({
+          id: slide.id,
+          label: slide.label,
+          role: slide.kicker,
+          title_behavior: slide.title,
+          content_rule: slide.copy
+        })),
+        rules: [
+          "Build title, proof, comparison and appendix before generating the full deck.",
+          "Use the template as composition grammar, not as filler.",
+          "Keep source, footer and presenter control lanes outside content.",
+          "Remix external PPT/PDF/web references before publishing.",
+          "Run desktop and mobile browser QA."
+        ]
+      };
+
+      return {
+        ...contract,
+        files: {
+          "design-contract.json": JSON.stringify(contract, null, 2),
+          "DESIGN.md": buildFrameDesignMd(contract),
+          "frame.md": buildFrameMd(contract)
+        }
+      };
+    }
+
+    function buildFrameDesignMd(contract) {
+      return [
+        `# ${contract.palette.name} + ${contract.template.name}`,
+        "",
+        "## Overview",
+        `A ${contract.palette.mood} slide system using ${contract.template.name} as layout grammar. Density is ${contract.density}; typography lane is ${contract.typography}.`,
+        "",
+        "## Brief",
+        contract.brief || "No brief supplied.",
+        "",
+        "## Color Roles",
+        `- Background: ${contract.palette.colors.background}`,
+        `- Surface: ${contract.palette.colors.surface}`,
+        `- Text: ${contract.palette.colors.text}`,
+        `- Accent: ${contract.palette.colors.accent}`,
+        `- Secondary: ${contract.palette.colors.secondary}`,
+        "",
+        "## Layout Grammar",
+        `- Template reference: ${contract.template.reference}`,
+        `- Pattern family: ${contract.template.visual_pattern}`,
+        "- One dominant proof object per slide.",
+        "- Title, proof, comparison and appendix slides must work before expanding the deck.",
+        "- Source, footer and presenter controls get protected lanes.",
+        "",
+        "## Slide Jobs",
+        ...contract.slide_jobs.map((slide) => `- ${slide.label}: ${slide.content_rule}`),
+        "",
+        "## Reference Safety",
+        "- Keep open-source template credit when using vendored recipes.",
+        "- Treat private PPT/PDF/web files as pattern references only.",
+        "- Remix names, raw colors, asset choices and layout details before publishing.",
+        "",
+        "## QA",
+        "- Check desktop, short laptop and mobile.",
+        "- Confirm no text, source or control overlap.",
+        "- Confirm the exported JSON parses."
+      ].join("\n");
+    }
+
+    function buildFrameMd(contract) {
+      return [
+        `# Frame Pack: ${contract.palette.name} / ${contract.template.name}`,
+        "",
+        "## Use",
+        "Build a small slice first: title, proof, comparison and appendix. Only expand the deck after browser QA passes.",
+        "",
+        "## Frame Settings",
+        `- Template: ${contract.template.name} (${contract.template.slug})`,
+        `- Palette: ${contract.palette.name} (${contract.palette.mood})`,
+        `- Density: ${contract.density}`,
+        `- Typography: ${contract.typography}`,
+        "",
+        "## Slide Jobs",
+        ...contract.slide_jobs.map((slide) => `- ${slide.label}: ${slide.title_behavior}`),
+        "",
+        "## Guardrails",
+        ...contract.rules.map((rule) => `- ${rule}`),
+        "",
+        "## Credits",
+        "- frontend-slides by Zara Zhang, MIT license: https://github.com/zarazhangrui/frontend-slides",
+        "- External galleries and user-provided decks are inspiration only unless separately licensed."
+      ].join("\n");
+    }
+
+    function downloadText(filename, text, type = "text/plain") {
+      const blob = new Blob([text], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function showToast(message = "Copied") {
+      toast.textContent = message;
+      toast.classList.add("is-visible");
+      window.clearTimeout(showToast.timer);
+      showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 1100);
     }
 
     function renderExport() {
